@@ -15,6 +15,9 @@ public class LoadGame : MonoBehaviour {
 			GameObject newSquad = (GameObject)Instantiate (SquadPrefab, new Vector3 (i, 0, 0), Quaternion.identity);
 			newSquad.tag = "Player1Squad";
 		}
+
+		Controller controllerScript = GetComponent<Controller> ();
+		controllerScript.updateSquadList ("Player1Squad");
 	}
 
 }

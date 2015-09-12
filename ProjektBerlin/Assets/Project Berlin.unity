@@ -125,12 +125,12 @@ Light:
   serializedVersion: 6
   m_Type: 2
   m_Color: {r: 0, g: 1, b: 0, a: 1}
-  m_Intensity: 8
-  m_Range: 25
+  m_Intensity: 5.80000019
+  m_Range: 3
   m_SpotAngle: 90
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 1
+    m_Type: 0
     m_Resolution: -1
     m_Strength: 1
     m_Bias: .0500000007
@@ -469,6 +469,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2105702949}
   - 114: {fileID: 2105702947}
+  - 114: {fileID: 2105702948}
   m_Layer: 0
   m_Name: GameLogic
   m_TagString: Untagged
@@ -485,6 +486,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dfd3c20736a07e2419d16f6caadf1651, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2105702948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2105702946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d7ef8e9eb7443744b324c7eddf22f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &2105702949
