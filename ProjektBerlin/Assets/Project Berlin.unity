@@ -502,6 +502,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   theta: 1
   zoomSpeed: .5
+  materialFov: {fileID: 0}
 --- !u!4 &2105702949
 Transform:
   m_ObjectHideFlags: 0

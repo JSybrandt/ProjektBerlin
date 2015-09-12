@@ -25,7 +25,7 @@ public class Controller : MonoBehaviour {
     float angle_fov = 20;
     float dist_min = 5.0f;
     float dist_max = 15.0f;
-    Quaternion FovRotation = Quaternion.identity;
+    Quaternion FovRotation = Quaternion.identity; //Default direction
 
     void Start(){
 		selectedLight = GameObject.Find ("SelectedLight");
