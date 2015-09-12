@@ -23,6 +23,7 @@ public class Controller : MonoBehaviour {
     float angle_fov = 20;
     float dist_min = 5.0f;
     float dist_max = 15.0f;
+    Quaternion FovRotation = Quaternion.identity;
 
     void Start(){
 		selectedLight = GameObject.Find ("SelectedLight");
@@ -130,7 +131,7 @@ public class Controller : MonoBehaviour {
         mesh.vertices = vertices;
         mesh.triangles = triangles;
 
-        Graphics.DrawMesh(mesh, selectedRB.position, Quaternion.identity, materialFov, 0);
+        Graphics.DrawMesh(mesh, selectedRB.position, FovRotation, materialFov, 0);
     }
 
 	// Update is called once per frame
@@ -150,11 +151,19 @@ public class Controller : MonoBehaviour {
 				if(selectedRB!=null)selectedRB.velocity=Vector3.zero;
 			}
 
-            bool isRPressed = Input.GetKey("r");
+            float vert = Input.GetAxis("JoystickRV");
+            float horz = Input.GetAxis("JoystickRH");
 
-            if(isRPressed)
+            bool isAiming = false;
+            if (vert != 0f || horz != 0f)
+                isAiming = true;
+
+            if(isAiming)
             {
                 Debug.Log("Right Stick Moving");
+                var angle = Mathf.Atan2(horz, vert) * Mathf.Rad2Deg;
+                FovRotation = Quaternion.Euler(0, angle, 0);
+
                 drawFoV();
             }
 			selectedRB = squads[selectedSquadIndex].GetComponent<Rigidbody>();
