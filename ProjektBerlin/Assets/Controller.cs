@@ -33,7 +33,23 @@ public class Controller : MonoBehaviour {
 		mainCamera = Camera.main;
 		if(mainCamera==null) throw new MissingReferenceException("Need Camera.main");
 		distance = defaultCameraOffset.y;
-	}
+
+        //FoV
+        mesh = new Mesh();
+        mesh.vertices = new Vector3[4 * quality];   // Could be of size [2 * quality + 2] if circle segment is continuous
+        mesh.triangles = new int[3 * 2 * quality];
+
+        Vector3[] normals = new Vector3[4 * quality];
+        Vector2[] uv = new Vector2[4 * quality];
+
+        for (int i = 0; i < uv.Length; i++)
+            uv[i] = new Vector2(0, 0);
+        for (int i = 0; i < normals.Length; i++)
+            normals[i] = new Vector3(0, 1, 0);
+
+        mesh.uv = uv;
+        mesh.normals = normals;
+    }
 
 	public void updateSquadList(string tag){
 		squads = GameObject.FindGameObjectsWithTag (tag);
@@ -49,8 +65,14 @@ public class Controller : MonoBehaviour {
 		mainCamera.transform.LookAt (cameraTarget);
 		
 		Vector3 vec =  mainCamera.transform.position - squads [selectedSquadIndex].transform.position;
-		distance += Input.GetAxisRaw ("Fire2") * zoomSpeed;
-		theta += Input.GetAxisRaw ("Fire3");
+        if(Input.GetAxisRaw("L2") != 0)
+        {
+            distance += Input.GetAxisRaw ("JoystickRV") * zoomSpeed;
+            if (distance < 1)
+                distance = 1;
+		    theta += Input.GetAxisRaw ("JoystickRH");
+        }
+		
 		Vector3 newCameraOffset = Quaternion.Euler (0, theta, 0) * defaultCameraOffset;
 		newCameraOffset *= distance;
 
@@ -137,12 +159,12 @@ public class Controller : MonoBehaviour {
 
 		if (squads.Length > 0) {
 
-			if (Input.GetButtonUp ("NextSquad")) {
+			if (Input.GetButtonUp ("R1")) {
 				selectedSquadIndex++;
 				selectedSquadIndex %= squads.Length;
 				if(selectedRB!=null)selectedRB.velocity=Vector3.zero;
 			}
-			if (Input.GetButtonUp ("PrevSquad")) {
+			if (Input.GetButtonUp ("L1")) {
 				selectedSquadIndex--;
 				if(selectedSquadIndex<0)selectedSquadIndex=squads.Length-1;
 
@@ -166,8 +188,8 @@ public class Controller : MonoBehaviour {
             }
 
 			selectedRB = squads[selectedSquadIndex].GetComponent<Rigidbody>();
-			float v = Input.GetAxisRaw("Vertical");
-			float h = Input.GetAxisRaw("Horizontal");
+			float v = Input.GetAxisRaw("JoystickLV");
+			float h = Input.GetAxisRaw("JoystickLH");
 			selectedRB.velocity = new Vector3(h,0,v);
 
 			setCamera();
