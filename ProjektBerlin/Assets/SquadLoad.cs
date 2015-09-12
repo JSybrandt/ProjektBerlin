@@ -39,13 +39,16 @@ public class SquadLoad : MonoBehaviour {
 		if(cc==null) throw new MissingComponentException("Need CapsuleCollider");
 		cc.radius = unitDistanceFromCenter;
 		cc.height = 1;
-		cc.enabled = false;
+		for(int i = 0 ; i < size; i++){
+			Physics.IgnoreCollision(cc,units[i].GetComponent<BoxCollider>());
+		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		for (int i = 0; i < size; i++) {
 			units[i].transform.position = unitTargets[i].position;
+			transform.rotation = Quaternion.identity;
 			//TODO: This should be targetting instead of teleporting
 		}
 	

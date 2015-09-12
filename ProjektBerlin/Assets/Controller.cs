@@ -4,13 +4,13 @@ using System.Collections;
 public class Controller : MonoBehaviour {
 
 	private GameObject[] squads;
-	private int selectedSquad;
+	private int selectedSquadIndex;
 	private GameObject selectedLight;
 	private Camera mainCamera;
 	private Rigidbody selectedRB; //used to move selected squad
 
 	//TODO: this needs to be changeable
-	private Vector3 cameraOffset = new Vector3(0,5,-5);
+	private Vector3 cameraOffset = new Vector3(0,20,-5);
 	private Vector3 cameraTarget = new Vector3(0,0,0);
 	private Vector3 lightOffset = new Vector3(0,2,0);
 
@@ -23,20 +23,20 @@ public class Controller : MonoBehaviour {
 
 	public void updateSquadList(string tag){
 		squads = GameObject.FindGameObjectsWithTag (tag);
-		selectedSquad = 0;
+		selectedSquadIndex = 0;
 		if(squads.Length==0)throw new UnityException("Failed to find squad.");
 		setCamera ();
 		setLight ();
 	}
 
 	private void setCamera(){
-		cameraTarget = squads [selectedSquad].transform.position;
+		cameraTarget = squads [selectedSquadIndex].transform.position;
 		mainCamera.transform.position = cameraTarget + cameraOffset;
 		mainCamera.transform.LookAt (cameraTarget);
 	}
 
 	private void setLight(){
-		selectedLight.transform.position = squads[selectedSquad].transform.position+lightOffset;
+		selectedLight.transform.position = squads[selectedSquadIndex].transform.position+lightOffset;
 	}
 
 	// Update is called once per frame
@@ -45,18 +45,18 @@ public class Controller : MonoBehaviour {
 		if (squads.Length > 0) {
 
 			if (Input.GetButtonUp ("NextSquad")) {
-				selectedSquad++;
-				selectedSquad %= squads.Length;
+				selectedSquadIndex++;
+				selectedSquadIndex %= squads.Length;
 				if(selectedRB!=null)selectedRB.velocity=Vector3.zero;
 			}
 			if (Input.GetButtonUp ("PrevSquad")) {
-				selectedSquad--;
-				if(selectedSquad<0)selectedSquad=squads.Length-1;
+				selectedSquadIndex--;
+				if(selectedSquadIndex<0)selectedSquadIndex=squads.Length-1;
 
 				if(selectedRB!=null)selectedRB.velocity=Vector3.zero;
 			}
 
-			selectedRB = squads[selectedSquad].GetComponent<Rigidbody>();
+			selectedRB = squads[selectedSquadIndex].GetComponent<Rigidbody>();
 			float v = Input.GetAxisRaw("Vertical");
 			float h = Input.GetAxisRaw("Horizontal");
 			selectedRB.velocity = new Vector3(h,0,v);
