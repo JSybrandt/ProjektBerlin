@@ -8,9 +8,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 433522}
-  - 114: {fileID: 11447160}
   - 54: {fileID: 5472772}
   - 136: {fileID: 13647628}
+  - 114: {fileID: 11453392}
   m_Layer: 0
   m_Name: Squad
   m_TagString: Untagged
@@ -45,7 +45,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &11447160
+--- !u!114 &11453392
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -53,11 +53,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 158044}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4f563c515d489c4a9cb081cfb673ee5, type: 3}
+  m_Script: {fileID: 11500000, guid: a82675ec9c283434fa100ae65f0da1a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   size: 5
   unitDistanceFromCenter: 1
+  movementDistance: 5
 --- !u!136 &13647628
 CapsuleCollider:
   m_ObjectHideFlags: 1
