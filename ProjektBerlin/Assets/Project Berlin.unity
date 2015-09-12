@@ -656,8 +656,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d7ef8e9eb7443744b324c7eddf22f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  theta: 1
-  zoomSpeed: .5
+  theta: 0
+  turnSpeed: 120
+  zoomSpeed: 7
   materialFov: {fileID: 0}
 --- !u!4 &2105702949
 Transform:

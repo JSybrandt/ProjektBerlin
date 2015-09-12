@@ -17,7 +17,8 @@ public class Controller : MonoBehaviour {
 	private Camera mainCamera;
 	private Rigidbody selectedRB; //used to move selected squad
 	public float theta;
-	public float zoomSpeed;
+	public float turnSpeed = 20;
+	public float zoomSpeed=20;
 	private float distance;
 
 	private Text debugText;
@@ -80,15 +81,14 @@ public class Controller : MonoBehaviour {
 		cameraTarget = squads [selectedSquadIndex].transform.position;
 		mainCamera.transform.position = cameraTarget + defaultCameraOffset;
 		mainCamera.transform.LookAt (cameraTarget);
-		
-		Vector3 vec =  mainCamera.transform.position - squads [selectedSquadIndex].transform.position;
-        if(Input.GetAxisRaw("L2") != 0)
+
+        if(Input.GetButton("Triangle"))
         {
-            distance += Input.GetAxisRaw ("JoystickRV") * zoomSpeed;
+            distance += Input.GetAxisRaw ("JoystickRV") * zoomSpeed * Time.deltaTime;
             if (distance < 1)
                 distance = 1;
-		    theta += Input.GetAxisRaw ("JoystickRH");
-        }
+			theta += Input.GetAxisRaw ("JoystickRH")* turnSpeed * Time.deltaTime;
+		}
 		
 		Vector3 newCameraOffset = Quaternion.Euler (0, theta, 0) * defaultCameraOffset;
 		newCameraOffset *= distance;
