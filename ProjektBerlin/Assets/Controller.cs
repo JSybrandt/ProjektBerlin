@@ -44,12 +44,12 @@ public class Controller : MonoBehaviour {
 
 		if (squads.Length > 0) {
 
-			if (Input.GetButtonUp ("NextSquad")) {
+			if (Input.GetButtonUp ("R2")) {
 				selectedSquadIndex++;
 				selectedSquadIndex %= squads.Length;
 				if(selectedRB!=null)selectedRB.velocity=Vector3.zero;
 			}
-			if (Input.GetButtonUp ("PrevSquad")) {
+			if (Input.GetButtonUp ("L2")) {
 				selectedSquadIndex--;
 				if(selectedSquadIndex<0)selectedSquadIndex=squads.Length-1;
 
@@ -57,8 +57,8 @@ public class Controller : MonoBehaviour {
 			}
 
 			selectedRB = squads[selectedSquadIndex].GetComponent<Rigidbody>();
-			float v = Input.GetAxisRaw("Vertical");
-			float h = Input.GetAxisRaw("Horizontal");
+			float v = Input.GetAxisRaw("JoystickLV");
+			float h = Input.GetAxisRaw("JoystickLH");
 			selectedRB.velocity = new Vector3(h,0,v);
 
 			setCamera();
