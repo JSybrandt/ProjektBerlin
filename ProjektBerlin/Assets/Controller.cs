@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEditor;
 using System.Collections;
 
 public class Controller : MonoBehaviour {
@@ -9,9 +8,12 @@ public class Controller : MonoBehaviour {
 	private GameObject selectedLight;
 	private Camera mainCamera;
 	private Rigidbody selectedRB; //used to move selected squad
+	public float theta;
+	public float zoomSpeed;
+	private float distance;
 
 	//TODO: this needs to be changeable
-	private Vector3 cameraOffset = new Vector3(0,20,-5);
+	private Vector3 defaultCameraOffset = new Vector3(0,20,-5);
 	private Vector3 cameraTarget = new Vector3(0,0,0);
 	private Vector3 lightOffset = new Vector3(0,2,0);
 
@@ -30,22 +32,8 @@ public class Controller : MonoBehaviour {
 		if(selectedLight==null) throw new MissingReferenceException("Need SelectedLight");
 		mainCamera = Camera.main;
 		if(mainCamera==null) throw new MissingReferenceException("Need Camera.main");
-
-        mesh = new Mesh();
-        mesh.vertices = new Vector3[4 * quality];   // Could be of size [2 * quality + 2] if circle segment is continuous
-        mesh.triangles = new int[3 * 2 * quality];
-
-        Vector3[] normals = new Vector3[4 * quality];
-        Vector2[] uv = new Vector2[4 * quality];
-
-        for (int i = 0; i < uv.Length; i++)
-            uv[i] = new Vector2(0, 0);
-        for (int i = 0; i < normals.Length; i++)
-            normals[i] = new Vector3(0, 1, 0);
-
-        mesh.uv = uv;
-        mesh.normals = normals;
-    }
+		distance = defaultCameraOffset.y;
+	}
 
 	public void updateSquadList(string tag){
 		squads = GameObject.FindGameObjectsWithTag (tag);
@@ -57,8 +45,18 @@ public class Controller : MonoBehaviour {
 
 	private void setCamera(){
 		cameraTarget = squads [selectedSquadIndex].transform.position;
-		mainCamera.transform.position = cameraTarget + cameraOffset;
+		mainCamera.transform.position = cameraTarget + defaultCameraOffset;
 		mainCamera.transform.LookAt (cameraTarget);
+		
+		Vector3 vec =  mainCamera.transform.position - squads [selectedSquadIndex].transform.position;
+		distance += Input.GetAxisRaw ("Fire2") * zoomSpeed;
+		theta += Input.GetAxisRaw ("Fire3");
+		Vector3 newCameraOffset = Quaternion.Euler (0, theta, 0) * defaultCameraOffset;
+		newCameraOffset *= distance;
+
+		mainCamera.transform.position = cameraTarget + newCameraOffset;
+		mainCamera.transform.LookAt (cameraTarget);
+
 	}
 
 	private void setLight(){
@@ -139,12 +137,12 @@ public class Controller : MonoBehaviour {
 
 		if (squads.Length > 0) {
 
-			if (Input.GetButtonUp ("R2")) {
+			if (Input.GetButtonUp ("NextSquad")) {
 				selectedSquadIndex++;
 				selectedSquadIndex %= squads.Length;
 				if(selectedRB!=null)selectedRB.velocity=Vector3.zero;
 			}
-			if (Input.GetButtonUp ("L2")) {
+			if (Input.GetButtonUp ("PrevSquad")) {
 				selectedSquadIndex--;
 				if(selectedSquadIndex<0)selectedSquadIndex=squads.Length-1;
 
@@ -166,9 +164,10 @@ public class Controller : MonoBehaviour {
 
                 drawFoV();
             }
+
 			selectedRB = squads[selectedSquadIndex].GetComponent<Rigidbody>();
-			float v = Input.GetAxisRaw("JoystickLV");
-			float h = Input.GetAxisRaw("JoystickLH");
+			float v = Input.GetAxisRaw("Vertical");
+			float h = Input.GetAxisRaw("Horizontal");
 			selectedRB.velocity = new Vector3(h,0,v);
 
 			setCamera();
