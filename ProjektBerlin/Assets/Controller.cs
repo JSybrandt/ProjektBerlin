@@ -11,40 +11,35 @@ enum TurnStage{
 
 public class Controller : MonoBehaviour {
 
+	public const int NUM_PLAYERS = 2;
+
+	public float turnSpeed = 20;
+	public float zoomSpeed=20;
+
 	private GameObject[] squads;
 	private int selectedSquadIndex;
 	private GameObject selectedLight;
-	private Camera mainCamera;
 	private Rigidbody selectedRB; //used to move selected squad
-	public float theta;
-	public float turnSpeed = 20;
-	public float zoomSpeed=20;
+	private float theta;
 	private float distance;
-
 	private Text debugText;
 
-	//TODO: this needs to be changeable
 	private Vector3 defaultCameraOffset = new Vector3(0,10,-5);
 	private Vector3 cameraTarget = new Vector3(0,0,0);
 	private Vector3 lightOffset = new Vector3(0,2,0);
 
 	private TurnStage currentStage = TurnStage.None;
 
-    //TODO: Cleanup and organize the FoV
-    //FoV necessary items
-    int quality = 15;
-    Mesh mesh;
-    public Material materialFov;
-    float angle_fov = 20;
-    float dist_min = 5.0f;
-    float dist_max = 15.0f;
-    Quaternion FovRotation = Quaternion.identity; //Default direction
+    private Mesh mesh;
+    private Material materialFov;
+	private const int fovQuality=15;
 
-    void Start(){
+	private int currentPlayersTurn = 0;
+
+	//called by loadgame
+    public void init(){
 		selectedLight = GameObject.Find ("SelectedLight");
 		if(selectedLight==null) throw new MissingReferenceException("Need SelectedLight");
-		mainCamera = Camera.main;
-		if(mainCamera==null) throw new MissingReferenceException("Need Camera.main");
 
 		GameObject g = GameObject.Find("DebugText");
 		if(g==null) throw new MissingReferenceException("Need Debug text");
@@ -53,12 +48,17 @@ public class Controller : MonoBehaviour {
 		distance = defaultCameraOffset.y;
 
         //FoV
-        mesh = new Mesh();
-        mesh.vertices = new Vector3[4 * quality];   // Could be of size [2 * quality + 2] if circle segment is continuous
-        mesh.triangles = new int[3 * 2 * quality];
 
-        Vector3[] normals = new Vector3[4 * quality];
-        Vector2[] uv = new Vector2[4 * quality];
+		materialFov = (Material) Resources.Load("Materials/FoV");
+		if (materialFov == null)
+			throw new MissingReferenceException ("Need Resources/Materials/FoV");
+
+        mesh = new Mesh();
+        mesh.vertices = new Vector3[4 * fovQuality];   // Could be of size [2 * quality + 2] if circle segment is continuous
+        mesh.triangles = new int[3 * 2 * fovQuality];
+
+        Vector3[] normals = new Vector3[4 * fovQuality];
+        Vector2[] uv = new Vector2[4 * fovQuality];
 
         for (int i = 0; i < uv.Length; i++)
             uv[i] = new Vector2(0, 0);
@@ -79,10 +79,10 @@ public class Controller : MonoBehaviour {
 
 	private void setCamera(){
 		cameraTarget = squads [selectedSquadIndex].transform.position;
-		mainCamera.transform.position = cameraTarget + defaultCameraOffset;
-		mainCamera.transform.LookAt (cameraTarget);
+		Camera.main.transform.position = cameraTarget + defaultCameraOffset;
+		Camera.main.transform.LookAt (cameraTarget);
 
-        if(Input.GetButton("Triangle"))
+        if(Input.GetButton("L2"))
         {
             distance += Input.GetAxisRaw ("JoystickRV") * zoomSpeed * Time.deltaTime;
             if (distance < 1)
@@ -93,8 +93,8 @@ public class Controller : MonoBehaviour {
 		Vector3 newCameraOffset = Quaternion.Euler (0, theta, 0) * defaultCameraOffset;
 		newCameraOffset *= distance;
 
-		mainCamera.transform.position = cameraTarget + newCameraOffset;
-		mainCamera.transform.LookAt (cameraTarget);
+		Camera.main.transform.position = cameraTarget + newCameraOffset;
+		Camera.main.transform.LookAt (cameraTarget);
 
 	}
 
@@ -128,7 +128,7 @@ public class Controller : MonoBehaviour {
 				getSelectedManager().startMovement();
 			}
 		}
-		//start move
+		//start start combat
 		if(Input.GetAxis("DpadH")==1){
 			if(getSelectedManager().numActions>0){
 				currentStage=TurnStage.Combat;
@@ -153,6 +153,8 @@ public class Controller : MonoBehaviour {
 			currentStage=TurnStage.None;
 		else
 			currentStage=TurnStage.InBetween;
+		if (checkTurnComplete ())
+			nextTurn ();
 	}
 
     float GetSquadAngle()
@@ -160,13 +162,15 @@ public class Controller : MonoBehaviour {
         return 90 - Mathf.Rad2Deg * Mathf.Atan2(transform.forward.z, transform.forward.x); // Left handed CW. z = angle 0, x = angle 90
     }
 
-    private void drawFoV()
+    private void drawFoV(Quaternion fovRotation, float angle_fov = 20, float dist_max = 15)
     {
+		const float dist_min = 5.0f;
+
         float angle_lookat = GetSquadAngle();
 
         float angle_start = angle_lookat - angle_fov;
         float angle_end = angle_lookat + angle_fov;
-        float angle_delta = (angle_end - angle_start) / quality;
+        float angle_delta = (angle_end - angle_start) / fovQuality;
 
         float angle_curr = angle_start;
         float angle_next = angle_start + angle_delta;
@@ -177,10 +181,10 @@ public class Controller : MonoBehaviour {
         Vector3 pos_next_min = Vector3.zero;
         Vector3 pos_next_max = Vector3.zero;
 
-        Vector3[] vertices = new Vector3[4 * quality];   // Could be of size [2 * quality + 2] if circle segment is continuous
-        int[] triangles = new int[3 * 2 * quality];
+        Vector3[] vertices = new Vector3[4 * fovQuality];   // Could be of size [2 * quality + 2] if circle segment is continuous
+        int[] triangles = new int[3 * 2 * fovQuality];
 
-        for (int i = 0; i < quality; i++)
+        for (int i = 0; i < fovQuality; i++)
         {
             Vector3 sphere_curr = new Vector3(
             Mathf.Sin(Mathf.Deg2Rad * (angle_curr)), 0,   // Left handed CW
@@ -221,24 +225,51 @@ public class Controller : MonoBehaviour {
         mesh.vertices = vertices;
         mesh.triangles = triangles;
 
-        Graphics.DrawMesh(mesh, selectedRB.position, FovRotation, materialFov, 0);
+        Graphics.DrawMesh(mesh, squads[selectedSquadIndex].transform.position, fovRotation, materialFov, 0);
     }
+
+	bool checkTurnComplete(){
+		foreach(GameObject g in squads){
+			if(g.GetComponent<SquadManager>().numActions>0)
+				return false;
+		}
+
+		return true;
+	}
+
+	//call at end of turn
+	void nextTurn(){
+		foreach(GameObject g in squads){
+			g.GetComponent<SquadManager>().resetActions();
+		}
+		currentPlayersTurn = (currentPlayersTurn+1) % NUM_PLAYERS;
+		updateSquadList("Player"+currentPlayersTurn+"Squad");
+		Debug.Log ("Player #" + currentPlayersTurn);
+	}
 
 	// Update is called once per frame
 	void Update () {
 
+		debugText.text = "Player:"+currentPlayersTurn;
+
+		debugText.text += " Remaining Actions:" + getSelectedManager ().numActions;
+
+		debugText.text += " Current Stage: ";
 		switch (currentStage) {
-		case TurnStage.None: debugText.text="None";break;
-		case TurnStage.Moving: debugText.text="Moving";break;
-		case TurnStage.InBetween: debugText.text="In Between";break;
-		case TurnStage.Combat: debugText.text="Combat";break;
+		case TurnStage.None: debugText.text+="None";break;
+		case TurnStage.Moving: debugText.text+="Moving";break;
+		case TurnStage.InBetween: debugText.text+="In Between";break;
+		case TurnStage.Combat: debugText.text+="Combat";break;
 		};
 
-		debugText.text = debugText.text + " : Action #" + getSelectedManager ().numActions;
+
 
 		if (squads.Length > 0) {
 
+
 			if(currentStage==TurnStage.None){
+				//skip turn button
+				if(Input.GetButtonDown("Select")){nextTurn ();}
 				checkChangeSquad();
 				checkNewAction();
 			}
@@ -278,36 +309,20 @@ public class Controller : MonoBehaviour {
 				//TODO: enable combat in squad
 				//skip
 				if(Input.GetAxis("DpadV")==-1 || Input.GetButtonDown("Cross")){
-					if(getSelectedManager().numActions>0){
-						currentStage=TurnStage.InBetween;
 						getSelectedManager().skipAction();
-					}
-					if(getSelectedManager().numActions==0){
-						currentStage=TurnStage.None;
-					}
+						checkStateEndOfAction();
 				}
 				else{
 
 					float vert = Input.GetAxis("JoystickRV");
 					float horz = Input.GetAxis("JoystickRH");
-					
-					bool isAiming = false;
-					if (vert != 0f || horz != 0f)
-						isAiming = true;
-					
-					if(isAiming)
+
+					if(vert != 0f || horz != 0f)
 					{
-						Debug.Log("Right Stick Moving");
 						var angle = Mathf.Atan2(horz, vert) * Mathf.Rad2Deg;
-						FovRotation = Quaternion.Euler(0, angle, 0);
-						
-						drawFoV();
+						drawFoV(Quaternion.Euler(0, angle, 0));
 					}
-					
-					selectedRB = squads[selectedSquadIndex].GetComponent<Rigidbody>();
-					float v = Input.GetAxisRaw("JoystickLV");
-					float h = Input.GetAxisRaw("JoystickLH");
-					selectedRB.velocity = new Vector3(h,0,v);
+
 				}
 			}
 			setCamera();

@@ -16,11 +16,18 @@ public class LoadGame : MonoBehaviour
         for (int i = 0; i < 20; i += 5)
         {
             GameObject newSquad = (GameObject)Instantiate(SquadPrefab, new Vector3(i, 0, 0), Quaternion.identity);
-            newSquad.tag = "Player1Squad";
+            newSquad.tag = "Player0Squad";
         }
 
+		for (int i = 0; i < 20; i += 5)
+		{
+			GameObject newSquad = (GameObject)Instantiate(SquadPrefab, new Vector3(i, 0, 20), Quaternion.identity);
+			newSquad.tag = "Player1Squad";
+		}
+
         Controller controllerScript = GetComponent<Controller>();
-        controllerScript.updateSquadList("Player1Squad");
+		controllerScript.init ();
+        controllerScript.updateSquadList("Player0Squad");
     }
 
 }

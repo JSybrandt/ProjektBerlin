@@ -4,8 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Player0Squad
   - Player1Squad
-  - Player2Squad
   - Unit
   layers:
   - Default
