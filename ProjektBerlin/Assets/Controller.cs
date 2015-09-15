@@ -84,10 +84,12 @@ public class Controller : MonoBehaviour {
 
         if(Input.GetAxis("L2")==1)
         {
-            distance += Input.GetAxisRaw ("JoystickRV") * zoomSpeed * Time.deltaTime;
+            distance -= Input.GetAxisRaw ("JoystickRV") * zoomSpeed * Time.deltaTime;
             if (distance < 1)
                 distance = 1;
-			theta += Input.GetAxisRaw ("JoystickRH")* turnSpeed * Time.deltaTime;
+			if(distance > 40)
+				distance = 40;
+			theta -= Input.GetAxisRaw ("JoystickRH")* turnSpeed * Time.deltaTime;
 		}
 		
 		Vector3 newCameraOffset = Quaternion.Euler (0, theta, 0) * defaultCameraOffset;
@@ -301,7 +303,7 @@ public class Controller : MonoBehaviour {
 					selectedRB = squads[selectedSquadIndex].GetComponent<Rigidbody>();
 					float v = Input.GetAxisRaw("JoystickLV");
 					float h = Input.GetAxisRaw("JoystickLH");
-					selectedRB.velocity = new Vector3(h,0,v);
+					selectedRB.velocity = new Vector3(h,0,v) * 20;
 				}
 			}
 			else if (currentStage==TurnStage.Combat)
