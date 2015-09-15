@@ -20,7 +20,7 @@ public class ControllerTest : MonoBehaviour {
 		if (Input.GetButtonDown ("L1")) {
 			Debug.Log("L1");
 		}
-		if (Input.GetButtonDown ("L2")) {
+		if (Input.GetAxisRaw ("L2")!=0) {
 			Debug.Log("L2");
 		}
 		if (Input.GetButtonDown ("L3")) {
@@ -29,7 +29,7 @@ public class ControllerTest : MonoBehaviour {
 		if (Input.GetButtonDown ("R1")) {
 			Debug.Log("R1");
 		}
-		if (Input.GetButtonDown ("R2")) {
+		if (Input.GetAxisRaw ("R2")!=0) {
 			Debug.Log("R2");
 		}
 		if (Input.GetButtonDown ("R3")) {

@@ -82,7 +82,7 @@ public class Controller : MonoBehaviour {
 		Camera.main.transform.position = cameraTarget + defaultCameraOffset;
 		Camera.main.transform.LookAt (cameraTarget);
 
-        if(Input.GetButton("L2"))
+        if(Input.GetAxis("L2")==1)
         {
             distance += Input.GetAxisRaw ("JoystickRV") * zoomSpeed * Time.deltaTime;
             if (distance < 1)
