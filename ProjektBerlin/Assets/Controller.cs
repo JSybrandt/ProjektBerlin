@@ -32,6 +32,7 @@ public class Controller : MonoBehaviour {
 
     private Mesh mesh;
     private Material materialFov;
+    private MeshCollider fovCollider;
 	private const int fovQuality=15;
 
 	private int currentPlayersTurn = 0;
@@ -48,7 +49,6 @@ public class Controller : MonoBehaviour {
 		distance = defaultCameraOffset.y;
 
         //FoV
-
 		materialFov = (Material) Resources.Load("Materials/FoV");
 		if (materialFov == null)
 			throw new MissingReferenceException ("Need Resources/Materials/FoV");
@@ -67,6 +67,9 @@ public class Controller : MonoBehaviour {
 
         mesh.uv = uv;
         mesh.normals = normals;
+
+        fovCollider = new MeshCollider();
+        fovCollider.sharedMesh = mesh;
     }
 
 	public void updateSquadList(string tag){
