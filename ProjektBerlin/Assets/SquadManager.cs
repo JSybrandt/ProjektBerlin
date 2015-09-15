@@ -15,7 +15,7 @@ public class SquadManager : MonoBehaviour {
 	public bool midMovement{get{return _midMovement;}}
 	public int numActions{get{return _numActions;}}
 
-	public float movementDistance = 5;
+	public float movementDistance = 500;
 
 	//TODO: This might need to become a collection of game objects
 	private Transform[] unitTargets;
