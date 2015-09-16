@@ -14,6 +14,8 @@ public class SquadManager : MonoBehaviour {
 
 	public bool midMovement{get{return _midMovement;}}
 	public int numActions{get{return _numActions;}}
+    private GameObject myLight;
+    private Light lightPiece;
 
 	public float movementDistance = 500;
 
@@ -24,7 +26,15 @@ public class SquadManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		unitTargets = new Transform[size];
+        myLight = new GameObject();
+        myLight.transform.position = transform.position;
+        lightPiece = myLight.AddComponent<Light>();
+        lightPiece.color = Color.red;
+        lightPiece.intensity = 8;
+
+        lightPiece.enabled = false;
+
+        unitTargets = new Transform[size];
 
 		for (int i = 0; i < size; i++) {
 			unitTargets[i] = new GameObject().transform;
@@ -66,6 +76,9 @@ public class SquadManager : MonoBehaviour {
 				endMovement();
 			}
 		}
+
+        //Updates associated light
+        myLight.transform.position = transform.position;
 	}
 
 	public void startMovement(){
@@ -104,6 +117,18 @@ public class SquadManager : MonoBehaviour {
 		else throw new UnityException ("Attempted to undo a move when squad had not moved");
 	}
 
+    public void takeDamage(int numUnitsKilled)
+    {
 
+    }
 
+    public void withinRange()
+    {
+        lightPiece.enabled = true;
+    }
+
+    public void disableLight()
+    {
+        lightPiece.enabled = false;
+    }
 }
