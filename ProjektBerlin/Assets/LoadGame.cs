@@ -28,6 +28,7 @@ public class LoadGame : MonoBehaviour
         Controller controllerScript = GetComponent<Controller>();
 		controllerScript.init ();
         controllerScript.updateSquadList("Player0Squad");
+		Camera.main.GetComponent<CameraController> ().setCameraTarget(new Vector3(0f, 0f, 0f));
     }
 
 }
