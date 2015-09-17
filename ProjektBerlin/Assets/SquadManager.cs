@@ -23,6 +23,10 @@ public class SquadManager : MonoBehaviour {
 	private Transform[] unitTargets;
 	private GameObject[] units;
 
+	private const float MAX_UNIT_HEIGHT = 2;
+	private const float FLOOR_DISPACEMENT = 0.7f;
+	private Vector3 prevPosition; //used to revert after colliding w/ terrain. 
+
 	// Use this for initialization
 	void Start () {
 
@@ -62,8 +66,26 @@ public class SquadManager : MonoBehaviour {
 		for(int i = 0 ; i < size; i++){
 			Physics.IgnoreCollision(cc,units[i].GetComponent<BoxCollider>());
 		}
+		prevPosition = transform.position;
 	}
-	
+
+	//once every physics step
+	void FixedUpdate(){
+		if (_midMovement) {
+			RaycastHit hit=new RaycastHit();
+			if(Physics.Raycast(transform.position,Vector3.down, out hit, 100f,LayerMask.NameToLayer("terrain"))){
+				if(hit.point.y > MAX_UNIT_HEIGHT)
+					transform.position = prevPosition;
+				else
+					transform.position = new Vector3(transform.position.x,hit.point.y+FLOOR_DISPACEMENT,transform.position.z);
+			}
+			if((positionAtActionStart-transform.position).magnitude >= movementDistance){
+				endMovement();
+			}
+		}
+		prevPosition = transform.position;
+	}
+
 	// Update is called once per frame
 	void Update () {
 		for (int i = 0; i < size; i++) {
@@ -71,14 +93,11 @@ public class SquadManager : MonoBehaviour {
 			transform.rotation = Quaternion.identity;
 			//TODO: This should be targetting instead of teleporting
 		}
-		if (_midMovement) {
-			if((positionAtActionStart-transform.position).magnitude >= movementDistance){
-				endMovement();
-			}
-		}
+
 
         //Updates associated light
         myLight.transform.position = transform.position;
+
 	}
 
 	public void startMovement(){

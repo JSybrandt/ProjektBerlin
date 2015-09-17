@@ -26,7 +26,7 @@ public class Controller : MonoBehaviour
     private GameObject selectedLight;
     private Rigidbody selectedRB; //used to move selected squad
     private Rigidbody selectedTarget; //used to pick a target for combat
-    private float theta;
+    private float theta;//amount the camera is rotated
     private float distance;
     private Text debugText;
 
@@ -455,9 +455,9 @@ public class Controller : MonoBehaviour
                 else
                 {
                     selectedRB = squads[selectedSquadIndex].GetComponent<Rigidbody>();
-                    float v = Input.GetAxisRaw("JoystickLV");
-                    float h = Input.GetAxisRaw("JoystickLH");
-                    selectedRB.velocity = new Vector3(h, 0, v) * 20;
+                    float v = Input.GetAxis("JoystickLV");
+                    float h = Input.GetAxis("JoystickLH");
+					selectedRB.velocity = (Quaternion.Euler(0,theta,0)*new Vector3(h, 0, v).normalized) * 20;
                 }
             }
             else if (currentStage == TurnStage.Combat)
@@ -469,6 +469,10 @@ public class Controller : MonoBehaviour
                     getSelectedManager().skipAction();
                     checkStateEndOfAction();
                 }
+				if(Input.GetButtonDown("Circle")){
+					if(getSelectedManager().numActions==2) currentStage = TurnStage.None;
+					if(getSelectedManager().numActions==1) currentStage = TurnStage.InBetween;
+				}
                 else
                 {
                     //List<GameObject> targets = getTargets(selectedRB.position, 50, 1);
