@@ -25,7 +25,7 @@ public class Controller : MonoBehaviour
     private int selectedTargetIndex;
     private GameObject selectedLight;
     private Rigidbody selectedRB; //used to move selected squad
-    private Rigidbody selectedTarget; //used to pick a target for combat
+    //private Rigidbody selectedTarget; //used to pick a target for combat
     private float theta;//amount the camera is rotated
     private float distance;
     private Text debugText;
@@ -86,7 +86,7 @@ public class Controller : MonoBehaviour
     /// <param name="target">the player being targeted</param>
     /// <param name="layer">The layer mask is a bit shifted number</param>
     /// <returns></returns>
-    public List<GameObject> getTargets(Vector3 center, float radius, int target, int layer = 0)
+    public List<GameObject> getTargets(Vector3 center, float radius, int activePlayer, int layer = 0)
     {
         if (layer == 0)
         {
@@ -94,18 +94,20 @@ public class Controller : MonoBehaviour
             layer = ~layer;
         }
 
-        Collider[] hitColliders = Physics.OverlapSphere(center, radius, layer);
+        Collider[] hitColliders = Physics.OverlapSphere(center, radius); //Needs to figure out layers
         List<GameObject> targets = new List<GameObject>();
-
-        string playerTarget = "Player" + target.ToString() + "Squad";
 
         Debug.Log("Number of objects in range: " + hitColliders.Length);
 
         int i = 0;
         while (i < hitColliders.Length)
         {
-            if (hitColliders[i].tag == playerTarget)
-                targets.Add(hitColliders[i].gameObject);
+            for(int j = 0; j < NUM_PLAYERS; j++)
+            {
+                string playerTarget = "Player" + j.ToString() + "Squad";
+                if (j != activePlayer && hitColliders[i].tag == playerTarget)
+                    targets.Add(hitColliders[i].gameObject);
+            }
             i++;
         }
 
@@ -157,7 +159,6 @@ public class Controller : MonoBehaviour
         {
             selectedSquadIndex++;
             selectedSquadIndex %= squads.Length;
-            if (selectedRB != null) selectedRB.velocity = Vector3.zero;
         }
         if (Input.GetButtonUp("L1"))
         {
@@ -170,8 +171,12 @@ public class Controller : MonoBehaviour
                 if (selectedSquadIndex < 0) selectedSquadIndex = squads.Length - 1;
             }
 
-            if (selectedRB != null) selectedRB.velocity = Vector3.zero;
         }
+
+        selectedRB = squads[selectedSquadIndex].GetComponent<Rigidbody>();
+
+        if (selectedRB != null) selectedRB.velocity = Vector3.zero;
+
     }
 
     private SquadManager getSelectedManager()
@@ -196,7 +201,7 @@ public class Controller : MonoBehaviour
             if (getSelectedManager().numActions > 0)
             {
                 currentStage = TurnStage.Combat;
-                targetsInRange = getTargets(selectedRB.position, 50, 1);
+                targetsInRange = getTargets(selectedRB.position, 20, currentPlayersTurn);
                 selectedTargetIndex = 0;
                 Debug.Log("Number of targets within range: " + targetsInRange.Count.ToString());
                 //foreach (GameObject target in targetsInRange)
@@ -227,7 +232,8 @@ public class Controller : MonoBehaviour
         {
             foreach (GameObject target in targetsInRange)
             {
-                target.SendMessage("disableLight");
+                if(target.activeInHierarchy)
+                    target.SendMessage("disableLight");
             }
             targetsInRange.Clear();
         }
@@ -339,36 +345,41 @@ public class Controller : MonoBehaviour
             {
                 //TODO: enable combat in squad
                 //skip
-                if (Input.GetAxis("DpadV") == -1 || Input.GetButtonDown("Cross"))
+                if (Input.GetAxis("DpadV") == -1)
                 {
                     getSelectedManager().skipAction();
                     checkStateEndOfAction();
                 }
-                if (Input.GetButtonUp("R1"))
+                if (Input.GetButtonUp("R1") && targetsInRange.Count > 0)
                 {
                     targetsInRange[selectedTargetIndex].SendMessage("disableLight");
                     selectedTargetIndex++;
                     selectedTargetIndex %= targetsInRange.Count;
                     targetsInRange[selectedTargetIndex].SendMessage("enableLight");
                 }
-                if (Input.GetButtonUp("L1"))
+                if (Input.GetButtonUp("L1") && targetsInRange.Count > 0)
                 {
                     targetsInRange[selectedTargetIndex].SendMessage("disableLight");
                     selectedTargetIndex--;
                     if (selectedTargetIndex < 0) selectedTargetIndex = targetsInRange.Count - 1;
                     targetsInRange[selectedTargetIndex].SendMessage("enableLight");
                 }
-                if (Input.GetButtonDown("Cross"))
+                if (Input.GetButtonDown("Cross") && targetsInRange.Count > 0)   //A
                 {
+                    //if (getSelectedManager().numActions == 2) currentStage = TurnStage.None;
+                    //if (getSelectedManager().numActions == 1) currentStage = TurnStage.InBetween;
                     Debug.Log("I shot someone!");
                     targetsInRange[selectedTargetIndex].SendMessage("takeDamage", 5);
+                    getSelectedManager().skipAction();
+                    checkStateEndOfAction();
+
                 }
-                if (Input.GetButtonDown("Circle"))
+                if (Input.GetButtonDown("Circle"))  //B
                 {
                     if (getSelectedManager().numActions == 2) currentStage = TurnStage.None;
                     if (getSelectedManager().numActions == 1) currentStage = TurnStage.InBetween;
-                    Debug.Log("I shot someone!");
-                    targetsInRange[selectedTargetIndex].SendMessage("takeDamage", 5);
+                    //getSelectedManager().skipAction();
+                    checkStateEndOfAction();
                 }
                 else
                 {
