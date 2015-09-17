@@ -11,7 +11,7 @@ GameObject:
   - 54: {fileID: 5472772}
   - 136: {fileID: 13647628}
   - 114: {fileID: 11453392}
-  m_Layer: 18
+  m_Layer: 8
   m_Name: Squad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Layer
-      value: 18
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
