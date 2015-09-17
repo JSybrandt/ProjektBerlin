@@ -14,6 +14,8 @@ public class SquadManager : MonoBehaviour {
 
 	public bool midMovement{get{return _midMovement;}}
 	public int numActions{get{return _numActions;}}
+
+    //Added lights for showing targeted.
     private GameObject myLight;
     private Light lightPiece;
 
@@ -138,10 +140,46 @@ public class SquadManager : MonoBehaviour {
 
     public void takeDamage(int numUnitsKilled)
     {
+        Debug.Log("I'm dieing!");
 
+       //Do some damage
+       int remainingToKill = numUnitsKilled;
+
+        foreach (GameObject unit in units)
+        {
+            if (remainingToKill <= 0)
+                break;
+            else if(unit.activeInHierarchy)
+            {
+                unit.SetActive(false);  //Might not be correct
+                remainingToKill--;
+            }
+        }
+
+        if (isDead())
+        {
+            //Disable this squad
+            gameObject.SetActive(false);
+            lightPiece.enabled = false;
+
+        }
     }
 
-    public void withinRange()
+    //Checks all units of the squad to see if they are active or not.
+    public bool isDead()
+    {
+        foreach (GameObject unit in units)
+        {
+            if (unit.activeInHierarchy)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public void enableLight()
     {
         lightPiece.enabled = true;
     }
