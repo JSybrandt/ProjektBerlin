@@ -144,20 +144,23 @@ public class SquadManager : MonoBehaviour {
 	public void skipAction(){
 		if (_numActions > 0) {
 			_numActions--;
-		}
+            moveProj.SetActive(false);
+        }
 		else throw new UnityException("Attempted to skip an action when squad had none.");
 	}
 
 	public void resetActions(){
 		_numActions = MAX_ACTIONS;
 		_midMovement = false;
-	}
+        moveProj.SetActive(false);
+    }
 
 	public void undoMove(){
 		if (_midMovement) {
 			_midMovement = false;
 			transform.position = positionAtActionStart;
-		} 
+            moveProj.SetActive(false);
+        } 
 		else throw new UnityException ("Attempted to undo a move when squad had not moved");
 	}
 

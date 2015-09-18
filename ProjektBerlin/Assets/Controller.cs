@@ -341,13 +341,13 @@ public class Controller : MonoBehaviour
                     else currentStage = TurnStage.None;
                 }
                 //user undo
-                else if (Input.GetButtonDown("Circle"))
+                else if (Input.GetButtonDown("Circle")) //B
                 {
                     getSelectedManager().undoMove();
                     checkStateEndOfAction();
                 }
                 //user ends early
-                else if (Input.GetButtonDown("Cross"))
+                else if (Input.GetButtonDown("Cross"))  //A
                 {
                     getSelectedManager().endMovement();
                     checkStateEndOfAction();
