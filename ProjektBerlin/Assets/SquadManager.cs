@@ -32,14 +32,16 @@ public class SquadManager : MonoBehaviour {
 	private const float FLOOR_DISPACEMENT = 0.7f;
 	private Vector3 prevPosition; //used to revert after colliding w/ terrain. 
 
+    private Rigidbody rb;
+
     //Circle
     float theta_scale = 0.01f;        //Set lower to add more points
     int moveSize; //Total number of points in circle
     LineRenderer lineRenderer;
 
-    // Use this for initialization
-    void Start () {
 
+	// Use this for initialization
+	void Start () {
         myLight = new GameObject();
         myLight.transform.position = transform.position;
         lightPiece = myLight.AddComponent<Light>();
@@ -69,16 +71,8 @@ public class SquadManager : MonoBehaviour {
 			units[i].transform.position = unitTargets[i].position;
 		}
 
-		Rigidbody rb = GetComponent<Rigidbody> ();
+		rb = GetComponent<Rigidbody> ();
 		if(rb==null) throw new MissingComponentException("Need Rigidbody");
-		//TODO:this should be dynmaic on mesh size of unit
-		CapsuleCollider cc = GetComponent<CapsuleCollider> ();
-		if(cc==null) throw new MissingComponentException("Need CapsuleCollider");
-		cc.radius = unitDistanceFromCenter;
-		cc.height = 1;
-		for(int i = 0 ; i < size; i++){
-			Physics.IgnoreCollision(cc,units[i].GetComponent<BoxCollider>());
-		}
 		prevPosition = transform.position;
 
         //Circle Stuff
@@ -94,7 +88,7 @@ public class SquadManager : MonoBehaviour {
 
 	//once every physics step
 	void FixedUpdate(){
-		if (_midMovement) {
+		if (_midMovement && rb.velocity.magnitude>0) {
 			RaycastHit hit=new RaycastHit();
 			if(Physics.Raycast(transform.position,Vector3.down, out hit, 100f,LayerMask.NameToLayer("terrain"))){
 				if(hit.point.y > MAX_UNIT_HEIGHT)

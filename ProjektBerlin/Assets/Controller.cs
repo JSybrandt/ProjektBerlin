@@ -25,14 +25,13 @@ public class Controller : MonoBehaviour
     private int selectedSquadIndex;
     private int selectedTargetIndex;
     private GameObject selectedLight;
+
     private Rigidbody selectedRB; //used to move selected squad
-    //private Rigidbody selectedTarget; //used to pick a target for combat
-    private float theta;//amount the camera is rotated
-    private float distance;
+
+    private Rigidbody selectedTarget; //used to pick a target for combat
+
     private Text debugText;
 
-    private Vector3 defaultCameraOffset = new Vector3(0, 10, -5);
-    private Vector3 cameraTarget = new Vector3(0, 0, 0);
     private Vector3 lightOffset = new Vector3(0, 2, 0);
 
     private TurnStage currentStage = TurnStage.None;
@@ -57,8 +56,6 @@ public class Controller : MonoBehaviour
         if (g == null) throw new MissingReferenceException("Need Debug text");
         debugText = g.GetComponent<Text>();
 
-        distance = defaultCameraOffset.y;
-
         //FoV
         materialFov = (Material)Resources.Load("Materials/FoV");
         if (materialFov == null)
@@ -78,6 +75,13 @@ public class Controller : MonoBehaviour
 
         mesh.uv = uv;
         mesh.normals = normals;
+
+		//needed for unit movement to work out, no one should fly away
+		Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Squad"),LayerMask.NameToLayer("Squad"));
+		Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Unit"),LayerMask.NameToLayer("Squad"));
+		Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Unit"),LayerMask.NameToLayer("Unit"));
+
+
     }
 
     /// <summary>
@@ -126,32 +130,7 @@ public class Controller : MonoBehaviour
         squads = GameObject.FindGameObjectsWithTag(tag);
         selectedSquadIndex = 0;
         if (squads.Length == 0) throw new UnityException("Failed to find squad.");
-        setCamera();
         setLight();
-    }
-
-    private void setCamera()
-    {
-        cameraTarget = squads[selectedSquadIndex].transform.position;
-        Camera.main.transform.position = cameraTarget + defaultCameraOffset;
-        Camera.main.transform.LookAt(cameraTarget);
-
-        if (Input.GetAxis("L2") == 1)
-        {
-            distance -= Input.GetAxisRaw("JoystickRV") * zoomSpeed * Time.deltaTime;
-            if (distance < 1)
-                distance = 1;
-            if (distance > 40)
-                distance = 40;
-            theta -= Input.GetAxisRaw("JoystickRH") * turnSpeed * Time.deltaTime;
-        }
-
-        Vector3 newCameraOffset = Quaternion.Euler(0, theta, 0) * defaultCameraOffset;
-        newCameraOffset *= distance;
-
-        Camera.main.transform.position = cameraTarget + newCameraOffset;
-        Camera.main.transform.LookAt(cameraTarget);
-
     }
 
     private void setLight()
@@ -163,19 +142,25 @@ public class Controller : MonoBehaviour
     {
         if (Input.GetButtonUp("R1"))
         {
-            selectedSquadIndex++;
-            selectedSquadIndex %= squads.Length;
+			do{
+				selectedSquadIndex++;
+				selectedSquadIndex %= squads.Length;
+			}while (!squads[selectedSquadIndex].activeInHierarchy);
+            
+            if (selectedRB != null) selectedRB.velocity = Vector3.zero;
+			Camera.main.GetComponent<CameraController>().setCameraTarget(squads[selectedSquadIndex].transform.position);
+
         }
         if (Input.GetButtonUp("L1"))
         {
-            selectedSquadIndex--;
-            if (selectedSquadIndex < 0) selectedSquadIndex = squads.Length - 1;
 
-            while (!selectedRB.gameObject.activeInHierarchy)
-            {
+            do{
                 selectedSquadIndex--;
                 if (selectedSquadIndex < 0) selectedSquadIndex = squads.Length - 1;
-            }
+			}while (!squads[selectedSquadIndex].activeInHierarchy);
+
+            if (selectedRB != null) selectedRB.velocity = Vector3.zero;
+			Camera.main.GetComponent<CameraController>().setCameraTarget(squads[selectedSquadIndex].transform.position);
 
         }
 
@@ -184,6 +169,10 @@ public class Controller : MonoBehaviour
         if (selectedRB != null) selectedRB.velocity = Vector3.zero;
 
     }
+
+	private CameraController getMainCamController(){
+		return Camera.main.GetComponent<CameraController> ();
+	}
 
     private SquadManager getSelectedManager()
     {
@@ -224,9 +213,21 @@ public class Controller : MonoBehaviour
             {
                 currentStage = TurnStage.None;
             }
+			checkStateEndOfAction();
         }
 
     }
+
+	private void selectNextAvalibleSquad (){
+		for(selectedSquadIndex=0; selectedSquadIndex<squads.Length; selectedSquadIndex++)
+		{
+			if(squads[selectedSquadIndex].activeInHierarchy && getSelectedManager().numActions>0)
+			{
+				getMainCamController().setCameraTarget(squads[selectedSquadIndex].transform.position);
+				break;
+			}
+		}
+	}
 
     private void checkStateEndOfAction()
     {
@@ -242,13 +243,17 @@ public class Controller : MonoBehaviour
         attackProj.GetComponent<Projector>().enabled = false;
 
 
-        if (getSelectedManager().numActions == SquadManager.MAX_ACTIONS
-           || getSelectedManager().numActions == 0)
-            currentStage = TurnStage.None;
+        if (getSelectedManager ().numActions == SquadManager.MAX_ACTIONS|| getSelectedManager ().numActions == 0) {
+			currentStage = TurnStage.None;
+			if (checkTurnComplete ())
+				nextTurn ();
+			else selectNextAvalibleSquad();
+		}
         else
             currentStage = TurnStage.InBetween;
-        if (checkTurnComplete())
-            nextTurn();
+
+   
+
     }
 
     float GetSquadAngle()
@@ -341,7 +346,8 @@ public class Controller : MonoBehaviour
                     selectedRB = squads[selectedSquadIndex].GetComponent<Rigidbody>();
                     float v = Input.GetAxis("JoystickLV");
                     float h = Input.GetAxis("JoystickLH");
-                    selectedRB.velocity = (Quaternion.Euler(0, theta, 0) * new Vector3(h, 0, v).normalized) * 20;
+                    selectedRB.velocity = (Quaternion.Euler(0, getMainCamController().angle, 0) * new Vector3(h, 0, v).normalized) * 20;
+					getMainCamController().setCameraTarget(squads[selectedSquadIndex].transform.position,true);
                 }
             }
             else if (currentStage == TurnStage.Combat)
@@ -386,11 +392,10 @@ public class Controller : MonoBehaviour
                 }
                 else
                 {
-
+					//this is where aiming would happen
 
                 }
             }
-            setCamera();
             setLight();
         }
     }
