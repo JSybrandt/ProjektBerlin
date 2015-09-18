@@ -21,14 +21,13 @@ public class Controller : MonoBehaviour
 
     private GameObject[] squads;
     private List<GameObject> targetsInRange;
+    public LayerMask detectLayersAttack;
     private GameObject attackProj;
     private int selectedSquadIndex;
     private int selectedTargetIndex;
     private GameObject selectedLight;
 
     private Rigidbody selectedRB; //used to move selected squad
-
-    private Rigidbody selectedTarget; //used to pick a target for combat
 
     private Text debugText;
 
@@ -112,11 +111,23 @@ public class Controller : MonoBehaviour
         int i = 0;
         while (i < hitColliders.Length)
         {
+            
             for(int j = 0; j < NUM_PLAYERS; j++)
             {
                 string playerTarget = "Player" + j.ToString() + "Squad";
                 if (j != activePlayer && hitColliders[i].tag == playerTarget)
-                    targets.Add(hitColliders[i].gameObject);
+                {
+                    Vector3 myPos = selectedRB.transform.position;
+                    Vector3 targetPos = hitColliders[i].gameObject.transform.position;
+                    Vector3 dir = (targetPos - myPos).normalized;
+                    float distance = Vector3.Distance(myPos, targetPos);
+
+                    //Should be unit layer and squad layer
+                    //int mask = 1 << 8 | 1 << 15;
+
+                    if (!Physics.Raycast(myPos,dir,distance, detectLayersAttack))
+                        targets.Add(hitColliders[i].gameObject);
+                }
             }
             i++;
         }
