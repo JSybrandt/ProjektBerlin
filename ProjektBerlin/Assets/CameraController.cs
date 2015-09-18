@@ -3,7 +3,7 @@ using System.Collections;
 
 public class CameraController : MonoBehaviour {
 
-	private float movementSpeed=30;
+	private float movementSpeed=50;
 	private float zoomSpeed=25;
 	private float rotateSpeed=180;
 

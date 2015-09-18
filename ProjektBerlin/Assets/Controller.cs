@@ -141,7 +141,9 @@ public class Controller : MonoBehaviour
     {
         squads = GameObject.FindGameObjectsWithTag(tag);
         selectedSquadIndex = 0;
+		selectNextAvalibleSquad ();
         if (squads.Length == 0) throw new UnityException("Failed to find squad.");
+		getMainCamController ().setCameraTarget (squads [selectedSquadIndex].transform.position);
         setLight();
     }
 
@@ -264,8 +266,15 @@ public class Controller : MonoBehaviour
         }
         attackProj.GetComponent<Projector>().enabled = false;
 
+		if (GameObject.FindGameObjectsWithTag ("Player" + ((currentPlayersTurn + 1) % NUM_PLAYERS) + "Squad").Length == 0) {
+			Debug.Log("GAME OVER! PLAYER "+ (currentPlayersTurn+1) +" victory!");
+			Application.Quit();
+		}
 
-        if (getSelectedManager ().numActions == SquadManager.MAX_ACTIONS|| getSelectedManager ().numActions == 0) {
+        if (getSelectedManager ().numActions == SquadManager.MAX_ACTIONS) {
+			currentStage = TurnStage.None;
+		}
+		else if(getSelectedManager ().numActions == 0) {
 			currentStage = TurnStage.None;
 			if (checkTurnComplete ())
 				nextTurn ();
@@ -358,6 +367,7 @@ public class Controller : MonoBehaviour
                 {
                     getSelectedManager().undoMove();
                     checkStateEndOfAction();
+					getMainCamController().setCameraTarget(squads[selectedSquadIndex].transform.position);
                 }
                 //user ends early
                 else if (Input.GetButtonDown("Cross"))  //A

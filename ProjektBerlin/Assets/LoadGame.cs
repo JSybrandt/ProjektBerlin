@@ -12,22 +12,28 @@ public class LoadGame : MonoBehaviour
         GameObject SquadPrefab = (GameObject)Resources.Load("Squad");
         if (SquadPrefab == null)
             throw new MissingReferenceException("Failed to find squad prefab");
-
+		
         for (int i = 0; i < 20; i += 5)
         {
             GameObject newSquad = (GameObject)Instantiate(SquadPrefab, new Vector3(i, 0, -70), Quaternion.identity);
             newSquad.tag = "Player0Squad";
+			newSquad.GetComponent<SquadManager>().init();
+			newSquad.GetComponent<SquadManager>().setColor(Color.red);
         }
 
 		for (int i = 0; i < 20; i += 5)
 		{
 			GameObject newSquad = (GameObject)Instantiate(SquadPrefab, new Vector3(i, 0, 60), Quaternion.identity);
 			newSquad.tag = "Player1Squad";
+			newSquad.GetComponent<SquadManager>().init();
+			newSquad.GetComponent<SquadManager>().setColor(Color.blue);
 		}
 
         Controller controllerScript = GetComponent<Controller>();
 		controllerScript.init ();
         controllerScript.updateSquadList("Player0Squad");
+
+		//Camera.main.GetComponent<CameraController>().setCameraTarget(GameObject.FindGameObjectWithTag("Player0Squad").transform.position,true);
 
     }
 

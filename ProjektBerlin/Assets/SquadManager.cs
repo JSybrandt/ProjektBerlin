@@ -41,7 +41,7 @@ public class SquadManager : MonoBehaviour {
 
 
 	// Use this for initialization
-	void Start () {
+	public void init () {
         myLight = new GameObject();
         myLight.transform.position = transform.position;
         lightPiece = myLight.AddComponent<Light>();
@@ -100,7 +100,8 @@ public class SquadManager : MonoBehaviour {
 					transform.position = new Vector3(transform.position.x,hit.point.y+FLOOR_DISPACEMENT,transform.position.z);
 			}
 			if((positionAtActionStart-transform.position).magnitude >= movementDistance){
-				endMovement();
+				//endMovement();
+				transform.position=prevPosition;
 			}
 		}
 		prevPosition = transform.position;
@@ -226,5 +227,11 @@ public class SquadManager : MonoBehaviour {
 			}
 		}
 		return sum;
+	}
+
+	public void setColor(Color c){
+		foreach (GameObject g in units) {
+			g.GetComponent<Renderer>().material.color = c;
+		}
 	}
 }
