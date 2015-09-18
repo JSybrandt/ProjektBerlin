@@ -20,11 +20,14 @@ public class Controller : MonoBehaviour
     public float zoomSpeed = 20;
 
     private GameObject[] squads;
+
+    //Attacking variables
     private List<GameObject> targetsInRange;
     public LayerMask detectLayersAttack;
     private GameObject attackProj;
-    private int selectedSquadIndex;
     private int selectedTargetIndex;
+
+    private int selectedSquadIndex;
     private GameObject selectedLight;
 
     private Rigidbody selectedRB; //used to move selected squad
@@ -48,6 +51,7 @@ public class Controller : MonoBehaviour
         selectedLight = GameObject.Find("SelectedLight");
         if (selectedLight == null) throw new MissingReferenceException("Need SelectedLight");
         targetsInRange = new List<GameObject>();
+        selectedTargetIndex = -1;
 
         attackProj = GameObject.Find("AttackRadius");
 
@@ -207,8 +211,8 @@ public class Controller : MonoBehaviour
             if (getSelectedManager().numActions > 0)
             {
                 currentStage = TurnStage.Combat;
-                targetsInRange = getTargets(selectedRB.position, 20, currentPlayersTurn);
-                selectedTargetIndex = 0;
+                targetsInRange = getTargets(selectedRB.position, selectedRB.GetComponent<SquadManager>().attackDistance, currentPlayersTurn);
+                //selectedTargetIndex = 0;
                 Debug.Log("Number of targets within range: " + targetsInRange.Count.ToString());
             }
         }
@@ -250,6 +254,7 @@ public class Controller : MonoBehaviour
                     target.SendMessage("disableLight");
             }
             targetsInRange.Clear();
+            selectedTargetIndex = -1;
         }
         attackProj.GetComponent<Projector>().enabled = false;
 
@@ -365,6 +370,7 @@ public class Controller : MonoBehaviour
             {
                 //TODO: enable combat in squad
                 //skip
+
                 if (Input.GetAxis("DpadV") == -1)
                 {
                     getSelectedManager().skipAction();
@@ -372,19 +378,29 @@ public class Controller : MonoBehaviour
                 }
                 if (Input.GetButtonUp("R1") && targetsInRange.Count > 0)
                 {
-                    targetsInRange[selectedTargetIndex].SendMessage("disableLight");
+                    attackProj.GetComponent<Projector>().enabled = false;
+                    if (selectedTargetIndex >= 0)
+                        targetsInRange[selectedTargetIndex].SendMessage("disableLight");
+
                     selectedTargetIndex++;
                     selectedTargetIndex %= targetsInRange.Count;
                     targetsInRange[selectedTargetIndex].SendMessage("enableLight");
+
+
                 }
                 if (Input.GetButtonUp("L1") && targetsInRange.Count > 0)
                 {
-                    targetsInRange[selectedTargetIndex].SendMessage("disableLight");
+                    attackProj.GetComponent<Projector>().enabled = false;
+                    if (selectedTargetIndex >= 0)
+                        targetsInRange[selectedTargetIndex].SendMessage("disableLight");
+                    else
+                        selectedTargetIndex = 0;
+
                     selectedTargetIndex--;
                     if (selectedTargetIndex < 0) selectedTargetIndex = targetsInRange.Count - 1;
                     targetsInRange[selectedTargetIndex].SendMessage("enableLight");
                 }
-                if (Input.GetButtonDown("Cross") && targetsInRange.Count > 0)   //A
+                if (Input.GetButtonDown("Cross") && targetsInRange.Count > 0 && selectedTargetIndex >= 0)   //A
                 {
                     //if (getSelectedManager().numActions == 2) currentStage = TurnStage.None;
                     //if (getSelectedManager().numActions == 1) currentStage = TurnStage.InBetween;
@@ -475,71 +491,5 @@ public class Controller : MonoBehaviour
         mesh.triangles = triangles;
 
         Graphics.DrawMesh(mesh, squads[selectedSquadIndex].transform.position, fovRotation, materialFov, 0);
-    }
-
-    Mesh setupFoV(float angle_fov = 20, float dist_max = 15)
-    {
-        const float dist_min = 5.0f;
-
-        float angle_lookat = GetSquadAngle();
-
-        float angle_start = angle_lookat - angle_fov;
-        float angle_end = angle_lookat + angle_fov;
-        float angle_delta = (angle_end - angle_start) / fovQuality;
-
-        float angle_curr = angle_start;
-        float angle_next = angle_start + angle_delta;
-
-        Vector3 pos_curr_min = Vector3.zero;
-        Vector3 pos_curr_max = Vector3.zero;
-
-        Vector3 pos_next_min = Vector3.zero;
-        Vector3 pos_next_max = Vector3.zero;
-
-        Vector3[] vertices = new Vector3[4 * fovQuality];   // Could be of size [2 * quality + 2] if circle segment is continuous
-        int[] triangles = new int[3 * 2 * fovQuality];
-
-        for (int i = 0; i < fovQuality; i++)
-        {
-            Vector3 sphere_curr = new Vector3(
-            Mathf.Sin(Mathf.Deg2Rad * (angle_curr)), 0,   // Left handed CW
-            Mathf.Cos(Mathf.Deg2Rad * (angle_curr)));
-
-            Vector3 sphere_next = new Vector3(
-            Mathf.Sin(Mathf.Deg2Rad * (angle_next)), 0,
-            Mathf.Cos(Mathf.Deg2Rad * (angle_next)));
-
-            pos_curr_min = transform.position + sphere_curr * dist_min;
-            pos_curr_max = transform.position + sphere_curr * dist_max;
-
-            pos_next_min = transform.position + sphere_next * dist_min;
-            pos_next_max = transform.position + sphere_next * dist_max;
-
-            int a = 4 * i;
-            int b = 4 * i + 1;
-            int c = 4 * i + 2;
-            int d = 4 * i + 3;
-
-            vertices[a] = pos_curr_min;
-            vertices[b] = pos_curr_max;
-            vertices[c] = pos_next_max;
-            vertices[d] = pos_next_min;
-
-            triangles[6 * i] = a;       // Triangle1: abc
-            triangles[6 * i + 1] = b;
-            triangles[6 * i + 2] = c;
-            triangles[6 * i + 3] = c;   // Triangle2: cda
-            triangles[6 * i + 4] = d;
-            triangles[6 * i + 5] = a;
-
-            angle_curr += angle_delta;
-            angle_next += angle_delta;
-
-        }
-
-        mesh.vertices = vertices;
-        mesh.triangles = triangles;
-
-        return mesh;
     }
 }

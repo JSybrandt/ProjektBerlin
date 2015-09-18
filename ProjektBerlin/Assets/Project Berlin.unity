@@ -1667,6 +1667,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turnSpeed: 120
   zoomSpeed: 7
+  detectLayersAttack:
+    serializedVersion: 2
+    m_Bits: 8193
 --- !u!4 &2105702949
 Transform:
   m_ObjectHideFlags: 0
