@@ -29,8 +29,6 @@ public class Controller : MonoBehaviour
 
     private Rigidbody selectedTarget; //used to pick a target for combat
 
-    private Text debugText;
-
     private Vector3 lightOffset = new Vector3(0, 2, 0);
 
     private TurnStage currentStage = TurnStage.None;
@@ -45,13 +43,12 @@ public class Controller : MonoBehaviour
     //called by loadgame
     public void init()
     {
+		updateUI ();
         selectedLight = GameObject.Find("SelectedLight");
         if (selectedLight == null) throw new MissingReferenceException("Need SelectedLight");
         targetsInRange = new List<GameObject>();
 
-        GameObject g = GameObject.Find("DebugText");
-        if (g == null) throw new MissingReferenceException("Need Debug text");
-        debugText = g.GetComponent<Text>();
+     
 
         //FoV
         //FoV = new GameObject("FoV");
@@ -136,10 +133,7 @@ public class Controller : MonoBehaviour
     {
         if (Input.GetButtonUp("R1"))
         {
-			do{
-				selectedSquadIndex++;
-				selectedSquadIndex %= squads.Length;
-			}while (!squads[selectedSquadIndex].activeInHierarchy);
+			selectNextAvalibleSquad();
             
             if (selectedRB != null) selectedRB.velocity = Vector3.zero;
 			Camera.main.GetComponent<CameraController>().setCameraTarget(squads[selectedSquadIndex].transform.position);
@@ -148,10 +142,7 @@ public class Controller : MonoBehaviour
         if (Input.GetButtonUp("L1"))
         {
 
-            do{
-                selectedSquadIndex--;
-                if (selectedSquadIndex < 0) selectedSquadIndex = squads.Length - 1;
-			}while (!squads[selectedSquadIndex].activeInHierarchy);
+			selectPrevAvalibleSquad();
 
             if (selectedRB != null) selectedRB.velocity = Vector3.zero;
 			Camera.main.GetComponent<CameraController>().setCameraTarget(squads[selectedSquadIndex].transform.position);
@@ -182,6 +173,7 @@ public class Controller : MonoBehaviour
             {
                 currentStage = TurnStage.Moving;
                 getSelectedManager().startMovement();
+				updateUI();
             }
         }
         //start start combat
@@ -192,6 +184,7 @@ public class Controller : MonoBehaviour
                 currentStage = TurnStage.Combat;
                 targetsInRange = getTargets(selectedRB.position, 20, currentPlayersTurn);
                 selectedTargetIndex = 0;
+				updateUI();
                 Debug.Log("Number of targets within range: " + targetsInRange.Count.ToString());
                 //foreach (GameObject target in targetsInRange)
                 //{
@@ -217,8 +210,22 @@ public class Controller : MonoBehaviour
     }
 
 	private void selectNextAvalibleSquad (){
-		for(selectedSquadIndex=0; selectedSquadIndex<squads.Length; selectedSquadIndex++)
+		for(int i =0; i<squads.Length; i++)
 		{
+			selectedSquadIndex++;
+			selectedSquadIndex%=squads.Length;
+			if(squads[selectedSquadIndex].activeInHierarchy && getSelectedManager().numActions>0)
+			{
+				getMainCamController().setCameraTarget(squads[selectedSquadIndex].transform.position);
+				break;
+			}
+		}
+	}
+	private void selectPrevAvalibleSquad (){
+		for(int i =0; i<squads.Length; i++)
+		{
+			selectedSquadIndex--;
+			if(selectedSquadIndex<0)selectedSquadIndex=squads.Length-1;
 			if(squads[selectedSquadIndex].activeInHierarchy && getSelectedManager().numActions>0)
 			{
 				getMainCamController().setCameraTarget(squads[selectedSquadIndex].transform.position);
@@ -250,6 +257,7 @@ public class Controller : MonoBehaviour
             currentStage = TurnStage.InBetween;
 
    
+		updateUI ();
 
     }
 
@@ -284,20 +292,7 @@ public class Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        debugText.text = "Player:" + currentPlayersTurn;
-
-        debugText.text += " Remaining Actions:" + getSelectedManager().numActions;
-
-        debugText.text += " Current Stage: ";
-        switch (currentStage)
-        {
-            case TurnStage.None: debugText.text += "None"; break;
-            case TurnStage.Moving: debugText.text += "Moving"; break;
-            case TurnStage.InBetween: debugText.text += "In Between"; break;
-            case TurnStage.Combat: debugText.text += "Combat"; break;
-        };
-
+	
         if (squads.Length > 0)
         {
 
@@ -528,4 +523,21 @@ public class Controller : MonoBehaviour
 
         return mesh;
     }
+
+	private void updateUI(){
+		Canvas movement = GameObject.Find("MovementCanvas").GetComponent<Canvas>();
+		Canvas combat = GameObject.Find("CombatCanvas").GetComponent<Canvas>();
+		Canvas first = GameObject.Find("FirstActionCanvas").GetComponent<Canvas>();
+		Canvas second = GameObject.Find("SecondActionCanvas").GetComponent<Canvas>();
+
+		movement.enabled = combat.enabled = first.enabled = second.enabled = false;
+
+		switch (currentStage) {
+		case TurnStage.Combat: combat.enabled=true; break;
+		case TurnStage.InBetween: second.enabled=true; break;
+		case TurnStage.Moving: movement.enabled=true; break;
+		case TurnStage.None:first.enabled=true; break;
+		}
+
+	}
 }
