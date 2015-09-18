@@ -20,14 +20,17 @@ public class Controller : MonoBehaviour
     public float zoomSpeed = 20;
 
     private GameObject[] squads;
+
+    //Attacking variables
     private List<GameObject> targetsInRange;
-    private int selectedSquadIndex;
+    public LayerMask detectLayersAttack;
+    private GameObject attackProj;
     private int selectedTargetIndex;
+
+    private int selectedSquadIndex;
     private GameObject selectedLight;
 
     private Rigidbody selectedRB; //used to move selected squad
-
-    private Rigidbody selectedTarget; //used to pick a target for combat
 
     private Vector3 lightOffset = new Vector3(0, 2, 0);
 
@@ -47,11 +50,13 @@ public class Controller : MonoBehaviour
         selectedLight = GameObject.Find("SelectedLight");
         if (selectedLight == null) throw new MissingReferenceException("Need SelectedLight");
         targetsInRange = new List<GameObject>();
+        selectedTargetIndex = -1;
+
+        attackProj = GameObject.Find("AttackRadius");
 
      
 
         //FoV
-        //FoV = new GameObject("FoV");
         materialFov = (Material)Resources.Load("Materials/FoV");
         if (materialFov == null)
             throw new MissingReferenceException("Need Resources/Materials/FoV");
@@ -95,6 +100,10 @@ public class Controller : MonoBehaviour
             layer = ~layer;
         }
 
+        attackProj.GetComponent<Projector>().orthographicSize = radius+2; //Should be set by unit
+        attackProj.transform.position = new Vector3(selectedRB.transform.position.x, 9, selectedRB.transform.position.z);
+        attackProj.GetComponent<Projector>().enabled = true;
+
         Collider[] hitColliders = Physics.OverlapSphere(center, radius); //Needs to figure out layers
         List<GameObject> targets = new List<GameObject>();
 
@@ -103,11 +112,23 @@ public class Controller : MonoBehaviour
         int i = 0;
         while (i < hitColliders.Length)
         {
+            
             for(int j = 0; j < NUM_PLAYERS; j++)
             {
                 string playerTarget = "Player" + j.ToString() + "Squad";
                 if (j != activePlayer && hitColliders[i].tag == playerTarget)
-                    targets.Add(hitColliders[i].gameObject);
+                {
+                    Vector3 myPos = selectedRB.transform.position;
+                    Vector3 targetPos = hitColliders[i].gameObject.transform.position;
+                    Vector3 dir = (targetPos - myPos).normalized;
+                    float distance = Vector3.Distance(myPos, targetPos);
+
+                    //Should be unit layer and squad layer
+                    //int mask = 1 << 8 | 1 << 15;
+
+                    if (!Physics.Raycast(myPos,dir,distance, detectLayersAttack))
+                        targets.Add(hitColliders[i].gameObject);
+                }
             }
             i++;
         }
@@ -182,14 +203,9 @@ public class Controller : MonoBehaviour
             if (getSelectedManager().numActions > 0)
             {
                 currentStage = TurnStage.Combat;
-                targetsInRange = getTargets(selectedRB.position, 20, currentPlayersTurn);
-                selectedTargetIndex = 0;
+                targetsInRange = getTargets(selectedRB.position, selectedRB.GetComponent<SquadManager>().attackDistance, currentPlayersTurn);
 				updateUI();
                 Debug.Log("Number of targets within range: " + targetsInRange.Count.ToString());
-                //foreach (GameObject target in targetsInRange)
-                //{
-                //    target.SendMessage("withinRange");
-                //}
             }
         }
         //skip
@@ -244,7 +260,9 @@ public class Controller : MonoBehaviour
                     target.SendMessage("disableLight");
             }
             targetsInRange.Clear();
+            selectedTargetIndex = -1;
         }
+        attackProj.GetComponent<Projector>().enabled = false;
 
 
         if (getSelectedManager ().numActions == SquadManager.MAX_ACTIONS|| getSelectedManager ().numActions == 0) {
@@ -322,13 +340,13 @@ public class Controller : MonoBehaviour
                     else currentStage = TurnStage.None;
                 }
                 //user undo
-                else if (Input.GetButtonDown("Circle"))
+                else if (Input.GetButtonDown("Circle")) //B
                 {
                     getSelectedManager().undoMove();
                     checkStateEndOfAction();
                 }
                 //user ends early
-                else if (Input.GetButtonDown("Cross"))
+                else if (Input.GetButtonDown("Cross"))  //A
                 {
                     getSelectedManager().endMovement();
                     checkStateEndOfAction();
@@ -346,6 +364,7 @@ public class Controller : MonoBehaviour
             {
                 //TODO: enable combat in squad
                 //skip
+
                 if (Input.GetAxis("DpadV") == -1)
                 {
                     getSelectedManager().skipAction();
@@ -353,19 +372,29 @@ public class Controller : MonoBehaviour
                 }
                 if (Input.GetButtonUp("R1") && targetsInRange.Count > 0)
                 {
-                    targetsInRange[selectedTargetIndex].SendMessage("disableLight");
+                    attackProj.GetComponent<Projector>().enabled = false;
+                    if (selectedTargetIndex >= 0)
+                        targetsInRange[selectedTargetIndex].SendMessage("disableLight");
+
                     selectedTargetIndex++;
                     selectedTargetIndex %= targetsInRange.Count;
                     targetsInRange[selectedTargetIndex].SendMessage("enableLight");
+
+
                 }
                 if (Input.GetButtonUp("L1") && targetsInRange.Count > 0)
                 {
-                    targetsInRange[selectedTargetIndex].SendMessage("disableLight");
+                    attackProj.GetComponent<Projector>().enabled = false;
+                    if (selectedTargetIndex >= 0)
+                        targetsInRange[selectedTargetIndex].SendMessage("disableLight");
+                    else
+                        selectedTargetIndex = 0;
+
                     selectedTargetIndex--;
                     if (selectedTargetIndex < 0) selectedTargetIndex = targetsInRange.Count - 1;
                     targetsInRange[selectedTargetIndex].SendMessage("enableLight");
                 }
-                if (Input.GetButtonDown("Cross") && targetsInRange.Count > 0)   //A
+                if (Input.GetButtonDown("Cross") && targetsInRange.Count > 0 && selectedTargetIndex >= 0)   //A
                 {
                     //if (getSelectedManager().numActions == 2) currentStage = TurnStage.None;
                     //if (getSelectedManager().numActions == 1) currentStage = TurnStage.InBetween;
@@ -458,72 +487,6 @@ public class Controller : MonoBehaviour
         Graphics.DrawMesh(mesh, squads[selectedSquadIndex].transform.position, fovRotation, materialFov, 0);
     }
 
-    Mesh setupFoV(float angle_fov = 20, float dist_max = 15)
-    {
-        const float dist_min = 5.0f;
-
-        float angle_lookat = GetSquadAngle();
-
-        float angle_start = angle_lookat - angle_fov;
-        float angle_end = angle_lookat + angle_fov;
-        float angle_delta = (angle_end - angle_start) / fovQuality;
-
-        float angle_curr = angle_start;
-        float angle_next = angle_start + angle_delta;
-
-        Vector3 pos_curr_min = Vector3.zero;
-        Vector3 pos_curr_max = Vector3.zero;
-
-        Vector3 pos_next_min = Vector3.zero;
-        Vector3 pos_next_max = Vector3.zero;
-
-        Vector3[] vertices = new Vector3[4 * fovQuality];   // Could be of size [2 * quality + 2] if circle segment is continuous
-        int[] triangles = new int[3 * 2 * fovQuality];
-
-        for (int i = 0; i < fovQuality; i++)
-        {
-            Vector3 sphere_curr = new Vector3(
-            Mathf.Sin(Mathf.Deg2Rad * (angle_curr)), 0,   // Left handed CW
-            Mathf.Cos(Mathf.Deg2Rad * (angle_curr)));
-
-            Vector3 sphere_next = new Vector3(
-            Mathf.Sin(Mathf.Deg2Rad * (angle_next)), 0,
-            Mathf.Cos(Mathf.Deg2Rad * (angle_next)));
-
-            pos_curr_min = transform.position + sphere_curr * dist_min;
-            pos_curr_max = transform.position + sphere_curr * dist_max;
-
-            pos_next_min = transform.position + sphere_next * dist_min;
-            pos_next_max = transform.position + sphere_next * dist_max;
-
-            int a = 4 * i;
-            int b = 4 * i + 1;
-            int c = 4 * i + 2;
-            int d = 4 * i + 3;
-
-            vertices[a] = pos_curr_min;
-            vertices[b] = pos_curr_max;
-            vertices[c] = pos_next_max;
-            vertices[d] = pos_next_min;
-
-            triangles[6 * i] = a;       // Triangle1: abc
-            triangles[6 * i + 1] = b;
-            triangles[6 * i + 2] = c;
-            triangles[6 * i + 3] = c;   // Triangle2: cda
-            triangles[6 * i + 4] = d;
-            triangles[6 * i + 5] = a;
-
-            angle_curr += angle_delta;
-            angle_next += angle_delta;
-
-        }
-
-        mesh.vertices = vertices;
-        mesh.triangles = triangles;
-
-        return mesh;
-    }
-
 	private void updateUI(){
 		Canvas movement = GameObject.Find("MovementCanvas").GetComponent<Canvas>();
 		Canvas combat = GameObject.Find("CombatCanvas").GetComponent<Canvas>();
@@ -540,4 +503,5 @@ public class Controller : MonoBehaviour
 		}
 
 	}
+
 }
