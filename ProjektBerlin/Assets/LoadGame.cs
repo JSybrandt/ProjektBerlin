@@ -28,6 +28,7 @@ public class LoadGame : MonoBehaviour
         Controller controllerScript = GetComponent<Controller>();
 		controllerScript.init ();
         controllerScript.updateSquadList("Player0Squad");
+
     }
 
 }

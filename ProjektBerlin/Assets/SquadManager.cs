@@ -18,8 +18,11 @@ public class SquadManager : MonoBehaviour {
     //Added lights for showing targeted.
     private GameObject myLight;
     private Light lightPiece;
+    private GameObject moveProj;
+    private GameObject attackProj;
 
-	public float movementDistance = 500;
+    public float movementDistance;
+    public float attackDistance;
 
 	//TODO: This might need to become a collection of game objects
 	private Transform[] unitTargets;
@@ -29,14 +32,22 @@ public class SquadManager : MonoBehaviour {
 	private const float FLOOR_DISPACEMENT = 0.7f;
 	private Vector3 prevPosition; //used to revert after colliding w/ terrain. 
 
-	// Use this for initialization
-	void Start () {
+    //Circle
+    float theta_scale = 0.01f;        //Set lower to add more points
+    int moveSize; //Total number of points in circle
+    LineRenderer lineRenderer;
+
+    // Use this for initialization
+    void Start () {
 
         myLight = new GameObject();
         myLight.transform.position = transform.position;
         lightPiece = myLight.AddComponent<Light>();
         lightPiece.color = Color.red;
         lightPiece.intensity = 8;
+
+        moveProj = GameObject.Find("MoveRadius");
+        attackProj = GameObject.Find("AttackRadius");
 
         lightPiece.enabled = false;
 
@@ -69,7 +80,17 @@ public class SquadManager : MonoBehaviour {
 			Physics.IgnoreCollision(cc,units[i].GetComponent<BoxCollider>());
 		}
 		prevPosition = transform.position;
-	}
+
+        //Circle Stuff
+        float sizeValue = (2.0f * Mathf.PI) / theta_scale;
+        moveSize = (int)sizeValue;
+        moveSize++;
+        lineRenderer = gameObject.AddComponent<LineRenderer>();
+        lineRenderer.material = new Material(Shader.Find("Particles/Additive"));
+        lineRenderer.SetWidth(0.02f, 0.02f); //thickness of line
+        lineRenderer.SetVertexCount(moveSize);
+        lineRenderer.enabled = false;
+    }
 
 	//once every physics step
 	void FixedUpdate(){
@@ -100,13 +121,20 @@ public class SquadManager : MonoBehaviour {
         //Updates associated light
         myLight.transform.position = transform.position;
 
+        if(_midMovement)
+        {
+
+        }
 	}
 
 	public void startMovement(){
 		if (numActions > 0) {
 			positionAtActionStart = transform.position;
-			_midMovement = true;
-		}
+            moveProj.transform.position = new Vector3(transform.position.x,9,transform.position.z);
+            moveProj.GetComponent<Projector>().orthographicSize = movementDistance+3;
+            moveProj.SetActive(true);
+            _midMovement = true;
+        }
 		else throw new UnityException("Attempted to start an action when squad had none.");
 	}
 	public void endMovement(){
@@ -114,7 +142,8 @@ public class SquadManager : MonoBehaviour {
 			_midMovement = false;
 			_numActions--;
 			GetComponent<Rigidbody>().velocity=Vector3.zero;
-		}
+            moveProj.SetActive(false);
+        }
 		else throw new UnityException("Attempted to end an actions before starting one.");
 	}
 

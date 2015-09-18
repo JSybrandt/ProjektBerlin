@@ -21,6 +21,7 @@ public class Controller : MonoBehaviour
 
     private GameObject[] squads;
     private List<GameObject> targetsInRange;
+    private GameObject attackProj;
     private int selectedSquadIndex;
     private int selectedTargetIndex;
     private GameObject selectedLight;
@@ -50,6 +51,8 @@ public class Controller : MonoBehaviour
         if (selectedLight == null) throw new MissingReferenceException("Need SelectedLight");
         targetsInRange = new List<GameObject>();
 
+        attackProj = GameObject.Find("AttackRadius");
+
         GameObject g = GameObject.Find("DebugText");
         if (g == null) throw new MissingReferenceException("Need Debug text");
         debugText = g.GetComponent<Text>();
@@ -57,7 +60,6 @@ public class Controller : MonoBehaviour
         distance = defaultCameraOffset.y;
 
         //FoV
-        //FoV = new GameObject("FoV");
         materialFov = (Material)Resources.Load("Materials/FoV");
         if (materialFov == null)
             throw new MissingReferenceException("Need Resources/Materials/FoV");
@@ -93,6 +95,10 @@ public class Controller : MonoBehaviour
             layer = 1 << 12; //Layer 8 being "Squad layer"
             layer = ~layer;
         }
+
+        attackProj.GetComponent<Projector>().orthographicSize = radius+2; //Should be set by unit
+        attackProj.transform.position = new Vector3(selectedRB.transform.position.x, 9, selectedRB.transform.position.z);
+        attackProj.GetComponent<Projector>().enabled = true;
 
         Collider[] hitColliders = Physics.OverlapSphere(center, radius); //Needs to figure out layers
         List<GameObject> targets = new List<GameObject>();
@@ -204,10 +210,6 @@ public class Controller : MonoBehaviour
                 targetsInRange = getTargets(selectedRB.position, 20, currentPlayersTurn);
                 selectedTargetIndex = 0;
                 Debug.Log("Number of targets within range: " + targetsInRange.Count.ToString());
-                //foreach (GameObject target in targetsInRange)
-                //{
-                //    target.SendMessage("withinRange");
-                //}
             }
         }
         //skip
@@ -237,6 +239,7 @@ public class Controller : MonoBehaviour
             }
             targetsInRange.Clear();
         }
+        attackProj.GetComponent<Projector>().enabled = false;
 
 
         if (getSelectedManager().numActions == SquadManager.MAX_ACTIONS
