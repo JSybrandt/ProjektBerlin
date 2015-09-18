@@ -15,13 +15,13 @@ public class LoadGame : MonoBehaviour
 
         for (int i = 0; i < 20; i += 5)
         {
-            GameObject newSquad = (GameObject)Instantiate(SquadPrefab, new Vector3(i, 0, 0), Quaternion.identity);
+            GameObject newSquad = (GameObject)Instantiate(SquadPrefab, new Vector3(i, 0, -70), Quaternion.identity);
             newSquad.tag = "Player0Squad";
         }
 
 		for (int i = 0; i < 20; i += 5)
 		{
-			GameObject newSquad = (GameObject)Instantiate(SquadPrefab, new Vector3(i, 0, 20), Quaternion.identity);
+			GameObject newSquad = (GameObject)Instantiate(SquadPrefab, new Vector3(i, 0, 60), Quaternion.identity);
 			newSquad.tag = "Player1Squad";
 		}
 

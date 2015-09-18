@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3d9f7f8816b5b4667bb552d0d31f7e76
+guid: d3faf680b770d7c449f6fdb59417ab40
 labels:
 - Africa
 - Houses
@@ -10,11 +10,17 @@ labels:
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
     2800000: __AssetImporterPreview
+    3300000: //RootNode
     4300000: Bldg_08_Metal
     4300002: Bldg_08_Stucco
     4300004: Bldg_08_Wood
     4300006: polySurface1
+    6400000: //RootNode
+    11100000: //RootNode
   materials:
     importMaterials: 1
     materialName: 3

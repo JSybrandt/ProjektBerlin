@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2d50cc279f64f40889be1c811cfc1a1a
+guid: 680da1f15b393904aab9b4cae5e7bc36
 labels:
 - Wartorn
 - War
@@ -12,7 +12,11 @@ labels:
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
     2800000: __AssetImporterPreview
+    3300000: //RootNode
     4300000: Bldg_02_Cloth
     4300002: Bldg_02_Brick
     4300004: Bldg_02_Concrete
@@ -27,6 +31,8 @@ ModelImporter:
     4300022: Bldg_02_Wood1
     4300024: pPlane1
     4300026: polySurface8
+    6400000: //RootNode
+    11100000: //RootNode
   materials:
     importMaterials: 1
     materialName: 3

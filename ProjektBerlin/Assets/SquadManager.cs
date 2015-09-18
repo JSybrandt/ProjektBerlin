@@ -28,7 +28,7 @@ public class SquadManager : MonoBehaviour {
 	private Transform[] unitTargets;
 	private GameObject[] units;
 
-	private const float MAX_UNIT_HEIGHT = 2;
+	private const float MAX_UNIT_HEIGHT = 0.5f;
 	private const float FLOOR_DISPACEMENT = 0.7f;
 	private Vector3 prevPosition; //used to revert after colliding w/ terrain. 
 
