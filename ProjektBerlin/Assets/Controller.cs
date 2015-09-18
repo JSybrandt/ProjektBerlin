@@ -307,6 +307,20 @@ public class Controller : MonoBehaviour
         Debug.Log("Player #" + currentPlayersTurn);
     }
 
+	int calculateDamage(int power){
+		int hits = 0;
+		for (int i =0; i< power; i++) {
+			if(Random.Range(1,6)<=2)hits++;
+		}
+		int damage = 0;
+		for (int i = 0; i< hits; i++) {
+			if(Random.Range(1,6)<=4)damage++;
+		}
+
+		Debug.Log ("Attack:" + power + " Hits:" + hits + " Damage:" + damage);
+		return damage;
+	}
+
     // Update is called once per frame
     void Update()
     {
@@ -399,7 +413,8 @@ public class Controller : MonoBehaviour
                     //if (getSelectedManager().numActions == 2) currentStage = TurnStage.None;
                     //if (getSelectedManager().numActions == 1) currentStage = TurnStage.InBetween;
                     Debug.Log("I shot someone!");
-                    targetsInRange[selectedTargetIndex].SendMessage("takeDamage", 5);
+					int power = getSelectedManager().getPower();
+					targetsInRange[selectedTargetIndex].SendMessage("takeDamage",calculateDamage(power));
                     getSelectedManager().skipAction();
                     checkStateEndOfAction();
 

@@ -5,7 +5,7 @@ public class SquadManager : MonoBehaviour {
 
 	public int size = 5;
 
-	public float unitDistanceFromCenter = 1;
+	private float unitDistanceFromCenter = 1.5f;
 
 	public const int MAX_ACTIONS = 2;
 	private int _numActions = MAX_ACTIONS;
@@ -70,6 +70,9 @@ public class SquadManager : MonoBehaviour {
 			units[i] = (GameObject)Instantiate(unitPrefab,unitTargets[i].position,Quaternion.identity);
 			units[i].transform.position = unitTargets[i].position;
 		}
+
+		units [units.Length - 1].GetComponent<UnitManager> ().power = 4;
+		units [units.Length - 1].transform.localScale = new Vector3 (1.5f, 1.5f, 1.5f);
 
 		rb = GetComponent<Rigidbody> ();
 		if(rb==null) throw new MissingComponentException("Need Rigidbody");
@@ -214,4 +217,14 @@ public class SquadManager : MonoBehaviour {
     {
         lightPiece.enabled = false;
     }
+
+	public int getPower(){
+		int sum = 0;
+		foreach (GameObject u in units) {
+			if(u.activeInHierarchy){
+				sum += u.GetComponent<UnitManager>().power;
+			}
+		}
+		return sum;
+	}
 }
