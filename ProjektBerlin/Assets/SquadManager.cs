@@ -29,7 +29,7 @@ public class SquadManager : MonoBehaviour {
 	private GameObject[] units;
 
 	private const float MAX_UNIT_HEIGHT = 0.5f;
-	private const float FLOOR_DISPACEMENT = 0.7f;
+	private const float FLOOR_DISPACEMENT = 1f;
 	private Vector3 prevPosition; //used to revert after colliding w/ terrain. 
 
     private Rigidbody rb;
@@ -42,6 +42,7 @@ public class SquadManager : MonoBehaviour {
 
 	// Use this for initialization
 	public void init () {
+
         myLight = new GameObject();
         myLight.transform.position = transform.position;
         lightPiece = myLight.AddComponent<Light>();
@@ -78,6 +79,7 @@ public class SquadManager : MonoBehaviour {
 		if(rb==null) throw new MissingComponentException("Need Rigidbody");
 		prevPosition = transform.position;
 
+
         //Circle Stuff
         float sizeValue = (2.0f * Mathf.PI) / theta_scale;
         moveSize = (int)sizeValue;
@@ -91,18 +93,16 @@ public class SquadManager : MonoBehaviour {
 
 	//once every physics step
 	void FixedUpdate(){
+
 		if (_midMovement && rb.velocity.magnitude>0) {
-			RaycastHit hit=new RaycastHit();
-			if(Physics.Raycast(transform.position,Vector3.down, out hit, 100f,LayerMask.NameToLayer("terrain"))){
-				if(hit.point.y > MAX_UNIT_HEIGHT)
-					transform.position = prevPosition;
-				else
-					transform.position = new Vector3(transform.position.x,hit.point.y+FLOOR_DISPACEMENT,transform.position.z);
-			}
-			if((positionAtActionStart-transform.position).magnitude >= movementDistance){
+			float h = Terrain.activeTerrain.SampleHeight (transform.position) + FLOOR_DISPACEMENT;
+			transform.position = new Vector3 (transform.position.x, h, transform.position.z);
+			if ((positionAtActionStart - transform.position).magnitude >= movementDistance) {
 				//endMovement();
-				transform.position=prevPosition;
+				transform.position = prevPosition;
 			}
+		} else {
+			rb.Sleep ();
 		}
 		prevPosition = transform.position;
 	}
@@ -118,11 +118,7 @@ public class SquadManager : MonoBehaviour {
 
         //Updates associated light
         myLight.transform.position = transform.position;
-
-        if(_midMovement)
-        {
-
-        }
+		
 	}
 
 	public void startMovement(){

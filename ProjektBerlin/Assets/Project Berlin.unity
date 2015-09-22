@@ -159,7 +159,7 @@ GameObject:
   - 223: {fileID: 74709536}
   - 114: {fileID: 74709535}
   - 114: {fileID: 74709534}
-  m_Layer: 5
+  m_Layer: 31
   m_Name: CombatCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1528,7 +1528,7 @@ GameObject:
   - 224: {fileID: 622813512}
   - 222: {fileID: 622813514}
   - 114: {fileID: 622813513}
-  m_Layer: 5
+  m_Layer: 31
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1589,7 +1589,7 @@ GameObject:
   - 224: {fileID: 673301880}
   - 222: {fileID: 673301882}
   - 114: {fileID: 673301881}
-  m_Layer: 5
+  m_Layer: 31
   m_Name: lb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2507,7 +2507,7 @@ GameObject:
   - 224: {fileID: 1241490764}
   - 222: {fileID: 1241490766}
   - 114: {fileID: 1241490765}
-  m_Layer: 5
+  m_Layer: 31
   m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2627,7 +2627,7 @@ GameObject:
   - 224: {fileID: 1316335480}
   - 222: {fileID: 1316335482}
   - 114: {fileID: 1316335481}
-  m_Layer: 5
+  m_Layer: 31
   m_Name: confirm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2693,7 +2693,7 @@ GameObject:
   - 224: {fileID: 1333273807}
   - 222: {fileID: 1333273806}
   - 114: {fileID: 1333273805}
-  m_Layer: 5
+  m_Layer: 31
   m_Name: rb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3167,7 +3167,7 @@ GameObject:
   - 224: {fileID: 1534402228}
   - 222: {fileID: 1534402230}
   - 114: {fileID: 1534402229}
-  m_Layer: 5
+  m_Layer: 31
   m_Name: undo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3233,7 +3233,7 @@ GameObject:
   - 224: {fileID: 1570267791}
   - 222: {fileID: 1570267793}
   - 114: {fileID: 1570267792}
-  m_Layer: 5
+  m_Layer: 31
   m_Name: Image (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3451,7 +3451,7 @@ GameObject:
   - 224: {fileID: 1822379377}
   - 222: {fileID: 1822379379}
   - 114: {fileID: 1822379378}
-  m_Layer: 5
+  m_Layer: 31
   m_Name: x
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3630,7 +3630,7 @@ GameObject:
   - 224: {fileID: 1921899966}
   - 222: {fileID: 1921899968}
   - 114: {fileID: 1921899967}
-  m_Layer: 5
+  m_Layer: 31
   m_Name: o
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3872,7 +3872,7 @@ GameObject:
   - 224: {fileID: 2086525119}
   - 222: {fileID: 2086525121}
   - 114: {fileID: 2086525120}
-  m_Layer: 5
+  m_Layer: 31
   m_Name: selectTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
