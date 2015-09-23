@@ -4,6 +4,12 @@ using System.Collections;
 public class LoadGame : MonoBehaviour
 {
 
+	private ArrayList allSquads = new ArrayList();
+
+	public ArrayList getAllSquads(){
+		return allSquads;
+	}
+
 
     // Use this for initialization
     void Start()
@@ -19,6 +25,7 @@ public class LoadGame : MonoBehaviour
             newSquad.tag = "Player0Squad";
 			newSquad.GetComponent<SquadManager>().init();
 			newSquad.GetComponent<SquadManager>().setColor(Color.red);
+			allSquads.Add(newSquad);
         }
 
 		for (int i = 0; i < 20; i += 5)
@@ -27,6 +34,7 @@ public class LoadGame : MonoBehaviour
 			newSquad.tag = "Player1Squad";
 			newSquad.GetComponent<SquadManager>().init();
 			newSquad.GetComponent<SquadManager>().setColor(Color.blue);
+			allSquads.Add(newSquad);
 		}
 
         Controller controllerScript = GetComponent<Controller>();

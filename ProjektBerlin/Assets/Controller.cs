@@ -43,9 +43,13 @@ public class Controller : MonoBehaviour
 
     private int currentPlayersTurn = 0;
 
+	private ArrayList allSquads;//taken on init from LoadGame
+
     //called by loadgame
     public void init()
     {
+		allSquads = GetComponent<LoadGame> ().getAllSquads ();
+
 		updateUI ();
         selectedLight = GameObject.Find("SelectedLight");
         if (selectedLight == null) throw new MissingReferenceException("Need SelectedLight");
@@ -53,8 +57,6 @@ public class Controller : MonoBehaviour
         selectedTargetIndex = -1;
 
         attackProj = GameObject.Find("AttackRadius");
-
-     
 
         //FoV
         materialFov = (Material)Resources.Load("Materials/FoV");
@@ -80,8 +82,7 @@ public class Controller : MonoBehaviour
 		Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Squad"),LayerMask.NameToLayer("Squad"));
 		Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Unit"),LayerMask.NameToLayer("Squad"));
 		Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Unit"),LayerMask.NameToLayer("Unit"));
-
-
+		
     }
 
     /// <summary>
@@ -112,7 +113,6 @@ public class Controller : MonoBehaviour
         int i = 0;
         while (i < hitColliders.Length)
         {
-            
             for(int j = 0; j < NUM_PLAYERS; j++)
             {
                 string playerTarget = "Player" + j.ToString() + "Squad";
@@ -122,9 +122,6 @@ public class Controller : MonoBehaviour
                     Vector3 targetPos = hitColliders[i].gameObject.transform.position;
                     Vector3 dir = (targetPos - myPos).normalized;
                     float distance = Vector3.Distance(myPos, targetPos);
-
-                    //Should be unit layer and squad layer
-                    //int mask = 1 << 8 | 1 << 15;
 
                     if (!Physics.Raycast(myPos,dir,distance, detectLayersAttack))
                         targets.Add(hitColliders[i].gameObject);
@@ -275,10 +272,7 @@ public class Controller : MonoBehaviour
 			currentStage = TurnStage.None;
 		}
 		else if(getSelectedManager ().numActions == 0) {
-			currentStage = TurnStage.None;
-			if (checkTurnComplete ())
-				nextTurn ();
-			else selectNextAvalibleSquad();
+			nextTurn();
 		}
         else
             currentStage = TurnStage.InBetween;
@@ -293,27 +287,36 @@ public class Controller : MonoBehaviour
         return 90 - Mathf.Rad2Deg * Mathf.Atan2(transform.forward.z, transform.forward.x); // Left handed CW. z = angle 0, x = angle 90
     }
 
-    bool checkTurnComplete()
+    bool checkRoundComplete()
     {
-        foreach (GameObject g in squads)
+        foreach (GameObject g in allSquads)
         {
             if (g.GetComponent<SquadManager>().numActions > 0)
                 return false;
         }
-
         return true;
     }
 
+	void nextTurn(){
+		if (checkRoundComplete ())
+			nextRound ();
+		else {
+			currentPlayersTurn = (currentPlayersTurn + 1) % NUM_PLAYERS;
+			updateSquadList ("Player" + currentPlayersTurn + "Squad");
+			selectNextAvalibleSquad ();
+			currentStage=TurnStage.None;
+		}
+	}
+
     //call at end of turn
-    void nextTurn()
+    void nextRound()
     {
-        foreach (GameObject g in squads)
+        foreach (GameObject g in allSquads)
         {
             g.GetComponent<SquadManager>().resetActions();
         }
         currentPlayersTurn = (currentPlayersTurn + 1) % NUM_PLAYERS;
         updateSquadList("Player" + currentPlayersTurn + "Squad");
-        Debug.Log("Player #" + currentPlayersTurn);
     }
 
 	int calculateDamage(int power){
