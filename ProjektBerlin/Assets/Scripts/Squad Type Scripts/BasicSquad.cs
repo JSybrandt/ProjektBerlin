@@ -8,31 +8,36 @@ public class BasicSquad : MonoBehaviour {
 
     }
 
-    public void init(out Transform[] unitTargets, out GameObject[] units)
+    public void init()
     {
-        const int size = 5;
-        unitTargets = new Transform[size];
+        SquadManager squad = GetComponent<SquadManager>();
 
-        for (int i = 0; i < size; i++)
+        squad.size = 5;
+        squad.attackDistance = 20;
+        squad.movementDistance = 50;
+
+        squad.unitTargets = new Transform[squad.size];
+
+        for (int i = 0; i < squad.size; i++)
         {
-            unitTargets[i] = new GameObject().transform;
-            unitTargets[i].parent = this.transform;
-            unitTargets[i].localPosition = Quaternion.Euler(0, i * 360 / size, 0) * Vector3.forward * 1.5f;
+            squad.unitTargets[i] = new GameObject().transform;
+            squad.unitTargets[i].parent = transform;
+            squad.unitTargets[i].localPosition = Quaternion.Euler(0, i * 360 / squad.size, 0) * Vector3.forward * 1.5f;
         }
 
         GameObject unitPrefab = (GameObject)Resources.Load("Unit");
         if (unitPrefab == null)
             throw new MissingReferenceException("Failed to find Unit Prefab.");
 
-        units = new GameObject[size];
-        for (int i = 0; i < size; i++)
+        squad.units = new GameObject[squad.size];
+        for (int i = 0; i < squad.size; i++)
         {
-            units[i] = (GameObject)Instantiate(unitPrefab, unitTargets[i].position, Quaternion.identity);
-            units[i].transform.position = unitTargets[i].position;
+            squad.units[i] = (GameObject)Instantiate(unitPrefab, squad.unitTargets[i].position, Quaternion.identity);
+            squad.units[i].transform.position = squad.unitTargets[i].position;
         }
 
-        units[units.Length - 1].GetComponent<UnitManager>().power = 4;
-        units[units.Length - 1].transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+        squad.units[squad.units.Length - 1].GetComponent<UnitManager>().power = 4;
+        squad.units[squad.units.Length - 1].transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
     }
 	
 	// Update is called once per frame

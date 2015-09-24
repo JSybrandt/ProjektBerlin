@@ -4,7 +4,8 @@ using System.Collections.Generic;
 
 public class SquadManager : MonoBehaviour {
 
-	public int size = 5;
+    [HideInInspector]
+    public int size = 0;
 
 	private float unitDistanceFromCenter = 1.5f;
 
@@ -22,12 +23,16 @@ public class SquadManager : MonoBehaviour {
     private GameObject moveProj;
     private GameObject attackProj;
 
-    private float movementDistance;
-    private float attackDistance;
+    [HideInInspector]
+    public float movementDistance;
+    [HideInInspector]
+    public float attackDistance;
 
-	//TODO: This might need to become a collection of game objects
-	private Transform[] unitTargets;
-	private GameObject[] units;
+    //TODO: This might need to become a collection of game objects
+    [HideInInspector]
+    public Transform[] unitTargets;
+    [HideInInspector]
+    public GameObject[] units;
 
 	private const float MAX_UNIT_HEIGHT = 0.5f;
 	private const float FLOOR_DISPACEMENT = 1f;
@@ -36,7 +41,7 @@ public class SquadManager : MonoBehaviour {
     private Rigidbody rb;
 
 	// Use this for initialization
-	public void init (float atkRadius = 10, float mvRadius = 20) {
+	public void init (float atkRadius = 20, float mvRadius = 50) {
 
         myLight = new GameObject();
         myLight.transform.position = transform.position;
@@ -51,30 +56,6 @@ public class SquadManager : MonoBehaviour {
         attackProj = GameObject.Find("AttackRadius");
 
         lightPiece.enabled = false;
-
-        gameObject.AddComponent<BasicSquad>();
-        GetComponent<BasicSquad>().init(out unitTargets,out units);
-
-        //unitTargets = new Transform[size];
-
-		//for (int i = 0; i < size; i++) {
-		//	unitTargets[i] = new GameObject().transform;
-		//	unitTargets[i].parent = this.transform;
-		//	unitTargets[i].localPosition = Quaternion.Euler(0,i*360/size,0)*Vector3.forward*unitDistanceFromCenter;
-		//}
-
-		//GameObject unitPrefab = (GameObject)Resources.Load("Unit");
-		//if(unitPrefab == null)
-		//	throw new MissingReferenceException("Failed to find Unit Prefab.");
-
-		//units = new GameObject[size];
-		//for (int i=0; i<size; i++) {
-		//	units[i] = (GameObject)Instantiate(unitPrefab,unitTargets[i].position,Quaternion.identity);
-		//	units[i].transform.position = unitTargets[i].position;
-		//}
-
-		//units [units.Length - 1].GetComponent<UnitManager> ().power = 4;
-		//units [units.Length - 1].transform.localScale = new Vector3 (1.5f, 1.5f, 1.5f);
 
 		rb = GetComponent<Rigidbody> ();
 		if(rb==null) throw new MissingComponentException("Need Rigidbody");

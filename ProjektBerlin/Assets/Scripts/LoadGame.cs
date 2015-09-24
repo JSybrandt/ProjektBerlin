@@ -24,8 +24,18 @@ public class LoadGame : MonoBehaviour
             GameObject newSquad = (GameObject)Instantiate(SquadPrefab, new Vector3(i, 0, -70), Quaternion.identity);
             newSquad.tag = "Player0Squad";
 			newSquad.GetComponent<SquadManager>().init();
-			newSquad.GetComponent<SquadManager>().setColor(Color.red);
-			allSquads.Add(newSquad);
+            if (i <= 10)
+            {
+                newSquad.AddComponent<BasicSquad>();
+                newSquad.GetComponent<BasicSquad>().init();
+            }
+            else
+            {
+                newSquad.AddComponent<SniperSquad>();
+                newSquad.GetComponent<SniperSquad>().init();
+            }
+            newSquad.GetComponent<SquadManager>().setColor(Color.red);
+            allSquads.Add(newSquad);
         }
 
 		for (int i = 0; i < 20; i += 5)
@@ -33,9 +43,19 @@ public class LoadGame : MonoBehaviour
 			GameObject newSquad = (GameObject)Instantiate(SquadPrefab, new Vector3(i, 0, 60), Quaternion.identity);
 			newSquad.tag = "Player1Squad";
 			newSquad.GetComponent<SquadManager>().init();
-			newSquad.GetComponent<SquadManager>().setColor(Color.blue);
-			allSquads.Add(newSquad);
-		}
+            if (i <= 10)
+            {
+                newSquad.AddComponent<BasicSquad>();
+                newSquad.GetComponent<BasicSquad>().init();
+            }
+            else
+            {
+                newSquad.AddComponent<SniperSquad>();
+                newSquad.GetComponent<SniperSquad>().init();
+            }
+            newSquad.GetComponent<SquadManager>().setColor(Color.blue);
+            allSquads.Add(newSquad);
+        }
 
         Controller controllerScript = GetComponent<Controller>();
 		controllerScript.init ();

@@ -412,6 +412,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 2.28574133
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2d50cc279f64f40889be1c811cfc1a1a, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d50cc279f64f40889be1c811cfc1a1a, type: 3}
   m_IsPrefabParent: 0
@@ -733,7 +737,7 @@ GameObject:
   - 4: {fileID: 327189572}
   - 218: {fileID: 327189571}
   - 154: {fileID: 327189570}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -847,6 +851,10 @@ Prefab:
     - target: {fileID: 400000, guid: 2d50cc279f64f40889be1c811cfc1a1a, type: 3}
       propertyPath: m_LocalScale.z
       value: 2.14765906
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2d50cc279f64f40889be1c811cfc1a1a, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d50cc279f64f40889be1c811cfc1a1a, type: 3}
@@ -2271,6 +2279,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1.70776069
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 86226a8a0a3db43dcbaf80d6c502e8f7, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 86226a8a0a3db43dcbaf80d6c502e8f7, type: 3}
   m_IsPrefabParent: 0
@@ -2315,7 +2327,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11936988, guid: 876826ab152884c4894751cdfe29078f, type: 2}
       propertyPath: m_IgnoreLayers.m_Bits
-      value: 8192
+      value: 35840
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 876826ab152884c4894751cdfe29078f, type: 2}
@@ -2502,6 +2514,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1.50414205
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 86226a8a0a3db43dcbaf80d6c502e8f7, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 86226a8a0a3db43dcbaf80d6c502e8f7, type: 3}
   m_IsPrefabParent: 0
@@ -2621,6 +2637,10 @@ Prefab:
     - target: {fileID: 400000, guid: 502c0066a239043219daeb1f6b27a1e2, type: 3}
       propertyPath: m_LocalScale.z
       value: 1.76149797
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 502c0066a239043219daeb1f6b27a1e2, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 502c0066a239043219daeb1f6b27a1e2, type: 3}
@@ -2802,6 +2822,10 @@ Prefab:
     - target: {fileID: 400000, guid: 3d9f7f8816b5b4667bb552d0d31f7e76, type: 3}
       propertyPath: m_LocalScale.z
       value: 1.62999916
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3d9f7f8816b5b4667bb552d0d31f7e76, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3d9f7f8816b5b4667bb552d0d31f7e76, type: 3}
@@ -3116,6 +3140,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1.58304644
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 55bc2ab6833f546fc80ad96fcb53ef62, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 55bc2ab6833f546fc80ad96fcb53ef62, type: 3}
   m_IsPrefabParent: 0
@@ -3160,7 +3188,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11967890, guid: afdde0f019e804f4582d6d43e1e27a74, type: 2}
       propertyPath: m_IgnoreLayers.m_Bits
-      value: 8193
+      value: 34817
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: afdde0f019e804f4582d6d43e1e27a74, type: 2}
