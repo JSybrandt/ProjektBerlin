@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class SquadManager : MonoBehaviour {
 
@@ -23,6 +24,7 @@ public class SquadManager : MonoBehaviour {
 
     public float movementDistance;
     public float attackDistance;
+    private float attackRadius;
 
 	//TODO: This might need to become a collection of game objects
 	private Transform[] unitTargets;
@@ -213,6 +215,43 @@ public class SquadManager : MonoBehaviour {
     public void disableLight()
     {
         lightPiece.enabled = false;
+    }
+
+    public List<GameObject> getTargets(Vector3 targetCenter, int activePlayer, int numPlayers, LayerMask detectLayersAttack)
+    {
+
+        Vector3 center = gameObject.transform.position;
+
+        attackProj.GetComponent<Projector>().orthographicSize = attackRadius; //Should be set by unit
+        attackProj.transform.position = new Vector3(targetCenter.x, 9, targetCenter.z);
+        attackProj.GetComponent<Projector>().enabled = true;
+
+        Collider[] hitColliders = Physics.OverlapSphere(center, attackRadius); //Needs to figure out layers
+        List<GameObject> targets = new List<GameObject>();
+
+        Debug.Log("Number of objects in range: " + hitColliders.Length);
+
+        int i = 0;
+        while (i < hitColliders.Length)
+        {
+            for (int j = 0; j < numPlayers; j++)
+            {
+                string playerTarget = "Player" + j.ToString() + "Squad";
+                if (j != activePlayer && hitColliders[i].tag == playerTarget)
+                {
+                    Vector3 myPos = targetCenter;
+                    Vector3 targetPos = hitColliders[i].gameObject.transform.position;
+                    Vector3 dir = (targetPos - myPos).normalized;
+                    float distance = Vector3.Distance(myPos, targetPos);
+
+                    if (!Physics.Raycast(myPos, dir, distance, detectLayersAttack))
+                        targets.Add(hitColliders[i].gameObject);
+                }
+            }
+            i++;
+        }
+
+        return targets;
     }
 
 	public int getPower(){

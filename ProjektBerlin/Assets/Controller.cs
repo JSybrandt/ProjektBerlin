@@ -138,7 +138,7 @@ public class Controller : MonoBehaviour
     {
         squads = GameObject.FindGameObjectsWithTag(tag);
         selectedSquadIndex = 0;
-		selectNextAvalibleSquad ();
+        selectNextAvailableSquad();
         if (squads.Length == 0) throw new UnityException("Failed to find squad.");
 		getMainCamController ().setCameraTarget (squads [selectedSquadIndex].transform.position);
         setLight();
@@ -153,7 +153,7 @@ public class Controller : MonoBehaviour
     {
         if (Input.GetButtonUp("R1"))
         {
-			selectNextAvalibleSquad();
+            selectNextAvailableSquad();
             
             if (selectedRB != null) selectedRB.velocity = Vector3.zero;
 			Camera.main.GetComponent<CameraController>().setCameraTarget(squads[selectedSquadIndex].transform.position);
@@ -162,7 +162,7 @@ public class Controller : MonoBehaviour
         if (Input.GetButtonUp("L1"))
         {
 
-			selectPrevAvalibleSquad();
+            selectPrevAvailableSquad();
 
             if (selectedRB != null) selectedRB.velocity = Vector3.zero;
 			Camera.main.GetComponent<CameraController>().setCameraTarget(squads[selectedSquadIndex].transform.position);
@@ -224,7 +224,7 @@ public class Controller : MonoBehaviour
 
     }
 
-	private void selectNextAvalibleSquad (){
+	private void selectNextAvailableSquad(){
 		for(int i =0; i<squads.Length; i++)
 		{
 			selectedSquadIndex++;
@@ -236,7 +236,7 @@ public class Controller : MonoBehaviour
 			}
 		}
 	}
-	private void selectPrevAvalibleSquad (){
+	private void selectPrevAvailableSquad(){
 		for(int i =0; i<squads.Length; i++)
 		{
 			selectedSquadIndex--;
@@ -303,7 +303,7 @@ public class Controller : MonoBehaviour
 		else {
 			currentPlayersTurn = (currentPlayersTurn + 1) % NUM_PLAYERS;
 			updateSquadList ("Player" + currentPlayersTurn + "Squad");
-			selectNextAvalibleSquad ();
+            selectNextAvailableSquad();
 			currentStage=TurnStage.None;
 		}
 	}
