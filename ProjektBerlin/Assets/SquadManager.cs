@@ -51,6 +51,8 @@ public class SquadManager : MonoBehaviour {
         lightPiece.color = Color.red;
         lightPiece.intensity = 8;
 
+        attackRadius = 10;
+
         moveProj = GameObject.Find("MoveRadius");
         attackProj = GameObject.Find("AttackRadius");
 
@@ -217,16 +219,16 @@ public class SquadManager : MonoBehaviour {
         lightPiece.enabled = false;
     }
 
-    public List<GameObject> getTargets(Vector3 targetCenter, int activePlayer, int numPlayers, LayerMask detectLayersAttack)
+    public List<GameObject> getTargets(int activePlayer, int numPlayers, LayerMask detectCover, LayerMask detectPartial)
     {
 
-        Vector3 center = gameObject.transform.position;
+        Vector3 myPos = transform.position;
 
         attackProj.GetComponent<Projector>().orthographicSize = attackRadius; //Should be set by unit
-        attackProj.transform.position = new Vector3(targetCenter.x, 9, targetCenter.z);
+        attackProj.transform.position = new Vector3(myPos.x, 9, myPos.z);
         attackProj.GetComponent<Projector>().enabled = true;
 
-        Collider[] hitColliders = Physics.OverlapSphere(center, attackRadius); //Needs to figure out layers
+        Collider[] hitColliders = Physics.OverlapSphere(myPos, attackRadius); //Needs to figure out layers
         List<GameObject> targets = new List<GameObject>();
 
         Debug.Log("Number of objects in range: " + hitColliders.Length);
@@ -239,12 +241,12 @@ public class SquadManager : MonoBehaviour {
                 string playerTarget = "Player" + j.ToString() + "Squad";
                 if (j != activePlayer && hitColliders[i].tag == playerTarget)
                 {
-                    Vector3 myPos = targetCenter;
                     Vector3 targetPos = hitColliders[i].gameObject.transform.position;
                     Vector3 dir = (targetPos - myPos).normalized;
                     float distance = Vector3.Distance(myPos, targetPos);
 
-                    if (!Physics.Raycast(myPos, dir, distance, detectLayersAttack))
+                    //Detect full cover
+                    if (!Physics.Raycast(myPos, dir, distance, detectCover))
                         targets.Add(hitColliders[i].gameObject);
                 }
             }
@@ -254,7 +256,90 @@ public class SquadManager : MonoBehaviour {
         return targets;
     }
 
-	public int getPower(){
+    public Hit detectHits(Vector3 targetCenter, LayerMask detectCover, LayerMask detectPartial)
+    {
+        Vector3 myPos = transform.position;
+        Vector3 targetPos = targetCenter;
+        Vector3 dir = (targetPos - myPos).normalized;
+        float distance = Vector3.Distance(myPos, targetPos);
+
+        Hit myHits = new Hit();
+
+        //If not behind cover
+        if (!Physics.Raycast(myPos, dir, distance, detectCover))
+        {
+            //Detect partial cover
+            if (!Physics.Raycast(myPos, dir, distance, detectPartial))
+            {
+                myHits.dodgeChance = 2;
+                myHits.hitChance = 4;
+            }
+            else
+            {
+                Debug.Log("I hit partial cover!");
+                myHits.hasPartialCover = true;
+                myHits.dodgeChance = 2;
+                myHits.hitChance = 2;
+            }
+        }
+
+        return myHits;
+    }
+
+    public List<GameObject> getActiveUnits()
+    {
+        List<GameObject> myUnits = new List<GameObject>();
+
+        foreach (GameObject u in units)
+        {
+            if (u.activeInHierarchy)
+            {
+                myUnits.Add(u);
+            }
+        }
+
+        return myUnits;
+    }
+
+    //public List<Hit> squadHits(GameObject targetSquad, int activePlayer, int numPlayers, LayerMask detectCover, LayerMask detectPartial)
+    //{
+    //    List<Hit> myHits = getTargets(targetSquad.transform.position,activePlayer,numPlayers,detectCover,detectPartial);
+
+    //    //List<GameObject> enemyUnits = targetSquad.GetComponent<SquadManager>().getActiveUnits();
+
+    //    //foreach (GameObject u in getActiveUnits())
+    //    //{
+    //    //    myHits.AddRange(u.GetComponent<UnitManager>().detectHits(enemyUnits,activePlayer,numPlayers,detectCover,detectPartial));
+    //    //}
+
+    //    return myHits;
+    //}
+
+    public void fightTarget(GameObject targetSquad, LayerMask detectCover, LayerMask detectPartial)
+    {
+        Hit myHits = detectHits(targetSquad.transform.position, detectCover, detectPartial);
+        int damage = calculateDamage(myHits);
+        targetSquad.GetComponent<SquadManager>().takeDamage(damage);
+    }
+
+    int calculateDamage(Hit myHits)
+    {
+        int hits = 0;
+        for (int i = 0; i < getPower(); i++)
+        {
+            if (Random.Range(1, 6) <= myHits.hitChance) hits++;
+        }
+        int damage = 0;
+        for (int i = 0; i < hits; i++)
+        {
+            if (Random.Range(1, 6) <= myHits.dodgeChance) damage++;
+        }
+
+        Debug.Log("Attack:" + getPower() + " Hit Chance: " + myHits.hitChance + " Hits:" + hits + " Dodge Chance: " + myHits.dodgeChance + " Damage:" + damage);
+        return damage;
+    }
+
+    public int getPower(){
 		int sum = 0;
 		foreach (GameObject u in units) {
 			if(u.activeInHierarchy){

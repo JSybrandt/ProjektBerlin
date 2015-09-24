@@ -23,7 +23,8 @@ public class Controller : MonoBehaviour
 
     //Attacking variables
     private List<GameObject> targetsInRange;
-    public LayerMask detectLayersAttack;
+    public LayerMask detectCover;
+    public LayerMask detectPartial;
     private GameObject attackProj;
     private int selectedTargetIndex;
 
@@ -123,7 +124,7 @@ public class Controller : MonoBehaviour
                     Vector3 dir = (targetPos - myPos).normalized;
                     float distance = Vector3.Distance(myPos, targetPos);
 
-                    if (!Physics.Raycast(myPos,dir,distance, detectLayersAttack))
+                    if (!Physics.Raycast(myPos,dir,distance, detectCover))
                         targets.Add(hitColliders[i].gameObject);
                 }
             }
@@ -162,7 +163,7 @@ public class Controller : MonoBehaviour
         if (Input.GetButtonUp("L1"))
         {
 
-            selectPrevAvailableSquad();
+			selectPrevAvailableSquad();
 
             if (selectedRB != null) selectedRB.velocity = Vector3.zero;
 			Camera.main.GetComponent<CameraController>().setCameraTarget(squads[selectedSquadIndex].transform.position);
@@ -426,8 +427,10 @@ public class Controller : MonoBehaviour
                     //if (getSelectedManager().numActions == 2) currentStage = TurnStage.None;
                     //if (getSelectedManager().numActions == 1) currentStage = TurnStage.InBetween;
                     Debug.Log("I shot someone!");
-					int power = getSelectedManager().getPower();
-					targetsInRange[selectedTargetIndex].SendMessage("takeDamage",calculateDamage(power));
+					//int power = getSelectedManager().getPower();
+                    getSelectedManager().fightTarget(targetsInRange[selectedTargetIndex],detectCover,detectPartial);
+
+                    //targetsInRange[selectedTargetIndex].SendMessage("takeDamage",calculateDamage(power));
                     getSelectedManager().skipAction();
                     checkStateEndOfAction();
 
