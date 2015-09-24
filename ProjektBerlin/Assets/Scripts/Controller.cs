@@ -203,7 +203,7 @@ public class Controller : MonoBehaviour
             if (getSelectedManager().numActions > 0)
             {
                 currentStage = TurnStage.Combat;
-                targetsInRange = getTargets(selectedRB.position, selectedRB.GetComponent<SquadManager>().attackDistance, currentPlayersTurn);
+                targetsInRange = selectedRB.GetComponent<SquadManager>().getTargets(currentPlayersTurn,NUM_PLAYERS,detectCover,detectPartial);
 				updateUI();
                 Debug.Log("Number of targets within range: " + targetsInRange.Count.ToString());
             }

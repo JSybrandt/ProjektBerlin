@@ -3160,7 +3160,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11967890, guid: afdde0f019e804f4582d6d43e1e27a74, type: 2}
       propertyPath: m_IgnoreLayers.m_Bits
-      value: 8192
+      value: 8193
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: afdde0f019e804f4582d6d43e1e27a74, type: 2}
