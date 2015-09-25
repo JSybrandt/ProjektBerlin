@@ -11,10 +11,19 @@ enum TurnStage
     InBetween
 }
 
+enum AttackType
+{
+    Basic,
+    Unit,
+    Squad
+}
+
 public class Controller : MonoBehaviour
 {
 
     public const int NUM_PLAYERS = 2;
+    [HideInInspector]
+    public int numPlayers = NUM_PLAYERS;
 
     public float turnSpeed = 20;
     public float zoomSpeed = 20;
@@ -22,11 +31,14 @@ public class Controller : MonoBehaviour
     private GameObject[] squads;
 
     //Attacking variables
-    private List<GameObject> targetsInRange;
+    [HideInInspector]
+    public List<GameObject> targetsInRange;
+    //DON'T HIDE LAYER MASKS
     public LayerMask detectCover;
     public LayerMask detectPartial;
     private GameObject attackProj;
-    private int selectedTargetIndex;
+    [HideInInspector]
+    public int selectedTargetIndex;
 
     private int selectedSquadIndex;
     private GameObject selectedLight;
@@ -36,13 +48,15 @@ public class Controller : MonoBehaviour
     private Vector3 lightOffset = new Vector3(0, 2, 0);
 
     private TurnStage currentStage = TurnStage.None;
+    private AttackType currentAttack = AttackType.Basic;
 
     //FoV
     private Mesh mesh;
     private Material materialFov;
     private const int fovQuality = 15;
 
-    private int currentPlayersTurn = 0;
+    [HideInInspector]
+    public int currentPlayersTurn = 0;
 
 	private ArrayList allSquads;//taken on init from LoadGame
 
@@ -250,7 +264,7 @@ public class Controller : MonoBehaviour
 		}
 	}
 
-    private void checkStateEndOfAction()
+    public void checkStateEndOfAction()
     {
         if (targetsInRange.Count > 0)
         {
@@ -260,6 +274,7 @@ public class Controller : MonoBehaviour
                     target.SendMessage("disableLight");
             }
             targetsInRange.Clear();
+            currentAttack = AttackType.Basic;
             selectedTargetIndex = -1;
         }
         attackProj.GetComponent<Projector>().enabled = false;
@@ -398,54 +413,81 @@ public class Controller : MonoBehaviour
                     getSelectedManager().skipAction();
                     checkStateEndOfAction();
                 }
-                if (Input.GetButtonUp("R1") && targetsInRange.Count > 0)
+                if (currentAttack == AttackType.Basic)
                 {
-                    attackProj.GetComponent<Projector>().enabled = false;
-                    if (selectedTargetIndex >= 0)
-                        targetsInRange[selectedTargetIndex].SendMessage("disableLight");
 
-                    selectedTargetIndex++;
-                    selectedTargetIndex %= targetsInRange.Count;
-                    targetsInRange[selectedTargetIndex].SendMessage("enableLight");
+                    if (Input.GetButtonUp("R1") && targetsInRange.Count > 0)
+                    {
+                        attackProj.GetComponent<Projector>().enabled = false;
+                        if (selectedTargetIndex >= 0)
+                            targetsInRange[selectedTargetIndex].SendMessage("disableLight");
 
+                        selectedTargetIndex++;
+                        selectedTargetIndex %= targetsInRange.Count;
+                        targetsInRange[selectedTargetIndex].SendMessage("enableLight");
+                    }
+                    if (Input.GetButtonUp("L1") && targetsInRange.Count > 0)
+                    {
+                        attackProj.GetComponent<Projector>().enabled = false;
+                        if (selectedTargetIndex >= 0)
+                            targetsInRange[selectedTargetIndex].SendMessage("disableLight");
+                        else
+                            selectedTargetIndex = 0;
 
+                        selectedTargetIndex--;
+                        if (selectedTargetIndex < 0) selectedTargetIndex = targetsInRange.Count - 1;
+                        targetsInRange[selectedTargetIndex].SendMessage("enableLight");
+                    }
+                    if (Input.GetButtonDown("Cross") && targetsInRange.Count > 0 && selectedTargetIndex >= 0)   //A
+                    {
+                        //if (getSelectedManager().numActions == 2) currentStage = TurnStage.None;
+                        //if (getSelectedManager().numActions == 1) currentStage = TurnStage.InBetween;
+                        Debug.Log("I shot someone!");
+                        //int power = getSelectedManager().getPower();
+                        getSelectedManager().fightTarget(targetsInRange[selectedTargetIndex], detectCover, detectPartial);
+
+                        //targetsInRange[selectedTargetIndex].SendMessage("takeDamage",calculateDamage(power));
+                        getSelectedManager().skipAction();
+                        checkStateEndOfAction();
+
+                    }
+                    if (Input.GetButtonDown("Circle"))  //B
+                    {
+                        if (getSelectedManager().numActions == 2) currentStage = TurnStage.None;
+                        if (getSelectedManager().numActions == 1) currentStage = TurnStage.InBetween;
+                        //getSelectedManager().skipAction();
+                        checkStateEndOfAction();
+                    }
+                    if (Input.GetButtonUp("Square"))
+                    {
+                        currentAttack = AttackType.Unit;
+                        targetsInRange.Clear();
+                        attackProj.GetComponent<Projector>().enabled = false;
+                        getSelectedManager().unitAbility();
+                    }
+                    if (Input.GetButtonUp("Triangle"))
+                    {
+                        currentAttack = AttackType.Squad;
+                        targetsInRange.Clear();
+                        attackProj.GetComponent<Projector>().enabled = false;
+                        getSelectedManager().squadAbility();
+                    }
                 }
-                if (Input.GetButtonUp("L1") && targetsInRange.Count > 0)
+                else if(currentAttack == AttackType.Squad) // && Input.GetButtonUp("Triangle")
                 {
-                    attackProj.GetComponent<Projector>().enabled = false;
-                    if (selectedTargetIndex >= 0)
-                        targetsInRange[selectedTargetIndex].SendMessage("disableLight");
-                    else
-                        selectedTargetIndex = 0;
-
-                    selectedTargetIndex--;
-                    if (selectedTargetIndex < 0) selectedTargetIndex = targetsInRange.Count - 1;
-                    targetsInRange[selectedTargetIndex].SendMessage("enableLight");
+                    //Work on this next!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                    getSelectedManager().squadAbilityUpdate();
                 }
-                if (Input.GetButtonDown("Cross") && targetsInRange.Count > 0 && selectedTargetIndex >= 0)   //A
+                else if(currentAttack == AttackType.Unit) // && Input.GetButtonUp("Square")
                 {
-                    //if (getSelectedManager().numActions == 2) currentStage = TurnStage.None;
-                    //if (getSelectedManager().numActions == 1) currentStage = TurnStage.InBetween;
-                    Debug.Log("I shot someone!");
-					//int power = getSelectedManager().getPower();
-                    getSelectedManager().fightTarget(targetsInRange[selectedTargetIndex],detectCover,detectPartial);
-
-                    //targetsInRange[selectedTargetIndex].SendMessage("takeDamage",calculateDamage(power));
-                    getSelectedManager().skipAction();
-                    checkStateEndOfAction();
-
+                    getSelectedManager().unitAbilityUpdate();
                 }
-                if (Input.GetButtonDown("Circle"))  //B
-                {
-                    if (getSelectedManager().numActions == 2) currentStage = TurnStage.None;
-                    if (getSelectedManager().numActions == 1) currentStage = TurnStage.InBetween;
-                    //getSelectedManager().skipAction();
-                    checkStateEndOfAction();
-                }
-                else
-                {
-					//this is where aiming would happen
 
+                if(Input.GetButtonUp("Circle")) //Reset to basic ability
+                {
+                    
+                    currentAttack = AttackType.Basic;
+                    targetsInRange = selectedRB.GetComponent<SquadManager>().getTargets(currentPlayersTurn, NUM_PLAYERS, detectCover, detectPartial);
                 }
             }
             setLight();

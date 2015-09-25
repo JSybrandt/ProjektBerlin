@@ -37,7 +37,33 @@ public class BasicSquad : MonoBehaviour {
         }
 
         squad.units[squad.units.Length - 1].GetComponent<UnitManager>().power = 4;
+        squad.units[squad.units.Length - 1].GetComponent<UnitManager>().isSpecial = true;
         squad.units[squad.units.Length - 1].transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+
+        squad.unitAbility = new SquadManager.Ability(grenade);
+        squad.squadAbility = new SquadManager.Ability(retreat);
+        squad.unitAbilityUpdate = new SquadManager.AbilityUpdate(grenadeUpdate);
+        squad.squadAbilityUpdate = new SquadManager.AbilityUpdate(retreatUpdate);
+    }
+
+    void grenade()
+    {
+
+    }
+
+    void grenadeUpdate()
+    {
+
+    }
+
+    void retreat()
+    {
+
+    }
+
+    void retreatUpdate()
+    {
+
     }
 	
 	// Update is called once per frame

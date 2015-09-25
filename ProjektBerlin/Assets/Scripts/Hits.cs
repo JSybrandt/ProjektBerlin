@@ -1,4 +1,9 @@
-﻿/// <summary>
+﻿/*
+a Hit should be returned for each squad hit by a particular attack/ability from a squad/unit.
+EX: a grenade that hits two squads should return two Hit objects.
+*/
+
+/// <summary>
 /// Hits are classes meant to be collected by the Squad Manager from its Units when an attack is made.
 /// </summary>
 public class Hit

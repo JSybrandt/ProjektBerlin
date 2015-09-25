@@ -4119,14 +4119,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d7ef8e9eb7443744b324c7eddf22f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numPlayers: 2
   turnSpeed: 120
   zoomSpeed: 7
+  targetsInRange: []
   detectCover:
     serializedVersion: 2
-    m_Bits: 8193
+    m_Bits: 10241
   detectPartial:
     serializedVersion: 2
     m_Bits: 1024
+  selectedTargetIndex: 0
+  currentPlayersTurn: 0
 --- !u!4 &2105702949
 Transform:
   m_ObjectHideFlags: 0
