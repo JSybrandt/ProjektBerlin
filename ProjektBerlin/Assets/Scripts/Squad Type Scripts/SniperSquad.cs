@@ -29,7 +29,7 @@ public class SniperSquad : MonoBehaviour {
             squad.unitTargets[i].localPosition = Quaternion.Euler(0, i * 360 / squad.size, 0) * Vector3.forward * 1.5f;
         }
 
-        GameObject unitPrefab = (GameObject)Resources.Load("Unit");
+        GameObject unitPrefab = (GameObject)Resources.Load("UnitSniper");
         if (unitPrefab == null)
             throw new MissingReferenceException("Failed to find Unit Prefab.");
 

@@ -17,6 +17,7 @@ public class UnitManager : MonoBehaviour
     private int dodge = 2;
     public int _dodge { get { return dodge; } set { dodge = Mathf.Max(0, value); } }
 
+    [HideInInspector]
     public bool isSpecial = false;
 
     public List<Hit> detectHits(List<GameObject> enemyUnits, int activePlayer, int numPlayers, LayerMask detectCover, LayerMask detectPartial)
