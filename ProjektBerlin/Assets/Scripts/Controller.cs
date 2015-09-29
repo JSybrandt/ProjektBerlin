@@ -34,9 +34,10 @@ public class Controller : MonoBehaviour
     [HideInInspector]
     public List<GameObject> targetsInRange;
     //DON'T HIDE LAYER MASKS
-    public LayerMask detectCover;
-    public LayerMask detectPartial;
-    private GameObject attackProj;
+    public static LayerMask detectCover;
+    public static LayerMask detectPartial;
+    [HideInInspector]
+    public GameObject attackProj;
     [HideInInspector]
     public int selectedTargetIndex;
 
@@ -63,7 +64,9 @@ public class Controller : MonoBehaviour
     //called by loadgame
     public void init()
     {
-		allSquads = GetComponent<LoadGame> ().getAllSquads ();
+        Combat.gameLogic = this;
+
+		allSquads = GetComponent<LoadGame> ().getAllSquads();
 
 		updateUI ();
         selectedLight = GameObject.Find("SelectedLight");
@@ -218,8 +221,9 @@ public class Controller : MonoBehaviour
             {
                 currentStage = TurnStage.Combat;
                 targetsInRange = selectedRB.GetComponent<SquadManager>().getTargets(currentPlayersTurn,NUM_PLAYERS,detectCover,detectPartial);
-				updateUI();
-                Debug.Log("Number of targets within range: " + targetsInRange.Count.ToString());
+                Combat.findTargets(selectedRB.gameObject);
+                updateUI();
+                //Debug.Log("Number of targets within range: " + targetsInRange.Count.ToString());
             }
         }
         //skip
@@ -415,35 +419,36 @@ public class Controller : MonoBehaviour
                 }
                 if (currentAttack == AttackType.Basic)
                 {
+                    bool fight = false;
+                    Combat.UpdateTarget(selectedRB.GetComponent<SquadManager>(), ref fight);
+                    //if (Input.GetButtonUp("R1") && targetsInRange.Count > 0)
+                    //{
+                    //    attackProj.GetComponent<Projector>().enabled = false;
+                    //    if (selectedTargetIndex >= 0)
+                    //        targetsInRange[selectedTargetIndex].SendMessage("disableLight");
 
-                    if (Input.GetButtonUp("R1") && targetsInRange.Count > 0)
-                    {
-                        attackProj.GetComponent<Projector>().enabled = false;
-                        if (selectedTargetIndex >= 0)
-                            targetsInRange[selectedTargetIndex].SendMessage("disableLight");
+                    //    selectedTargetIndex++;
+                    //    selectedTargetIndex %= targetsInRange.Count;
+                    //    targetsInRange[selectedTargetIndex].SendMessage("enableLight");
+                    //}
+                    //if (Input.GetButtonUp("L1") && targetsInRange.Count > 0)
+                    //{
+                    //    attackProj.GetComponent<Projector>().enabled = false;
+                    //    if (selectedTargetIndex >= 0)
+                    //        targetsInRange[selectedTargetIndex].SendMessage("disableLight");
+                    //    else
+                    //        selectedTargetIndex = 0;
 
-                        selectedTargetIndex++;
-                        selectedTargetIndex %= targetsInRange.Count;
-                        targetsInRange[selectedTargetIndex].SendMessage("enableLight");
-                    }
-                    if (Input.GetButtonUp("L1") && targetsInRange.Count > 0)
-                    {
-                        attackProj.GetComponent<Projector>().enabled = false;
-                        if (selectedTargetIndex >= 0)
-                            targetsInRange[selectedTargetIndex].SendMessage("disableLight");
-                        else
-                            selectedTargetIndex = 0;
-
-                        selectedTargetIndex--;
-                        if (selectedTargetIndex < 0) selectedTargetIndex = targetsInRange.Count - 1;
-                        targetsInRange[selectedTargetIndex].SendMessage("enableLight");
-                    }
-                    if (Input.GetButtonDown("Cross") && targetsInRange.Count > 0 && selectedTargetIndex >= 0)   //A
+                    //    selectedTargetIndex--;
+                    //    if (selectedTargetIndex < 0) selectedTargetIndex = targetsInRange.Count - 1;
+                    //    targetsInRange[selectedTargetIndex].SendMessage("enableLight");
+                    //}
+                    if (fight)   //A
                     {
                         //if (getSelectedManager().numActions == 2) currentStage = TurnStage.None;
                         //if (getSelectedManager().numActions == 1) currentStage = TurnStage.InBetween;
                         Debug.Log("I shot someone!");
-                        getSelectedManager().fightTarget(targetsInRange[selectedTargetIndex], detectCover, detectPartial);
+                        Combat.fightTarget(selectedRB.gameObject);
                         getSelectedManager().skipAction();
                         checkStateEndOfAction();
                     }
@@ -457,14 +462,14 @@ public class Controller : MonoBehaviour
                     if (Input.GetButtonUp("Square"))
                     {
                         currentAttack = AttackType.Unit;
-                        targetsInRange.Clear();
+                        Combat.reset();
                         attackProj.GetComponent<Projector>().enabled = false;
                         getSelectedManager().unitAbility();
                     }
                     if (Input.GetButtonUp("Triangle"))
                     {
                         currentAttack = AttackType.Squad;
-                        targetsInRange.Clear();
+                        Combat.reset();
                         attackProj.GetComponent<Projector>().enabled = false;
                         getSelectedManager().squadAbility();
                     }
@@ -482,7 +487,7 @@ public class Controller : MonoBehaviour
                 {
                     
                     currentAttack = AttackType.Basic;
-                    targetsInRange = getSelectedManager().getTargets(currentPlayersTurn, NUM_PLAYERS, detectCover, detectPartial);
+                    Combat.findTargets(selectedRB.gameObject);
                 }
             }
             setLight();

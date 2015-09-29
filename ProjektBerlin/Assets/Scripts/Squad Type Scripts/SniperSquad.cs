@@ -57,38 +57,21 @@ public class SniperSquad : MonoBehaviour {
 
     void sniperShot()
     {
-        gameLogic.targetsInRange = squad.getTargets(gameLogic.currentPlayersTurn, gameLogic.numPlayers, gameLogic.detectCover, gameLogic.detectPartial, 60);
+        Combat.findTargets(gameObject, 60);
+        //gameLogic.targetsInRange = squad.getTargets(gameLogic.currentPlayersTurn, gameLogic.numPlayers, Controller.detectCover, Controller.detectPartial, 60);
         //gameLogic.updateUI();
         Debug.Log("Sniper: Number of targets within range: " + gameLogic.targetsInRange.Count.ToString());
     }
 
     void sniperShotUpdate()
     {
-        if (Input.GetButtonUp("R1") && gameLogic.targetsInRange.Count > 0)
-        {
-            squad.attackProj.GetComponent<Projector>().enabled = false;
-            if (gameLogic.selectedTargetIndex >= 0)
-                gameLogic.targetsInRange[gameLogic.selectedTargetIndex].SendMessage("disableLight");
+        bool activated = false;
 
-            gameLogic.selectedTargetIndex++;
-            gameLogic.selectedTargetIndex %= gameLogic.targetsInRange.Count;
-            gameLogic.targetsInRange[gameLogic.selectedTargetIndex].SendMessage("enableLight");
-        }
-        else if (Input.GetButtonUp("L1") && gameLogic.targetsInRange.Count > 0)
-        {
-            squad.attackProj.GetComponent<Projector>().enabled = false;
-            if (gameLogic.selectedTargetIndex >= 0)
-                gameLogic.targetsInRange[gameLogic.selectedTargetIndex].SendMessage("disableLight");
-            else
-                gameLogic.selectedTargetIndex = 0;
+        Combat.UpdateTarget(GetComponent<SquadManager>(),ref activated);
 
-            gameLogic.selectedTargetIndex--;
-            if (gameLogic.selectedTargetIndex < 0) gameLogic.selectedTargetIndex = gameLogic.targetsInRange.Count - 1;
-            gameLogic.targetsInRange[gameLogic.selectedTargetIndex].SendMessage("enableLight");
-        }
-        if (Input.GetButtonUp("Cross") && gameLogic.targetsInRange.Count > 0)
+        if (activated)
         {
-            gameLogic.targetsInRange[gameLogic.selectedTargetIndex].GetComponent<SquadManager>().takeDamage(1, true);
+            Combat.getTarget().takeDamage(1, true);
             squad.skipAction();
             gameLogic.checkStateEndOfAction();
         }

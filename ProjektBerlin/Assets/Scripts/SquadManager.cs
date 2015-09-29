@@ -22,6 +22,9 @@ public class SquadManager : MonoBehaviour
     private Vector3 positionAtActionStart;
     private bool _midMovement = false;
 
+    //TODO: Add return fire?
+    private bool retailation = false;
+
     public bool midMovement { get { return _midMovement; } }
     public int numActions { get { return _numActions; } }
 
@@ -201,9 +204,10 @@ public class SquadManager : MonoBehaviour
         {
             //Disable this squad
             gameObject.SetActive(false);
-            lightPiece.enabled = false;
+            //lightPiece.enabled = false;
 
         }
+        lightPiece.enabled = false;
     }
 
     //Checks all units of the squad to see if they are active or not.
