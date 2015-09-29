@@ -86,9 +86,9 @@ public class SniperSquad : MonoBehaviour {
             if (gameLogic.selectedTargetIndex < 0) gameLogic.selectedTargetIndex = gameLogic.targetsInRange.Count - 1;
             gameLogic.targetsInRange[gameLogic.selectedTargetIndex].SendMessage("enableLight");
         }
-        if (Input.GetButtonUp("Cross"))
+        if (Input.GetButtonUp("Cross") && gameLogic.targetsInRange.Count > 0)
         {
-            gameLogic.targetsInRange[gameLogic.selectedTargetIndex].GetComponent<SquadManager>().takeDamage(1,true);
+            gameLogic.targetsInRange[gameLogic.selectedTargetIndex].GetComponent<SquadManager>().takeDamage(1, true);
             squad.skipAction();
             gameLogic.checkStateEndOfAction();
         }

@@ -443,13 +443,9 @@ public class Controller : MonoBehaviour
                         //if (getSelectedManager().numActions == 2) currentStage = TurnStage.None;
                         //if (getSelectedManager().numActions == 1) currentStage = TurnStage.InBetween;
                         Debug.Log("I shot someone!");
-                        //int power = getSelectedManager().getPower();
                         getSelectedManager().fightTarget(targetsInRange[selectedTargetIndex], detectCover, detectPartial);
-
-                        //targetsInRange[selectedTargetIndex].SendMessage("takeDamage",calculateDamage(power));
                         getSelectedManager().skipAction();
                         checkStateEndOfAction();
-
                     }
                     if (Input.GetButtonDown("Circle"))  //B
                     {
@@ -473,12 +469,11 @@ public class Controller : MonoBehaviour
                         getSelectedManager().squadAbility();
                     }
                 }
-                else if(currentAttack == AttackType.Squad) // && Input.GetButtonUp("Triangle")
+                else if(currentAttack == AttackType.Squad && getSelectedManager() != null) // && Input.GetButtonUp("Triangle")
                 {
-                    //Work on this next!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                     getSelectedManager().squadAbilityUpdate();
                 }
-                else if(currentAttack == AttackType.Unit) // && Input.GetButtonUp("Square")
+                else if(currentAttack == AttackType.Unit && getSelectedManager() != null) // && Input.GetButtonUp("Square")
                 {
                     getSelectedManager().unitAbilityUpdate();
                 }
@@ -487,7 +482,7 @@ public class Controller : MonoBehaviour
                 {
                     
                     currentAttack = AttackType.Basic;
-                    targetsInRange = selectedRB.GetComponent<SquadManager>().getTargets(currentPlayersTurn, NUM_PLAYERS, detectCover, detectPartial);
+                    targetsInRange = getSelectedManager().getTargets(currentPlayersTurn, NUM_PLAYERS, detectCover, detectPartial);
                 }
             }
             setLight();
