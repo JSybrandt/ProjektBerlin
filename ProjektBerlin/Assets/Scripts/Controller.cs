@@ -282,7 +282,8 @@ public class Controller : MonoBehaviour
     {
         foreach (GameObject g in allSquads)
         {
-            g.GetComponent<SquadManager>().resetActions();
+            if(g.activeInHierarchy)
+                g.GetComponent<SquadManager>().resetActions();
         }
         isRoundOver = false;
         currentPlayersTurn = (currentPlayersTurn + 1) % NUM_PLAYERS;

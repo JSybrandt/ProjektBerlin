@@ -23,7 +23,7 @@ public class SquadManager : MonoBehaviour
     private bool _midMovement = false;
 
     //TODO: Add return fire?
-    private bool retailation = false;
+    private bool retaliation = false;
 
     public bool midMovement { get { return _midMovement; } }
     public int numActions { get { return _numActions; } }
@@ -207,6 +207,7 @@ public class SquadManager : MonoBehaviour
         {
             //Disable this squad
             gameObject.SetActive(false);
+            _numActions = 0;
             //lightPiece.enabled = false;
 
         }
