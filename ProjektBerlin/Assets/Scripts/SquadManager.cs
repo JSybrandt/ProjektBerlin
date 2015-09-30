@@ -98,6 +98,8 @@ public class SquadManager : MonoBehaviour
                 //endMovement();
                 transform.position = prevPosition;
             }
+			if(transform.position.x > 62 || transform.position.x < -63|| transform.position.z > 100 || transform.position.z < -97)
+				transform.position = prevPosition;
         }
         else
         {
