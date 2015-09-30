@@ -34,8 +34,8 @@ public class Controller : MonoBehaviour
     [HideInInspector]
     public List<GameObject> targetsInRange;
     //DON'T HIDE LAYER MASKS
-    public static LayerMask detectCover;
-    public static LayerMask detectPartial;
+    public LayerMask detectCover;
+    public LayerMask detectPartial;
     [HideInInspector]
     public GameObject attackProj;
     [HideInInspector]
@@ -58,6 +58,7 @@ public class Controller : MonoBehaviour
 
     [HideInInspector]
     public int currentPlayersTurn = 0;
+    private bool isRoundOver = false;
 
 	private ArrayList allSquads;//taken on init from LoadGame
 
@@ -101,55 +102,6 @@ public class Controller : MonoBehaviour
 		Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Unit"),LayerMask.NameToLayer("Squad"));
 		Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Unit"),LayerMask.NameToLayer("Unit"));
 		
-    }
-
-    /// <summary>
-    /// function for getting targets within the range of an object
-    /// </summary>
-    /// <param name="center">origin of attack</param>
-    /// <param name="radius">radius of attack</param>
-    /// <param name="target">the player being targeted</param>
-    /// <param name="layer">The layer mask is a bit shifted number</param>
-    /// <returns></returns>
-    public List<GameObject> getTargets(Vector3 center, float radius, int activePlayer, int layer = 0)
-    {
-        if (layer == 0)
-        {
-            layer = 1 << 12; //Layer 8 being "Squad layer"
-            layer = ~layer;
-        }
-
-        attackProj.GetComponent<Projector>().orthographicSize = radius+2; //Should be set by unit
-        attackProj.transform.position = new Vector3(selectedRB.transform.position.x, 9, selectedRB.transform.position.z);
-        attackProj.GetComponent<Projector>().enabled = true;
-
-        Collider[] hitColliders = Physics.OverlapSphere(center, radius); //Needs to figure out layers
-        List<GameObject> targets = new List<GameObject>();
-
-        Debug.Log("Number of objects in range: " + hitColliders.Length);
-
-        int i = 0;
-        while (i < hitColliders.Length)
-        {
-            for(int j = 0; j < NUM_PLAYERS; j++)
-            {
-                string playerTarget = "Player" + j.ToString() + "Squad";
-                if (j != activePlayer && hitColliders[i].tag == playerTarget)
-                {
-                    Vector3 myPos = selectedRB.transform.position;
-                    Vector3 targetPos = hitColliders[i].gameObject.transform.position;
-                    Vector3 dir = (targetPos - myPos).normalized;
-                    float distance = Vector3.Distance(myPos, targetPos);
-
-                    if (!Physics.Raycast(myPos,dir,distance, detectCover))
-                        targets.Add(hitColliders[i].gameObject);
-                }
-            }
-            i++;
-        }
-
-        return targets;
-
     }
 
     public void updateSquadList(string tag)
@@ -279,7 +231,6 @@ public class Controller : MonoBehaviour
             }
             Combat.reset();
             currentAttack = AttackType.Basic;
-            selectedTargetIndex = -1;
         }
         attackProj.GetComponent<Projector>().enabled = false;
 
@@ -296,10 +247,8 @@ public class Controller : MonoBehaviour
 		}
         else
             currentStage = TurnStage.InBetween;
-
    
-		updateUI ();
-
+		updateUI();
     }
 
     float GetSquadAngle()
@@ -311,10 +260,10 @@ public class Controller : MonoBehaviour
     {
         foreach (GameObject g in allSquads)
         {
-            if (g.GetComponent<SquadManager>().numActions > 0)
-                return false;
+            if (g.GetComponent<SquadManager>().numActions > 0 && g.activeInHierarchy)
+                return isRoundOver = false;
         }
-        return true;
+        return isRoundOver = true;
     }
 
 	void nextTurn(){
@@ -335,23 +284,11 @@ public class Controller : MonoBehaviour
         {
             g.GetComponent<SquadManager>().resetActions();
         }
+        isRoundOver = false;
         currentPlayersTurn = (currentPlayersTurn + 1) % NUM_PLAYERS;
         updateSquadList("Player" + currentPlayersTurn + "Squad");
+        currentStage = TurnStage.None;
     }
-
-	int calculateDamage(int power){
-		int hits = 0;
-		for (int i =0; i< power; i++) {
-			if(Random.Range(1,6)<=2)hits++;
-		}
-		int damage = 0;
-		for (int i = 0; i< hits; i++) {
-			if(Random.Range(1,6)<=4)damage++;
-		}
-
-		Debug.Log ("Attack:" + power + " Hits:" + hits + " Damage:" + damage);
-		return damage;
-	}
 
     // Update is called once per frame
     void Update()
@@ -363,6 +300,7 @@ public class Controller : MonoBehaviour
             {
                 //skip turn button
                 if (Input.GetButtonDown("Select")) { nextTurn(); }
+                if (isRoundOver) nextTurn();
                 checkChangeSquad();
                 checkNewAction();
             }

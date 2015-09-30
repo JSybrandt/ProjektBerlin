@@ -56,7 +56,7 @@ public static class Combat
                     float distance = Vector3.Distance(myPos, targetPos);
 
                     //Detect full cover
-                    if (!Physics.Raycast(myPos, dir, distance, Controller.detectCover))
+                    if (!Physics.Raycast(myPos, dir, distance, gameLogic.detectCover))
                         targets.Add(hitColliders[i].gameObject);
                 }
             }
@@ -100,10 +100,10 @@ public static class Combat
         Hit myHits = new Hit();
 
         //If not behind cover
-        if (!Physics.Raycast(myPos, dir, distance, Controller.detectCover))
+        if (!Physics.Raycast(myPos, dir, distance, gameLogic.detectCover))
         {
             //Detect partial cover
-            if (!Physics.Raycast(myPos, dir, distance, Controller.detectPartial))
+            if (!Physics.Raycast(myPos, dir, distance, gameLogic.detectPartial))
             {
                 myHits.dodgeChance = 2;
                 myHits.hitChance = 4;
