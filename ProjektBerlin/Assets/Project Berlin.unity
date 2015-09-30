@@ -4125,10 +4125,11 @@ MonoBehaviour:
   targetsInRange: []
   detectCover:
     serializedVersion: 2
-    m_Bits: 10241
+    m_Bits: 10240
   detectPartial:
     serializedVersion: 2
     m_Bits: 1024
+  attackProj: {fileID: 0}
   selectedTargetIndex: 0
   currentPlayersTurn: 0
 --- !u!4 &2105702949
