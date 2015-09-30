@@ -12,7 +12,7 @@ GameObject:
   - 114: {fileID: 11473206}
   - 114: {fileID: 11486014}
   m_Layer: 0
-  m_Name: Game Logic
+  m_Name: GameLogic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,14 +41,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d7ef8e9eb7443744b324c7eddf22f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numPlayers: 2
   turnSpeed: 120
   zoomSpeed: 7
-  detectCover:
-    serializedVersion: 2
-    m_Bits: 8193
-  detectPartial:
-    serializedVersion: 2
-    m_Bits: 1024
+  targetsInRange: []
+  attackProj: {fileID: 0}
+  selectedTargetIndex: 0
+  currentPlayersTurn: 0
 --- !u!114 &11486014
 MonoBehaviour:
   m_ObjectHideFlags: 1
