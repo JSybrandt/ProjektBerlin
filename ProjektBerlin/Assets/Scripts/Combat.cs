@@ -9,7 +9,7 @@ public static class Combat
     public static Controller gameLogic;
 
     //private static GameObject attackProj;
-    public static int selectedTargetIndex;
+    public static int selectedTargetIndex = -1;
 
     static Combat()
     {
@@ -152,6 +152,8 @@ public static class Combat
 
     public static void reset()
     {
+        if (selectedTargetIndex >= 0 && targetsInRange[selectedTargetIndex].activeInHierarchy)
+            targetsInRange[selectedTargetIndex].GetComponent<SquadManager>().lightPiece.enabled = false;
         targetsInRange.Clear();
         selectedTargetIndex = -1;
     }

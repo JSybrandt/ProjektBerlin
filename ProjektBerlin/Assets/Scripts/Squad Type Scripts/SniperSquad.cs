@@ -74,6 +74,7 @@ public class SniperSquad : MonoBehaviour {
             Combat.getTarget().takeDamage(1, true);
             squad.skipAction();
             gameLogic.checkStateEndOfAction();
+            gameLogic.updateUI();
         }
     }
 

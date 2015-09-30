@@ -30,7 +30,8 @@ public class SquadManager : MonoBehaviour
 
     //Added lights for showing targeted.
     private GameObject myLight;
-    private Light lightPiece;
+    [HideInInspector]
+    public Light lightPiece;
 
     [HideInInspector]
     public GameObject moveProj;

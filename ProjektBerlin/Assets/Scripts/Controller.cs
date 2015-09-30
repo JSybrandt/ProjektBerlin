@@ -277,7 +277,7 @@ public class Controller : MonoBehaviour
                 if(target.activeInHierarchy)
                     target.SendMessage("disableLight");
             }
-            targetsInRange.Clear();
+            Combat.reset();
             currentAttack = AttackType.Basic;
             selectedTargetIndex = -1;
         }
@@ -359,8 +359,6 @@ public class Controller : MonoBehaviour
 	
         if (squads.Length > 0)
         {
-
-
             if (currentStage == TurnStage.None)
             {
                 //skip turn button
@@ -421,36 +419,13 @@ public class Controller : MonoBehaviour
                 {
                     bool fight = false;
                     Combat.UpdateTarget(selectedRB.GetComponent<SquadManager>(), ref fight);
-                    //if (Input.GetButtonUp("R1") && targetsInRange.Count > 0)
-                    //{
-                    //    attackProj.GetComponent<Projector>().enabled = false;
-                    //    if (selectedTargetIndex >= 0)
-                    //        targetsInRange[selectedTargetIndex].SendMessage("disableLight");
-
-                    //    selectedTargetIndex++;
-                    //    selectedTargetIndex %= targetsInRange.Count;
-                    //    targetsInRange[selectedTargetIndex].SendMessage("enableLight");
-                    //}
-                    //if (Input.GetButtonUp("L1") && targetsInRange.Count > 0)
-                    //{
-                    //    attackProj.GetComponent<Projector>().enabled = false;
-                    //    if (selectedTargetIndex >= 0)
-                    //        targetsInRange[selectedTargetIndex].SendMessage("disableLight");
-                    //    else
-                    //        selectedTargetIndex = 0;
-
-                    //    selectedTargetIndex--;
-                    //    if (selectedTargetIndex < 0) selectedTargetIndex = targetsInRange.Count - 1;
-                    //    targetsInRange[selectedTargetIndex].SendMessage("enableLight");
-                    //}
                     if (fight)   //A
                     {
-                        //if (getSelectedManager().numActions == 2) currentStage = TurnStage.None;
-                        //if (getSelectedManager().numActions == 1) currentStage = TurnStage.InBetween;
                         Debug.Log("I shot someone!");
                         Combat.fightTarget(selectedRB.gameObject);
                         getSelectedManager().skipAction();
                         checkStateEndOfAction();
+                        updateUI();
                     }
                     if (Input.GetButtonDown("Circle"))  //B
                     {
@@ -560,7 +535,7 @@ public class Controller : MonoBehaviour
         Graphics.DrawMesh(mesh, squads[selectedSquadIndex].transform.position, fovRotation, materialFov, 0);
     }
 
-	private void updateUI(){
+	public void updateUI(){
 		Canvas movement = GameObject.Find("MovementCanvas").GetComponent<Canvas>();
 		Canvas combat = GameObject.Find("CombatCanvas").GetComponent<Canvas>();
 		Canvas first = GameObject.Find("FirstActionCanvas").GetComponent<Canvas>();
