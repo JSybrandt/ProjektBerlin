@@ -1,16 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class BasicSquad : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+    Controller gameLogic;
+    SquadManager squad;
+
+    // Use this for initialization
+    void Start () {
 
     }
 
     public void init()
     {
-        SquadManager squad = GetComponent<SquadManager>();
+        squad = GetComponent<SquadManager>();
+        gameLogic = GameObject.Find("GameLogic").GetComponent<Controller>();
 
         squad.size = 5;
         squad.attackDistance = 20;
@@ -53,7 +58,23 @@ public class BasicSquad : MonoBehaviour {
 
     void grenadeUpdate()
     {
+        bool activated = false;
 
+        Combat.updateAoE(GetComponent<SquadManager>(), ref activated);
+
+        if (activated)
+        {
+            List<GameObject> targets = Combat.getTargets();
+
+            foreach(GameObject target in targets)
+            {
+                //int hits = Combat.fightTarget
+            }
+
+            squad.skipAction();
+            gameLogic.checkStateEndOfAction();
+            gameLogic.updateUI();
+        }
     }
 
     void retreat()

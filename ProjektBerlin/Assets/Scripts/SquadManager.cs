@@ -22,6 +22,11 @@ public class SquadManager : MonoBehaviour
     private Vector3 positionAtActionStart;
     private bool _midMovement = false;
 
+    [HideInInspector]
+    public int dodgeChance = 7;
+    [HideInInspector]
+    public int hitChance = 7;
+
     //TODO: Add return fire?
     private bool retaliation = false;
 
@@ -59,13 +64,14 @@ public class SquadManager : MonoBehaviour
     public Ability squadAbility;
     public AbilityUpdate unitAbilityUpdate;
     public AbilityUpdate squadAbilityUpdate;
-    public AbilityInit unitAbilityInit;
-    public AbilityInit squadAbilityInit;
+    //public AbilityInit unitAbilityInit;
+    //public AbilityInit squadAbilityInit;
 
     // Use this for initialization
-    public void init(float atkRadius = 20, float mvRadius = 50)
+    public void init(float atkRadius = 20, float mvRadius = 50, int dodge = 4, int hit = 2)
     {
-
+        dodgeChance = dodge;
+        hitChance = hit;
         myLight = new GameObject();
         myLight.transform.position = transform.position;
         lightPiece = myLight.AddComponent<Light>();
@@ -88,7 +94,6 @@ public class SquadManager : MonoBehaviour
     //once every physics step
     void FixedUpdate()
     {
-
         if (_midMovement && rb.velocity.magnitude > 0)
         {
             float h = Terrain.activeTerrain.SampleHeight(transform.position) + FLOOR_DISPACEMENT;

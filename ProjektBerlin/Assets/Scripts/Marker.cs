@@ -1,38 +1,56 @@
-﻿//using UnityEngine;
-//using System.Collections;
+﻿using UnityEngine;
+using System.Collections;
 
-//public class Marker : MonoBehaviour {
+public class Marker : MonoBehaviour
+{
 
-//    private const float FLOOR_DISPACEMENT = 1f;
-//    private Vector3 positionAtActionStart;
+    private const float FLOOR_DISPACEMENT = 1f;
+    private Vector3 positionAtActionStart;
+    [HideInInspector]
+    public Vector3 markerStart = new Vector3();
+    [HideInInspector]
+    public Vector3 markerPrevious = new Vector3();
+    [HideInInspector]
+    public float maxDistance = 0;
+    private Rigidbody rb;
 
-//    // Use this for initialization
-//    void Start () {
-	
-//	}
-	
-//	// Update is called once per frame
-//	void Update () {
-	
-//	}
+    // Use this for initialization
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
 
-//    void FixedUpate()
-//    {
-//        if (_midMovement && rb.velocity.magnitude > 0)
-//        {
-//            float h = Terrain.activeTerrain.SampleHeight(transform.position) + FLOOR_DISPACEMENT;
-//            transform.position = new Vector3(transform.position.x, h, transform.position.z);
-//            if ((positionAtActionStart - transform.position).magnitude >= movementDistance)
-//            {
-//                transform.position = prevPosition;
-//            }
-//            if (transform.position.x > 62 || transform.position.x < -63 || transform.position.z > 100 || transform.position.z < -97)
-//                transform.position = prevPosition;
-//        }
-//        else
-//        {
-//            rb.Sleep();
-//        }
-//        prevPosition = transform.position;
-//    }
-//}
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    void FixedUpate()
+    {
+        if (Combat.markerMoving)
+        {
+            float v = Input.GetAxis("JoystickLV");
+            float h = Input.GetAxis("JoystickLH");
+            rb.velocity = (Quaternion.Euler(0, Camera.main.GetComponent<CameraController>().angle, 0) * new Vector3(h, 0, v).normalized) * 20;
+            Camera.main.GetComponent<CameraController>().setCameraTarget(rb.transform.position, true);
+
+            if (rb.velocity.magnitude > 0)
+            {
+                float t = Terrain.activeTerrain.SampleHeight(transform.position) + FLOOR_DISPACEMENT;
+                transform.position = new Vector3(transform.position.x, t, transform.position.z);
+                if ((positionAtActionStart - transform.position).magnitude >= maxDistance)
+                {
+                    transform.position = markerPrevious;
+                }
+                if (transform.position.x > 62 || transform.position.x < -63 || transform.position.z > 100 || transform.position.z < -97)
+                    transform.position = markerPrevious;
+            }
+            else
+            {
+                rb.Sleep();
+            }
+            markerPrevious = transform.position;
+        }
+    }
+}

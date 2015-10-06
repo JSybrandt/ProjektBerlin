@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class SniperSquad : MonoBehaviour {
 
@@ -80,7 +81,18 @@ public class SniperSquad : MonoBehaviour {
 
     void smokeScreen()
     {
+        bool activated = false;
 
+        Combat.updateAoE(GetComponent<SquadManager>(), ref activated);
+
+        if (activated)
+        {
+            List<GameObject> targets = Combat.getTargets();
+
+            squad.skipAction();
+            gameLogic.checkStateEndOfAction();
+            gameLogic.updateUI();
+        }
     }
 
     void smokeScreenUpdate()

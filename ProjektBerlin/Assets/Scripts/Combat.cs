@@ -7,18 +7,28 @@ public static class Combat
     public static List<GameObject> targetsInRange = new List<GameObject>();
     public static int numPlayers = Controller.NUM_PLAYERS;
     public static Controller gameLogic;
+    private static Vector3 markerStart = new Vector3();
+    private static Vector3 markerPos = new Vector3();
+    private static float maxDistance = 0;
+    public static bool markerMoving = false;
+    private static Marker marker;
 
     //private static GameObject attackProj;
     public static int selectedTargetIndex = -1;
 
     static Combat()
     {
-
+        marker = GameObject.Find("Marker").GetComponent<Marker>();
     }
 
     public static SquadManager getTarget()
     {
         return targetsInRange[selectedTargetIndex].GetComponent<SquadManager>();
+    }
+
+    public static List<GameObject> getTargets()
+    {
+        return targetsInRange;
     }
 
     public static void findTargets(this GameObject me, float attack = 0)
@@ -68,10 +78,12 @@ public static class Combat
 
     public static void fightTarget(GameObject me)
     {
-        ShotsFired myHits = detectHits(me,getTarget().transform.position);
-        int damage = calculateDamage(me.GetComponent<SquadManager>(),myHits);
+        ShotsFired myHits = detectHits(me);
+        int damage = calculateDamage(me.GetComponent<SquadManager>(), myHits);
         getTarget().takeDamage(damage);
     }
+
+    //public static void fightTargets(GameObject me, int )
 
     static int calculateDamage(SquadManager me, ShotsFired myHits)
     {
@@ -90,10 +102,10 @@ public static class Combat
         return damage;
     }
 
-    public static ShotsFired detectHits(GameObject me, Vector3 targetCenter)
+    public static ShotsFired detectHits(GameObject me)
     {
         Vector3 myPos = me.transform.position;
-        Vector3 targetPos = targetCenter;
+        Vector3 targetPos = getTarget().transform.position;
         Vector3 dir = (targetPos - myPos).normalized;
         float distance = Vector3.Distance(myPos, targetPos);
 
@@ -102,18 +114,18 @@ public static class Combat
         //If not behind cover
         if (!Physics.Raycast(myPos, dir, distance, gameLogic.detectCover))
         {
+            myHits.hitChance = me.GetComponent<SquadManager>().hitChance;
+
             //Detect partial cover
             if (!Physics.Raycast(myPos, dir, distance, gameLogic.detectPartial))
             {
-                myHits.dodgeChance = 2;
-                myHits.hitChance = 4;
+                myHits.dodgeChance = getTarget().dodgeChance; 
             }
             else
             {
                 Debug.Log("I hit partial cover!");
                 myHits.hasPartialCover = true;
-                myHits.dodgeChance = 2;
-                myHits.hitChance = 2;
+                myHits.dodgeChance = getTarget().dodgeChance - 2;
             }
         }
 
@@ -156,29 +168,29 @@ public static class Combat
             targetsInRange[selectedTargetIndex].GetComponent<SquadManager>().lightPiece.enabled = false;
         targetsInRange.Clear();
         selectedTargetIndex = -1;
+        marker.maxDistance = 0;
+        markerMoving = false;
     }
 
-    public static void setupAoE()
+    /// <summary>
+    /// Setup for an AoE ability
+    /// </summary>
+    /// <param name="me">The object from which the AoE is spawning from</param>
+    /// <param name="distance">The max distance the object can cast the AoE</param>
+    public static void setupAoE(GameObject me, float distance)
     {
         reset();
+        marker.maxDistance = distance;
+        marker.markerStart = me.transform.position;
+        markerMoving = true;
     }
 
-    public static void updateAoE()
+    public static void updateAoE(SquadManager me, ref bool activated)
     {
-
+        if (Input.GetButtonUp("Cross"))
+        {
+            activated = true;
+        }
     }
 
 }
-
-//public class Combat : MonoBehaviour {
-
-//	// Use this for initialization
-//	void Start () {
-
-//	}
-
-//	// Update is called once per frame
-//	void Update () {
-
-//	}
-//}
