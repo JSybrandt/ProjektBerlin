@@ -15,6 +15,8 @@ public class SquadManager : MonoBehaviour
     [HideInInspector]
     public int size = 0;
 
+    public Texture tex;
+
     private float unitDistanceFromCenter = 1.5f;
 
     public const int MAX_ACTIONS = 2;
@@ -23,7 +25,8 @@ public class SquadManager : MonoBehaviour
     private bool _midMovement = false;
 
     //TODO: Add return fire?
-    private bool retaliation = false;
+    public bool retaliation = false;
+    public bool inCover = false;
 
     public bool midMovement { get { return _midMovement; } }
     public int numActions { get { return _numActions; } }
@@ -143,6 +146,7 @@ public class SquadManager : MonoBehaviour
             _midMovement = false;
             _numActions--;
             GetComponent<Rigidbody>().velocity = Vector3.zero;
+            
             moveProj.SetActive(false);
         }
         else throw new UnityException("Attempted to end an actions before starting one.");
@@ -389,6 +393,17 @@ public class SquadManager : MonoBehaviour
         foreach (GameObject g in units)
         {
             g.GetComponent<Renderer>().material.color = c;
+        }
+    }
+
+    void OnGUI()
+    {
+        if (tex != null && inCover)
+        {
+            Vector3 guiPosition = Camera.main.WorldToScreenPoint(transform.position);
+            guiPosition.y = Screen.height - guiPosition.y;
+            Rect rect = new Rect(guiPosition.x - tex.width / 2, guiPosition.y - tex.height / 2.0f, tex.width, tex.height);
+            GUI.DrawTexture(rect, tex);
         }
     }
 }

@@ -33,7 +33,8 @@ public class Controller : MonoBehaviour
     //Attacking variables
     [HideInInspector]
     public List<GameObject> targetsInRange;
-    //DON'T HIDE LAYER MASKS
+
+    //DON'T HIDE LAYER MASKS: Uses inspector.
     public LayerMask detectCover;
     public LayerMask detectPartial;
     [HideInInspector]
