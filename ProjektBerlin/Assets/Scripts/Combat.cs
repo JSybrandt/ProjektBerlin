@@ -68,12 +68,12 @@ public static class Combat
 
     public static void fightTarget(GameObject me)
     {
-        Hit myHits = detectHits(me,getTarget().transform.position);
+        ShotsFired myHits = detectHits(me,getTarget().transform.position);
         int damage = calculateDamage(me.GetComponent<SquadManager>(),myHits);
         getTarget().takeDamage(damage);
     }
 
-    static int calculateDamage(SquadManager me, Hit myHits)
+    static int calculateDamage(SquadManager me, ShotsFired myHits)
     {
         int hits = 0;
         for (int i = 0; i < me.getPower(); i++)
@@ -90,14 +90,14 @@ public static class Combat
         return damage;
     }
 
-    public static Hit detectHits(GameObject me, Vector3 targetCenter)
+    public static ShotsFired detectHits(GameObject me, Vector3 targetCenter)
     {
         Vector3 myPos = me.transform.position;
         Vector3 targetPos = targetCenter;
         Vector3 dir = (targetPos - myPos).normalized;
         float distance = Vector3.Distance(myPos, targetPos);
 
-        Hit myHits = new Hit();
+        ShotsFired myHits = new ShotsFired();
 
         //If not behind cover
         if (!Physics.Raycast(myPos, dir, distance, gameLogic.detectCover))
