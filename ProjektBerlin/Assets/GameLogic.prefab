@@ -45,8 +45,15 @@ MonoBehaviour:
   turnSpeed: 120
   zoomSpeed: 7
   targetsInRange: []
+  detectCover:
+    serializedVersion: 2
+    m_Bits: 10240
+  detectPartial:
+    serializedVersion: 2
+    m_Bits: 1024
   attackProj: {fileID: 0}
   selectedTargetIndex: 0
+  marker: {fileID: 0}
   currentPlayersTurn: 0
 --- !u!114 &11486014
 MonoBehaviour:
