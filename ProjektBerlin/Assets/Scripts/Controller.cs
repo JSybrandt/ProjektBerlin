@@ -51,6 +51,9 @@ public class Controller : MonoBehaviour
     private TurnStage currentStage = TurnStage.None;
     private AttackType currentAttack = AttackType.Basic;
 
+    [HideInInspector]
+    public GameObject marker;
+
     //FoV
     private Mesh mesh;
     private Material materialFov;
@@ -66,6 +69,9 @@ public class Controller : MonoBehaviour
     public void init()
     {
         Combat.gameLogic = this;
+
+        marker = new GameObject();
+        marker.transform.position = Vector3.zero;
 
 		allSquads = GetComponent<LoadGame> ().getAllSquads();
 

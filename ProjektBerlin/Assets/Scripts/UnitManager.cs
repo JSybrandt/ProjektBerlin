@@ -20,9 +20,9 @@ public class UnitManager : MonoBehaviour
     [HideInInspector]
     public bool isSpecial = false;
 
-    public List<Hit> detectHits(List<GameObject> enemyUnits, int activePlayer, int numPlayers, LayerMask detectCover, LayerMask detectPartial)
+    public List<ShotsFired> detectHits(List<GameObject> enemyUnits, int activePlayer, int numPlayers, LayerMask detectCover, LayerMask detectPartial)
     {
-        List<Hit> myHits = new List<Hit>();
+        List<ShotsFired> myHits = new List<ShotsFired>();
 
         foreach (GameObject enemyUnit in enemyUnits)
         {
@@ -43,11 +43,11 @@ public class UnitManager : MonoBehaviour
                         if (!Physics.Raycast(myPos, dir, distance, detectPartial))
                         {
                             Debug.Log("I hit partial cover!");
-                            myHits.Add(new Hit(2, 4, true));
+                            myHits.Add(new ShotsFired(2, 4, true));
                         }
                         else
                         {
-                            myHits.Add(new Hit(4, 4, false));
+                            myHits.Add(new ShotsFired(4, 4, false));
                         }
                     }
                 } //Is target

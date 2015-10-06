@@ -278,14 +278,14 @@ public class SquadManager : MonoBehaviour
         return targets;
     }
 
-    public Hit detectHits(Vector3 targetCenter, LayerMask detectCover, LayerMask detectPartial)
+    public ShotsFired detectHits(Vector3 targetCenter, LayerMask detectCover, LayerMask detectPartial)
     {
         Vector3 myPos = transform.position;
         Vector3 targetPos = targetCenter;
         Vector3 dir = (targetPos - myPos).normalized;
         float distance = Vector3.Distance(myPos, targetPos);
 
-        Hit myHits = new Hit();
+        ShotsFired myHits = new ShotsFired();
 
         //If not behind cover
         if (!Physics.Raycast(myPos, dir, distance, detectCover))
@@ -339,12 +339,12 @@ public class SquadManager : MonoBehaviour
 
     public void fightTarget(GameObject targetSquad, LayerMask detectCover, LayerMask detectPartial)
     {
-        Hit myHits = detectHits(targetSquad.transform.position, detectCover, detectPartial);
+        ShotsFired myHits = detectHits(targetSquad.transform.position, detectCover, detectPartial);
         int damage = calculateDamage(myHits);
         targetSquad.GetComponent<SquadManager>().takeDamage(damage);
     }
 
-    int calculateDamage(Hit myHits)
+    int calculateDamage(ShotsFired myHits)
     {
         int hits = 0;
         for (int i = 0; i < getPower(); i++)
