@@ -8,7 +8,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 490416}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Fortress
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23,7 +23,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 498064}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: desertfortress_wall_a_10m
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 454832}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: desertfortress_wall_c_10m (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   - 33: {fileID: 3367486}
   - 23: {fileID: 2340560}
   - 65: {fileID: 6532370}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: quarters_door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   - 4: {fileID: 401696}
   - 65: {fileID: 6542084}
   - 114: {fileID: 11417290}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: door1_hinge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   - 4: {fileID: 481334}
   - 33: {fileID: 3323102}
   - 64: {fileID: 6494364}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: desertfortress_wall_a_10m_collision_mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   - 4: {fileID: 404596}
   - 33: {fileID: 3348904}
   - 23: {fileID: 2314762}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: quarters
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   - 4: {fileID: 413270}
   - 33: {fileID: 3356302}
   - 64: {fileID: 6466440}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: desertfortress_quarters_collision_mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,7 +141,7 @@ GameObject:
   - 4: {fileID: 458272}
   - 33: {fileID: 3316736}
   - 23: {fileID: 2363494}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: desertfortress_wall_c_10m
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,7 +156,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 412462}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: desertfortress_wall_c_10m
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +173,7 @@ GameObject:
   - 4: {fileID: 430096}
   - 33: {fileID: 3332826}
   - 23: {fileID: 2356046}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: desertfortress_wall_c_10m
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,7 +190,7 @@ GameObject:
   - 4: {fileID: 433702}
   - 33: {fileID: 3356460}
   - 64: {fileID: 6498574}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: desertfortress_wall_c_10m_collision_mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -207,7 +207,7 @@ GameObject:
   - 4: {fileID: 465940}
   - 33: {fileID: 3332340}
   - 23: {fileID: 2303252}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: desertfortress_wall_a_10m
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -224,7 +224,7 @@ GameObject:
   - 4: {fileID: 494920}
   - 33: {fileID: 3336086}
   - 64: {fileID: 6451908}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: desertfortress_wall_c_10m_collision_mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -700,7 +700,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 107586}

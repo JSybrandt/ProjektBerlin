@@ -8,7 +8,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400000}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: desertfortress_officers_quarters
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +26,7 @@ GameObject:
   - 33: {fileID: 3300000}
   - 23: {fileID: 2300000}
   - 65: {fileID: 6500018}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: officers_quarters_door5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - 33: {fileID: 3300002}
   - 23: {fileID: 2300002}
   - 65: {fileID: 6500016}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: officers_quarters_door4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62,7 +62,7 @@ GameObject:
   - 33: {fileID: 3300004}
   - 23: {fileID: 2300004}
   - 65: {fileID: 6500014}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: officers_quarters_door3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80,7 +80,7 @@ GameObject:
   - 33: {fileID: 3300006}
   - 23: {fileID: 2300006}
   - 65: {fileID: 6500012}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: officers_quarters_door2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - 4: {fileID: 400010}
   - 33: {fileID: 3300008}
   - 23: {fileID: 2300008}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: officers_quarters
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ GameObject:
   - 33: {fileID: 3300010}
   - 23: {fileID: 2300010}
   - 65: {fileID: 6500010}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: officers_quarters_door1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,7 +132,7 @@ GameObject:
   - 4: {fileID: 400014}
   - 33: {fileID: 3300012}
   - 64: {fileID: 6400000}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: desertfortress_officers_quarters_collision_mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   - 4: {fileID: 400022}
   - 65: {fileID: 6500008}
   - 114: {fileID: 11400008}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: door_hinge_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,7 +166,7 @@ GameObject:
   - 4: {fileID: 400024}
   - 65: {fileID: 6500006}
   - 114: {fileID: 11400006}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: door_hinge_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,7 +183,7 @@ GameObject:
   - 4: {fileID: 400026}
   - 65: {fileID: 6500000}
   - 114: {fileID: 11400000}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: door_hinge_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,7 +200,7 @@ GameObject:
   - 4: {fileID: 400028}
   - 65: {fileID: 6500004}
   - 114: {fileID: 11400004}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: door_hinge_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -217,7 +217,7 @@ GameObject:
   - 4: {fileID: 400030}
   - 65: {fileID: 6500002}
   - 114: {fileID: 11400002}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: door_hinge_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -813,7 +813,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100000}
