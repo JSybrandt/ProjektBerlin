@@ -140,7 +140,7 @@ public class SquadManager : MonoBehaviour
         {
             positionAtActionStart = transform.position;
             moveProj.transform.position = new Vector3(transform.position.x, 9, transform.position.z);
-            moveProj.GetComponent<Projector>().orthographicSize = movementDistance + 3;
+            moveProj.GetComponent<Projector>().orthographicSize = movementDistance + 2;
             moveProj.SetActive(true);
             _midMovement = true;
             prevCover = inCover;
@@ -158,7 +158,7 @@ public class SquadManager : MonoBehaviour
             
             moveProj.SetActive(false);
 
-            Collider[] hitColliders = Physics.OverlapSphere(transform.position, 5, GameObject.Find("GameLogic").GetComponent<Controller>().detectPartial); //Needs to figure out layers
+            Collider[] hitColliders = Physics.OverlapSphere(transform.position, 2, GameObject.Find("GameLogic").GetComponent<Controller>().detectPartial); //Needs to figure out layers
             if (hitColliders.Length > 0)
                 inCover = true;
         }

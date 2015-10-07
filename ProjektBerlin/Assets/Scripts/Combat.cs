@@ -225,7 +225,8 @@ public static class Combat
         if (Input.GetButtonUp("Cross"))
         {
             activated = true;
-            findTargets(marker.gameObject, markerAttack);
+            if(markerAttack > 0)
+                findTargets(marker.gameObject, markerAttack);
             Camera.main.GetComponent<CameraController>().setCameraTarget(me.transform.position, true);
         }
         
