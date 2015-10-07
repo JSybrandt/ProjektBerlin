@@ -4,6 +4,7 @@ using System.Collections.Generic;
 public static class Combat
 {
 
+
     public static List<GameObject> targetsInRange = new List<GameObject>();
     public static int numPlayers = Controller.NUM_PLAYERS;
     public static Controller gameLogic;
@@ -81,6 +82,7 @@ public static class Combat
         ShotsFired myHits = detectHits(me);
         int damage = calculateDamage(me.GetComponent<SquadManager>(), myHits);
         getTarget().takeDamage(damage);
+
     }
 
     //public static void fightTargets(GameObject me, int )
@@ -92,12 +94,13 @@ public static class Combat
         {
             if (Random.Range(1, 6) <= myHits.hitChance) hits++;
         }
+		CombatIndicationSpawner.spawnHits (me.transform.position, hits);
         int damage = 0;
         for (int i = 0; i < hits; i++)
         {
             if (Random.Range(1, 6) <= myHits.dodgeChance) damage++;
         }
-
+		CombatIndicationSpawner.spawnMisses (getTarget().transform.position, hits-damage);
         Debug.Log("Attack:" + me.getPower() + " Hit Chance: " + myHits.hitChance + " Hits:" + hits + " Dodge Chance: " + myHits.dodgeChance + " Damage:" + damage);
         return damage;
     }
