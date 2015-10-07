@@ -66,11 +66,8 @@ public class SniperSquad : MonoBehaviour {
 
     void sniperShotUpdate()
     {
-        bool activated = false;
-
-        Combat.UpdateTarget(GetComponent<SquadManager>(),ref activated);
-
-        if (activated)
+		
+		if (Combat.UpdateTarget(GetComponent<SquadManager>()))
         {
             ShotsFired snipe = new ShotsFired(6, Combat.getTarget().dodgeChance);
             int damage = Combat.rollDamage(snipe,1);
