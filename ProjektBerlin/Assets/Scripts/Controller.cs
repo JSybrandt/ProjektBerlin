@@ -109,7 +109,11 @@ public class Controller : MonoBehaviour
 		Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Squad"),LayerMask.NameToLayer("Squad"));
 		Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Unit"),LayerMask.NameToLayer("Squad"));
 		Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Unit"),LayerMask.NameToLayer("Unit"));
-		
+        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Unit"), LayerMask.NameToLayer("PartialCover"));
+        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Squad"), LayerMask.NameToLayer("PartialCover"));
+        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("PartialCover"), LayerMask.NameToLayer("Squad"));
+        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("PartialCover"), LayerMask.NameToLayer("Unit"));
+
     }
 
     public void updateSquadList(string tag)
