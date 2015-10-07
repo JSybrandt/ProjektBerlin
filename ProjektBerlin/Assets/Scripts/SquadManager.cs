@@ -61,6 +61,7 @@ public class SquadManager : MonoBehaviour
     private const float MAX_UNIT_HEIGHT = 0.5f;
     private const float FLOOR_DISPACEMENT = 1f;
     private Vector3 prevPosition; //used to revert after colliding w/ terrain. 
+    private bool prevCover = false;
 
     private Rigidbody rb;
 
@@ -142,6 +143,8 @@ public class SquadManager : MonoBehaviour
             moveProj.GetComponent<Projector>().orthographicSize = movementDistance + 3;
             moveProj.SetActive(true);
             _midMovement = true;
+            prevCover = inCover;
+            inCover = false;
         }
         else throw new UnityException("Attempted to start an action when squad had none.");
     }
@@ -185,6 +188,7 @@ public class SquadManager : MonoBehaviour
         {
             _midMovement = false;
             transform.position = positionAtActionStart;
+            inCover = prevCover;
             moveProj.SetActive(false);
         }
         else throw new UnityException("Attempted to undo a move when squad had not moved");
