@@ -368,10 +368,9 @@ public class Controller : MonoBehaviour
                 }
                 if (currentAttack == AttackType.Basic)
                 {
-                    bool fight = false;
-                    Combat.UpdateTarget(selectedRB.GetComponent<SquadManager>(), ref fight);
-                    if (fight)   //A
+					if (Combat.UpdateTarget(selectedRB.GetComponent<SquadManager>()))   //A
                     {
+						getMainCamController().freezeCamera (2);
                         Debug.Log("I shot someone!");
                         Combat.fightTarget(selectedRB.gameObject);
                         getSelectedManager().skipAction();

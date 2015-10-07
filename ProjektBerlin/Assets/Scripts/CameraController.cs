@@ -18,6 +18,12 @@ public class CameraController : MonoBehaviour {
 	private Vector3 currentLocation; //where we actually look
 	private Vector3 previouslyAssignedTarget;
 
+	private float timeDelay;
+	private Vector3 delayTarget;
+	private bool isDelaySnap;
+
+	private float timeFrozen;
+
 	private float _angle;
 	public float angle{
 		get{return _angle;}
@@ -35,17 +41,27 @@ public class CameraController : MonoBehaviour {
 
 	private bool isPathingToTarget=false;
 	
+	public void freezeCamera(float time){
+		if(time>0)
+			timeFrozen = time;
+	}
 
-	public void setCameraTarget(Vector3 pos, bool snap = false){
-		if (snap) {
-			targetLocation=currentLocation=pos;
-			isPathingToTarget=false;
-			updateCamera();
+	public void setCameraTarget(Vector3 pos, bool snap = false, float delay=0){
+		if (delay > 0 || timeFrozen > 0) {
+			timeDelay = Mathf.Max (delay, timeFrozen);
+			delayTarget = pos;
+			isDelaySnap = snap;
 		} else {
-			isPathingToTarget = true;
-			targetLocation = pos;
+			if (snap) {
+				targetLocation = currentLocation = pos;
+				isPathingToTarget = false;
+				updateCamera ();
+			} else {
+				isPathingToTarget = true;
+				targetLocation = pos;
+			}
+			previouslyAssignedTarget = pos;
 		}
-		previouslyAssignedTarget = pos;
 	}
 
 	private void updateCamera(){
@@ -58,6 +74,12 @@ public class CameraController : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
+		timeFrozen = Mathf.Max (timeFrozen - Time.deltaTime, 0);
+		if (timeDelay > 0) {
+			timeDelay-=Time.deltaTime;
+			if(timeDelay<=0) 
+				setCameraTarget(delayTarget,isDelaySnap,0);
+		}
 		if(!isPathingToTarget) {//move based on controller
 			if (Input.GetAxis("L2") == 1)
 			{

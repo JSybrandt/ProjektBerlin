@@ -17,6 +17,7 @@ public static class Combat
     static Combat()
     {
         marker = GameObject.Find("Marker").GetComponent<Marker>();
+		CombatIndicationSpawner.instantiate ();
     }
 
     public static SquadManager getTarget()
@@ -101,7 +102,7 @@ public static class Combat
         }
 		CombatIndicationSpawner.spawnMisses (getTarget().transform.position, hits-damage);
         Debug.Log("Attack:" + me.getPower() + " Hit Chance: " + myHits.hitChance + " Hits:" + hits + " Dodge Chance: " + myHits.dodgeChance + " Damage:" + damage);
-        return damage;
+		return damage;
     }
 
     public static ShotsFired detectHits(GameObject me)
@@ -134,7 +135,7 @@ public static class Combat
         return myHits;
     }
 
-    public static void UpdateTarget(SquadManager me, ref bool activated)
+    public static bool UpdateTarget(SquadManager me)
     {
         if (Input.GetButtonUp("R1") && targetsInRange.Count > 0)
         {
@@ -160,8 +161,10 @@ public static class Combat
         }
         if (Input.GetButtonUp("Cross") && targetsInRange.Count > 0 && selectedTargetIndex >= 0)
         {
-            activated = true;
+            return true;
         }
+
+		return false;
     }
 
     public static void reset()

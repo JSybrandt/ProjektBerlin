@@ -66,11 +66,8 @@ public class SniperSquad : MonoBehaviour {
 
     void sniperShotUpdate()
     {
-        bool activated = false;
-
-        Combat.UpdateTarget(GetComponent<SquadManager>(),ref activated);
-
-        if (activated)
+		
+		if (Combat.UpdateTarget(GetComponent<SquadManager>()))
         {
             Combat.getTarget().takeDamage(1, true);
             squad.skipAction();
