@@ -274,6 +274,21 @@ public class SquadManager : MonoBehaviour
         return myUnits;
     }
 
+    public int getActiveUnitsCount()
+    {
+        int alive = 0;
+
+        foreach (GameObject u in units)
+        {
+            if (u.activeInHierarchy)
+            {
+                alive++;
+            }
+        }
+
+        return alive;
+    }
+
     public int getPower()
     {
         int sum = 0;
