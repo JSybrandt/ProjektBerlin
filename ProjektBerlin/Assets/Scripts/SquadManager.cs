@@ -196,38 +196,41 @@ public class SquadManager : MonoBehaviour
 
     public void takeDamage(int numUnitsKilled, bool killSpecial = false)
     {
-        int remainingToKill = numUnitsKilled;
+        if (numUnitsKilled > 0)
+        {
+            int remainingToKill = numUnitsKilled;
+            Debug.Log("I'm dieing!");
+            if (killSpecial)
+                foreach (GameObject unit in units)
+                {
+                    if (remainingToKill <= 0)
+                        break;
+                    else if (unit.GetComponent<UnitManager>().isSpecial && unit.activeInHierarchy)
+                    {
+                        unit.SetActive(false);
+                        remainingToKill--;
+                    }
+                }
 
-        Debug.Log("I'm dieing!");
-        if(killSpecial)
             foreach (GameObject unit in units)
             {
                 if (remainingToKill <= 0)
                     break;
-                else if (unit.GetComponent<UnitManager>().isSpecial && unit.activeInHierarchy) {
-                    unit.SetActive(false);
+                else if (unit.activeInHierarchy)
+                {
+                    unit.SetActive(false);  //Might not be correct
                     remainingToKill--;
                 }
             }
 
-        foreach (GameObject unit in units)
-        {
-            if (remainingToKill <= 0)
-                break;
-            else if (unit.activeInHierarchy)
+            if (isDead())
             {
-                unit.SetActive(false);  //Might not be correct
-                remainingToKill--;
+                //Disable this squad
+                gameObject.SetActive(false);
+                _numActions = 0;
+                //lightPiece.enabled = false;
+
             }
-        }
-
-        if (isDead())
-        {
-            //Disable this squad
-            gameObject.SetActive(false);
-            _numActions = 0;
-            //lightPiece.enabled = false;
-
         }
         lightPiece.enabled = false;
     }

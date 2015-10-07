@@ -84,7 +84,7 @@ public static class Combat
 
     //public static void fightTargets(GameObject me, int )
 
-    static int calculateDamage(SquadManager me, ShotsFired myHits)
+    private static int calculateDamage(SquadManager me, ShotsFired myHits)
     {
         int hits = 0;
         for (int i = 0; i < me.getPower(); i++)
@@ -98,6 +98,23 @@ public static class Combat
         }
 
         Debug.Log("Attack:" + me.getPower() + " Hit Chance: " + myHits.hitChance + " Hits:" + hits + " Dodge Chance: " + myHits.dodgeChance + " Damage:" + damage);
+        return damage;
+    }
+
+    public static int rollDamage(ShotsFired myHits, int shots)
+    {
+        int hits = 0;
+        for (int i = 0; i < shots; i++)
+        {
+            if (Random.Range(1, 6) <= myHits.hitChance) hits++;
+        }
+        int damage = 0;
+        for (int i = 0; i < hits; i++)
+        {
+            if (Random.Range(1, 6) <= myHits.dodgeChance) damage++;
+        }
+
+        Debug.Log("rollDamage: "+damage);
         return damage;
     }
 
