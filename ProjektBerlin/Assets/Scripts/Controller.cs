@@ -189,7 +189,7 @@ public class Controller : MonoBehaviour
                 //Debug.Log("Number of targets within range: " + targetsInRange.Count.ToString());
             }
         }
-        //skip
+        /*//skip
         if (Input.GetAxis("DpadV") == -1)
         {
             if (getSelectedManager().numActions > 0)
@@ -203,7 +203,7 @@ public class Controller : MonoBehaviour
             }
 			checkStateEndOfAction();
         }
-
+		*/
     }
 
 	private void selectNextAvailableSquad(){

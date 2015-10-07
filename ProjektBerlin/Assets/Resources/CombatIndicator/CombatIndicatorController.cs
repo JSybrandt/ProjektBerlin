@@ -9,8 +9,10 @@ public class CombatIndicatorController : MonoBehaviour {
 		MISS
 	}
 
+	private const float DEFAULT_LIFESPAN = 3;
+
 	[HideInInspector]
-	public float lifespan = 3;
+	public float lifespan = DEFAULT_LIFESPAN;
 
 	[HideInInspector]
 	public float verticalSpeed = 1;
@@ -18,20 +20,18 @@ public class CombatIndicatorController : MonoBehaviour {
 	[HideInInspector]
 	public Type iconType = Type.MISS;
 
-	private static Material hitMat = (Material) Resources.Load("CombatIndicator/Materials/hit");
-	private static Material missMat = (Material) Resources.Load("CombatIndicator/Materials/miss");
-	
+
 
 	public void set(Vector3 pos, Type t){
 		switch (t) {
 		case Type.HIT:
-			GetComponent<MeshRenderer>().material = hitMat;
+			GetComponent<MeshRenderer>().material = (Material) Resources.Load("CombatIndicator/Materials/hit");;
 			break;
 		case Type.MISS:
-			GetComponent<MeshRenderer>().material  = missMat;
+			GetComponent<MeshRenderer>().material  = (Material) Resources.Load("CombatIndicator/Materials/miss");
 			break;
 		}
-
+		lifespan = DEFAULT_LIFESPAN;
 		transform.position = pos;
 	}
 
@@ -49,7 +49,7 @@ public class CombatIndicatorController : MonoBehaviour {
 		transform.LookAt(transform.position + Camera.main.transform.rotation * Vector3.forward,
 		                 Camera.main.transform.rotation * Vector3.up);
 		if (lifespan <= 0)
-			Destroy (this);
+			Destroy (this.gameObject);
 	}
 
 }
