@@ -32,6 +32,7 @@ public class SquadManager : MonoBehaviour
     //TODO: Add return fire?
     public bool retaliation = false;
     public bool inCover = false;
+    public bool behindWall = false;
 
     public bool midMovement { get { return _midMovement; } }
     public int numActions { get { return _numActions; } }
@@ -153,6 +154,10 @@ public class SquadManager : MonoBehaviour
             GetComponent<Rigidbody>().velocity = Vector3.zero;
             
             moveProj.SetActive(false);
+
+            Collider[] hitColliders = Physics.OverlapSphere(transform.position, 5, GameObject.Find("GameLogic").GetComponent<Controller>().detectPartial); //Needs to figure out layers
+            if (hitColliders.Length > 0)
+                inCover = true;
         }
         else throw new UnityException("Attempted to end an actions before starting one.");
     }
@@ -403,11 +408,13 @@ public class SquadManager : MonoBehaviour
 
     void OnGUI()
     {
-        if (tex != null && inCover)
+        if (tex != null && (inCover || behindWall))
         {
+            float sizeMod = 15;
             Vector3 guiPosition = Camera.main.WorldToScreenPoint(transform.position);
+            float camDistance = Camera.main.GetComponent<CameraController>().distance;
             guiPosition.y = Screen.height - guiPosition.y;
-            Rect rect = new Rect(guiPosition.x - tex.width / 2, guiPosition.y - tex.height / 2.0f, tex.width, tex.height);
+            Rect rect = new Rect((guiPosition.x - tex.width / (camDistance / sizeMod) / 2.0f), (guiPosition.y - tex.height / (camDistance / sizeMod) / 2.0f), tex.width / (camDistance/ sizeMod), tex.height / (camDistance/ sizeMod));
             GUI.DrawTexture(rect, tex);
         }
     }

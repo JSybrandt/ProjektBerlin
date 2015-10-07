@@ -5,7 +5,6 @@ public class Marker : MonoBehaviour
 {
 
     private const float FLOOR_DISPACEMENT = 1f;
-    private Vector3 positionAtActionStart;
     [HideInInspector]
     public Vector3 markerStart = new Vector3();
     [HideInInspector]
@@ -26,7 +25,7 @@ public class Marker : MonoBehaviour
 
     }
 
-    void FixedUpate()
+    void FixedUpdate()
     {
         if (Combat.markerMoving)
         {
@@ -39,7 +38,7 @@ public class Marker : MonoBehaviour
             {
                 float t = Terrain.activeTerrain.SampleHeight(transform.position) + FLOOR_DISPACEMENT;
                 transform.position = new Vector3(transform.position.x, t, transform.position.z);
-                if ((positionAtActionStart - transform.position).magnitude >= maxDistance)
+                if ((markerStart - transform.position).magnitude >= maxDistance)
                 {
                     transform.position = markerPrevious;
                 }

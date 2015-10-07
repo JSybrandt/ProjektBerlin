@@ -3480,7 +3480,10 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1714887810}
-  m_Layer: 0
+  - 114: {fileID: 1714887813}
+  - 54: {fileID: 1714887812}
+  - 135: {fileID: 1714887811}
+  m_Layer: 15
   m_Name: Marker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3499,6 +3502,47 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
+--- !u!135 &1714887811
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1714887809}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: .5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &1714887812
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1714887809}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1714887813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1714887809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13d1bff10f7c4114e8c70e318eb1d4a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  markerStart: {x: 0, y: 0, z: 0}
+  markerPrevious: {x: 0, y: 0, z: 0}
+  maxDistance: 0
 --- !u!1001 &1748904104
 Prefab:
   m_ObjectHideFlags: 0
@@ -4156,6 +4200,9 @@ MonoBehaviour:
   detectPartial:
     serializedVersion: 2
     m_Bits: 1024
+  detectWall:
+    serializedVersion: 2
+    m_Bits: 4096
   attackProj: {fileID: 0}
   selectedTargetIndex: 0
   marker: {fileID: 0}
