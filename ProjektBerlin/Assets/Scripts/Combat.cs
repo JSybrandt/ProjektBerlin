@@ -8,9 +8,6 @@ public static class Combat
     public static List<GameObject> targetsInRange = new List<GameObject>();
     public static int numPlayers = Controller.NUM_PLAYERS;
     public static Controller gameLogic;
-    private static Vector3 markerStart = new Vector3();
-    private static Vector3 markerPos = new Vector3();
-    private static float maxDistance = 0;
     public static bool markerMoving = false;
     private static Marker marker;
 
@@ -69,6 +66,8 @@ public static class Combat
                     //Detect full cover
                     if (!Physics.Raycast(myPos, dir, distance, gameLogic.detectCover))
                         targets.Add(hitColliders[i].gameObject);
+                    if (Physics.Raycast(myPos, dir, distance, gameLogic.detectWall))
+                        hitColliders[i].gameObject.GetComponent<SquadManager>().behindWall = true;
                 }
             }
             i++;
@@ -120,7 +119,7 @@ public static class Combat
             myHits.hitChance = me.GetComponent<SquadManager>().hitChance;
 
             //Detect partial cover
-            if (!Physics.Raycast(myPos, dir, distance, gameLogic.detectPartial))
+            if (!getTarget().inCover && !Physics.Raycast(myPos, dir, distance, gameLogic.detectWall))
             {
                 myHits.dodgeChance = getTarget().dodgeChance; 
             }
@@ -169,6 +168,12 @@ public static class Combat
     {
         if (selectedTargetIndex >= 0 && targetsInRange[selectedTargetIndex].activeInHierarchy)
             targetsInRange[selectedTargetIndex].GetComponent<SquadManager>().lightPiece.enabled = false;
+
+        foreach(GameObject target in targetsInRange)
+        {
+            target.GetComponent<SquadManager>().behindWall = false;
+        }
+
         targetsInRange.Clear();
         selectedTargetIndex = -1;
         marker.maxDistance = 0;
@@ -185,6 +190,7 @@ public static class Combat
         reset();
         marker.maxDistance = distance;
         marker.markerStart = me.transform.position;
+        marker.transform.position = me.transform.position;
         markerMoving = true;
     }
 

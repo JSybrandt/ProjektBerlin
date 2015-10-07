@@ -37,6 +37,7 @@ public class Controller : MonoBehaviour
     //DON'T HIDE LAYER MASKS: Uses inspector.
     public LayerMask detectCover;
     public LayerMask detectPartial;
+    public LayerMask detectWall;
     [HideInInspector]
     public GameObject attackProj;
     [HideInInspector]
@@ -379,12 +380,14 @@ public class Controller : MonoBehaviour
                         if (getSelectedManager().numActions == 1) currentStage = TurnStage.InBetween;
                         //getSelectedManager().skipAction();
                         checkStateEndOfAction();
+                        getMainCamController().setCameraTarget(squads[selectedSquadIndex].transform.position, true);
                     }
                     if (Input.GetButtonUp("Square"))
                     {
                         currentAttack = AttackType.Unit;
                         Combat.reset();
                         attackProj.GetComponent<Projector>().enabled = false;
+                        Debug.Log("Unit Ability");
                         getSelectedManager().unitAbility();
                     }
                     if (Input.GetButtonUp("Triangle"))
@@ -393,6 +396,7 @@ public class Controller : MonoBehaviour
                         Combat.reset();
                         attackProj.GetComponent<Projector>().enabled = false;
                         getSelectedManager().squadAbility();
+                        Debug.Log("Squad Ability");
                     }
                 }
                 else if(currentAttack == AttackType.Squad && getSelectedManager() != null) // && Input.GetButtonUp("Triangle")

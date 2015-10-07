@@ -53,7 +53,7 @@ public class BasicSquad : MonoBehaviour {
 
     void grenade()
     {
-
+        Combat.setupAoE(gameObject, 20);
     }
 
     void grenadeUpdate()
