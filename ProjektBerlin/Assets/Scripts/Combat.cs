@@ -192,6 +192,7 @@ public static class Combat
         selectedTargetIndex = -1;
         marker.maxDistance = 0;
         markerMoving = false;
+        marker.gameObject.SetActive(false);
     }
 
     /// <summary>
@@ -202,6 +203,7 @@ public static class Combat
     public static void setupAoE(GameObject me, float distance)
     {
         reset();
+        marker.gameObject.SetActive(true);
         marker.maxDistance = distance;
         marker.markerStart = me.transform.position;
         marker.transform.position = me.transform.position;
@@ -213,6 +215,13 @@ public static class Combat
         if (Input.GetButtonUp("Cross"))
         {
             activated = true;
+            Camera.main.GetComponent<CameraController>().setCameraTarget(me.transform.position, true);
+        }
+        
+        if (Input.GetButtonDown("Circle"))
+        {
+            reset();
+            Camera.main.GetComponent<CameraController>().setCameraTarget(me.transform.position, true);
         }
     }
 
