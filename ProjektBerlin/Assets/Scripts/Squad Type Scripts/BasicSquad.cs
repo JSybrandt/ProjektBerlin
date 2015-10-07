@@ -53,7 +53,7 @@ public class BasicSquad : MonoBehaviour {
 
     void grenade()
     {
-        Combat.setupAoE(gameObject, 20);
+        Combat.setupAoE(gameObject, 10, 5);
     }
 
     void grenadeUpdate()
@@ -64,11 +64,15 @@ public class BasicSquad : MonoBehaviour {
 
         if (activated)
         {
+
             List<GameObject> targets = Combat.getTargets();
 
             foreach(GameObject target in targets)
             {
-                //int hits = Combat.fightTarget
+                SquadManager enemy = target.GetComponent<SquadManager>();
+                ShotsFired shot = new ShotsFired(4, enemy.dodgeChance);
+                int damage = Combat.rollDamage(shot, enemy.getActiveUnitsCount());
+                enemy.takeDamage(damage);
             }
 
             squad.skipAction();

@@ -61,6 +61,7 @@ public class SquadManager : MonoBehaviour
     private const float MAX_UNIT_HEIGHT = 0.5f;
     private const float FLOOR_DISPACEMENT = 1f;
     private Vector3 prevPosition; //used to revert after colliding w/ terrain. 
+    private bool prevCover = false;
 
     private Rigidbody rb;
 
@@ -139,9 +140,11 @@ public class SquadManager : MonoBehaviour
         {
             positionAtActionStart = transform.position;
             moveProj.transform.position = new Vector3(transform.position.x, 9, transform.position.z);
-            moveProj.GetComponent<Projector>().orthographicSize = movementDistance + 3;
+            moveProj.GetComponent<Projector>().orthographicSize = movementDistance + 2;
             moveProj.SetActive(true);
             _midMovement = true;
+            prevCover = inCover;
+            inCover = false;
         }
         else throw new UnityException("Attempted to start an action when squad had none.");
     }
@@ -155,7 +158,7 @@ public class SquadManager : MonoBehaviour
             
             moveProj.SetActive(false);
 
-            Collider[] hitColliders = Physics.OverlapSphere(transform.position, 5, GameObject.Find("GameLogic").GetComponent<Controller>().detectPartial); //Needs to figure out layers
+            Collider[] hitColliders = Physics.OverlapSphere(transform.position, 2, GameObject.Find("GameLogic").GetComponent<Controller>().detectPartial); //Needs to figure out layers
             if (hitColliders.Length > 0)
                 inCover = true;
         }
@@ -185,6 +188,7 @@ public class SquadManager : MonoBehaviour
         {
             _midMovement = false;
             transform.position = positionAtActionStart;
+            inCover = prevCover;
             moveProj.SetActive(false);
         }
         else throw new UnityException("Attempted to undo a move when squad had not moved");
@@ -192,38 +196,41 @@ public class SquadManager : MonoBehaviour
 
     public void takeDamage(int numUnitsKilled, bool killSpecial = false)
     {
-        int remainingToKill = numUnitsKilled;
+        if (numUnitsKilled > 0)
+        {
+            int remainingToKill = numUnitsKilled;
+            Debug.Log("I'm dieing!");
+            if (killSpecial)
+                foreach (GameObject unit in units)
+                {
+                    if (remainingToKill <= 0)
+                        break;
+                    else if (unit.GetComponent<UnitManager>().isSpecial && unit.activeInHierarchy)
+                    {
+                        unit.SetActive(false);
+                        remainingToKill--;
+                    }
+                }
 
-        Debug.Log("I'm dieing!");
-        if(killSpecial)
             foreach (GameObject unit in units)
             {
                 if (remainingToKill <= 0)
                     break;
-                else if (unit.GetComponent<UnitManager>().isSpecial && unit.activeInHierarchy) {
-                    unit.SetActive(false);
+                else if (unit.activeInHierarchy)
+                {
+                    unit.SetActive(false);  //Might not be correct
                     remainingToKill--;
                 }
             }
 
-        foreach (GameObject unit in units)
-        {
-            if (remainingToKill <= 0)
-                break;
-            else if (unit.activeInHierarchy)
+            if (isDead())
             {
-                unit.SetActive(false);  //Might not be correct
-                remainingToKill--;
+                //Disable this squad
+                gameObject.SetActive(false);
+                _numActions = 0;
+                //lightPiece.enabled = false;
+
             }
-        }
-
-        if (isDead())
-        {
-            //Disable this squad
-            gameObject.SetActive(false);
-            _numActions = 0;
-            //lightPiece.enabled = false;
-
         }
         lightPiece.enabled = false;
     }
@@ -252,76 +259,6 @@ public class SquadManager : MonoBehaviour
         lightPiece.enabled = false;
     }
 
-    public List<GameObject> getTargets(int activePlayer, int numPlayers, LayerMask detectCover, LayerMask detectPartial, float attack = 0)
-    {
-
-        if (attack == 0)
-            attack = attackDistance;
-
-        Vector3 myPos = transform.position;
-
-        attackProj.GetComponent<Projector>().orthographicSize = attack; //Should be set by unit
-        attackProj.transform.position = new Vector3(myPos.x, 9, myPos.z);
-        attackProj.GetComponent<Projector>().enabled = true;
-
-        Collider[] hitColliders = Physics.OverlapSphere(myPos, attack); //Needs to figure out layers
-        List<GameObject> targets = new List<GameObject>();
-
-        Debug.Log("Number of objects in range: " + hitColliders.Length);
-
-        int i = 0;
-        while (i < hitColliders.Length)
-        {
-            for (int j = 0; j < numPlayers; j++)
-            {
-                string playerTarget = "Player" + j.ToString() + "Squad";
-                if (j != activePlayer && hitColliders[i].tag == playerTarget)
-                {
-                    Vector3 targetPos = hitColliders[i].gameObject.transform.position;
-                    Vector3 dir = (targetPos - myPos).normalized;
-                    float distance = Vector3.Distance(myPos, targetPos);
-
-                    //Detect full cover
-                    if (!Physics.Raycast(myPos, dir, distance, detectCover))
-                        targets.Add(hitColliders[i].gameObject);
-                }
-            }
-            i++;
-        }
-
-        return targets;
-    }
-
-    public ShotsFired detectHits(Vector3 targetCenter, LayerMask detectCover, LayerMask detectPartial)
-    {
-        Vector3 myPos = transform.position;
-        Vector3 targetPos = targetCenter;
-        Vector3 dir = (targetPos - myPos).normalized;
-        float distance = Vector3.Distance(myPos, targetPos);
-
-        ShotsFired myHits = new ShotsFired();
-
-        //If not behind cover
-        if (!Physics.Raycast(myPos, dir, distance, detectCover))
-        {
-            //Detect partial cover
-            if (!Physics.Raycast(myPos, dir, distance, detectPartial))
-            {
-                myHits.dodgeChance = 2;
-                myHits.hitChance = 4;
-            }
-            else
-            {
-                Debug.Log("I hit partial cover!");
-                myHits.hasPartialCover = true;
-                myHits.dodgeChance = 2;
-                myHits.hitChance = 2;
-            }
-        }
-
-        return myHits;
-    }
-
     public List<GameObject> getActiveUnits()
     {
         List<GameObject> myUnits = new List<GameObject>();
@@ -337,42 +274,19 @@ public class SquadManager : MonoBehaviour
         return myUnits;
     }
 
-    //public List<Hit> squadHits(GameObject targetSquad, int activePlayer, int numPlayers, LayerMask detectCover, LayerMask detectPartial)
-    //{
-    //    List<Hit> myHits = getTargets(targetSquad.transform.position,activePlayer,numPlayers,detectCover,detectPartial);
-
-    //    //List<GameObject> enemyUnits = targetSquad.GetComponent<SquadManager>().getActiveUnits();
-
-    //    //foreach (GameObject u in getActiveUnits())
-    //    //{
-    //    //    myHits.AddRange(u.GetComponent<UnitManager>().detectHits(enemyUnits,activePlayer,numPlayers,detectCover,detectPartial));
-    //    //}
-
-    //    return myHits;
-    //}
-
-    public void fightTarget(GameObject targetSquad, LayerMask detectCover, LayerMask detectPartial)
+    public int getActiveUnitsCount()
     {
-        ShotsFired myHits = detectHits(targetSquad.transform.position, detectCover, detectPartial);
-        int damage = calculateDamage(myHits);
-        targetSquad.GetComponent<SquadManager>().takeDamage(damage);
-    }
+        int alive = 0;
 
-    int calculateDamage(ShotsFired myHits)
-    {
-        int hits = 0;
-        for (int i = 0; i < getPower(); i++)
+        foreach (GameObject u in units)
         {
-            if (Random.Range(1, 6) <= myHits.hitChance) hits++;
-        }
-        int damage = 0;
-        for (int i = 0; i < hits; i++)
-        {
-            if (Random.Range(1, 6) <= myHits.dodgeChance) damage++;
+            if (u.activeInHierarchy)
+            {
+                alive++;
+            }
         }
 
-        Debug.Log("Attack:" + getPower() + " Hit Chance: " + myHits.hitChance + " Hits:" + hits + " Dodge Chance: " + myHits.dodgeChance + " Damage:" + damage);
-        return damage;
+        return alive;
     }
 
     public int getPower()

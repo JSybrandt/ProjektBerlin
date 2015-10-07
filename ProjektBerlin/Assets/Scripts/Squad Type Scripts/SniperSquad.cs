@@ -69,7 +69,9 @@ public class SniperSquad : MonoBehaviour {
 		
 		if (Combat.UpdateTarget(GetComponent<SquadManager>()))
         {
-            Combat.getTarget().takeDamage(1, true);
+            ShotsFired snipe = new ShotsFired(6, Combat.getTarget().dodgeChance);
+            int damage = Combat.rollDamage(snipe,1);
+            Combat.getTarget().takeDamage(damage, true);
             squad.skipAction();
             gameLogic.checkStateEndOfAction();
             gameLogic.updateUI();

@@ -10,6 +10,7 @@ public static class Combat
     public static Controller gameLogic;
     public static bool markerMoving = false;
     private static Marker marker;
+    private static float markerAttack = 0;
 
     //private static GameObject attackProj;
     public static int selectedTargetIndex = -1;
@@ -87,7 +88,7 @@ public static class Combat
 
     //public static void fightTargets(GameObject me, int )
 
-    static int calculateDamage(SquadManager me, ShotsFired myHits)
+    private static int calculateDamage(SquadManager me, ShotsFired myHits)
     {
         int hits = 0;
         for (int i = 0; i < me.getPower(); i++)
@@ -103,6 +104,23 @@ public static class Combat
 		CombatIndicationSpawner.spawnMisses (getTarget().transform.position, hits-damage);
         Debug.Log("Attack:" + me.getPower() + " Hit Chance: " + myHits.hitChance + " Hits:" + hits + " Dodge Chance: " + myHits.dodgeChance + " Damage:" + damage);
 		return damage;
+    }
+
+    public static int rollDamage(ShotsFired myHits, int shots)
+    {
+        int hits = 0;
+        for (int i = 0; i < shots; i++)
+        {
+            if (Random.Range(1, 6) <= myHits.hitChance) hits++;
+        }
+        int damage = 0;
+        for (int i = 0; i < hits; i++)
+        {
+            if (Random.Range(1, 6) <= myHits.dodgeChance) damage++;
+        }
+
+        Debug.Log("rollDamage: "+damage);
+        return damage;
     }
 
     public static ShotsFired detectHits(GameObject me)
@@ -181,6 +199,8 @@ public static class Combat
         selectedTargetIndex = -1;
         marker.maxDistance = 0;
         markerMoving = false;
+        marker.gameObject.SetActive(false);
+        markerAttack = 0;
     }
 
     /// <summary>
@@ -188,20 +208,38 @@ public static class Combat
     /// </summary>
     /// <param name="me">The object from which the AoE is spawning from</param>
     /// <param name="distance">The max distance the object can cast the AoE</param>
-    public static void setupAoE(GameObject me, float distance)
+    public static void setupAoE(GameObject me, float distance, float range = 0)
     {
         reset();
+        marker.gameObject.SetActive(true);
         marker.maxDistance = distance;
         marker.markerStart = me.transform.position;
         marker.transform.position = me.transform.position;
         markerMoving = true;
+        markerAttack = range;
+        if (range > 0)
+        {
+            gameLogic.attackProj.GetComponent<Projector>().orthographicSize = markerAttack; //Should be set by unit
+            gameLogic.attackProj.GetComponent<Projector>().enabled = true;
+        }
     }
 
     public static void updateAoE(SquadManager me, ref bool activated)
-    {
+    {      
+        gameLogic.attackProj.transform.position = new Vector3(marker.transform.position.x, 9, marker.transform.position.z);   
+
         if (Input.GetButtonUp("Cross"))
         {
             activated = true;
+            if(markerAttack > 0)
+                findTargets(marker.gameObject, markerAttack);
+            Camera.main.GetComponent<CameraController>().setCameraTarget(me.transform.position, true);
+        }
+        
+        if (Input.GetButtonDown("Circle"))
+        {
+            reset();
+            Camera.main.GetComponent<CameraController>().setCameraTarget(me.transform.position, true);
         }
     }
 

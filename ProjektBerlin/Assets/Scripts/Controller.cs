@@ -184,7 +184,6 @@ public class Controller : MonoBehaviour
             if (getSelectedManager().numActions > 0)
             {
                 currentStage = TurnStage.Combat;
-                targetsInRange = selectedRB.GetComponent<SquadManager>().getTargets(currentPlayersTurn,NUM_PLAYERS,detectCover,detectPartial);
                 Combat.findTargets(selectedRB.gameObject);
                 updateUI();
                 //Debug.Log("Number of targets within range: " + targetsInRange.Count.ToString());
@@ -234,16 +233,8 @@ public class Controller : MonoBehaviour
 
     public void checkStateEndOfAction()
     {
-        if (targetsInRange.Count > 0)
-        {
-            foreach (GameObject target in targetsInRange)
-            {
-                if(target.activeInHierarchy)
-                    target.SendMessage("disableLight");
-            }
-            Combat.reset();
-            currentAttack = AttackType.Basic;
-        }
+        Combat.reset();
+        currentAttack = AttackType.Basic;
         attackProj.GetComponent<Projector>().enabled = false;
 
 		if (GameObject.FindGameObjectsWithTag ("Player" + ((currentPlayersTurn + 1) % NUM_PLAYERS) + "Squad").Length == 0) {
