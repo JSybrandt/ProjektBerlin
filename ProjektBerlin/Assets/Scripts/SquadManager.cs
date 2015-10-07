@@ -140,7 +140,7 @@ public class SquadManager : MonoBehaviour
         {
             positionAtActionStart = transform.position;
             moveProj.transform.position = new Vector3(transform.position.x, 9, transform.position.z);
-            moveProj.GetComponent<Projector>().orthographicSize = movementDistance + 2;
+            moveProj.GetComponent<Projector>().orthographicSize = movementDistance + 3;
             moveProj.SetActive(true);
             _midMovement = true;
             prevCover = inCover;
