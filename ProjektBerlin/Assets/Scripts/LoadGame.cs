@@ -15,6 +15,7 @@ public class LoadGame : NetworkBehaviour
     // Use this for initialization
     void Start()
     {
+        Debug.Log("Started Load Game");
 
         GameObject SquadPrefab = (GameObject)Resources.Load("Squad");
         if (SquadPrefab == null)
@@ -38,6 +39,7 @@ public class LoadGame : NetworkBehaviour
             newSquad.GetComponent<SquadManager>().setColor(Color.red);
             NetworkServer.Spawn(newSquad);
             allSquads.Add(newSquad);
+            Debug.Log("Spawned Red Dude");
         }
 
 		for (int i = 0; i < 20; i += 5)
@@ -58,6 +60,7 @@ public class LoadGame : NetworkBehaviour
             newSquad.GetComponent<SquadManager>().setColor(Color.blue);
             NetworkServer.Spawn(newSquad);
             allSquads.Add(newSquad);
+            Debug.Log("Spawned Blue Dude");
         }
 
         Controller controllerScript = GetComponent<Controller>();

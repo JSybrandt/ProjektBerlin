@@ -227,14 +227,11 @@ MonoBehaviour:
   m_MaxDelay: .00999999978
   m_LogLevel: 2
   m_PlayerPrefab: {fileID: 0}
-  m_AutoCreatePlayer: 1
+  m_AutoCreatePlayer: 0
   m_PlayerSpawnMethod: 0
   m_OfflineScene: 
-  m_OnlineScene: Project Berlin
-  m_SpawnPrefabs:
-  - {fileID: 158044, guid: 192f4e680ed211d43a603161d33bc13f, type: 2}
-  - {fileID: 183448, guid: 4c1b7499bdc6f82418d364254f9a2e34, type: 2}
-  - {fileID: 123016, guid: 575febaf7f1c4c0479c956aa0df498cc, type: 2}
+  m_OnlineScene: 
+  m_SpawnPrefabs: []
   m_CustomConfig: 0
   m_MaxConnections: 4
   m_ConnectionConfig:

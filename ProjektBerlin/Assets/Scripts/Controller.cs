@@ -25,6 +25,9 @@ public class Controller : MonoBehaviour
     [HideInInspector]
     public int numPlayers = NUM_PLAYERS;
 
+    [HideInInspector]
+    public bool isRunning = false;
+
     public float turnSpeed = 20;
     public float zoomSpeed = 20;
 
@@ -113,6 +116,8 @@ public class Controller : MonoBehaviour
         Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Squad"), LayerMask.NameToLayer("PartialCover"));
         Physics.IgnoreLayerCollision(LayerMask.NameToLayer("PartialCover"), LayerMask.NameToLayer("Squad"));
         Physics.IgnoreLayerCollision(LayerMask.NameToLayer("PartialCover"), LayerMask.NameToLayer("Unit"));
+
+        isRunning = true;
 
     }
 
@@ -297,6 +302,8 @@ public class Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!isRunning)
+            return;
 	
         if (squads.Length > 0)
         {

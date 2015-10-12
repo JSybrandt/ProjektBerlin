@@ -4,19 +4,36 @@ using UnityEngine.Networking;
 
 public class NetManager : NetworkManager {
 
-	// Use this for initialization
-	//void Start () {
-	
-	//}
-	
-	//// Update is called once per frame
-	//void Update () {
-	
-	//}
+    private int counter = 0;
 
     public override void OnServerConnect(NetworkConnection conn)
     {
         base.OnServerConnect(conn);
-        Debug.Log("OnPlayerConnected");
+        Debug.Log("OnServerConnect");
+        counter++;
+        if (counter == 2)
+        {
+            Debug.Log("Load Scene");
+            ServerChangeScene("Project Berlin");
+        }
     }
+
+    public override void OnServerReady(NetworkConnection conn)
+    {
+        base.OnServerReady(conn);
+        Debug.Log("OnServerReady");
+    }
+
+    public override void OnClientConnect(NetworkConnection conn)
+    {
+        Debug.Log("OnClientConnected");
+        base.OnClientConnect(conn);
+    }
+
+    public override void OnServerAddPlayer(NetworkConnection conn, short playerControllerId)
+    {
+        base.OnServerAddPlayer(conn, playerControllerId);
+        Debug.Log("OnServerAddPlayer");
+    }
+
 }

@@ -1,0 +1,254 @@
+Initialize engine version: 5.2.0f3 (e7947df39b5c)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 970 (ID=0x13c2)
+    Vendor:   NVIDIA
+    VRAM:     3072 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: D:\Documents\GitHub\ProjektBerlin\Builds\Network1_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading D:\Documents\GitHub\ProjektBerlin\Builds\Network1_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\ProjektBerlin\Builds\Network1_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading D:\Documents\GitHub\ProjektBerlin\Builds\Network1_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\ProjektBerlin\Builds\Network1_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading D:\Documents\GitHub\ProjektBerlin\Builds\Network1_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\ProjektBerlin\Builds\Network1_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading D:\Documents\GitHub\ProjektBerlin\Builds\Network1_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\ProjektBerlin\Builds\Network1_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading D:\Documents\GitHub\ProjektBerlin\Builds\Network1_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\ProjektBerlin\Builds\Network1_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading D:\Documents\GitHub\ProjektBerlin\Builds\Network1_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\ProjektBerlin\Builds\Network1_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading D:\Documents\GitHub\ProjektBerlin\Builds\Network1_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\ProjektBerlin\Builds\Network1_Data\Managed\System.Core.dll (this message is harmless)
+- Completed reload, in  0.041 seconds
+desktop: 1280x960 60Hz; virtual: 1280x960 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+Platform assembly: D:\Documents\GitHub\ProjektBerlin\Builds\Network1_Data\Managed\System.dll (this message is harmless)
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 28b0 -> priority: 1 
+OnClientConnected
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+Failed to spawn server object, assetId=192f4e68ed211d43a603161d33bc13f netId=1
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Failed to spawn server object, assetId=192f4e68ed211d43a603161d33bc13f netId=2
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Failed to spawn server object, assetId=192f4e68ed211d43a603161d33bc13f netId=3
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Failed to spawn server object, assetId=192f4e68ed211d43a603161d33bc13f netId=4
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Failed to spawn server object, assetId=192f4e68ed211d43a603161d33bc13f netId=5
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Failed to spawn server object, assetId=192f4e68ed211d43a603161d33bc13f netId=6
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Failed to spawn server object, assetId=192f4e68ed211d43a603161d33bc13f netId=7
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Failed to spawn server object, assetId=192f4e68ed211d43a603161d33bc13f netId=8
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+UnloadTime: 0.312758 ms
+Started Load Game
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1649)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1649)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1649)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1649)
+
+SpawnObject for Squad(Clone) (UnityEngine.GameObject), NetworkServer is not active. Cannot spawn objects without an active server.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Spawned Red Dude
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1649)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1649)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1649)
+
+SpawnObject for Squad(Clone) (UnityEngine.GameObject), NetworkServer is not active. Cannot spawn objects without an active server.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Spawned Red Dude
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1649)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1649)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1649)
+
+SpawnObject for Squad(Clone) (UnityEngine.GameObject), NetworkServer is not active. Cannot spawn objects without an active server.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Spawned Red Dude
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1649)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1649)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1649)
+
+SpawnObject for Squad(Clone) (UnityEngine.GameObject), NetworkServer is not active. Cannot spawn objects without an active server.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Spawned Red Dude
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1649)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1649)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1649)
+
+SpawnObject for Squad(Clone) (UnityEngine.GameObject), NetworkServer is not active. Cannot spawn objects without an active server.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Spawned Blue Dude
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1649)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1649)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1649)
+
+SpawnObject for Squad(Clone) (UnityEngine.GameObject), NetworkServer is not active. Cannot spawn objects without an active server.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Spawned Blue Dude
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1649)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1649)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1649)
+
+SpawnObject for Squad(Clone) (UnityEngine.GameObject), NetworkServer is not active. Cannot spawn objects without an active server.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Spawned Blue Dude
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1649)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1649)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1649)
+
+SpawnObject for Squad(Clone) (UnityEngine.GameObject), NetworkServer is not active. Cannot spawn objects without an active server.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Spawned Blue Dude
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+A connection has already been set as ready. There can only be one.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+
+Unloading 31 unused Assets to reduce memory usage. Loaded Objects now: 1172.
+Total: 0.636926 ms (FindLiveObjects: 0.055881 ms CreateObjectMapping: 0.020187 ms MarkObjects: 0.430664 ms  DeleteObjects: 0.129901 ms)
+
+Log: connection {1} has been disconnected by timeout; address {::ffff:127.0.0.1:7777}
+aissp: time {42753} lastRecTime {40708} DisTme {2000}, rtt {0} 
+ 
+(Filename:  Line: 1848)
+
+UNet Client Disconnect Error: Timeout
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
