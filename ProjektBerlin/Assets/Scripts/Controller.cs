@@ -297,7 +297,8 @@ public class Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-	
+		if (squads == null)
+			return;
         if (squads.Length > 0)
         {
             if (currentStage == TurnStage.None)

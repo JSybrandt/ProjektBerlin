@@ -96,38 +96,38 @@ public class SquadManager : MonoBehaviour
     //once every physics step
     void FixedUpdate()
     {
-        if (_midMovement && rb.velocity.magnitude > 0)
-        {
-            float h = Terrain.activeTerrain.SampleHeight(transform.position) + FLOOR_DISPACEMENT;
-            transform.position = new Vector3(transform.position.x, h, transform.position.z);
-            if ((positionAtActionStart - transform.position).magnitude >= movementDistance)
-            {
-                //endMovement();
-                transform.position = prevPosition;
-            }
-			if(transform.position.x > 62 || transform.position.x < -63|| transform.position.z > 100 || transform.position.z < -97)
-				transform.position = prevPosition;
-        }
-        else
-        {
-            rb.Sleep();
-        }
-        prevPosition = transform.position;
+		if (GetComponent<NetworkView> ().isMine) {
+			if (_midMovement && rb.velocity.magnitude > 0) {
+				float h = Terrain.activeTerrain.SampleHeight (transform.position) + FLOOR_DISPACEMENT;
+				transform.position = new Vector3 (transform.position.x, h, transform.position.z);
+				if ((positionAtActionStart - transform.position).magnitude >= movementDistance) {
+					//endMovement();
+					transform.position = prevPosition;
+				}
+				if (transform.position.x > 62 || transform.position.x < -63 || transform.position.z > 100 || transform.position.z < -97)
+					transform.position = prevPosition;
+			} else {
+				if (rb != null)
+					rb.Sleep ();
+			}
+			prevPosition = transform.position;
+		}
     }
 
     // Update is called once per frame
     void Update()
     {
-        for (int i = 0; i < size; i++)
-        {
-            units[i].transform.position = unitTargets[i].position;
-            transform.rotation = Quaternion.identity;
-            //TODO: This should be targetting instead of teleporting
-        }
+		if (GetComponent<NetworkView> ().isMine) {
+			for (int i = 0; i < units.Length; i++) {
+				units [i].transform.position = unitTargets [i].position;
+				transform.rotation = Quaternion.identity;
+				//TODO: This should be targetting instead of teleporting
+			}
 
 
-        //Updates associated light
-        myLight.transform.position = transform.position;
+			//Updates associated light
+			myLight.transform.position = transform.position;
+		}
 
     }
 

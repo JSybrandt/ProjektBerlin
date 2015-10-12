@@ -11,7 +11,9 @@ GameObject:
   - 54: {fileID: 5472772}
   - 136: {fileID: 13647628}
   - 114: {fileID: 11453392}
-  - 114: {fileID: 11451486}
+  - 114: {fileID: 11421108}
+  - 114: {fileID: 11487440}
+  - 148: {fileID: 14814764}
   m_Layer: 8
   m_Name: Squad
   m_TagString: Untagged
@@ -46,7 +48,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &11451486
+--- !u!114 &11421108
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -54,9 +56,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 158044}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2355ba771efc9ab48933bac26047db3f, type: 3}
+  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 25
+    i1: 47
+    i2: 78
+    i3: 104
+    i4: 14
+    i5: 210
+    i6: 17
+    i7: 212
+    i8: 58
+    i9: 96
+    i10: 49
+    i11: 97
+    i12: 211
+    i13: 59
+    i14: 193
+    i15: 63
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!114 &11453392
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -70,6 +93,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   size: 5
   tex: {fileID: 2800000, guid: 15ca8ea0d0523d442bb17f2e354095af, type: 3}
+  dodgeChance: .330000013
+  retaliation: 0
+  inCover: 0
+  behindWall: 0
   lightPiece: {fileID: 0}
   moveProj: {fileID: 0}
   attackProj: {fileID: 0}
@@ -77,6 +104,26 @@ MonoBehaviour:
   attackDistance: 20
   unitTargets: []
   units: []
+--- !u!114 &11487440
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 158044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 3
+  m_SendInterval: .100000001
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: .00100000005
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!136 &13647628
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -90,6 +137,18 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!148 &14814764
+NetworkView:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 158044}
+  m_Enabled: 1
+  m_StateSynchronization: 2
+  m_Observed: {fileID: 433522}
+  m_ViewID:
+    m_ID: 0
+    m_Type: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -160,6 +219,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_StateSynchronization
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
