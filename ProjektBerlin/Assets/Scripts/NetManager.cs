@@ -18,22 +18,22 @@ public class NetManager : NetworkManager {
         }
     }
 
-    public override void OnServerReady(NetworkConnection conn)
-    {
-        base.OnServerReady(conn);
-        Debug.Log("OnServerReady");
-    }
+    //public override void OnServerReady(NetworkConnection conn)
+    //{
+    //    base.OnServerReady(conn);
+    //    Debug.Log("OnServerReady");
+    //}
 
-    public override void OnClientConnect(NetworkConnection conn)
-    {
-        Debug.Log("OnClientConnected");
-        base.OnClientConnect(conn);
-    }
+    //public override void OnClientConnect(NetworkConnection conn)
+    //{
+    //    Debug.Log("OnClientConnected");
+    //    base.OnClientConnect(conn);
+    //}
 
-    public override void OnServerAddPlayer(NetworkConnection conn, short playerControllerId)
-    {
-        base.OnServerAddPlayer(conn, playerControllerId);
-        Debug.Log("OnServerAddPlayer");
-    }
+    //public override void OnServerAddPlayer(NetworkConnection conn, short playerControllerId)
+    //{
+    //    base.OnServerAddPlayer(conn, playerControllerId);
+    //    Debug.Log("OnServerAddPlayer");
+    //}
 
 }

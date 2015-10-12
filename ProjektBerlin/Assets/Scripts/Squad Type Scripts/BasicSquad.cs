@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Networking;
 
-public class BasicSquad : MonoBehaviour {
+public class BasicSquad : NetworkBehaviour
+{
 
     Controller gameLogic;
     SquadManager squad;
@@ -33,12 +35,14 @@ public class BasicSquad : MonoBehaviour {
         GameObject unitPrefab = (GameObject)Resources.Load("Unit");
         if (unitPrefab == null)
             throw new MissingReferenceException("Failed to find Unit Prefab.");
+        
 
         squad.units = new GameObject[squad.size];
         for (int i = 0; i < squad.size; i++)
         {
             squad.units[i] = (GameObject)Instantiate(unitPrefab, squad.unitTargets[i].position, Quaternion.identity);
             squad.units[i].transform.position = squad.unitTargets[i].position;
+            NetworkServer.Spawn(squad.units[i]);
         }
 
         squad.units[squad.units.Length - 1].GetComponent<UnitManager>().power = 4;

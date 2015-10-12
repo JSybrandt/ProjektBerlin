@@ -1,8 +1,9 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Networking;
 
-public class SniperSquad : MonoBehaviour {
+public class SniperSquad : NetworkBehaviour {
 
     Controller gameLogic;
     SquadManager squad;
@@ -39,6 +40,7 @@ public class SniperSquad : MonoBehaviour {
         {
             squad.units[i] = (GameObject)Instantiate(unitPrefab, squad.unitTargets[i].position, Quaternion.identity);
             squad.units[i].transform.position = squad.unitTargets[i].position;
+            NetworkServer.Spawn(squad.units[i]);
         }
 
         squad.units[squad.units.Length - 1].GetComponent<UnitManager>().power = 4;

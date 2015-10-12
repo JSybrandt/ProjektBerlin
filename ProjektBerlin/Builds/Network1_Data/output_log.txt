@@ -1,3 +1,13 @@
+Mono path[0] = 'D:/Documents/GitHub/ProjektBerlin/Builds/Network1_Data/Managed'
+Mono path[1] = 'D:/Documents/GitHub/ProjektBerlin/Builds/Network1_Data/Mono'
+Mono config path = 'D:/Documents/GitHub/ProjektBerlin/Builds/Network1_Data/Mono/etc'
+PlayerConnection initialized from D:/Documents/GitHub/ProjektBerlin/Builds/Network1_Data (debug = 0)
+PlayerConnection initialized network socket : 0.0.0.0 55413
+Multi-casting "[IP] 10.24.109.69 [Port] 55413 [Flags] 3 [Guid] 536798737 [EditorId] 2081413916 [Version] 1048832 [Id] WindowsPlayer(DESKTOP-JET1RNN) [Debug] 1" to [225.0.0.222:54997]...
+Waiting for connection from host on [10.24.109.69:55413]...
+PlayerConnection accepted from [10.24.109.69] handle:0x284
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,defer=y,address=0.0.0.0:56737
+PlayerConnection already initialized - listening to [10.24.109.69:55413]
 Initialize engine version: 5.2.0f3 (e7947df39b5c)
 GfxDevice: creating device client; threaded=1
 Direct3D:
@@ -16,239 +26,182 @@ Platform assembly: D:\Documents\GitHub\ProjektBerlin\Builds\Network1_Data\Manage
 Loading D:\Documents\GitHub\ProjektBerlin\Builds\Network1_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
 Platform assembly: D:\Documents\GitHub\ProjektBerlin\Builds\Network1_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
 Loading D:\Documents\GitHub\ProjektBerlin\Builds\Network1_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-Platform assembly: D:\Documents\GitHub\ProjektBerlin\Builds\Network1_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading D:\Documents\GitHub\ProjektBerlin\Builds\Network1_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-Platform assembly: D:\Documents\GitHub\ProjektBerlin\Builds\Network1_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading D:\Documents\GitHub\ProjektBerlin\Builds\Network1_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
 Platform assembly: D:\Documents\GitHub\ProjektBerlin\Builds\Network1_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.041 seconds
+- Completed reload, in  0.090 seconds
 desktop: 1280x960 60Hz; virtual: 1280x960 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
 Platform assembly: D:\Documents\GitHub\ProjektBerlin\Builds\Network1_Data\Managed\System.dll (this message is harmless)
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 28b0 -> priority: 1 
-OnClientConnected
+  Thread -> id: 139c -> priority: 1 
+OnServerConnect
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+NetManager:OnServerConnect(NetworkConnection) (at D:\Documents\GitHub\ProjektBerlin\Assets\Scripts\NetManager.cs:12)
+UnityEngine.Networking.NetworkManager:StartHost() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkManager.cs:420)
+UnityEngine.Networking.NetworkManagerHUD:OnGUI() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkManagerHUD.cs:70)
  
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+(Filename: D:/Documents/GitHub/ProjektBerlin/Assets/Scripts/NetManager.cs Line: 12)
+
+OnServerConnect
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+NetManager:OnServerConnect(NetworkConnection) (at D:\Documents\GitHub\ProjektBerlin\Assets\Scripts\NetManager.cs:12)
+UnityEngine.Networking.NetworkManager:OnServerConnectInternal(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkManager.cs:624)
+UnityEngine.Networking.NetworkConnection:InvokeHandler(Int16, NetworkReader, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:183)
+UnityEngine.Networking.NetworkConnection:InvokeHandlerNoData(Int16) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:165)
+UnityEngine.Networking.NetworkServer:InternalUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:657)
+UnityEngine.Networking.NetworkServer:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:546)
+UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:887)
+ 
+(Filename: D:/Documents/GitHub/ProjektBerlin/Assets/Scripts/NetManager.cs Line: 12)
+
+Load Scene
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+NetManager:OnServerConnect(NetworkConnection) (at D:\Documents\GitHub\ProjektBerlin\Assets\Scripts\NetManager.cs:16)
+UnityEngine.Networking.NetworkManager:OnServerConnectInternal(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkManager.cs:624)
+UnityEngine.Networking.NetworkConnection:InvokeHandler(Int16, NetworkReader, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:183)
+UnityEngine.Networking.NetworkConnection:InvokeHandlerNoData(Int16) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:165)
+UnityEngine.Networking.NetworkServer:InternalUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:657)
+UnityEngine.Networking.NetworkServer:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:546)
+UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:887)
+ 
+(Filename: D:/Documents/GitHub/ProjektBerlin/Assets/Scripts/NetManager.cs Line: 16)
 
 Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-Failed to spawn server object, assetId=192f4e68ed211d43a603161d33bc13f netId=1
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-Failed to spawn server object, assetId=192f4e68ed211d43a603161d33bc13f netId=2
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-Failed to spawn server object, assetId=192f4e68ed211d43a603161d33bc13f netId=3
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-Failed to spawn server object, assetId=192f4e68ed211d43a603161d33bc13f netId=4
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-Failed to spawn server object, assetId=192f4e68ed211d43a603161d33bc13f netId=5
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-Failed to spawn server object, assetId=192f4e68ed211d43a603161d33bc13f netId=6
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-Failed to spawn server object, assetId=192f4e68ed211d43a603161d33bc13f netId=7
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-Failed to spawn server object, assetId=192f4e68ed211d43a603161d33bc13f netId=8
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-UnloadTime: 0.312758 ms
+UnloadTime: 0.290230 ms
 Started Load Game
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+LoadGame:Start() (at D:\Documents\GitHub\ProjektBerlin\Assets\Scripts\LoadGame.cs:18)
  
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+(Filename: D:/Documents/GitHub/ProjektBerlin/Assets/Scripts/LoadGame.cs Line: 18)
 
-The referenced script on this Behaviour is missing!
+Is Client Squad Manager
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+SquadManager:CmdInit() (at D:\Documents\GitHub\ProjektBerlin\Assets\Scripts\SquadManager.cs:94)
+SquadManager:CallCmdInit()
+LoadGame:Start() (at D:\Documents\GitHub\ProjektBerlin\Assets\Scripts\LoadGame.cs:35)
  
-(Filename:  Line: 1649)
+(Filename: D:/Documents/GitHub/ProjektBerlin/Assets/Scripts/SquadManager.cs Line: 94)
 
-The referenced script on this Behaviour is missing!
+Is Server Squad Manager
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+SquadManager:CmdInit() (at D:\Documents\GitHub\ProjektBerlin\Assets\Scripts\SquadManager.cs:96)
+SquadManager:CallCmdInit()
+LoadGame:Start() (at D:\Documents\GitHub\ProjektBerlin\Assets\Scripts\LoadGame.cs:35)
  
-(Filename:  Line: 1649)
-
-The referenced script on this Behaviour is missing!
- 
-(Filename:  Line: 1649)
-
-The referenced script on this Behaviour is missing!
- 
-(Filename:  Line: 1649)
-
-SpawnObject for Squad(Clone) (UnityEngine.GameObject), NetworkServer is not active. Cannot spawn objects without an active server.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+(Filename: D:/Documents/GitHub/ProjektBerlin/Assets/Scripts/SquadManager.cs Line: 96)
 
 Spawned Red Dude
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+LoadGame:Start() (at D:\Documents\GitHub\ProjektBerlin\Assets\Scripts\LoadGame.cs:49)
  
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+(Filename: D:/Documents/GitHub/ProjektBerlin/Assets/Scripts/LoadGame.cs Line: 49)
 
-The referenced script on this Behaviour is missing!
+Is Client Squad Manager
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+SquadManager:CmdInit() (at D:\Documents\GitHub\ProjektBerlin\Assets\Scripts\SquadManager.cs:94)
+SquadManager:CallCmdInit()
+LoadGame:Start() (at D:\Documents\GitHub\ProjektBerlin\Assets\Scripts\LoadGame.cs:35)
  
-(Filename:  Line: 1649)
+(Filename: D:/Documents/GitHub/ProjektBerlin/Assets/Scripts/SquadManager.cs Line: 94)
 
-The referenced script on this Behaviour is missing!
+Is Server Squad Manager
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+SquadManager:CmdInit() (at D:\Documents\GitHub\ProjektBerlin\Assets\Scripts\SquadManager.cs:96)
+SquadManager:CallCmdInit()
+LoadGame:Start() (at D:\Documents\GitHub\ProjektBerlin\Assets\Scripts\LoadGame.cs:35)
  
-(Filename:  Line: 1649)
-
-The referenced script on this Behaviour is missing!
- 
-(Filename:  Line: 1649)
-
-SpawnObject for Squad(Clone) (UnityEngine.GameObject), NetworkServer is not active. Cannot spawn objects without an active server.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+(Filename: D:/Documents/GitHub/ProjektBerlin/Assets/Scripts/SquadManager.cs Line: 96)
 
 Spawned Red Dude
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+LoadGame:Start() (at D:\Documents\GitHub\ProjektBerlin\Assets\Scripts\LoadGame.cs:49)
  
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+(Filename: D:/Documents/GitHub/ProjektBerlin/Assets/Scripts/LoadGame.cs Line: 49)
 
-The referenced script on this Behaviour is missing!
+Is Client Squad Manager
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+SquadManager:CmdInit() (at D:\Documents\GitHub\ProjektBerlin\Assets\Scripts\SquadManager.cs:94)
+SquadManager:CallCmdInit()
+LoadGame:Start() (at D:\Documents\GitHub\ProjektBerlin\Assets\Scripts\LoadGame.cs:35)
  
-(Filename:  Line: 1649)
+(Filename: D:/Documents/GitHub/ProjektBerlin/Assets/Scripts/SquadManager.cs Line: 94)
 
-The referenced script on this Behaviour is missing!
+Is Server Squad Manager
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+SquadManager:CmdInit() (at D:\Documents\GitHub\ProjektBerlin\Assets\Scripts\SquadManager.cs:96)
+SquadManager:CallCmdInit()
+LoadGame:Start() (at D:\Documents\GitHub\ProjektBerlin\Assets\Scripts\LoadGame.cs:35)
  
-(Filename:  Line: 1649)
-
-The referenced script on this Behaviour is missing!
- 
-(Filename:  Line: 1649)
-
-SpawnObject for Squad(Clone) (UnityEngine.GameObject), NetworkServer is not active. Cannot spawn objects without an active server.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+(Filename: D:/Documents/GitHub/ProjektBerlin/Assets/Scripts/SquadManager.cs Line: 96)
 
 Spawned Red Dude
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+LoadGame:Start() (at D:\Documents\GitHub\ProjektBerlin\Assets\Scripts\LoadGame.cs:49)
  
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+(Filename: D:/Documents/GitHub/ProjektBerlin/Assets/Scripts/LoadGame.cs Line: 49)
 
-The referenced script on this Behaviour is missing!
+Is Client Squad Manager
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+SquadManager:CmdInit() (at D:\Documents\GitHub\ProjektBerlin\Assets\Scripts\SquadManager.cs:94)
+SquadManager:CallCmdInit()
+LoadGame:Start() (at D:\Documents\GitHub\ProjektBerlin\Assets\Scripts\LoadGame.cs:35)
  
-(Filename:  Line: 1649)
+(Filename: D:/Documents/GitHub/ProjektBerlin/Assets/Scripts/SquadManager.cs Line: 94)
 
-The referenced script on this Behaviour is missing!
+Is Server Squad Manager
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+SquadManager:CmdInit() (at D:\Documents\GitHub\ProjektBerlin\Assets\Scripts\SquadManager.cs:96)
+SquadManager:CallCmdInit()
+LoadGame:Start() (at D:\Documents\GitHub\ProjektBerlin\Assets\Scripts\LoadGame.cs:35)
  
-(Filename:  Line: 1649)
-
-The referenced script on this Behaviour is missing!
- 
-(Filename:  Line: 1649)
-
-SpawnObject for Squad(Clone) (UnityEngine.GameObject), NetworkServer is not active. Cannot spawn objects without an active server.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+(Filename: D:/Documents/GitHub/ProjektBerlin/Assets/Scripts/SquadManager.cs Line: 96)
 
 Spawned Red Dude
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+LoadGame:Start() (at D:\Documents\GitHub\ProjektBerlin\Assets\Scripts\LoadGame.cs:49)
  
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+(Filename: D:/Documents/GitHub/ProjektBerlin/Assets/Scripts/LoadGame.cs Line: 49)
 
-The referenced script on this Behaviour is missing!
+System memory in use before: 53.4 MB.
+System memory in use after: 53.4 MB.
+
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 977.
+Total: 0.685785 ms (FindLiveObjects: 0.038034 ms CreateObjectMapping: 0.026331 ms MarkObjects: 0.462846 ms  DeleteObjects: 0.157988 ms)
+
+Log: connection {1} has been disconnected by timeout; address {::ffff:127.0.0.1:56910}
+aissp: time {43637} lastRecTime {41590} DisTme {2000}, rtt {0} 
  
-(Filename:  Line: 1649)
+(Filename: C:/buildslave/unity/build/Runtime/Networking/UNETHost.cpp Line: 1848)
 
-The referenced script on this Behaviour is missing!
+Empty player list given to NetworkServer.Destroy(), nothing to do.
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:LogWarning(Object)
+UnityEngine.Networking.NetworkServer:DestroyPlayersForConnection(NetworkConnection) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:1412)
+UnityEngine.Networking.NetworkManager:OnServerDisconnect(NetworkConnection) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkManager.cs:747)
+UnityEngine.Networking.NetworkManager:OnServerDisconnectInternal(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkManager.cs:631)
+UnityEngine.Networking.NetworkConnection:InvokeHandler(Int16, NetworkReader, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:183)
+UnityEngine.Networking.NetworkConnection:InvokeHandlerNoData(Int16) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:165)
+UnityEngine.Networking.NetworkServer:InternalUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:713)
+UnityEngine.Networking.NetworkServer:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:546)
+UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:887)
  
-(Filename:  Line: 1649)
+(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkServer.cs Line: 1412)
 
-The referenced script on this Behaviour is missing!
- 
-(Filename:  Line: 1649)
-
-SpawnObject for Squad(Clone) (UnityEngine.GameObject), NetworkServer is not active. Cannot spawn objects without an active server.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-Spawned Blue Dude
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-The referenced script on this Behaviour is missing!
- 
-(Filename:  Line: 1649)
-
-The referenced script on this Behaviour is missing!
- 
-(Filename:  Line: 1649)
-
-The referenced script on this Behaviour is missing!
- 
-(Filename:  Line: 1649)
-
-SpawnObject for Squad(Clone) (UnityEngine.GameObject), NetworkServer is not active. Cannot spawn objects without an active server.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-Spawned Blue Dude
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-The referenced script on this Behaviour is missing!
- 
-(Filename:  Line: 1649)
-
-The referenced script on this Behaviour is missing!
- 
-(Filename:  Line: 1649)
-
-The referenced script on this Behaviour is missing!
- 
-(Filename:  Line: 1649)
-
-SpawnObject for Squad(Clone) (UnityEngine.GameObject), NetworkServer is not active. Cannot spawn objects without an active server.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-Spawned Blue Dude
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-The referenced script on this Behaviour is missing!
- 
-(Filename:  Line: 1649)
-
-The referenced script on this Behaviour is missing!
- 
-(Filename:  Line: 1649)
-
-The referenced script on this Behaviour is missing!
- 
-(Filename:  Line: 1649)
-
-SpawnObject for Squad(Clone) (UnityEngine.GameObject), NetworkServer is not active. Cannot spawn objects without an active server.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-Spawned Blue Dude
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-A connection has already been set as ready. There can only be one.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-
-Unloading 31 unused Assets to reduce memory usage. Loaded Objects now: 1172.
-Total: 0.636926 ms (FindLiveObjects: 0.055881 ms CreateObjectMapping: 0.020187 ms MarkObjects: 0.430664 ms  DeleteObjects: 0.129901 ms)
-
-Log: connection {1} has been disconnected by timeout; address {::ffff:127.0.0.1:7777}
-aissp: time {42753} lastRecTime {40708} DisTme {2000}, rtt {0} 
- 
-(Filename:  Line: 1848)
-
-UNet Client Disconnect Error: Timeout
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
+Waiting for finish

@@ -20,47 +20,60 @@ public class LoadGame : NetworkBehaviour
         GameObject SquadPrefab = (GameObject)Resources.Load("Squad");
         if (SquadPrefab == null)
             throw new MissingReferenceException("Failed to find squad prefab");
-		
-        for (int i = 0; i < 20; i += 5)
-        {
-            GameObject newSquad = (GameObject)Instantiate(SquadPrefab, new Vector3(i, 1, -70), Quaternion.identity);
-            newSquad.tag = "Player0Squad";
-			newSquad.GetComponent<SquadManager>().init();
-            if (i <= 10)
-            {
-                newSquad.AddComponent<BasicSquad>();
-                newSquad.GetComponent<BasicSquad>().init();
-            }
-            else
-            {
-                newSquad.AddComponent<SniperSquad>();
-                newSquad.GetComponent<SniperSquad>().init();
-            }
-            newSquad.GetComponent<SquadManager>().setColor(Color.red);
-            NetworkServer.Spawn(newSquad);
-            allSquads.Add(newSquad);
-            Debug.Log("Spawned Red Dude");
-        }
+        GameObject unitPrefab = (GameObject)Resources.Load("Unit");
+        GameObject sniperPrefab = (GameObject)Resources.Load("UnitSniper");
+        ClientScene.RegisterPrefab(SquadPrefab);
+        ClientScene.RegisterPrefab(unitPrefab);
+        ClientScene.RegisterPrefab(sniperPrefab);
 
-		for (int i = 0; i < 20; i += 5)
-		{
-			GameObject newSquad = (GameObject)Instantiate(SquadPrefab, new Vector3(i, 1, 60), Quaternion.identity);
-			newSquad.tag = "Player1Squad";
-			newSquad.GetComponent<SquadManager>().init();
-            if (i <= 10)
+        if (isServer)
+            for (int i = 0; i < 20; i += 5)
             {
-                newSquad.AddComponent<BasicSquad>();
-                newSquad.GetComponent<BasicSquad>().init();
+                GameObject newSquad = (GameObject)Instantiate(SquadPrefab, new Vector3(i, 1, -70), Quaternion.identity);
+                newSquad.tag = "Player0Squad";
+                NetworkServer.Spawn(newSquad);
+                newSquad.GetComponent<SquadManager>().CmdInit();
+                if (i <= 10)
+                {
+                    newSquad.AddComponent<BasicSquad>();
+                    newSquad.GetComponent<BasicSquad>().init();
+                }
+                else
+                {
+                    newSquad.AddComponent<SniperSquad>();
+                    newSquad.GetComponent<SniperSquad>().init();
+                }
+                newSquad.GetComponent<SquadManager>().setColor(Color.red);
+                
+                allSquads.Add(newSquad);
+                Debug.Log("Spawned Red Dude");
             }
-            else
+
+        if (!isServer)
+        {
+            
+            for (int i = 0; i < 20; i += 5)
             {
-                newSquad.AddComponent<SniperSquad>();
-                newSquad.GetComponent<SniperSquad>().init();
+                GameObject newSquad = (GameObject)Instantiate(SquadPrefab, new Vector3(i, 1, 60), Quaternion.identity);
+                newSquad.tag = "Player1Squad";
+                NetworkServer.Spawn(newSquad);
+
+                newSquad.GetComponent<SquadManager>().CmdInit();
+                if (i <= 10)
+                {
+                    newSquad.AddComponent<BasicSquad>();
+                    newSquad.GetComponent<BasicSquad>().init();
+                }
+                else
+                {
+                    newSquad.AddComponent<SniperSquad>();
+                    newSquad.GetComponent<SniperSquad>().init();
+                }
+                newSquad.GetComponent<SquadManager>().setColor(Color.blue);
+                
+                allSquads.Add(newSquad);
+                Debug.Log("Spawned Blue Dude");
             }
-            newSquad.GetComponent<SquadManager>().setColor(Color.blue);
-            NetworkServer.Spawn(newSquad);
-            allSquads.Add(newSquad);
-            Debug.Log("Spawned Blue Dude");
         }
 
         Controller controllerScript = GetComponent<Controller>();

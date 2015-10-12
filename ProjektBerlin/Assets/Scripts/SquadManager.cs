@@ -1,8 +1,9 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Networking;
 
-public class SquadManager : MonoBehaviour
+public class SquadManager : NetworkBehaviour
 {
 
     //Ability is using an action on an ability
@@ -72,16 +73,14 @@ public class SquadManager : MonoBehaviour
     //public AbilityInit squadAbilityInit;
 
     // Use this for initialization
-    public void init(float atkRadius = 20, float mvRadius = 50)
+    [Command]
+    public void CmdInit()
     {
         myLight = new GameObject();
         myLight.transform.position = transform.position;
         lightPiece = myLight.AddComponent<Light>();
         lightPiece.color = Color.red;
         lightPiece.intensity = 8;
-
-        attackDistance = atkRadius;
-        movementDistance = mvRadius;
 
         moveProj = GameObject.Find("MoveRadius");
         attackProj = GameObject.Find("AttackRadius");
@@ -91,6 +90,10 @@ public class SquadManager : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         if (rb == null) throw new MissingComponentException("Need Rigidbody");
         prevPosition = transform.position;
+        if (!isServer)
+            Debug.Log("Is Client Squad Manager");
+        if (isServer)
+            Debug.Log("Is Server Squad Manager");
     }
 
     //once every physics step
