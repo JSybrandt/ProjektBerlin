@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -69,8 +69,13 @@ public class SniperSquad : MonoBehaviour {
 		
 		if (Combat.UpdateTarget(GetComponent<SquadManager>()))
         {
-            ShotsFired snipe = new ShotsFired(6, Combat.getTarget().dodgeChance);
-            int damage = Combat.rollDamage(snipe,1);
+            ShotsFired snipe = new ShotsFired(this.transform.position,
+			                                  Combat.getTarget().transform.position,
+			                                  BalanceConstants.SNIPE_POWER,
+			                                  BalanceConstants.SNIPE_HIT_CHANCE,
+			                                  Combat.getTarget().dodgeChance,
+			                                  false);
+            int damage = Combat.calculateDamage(snipe);
             Combat.getTarget().takeDamage(damage, true);
             squad.skipAction();
             gameLogic.checkStateEndOfAction();
@@ -86,7 +91,7 @@ public class SniperSquad : MonoBehaviour {
 
         if (activated)
         {
-            List<GameObject> targets = Combat.getTargets();
+            //List<GameObject> targets = Combat.getTargets();
 
             squad.skipAction();
             gameLogic.checkStateEndOfAction();

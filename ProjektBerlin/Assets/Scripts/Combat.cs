@@ -78,79 +78,64 @@ public static class Combat
         targetsInRange = targets;
     }
 
-    public static void fightTarget(GameObject me)
+    public static void fightTarget(GameObject me, int power)
     {
-        ShotsFired myHits = detectHits(me);
-        int damage = calculateDamage(me.GetComponent<SquadManager>(), myHits);
+        ShotsFired myHits = detectHits(me,power);
+        int damage = calculateDamage(myHits);
         getTarget().takeDamage(damage);
 
     }
 
     //public static void fightTargets(GameObject me, int )
 
-    private static int calculateDamage(SquadManager me, ShotsFired myHits)
+    public static int calculateDamage(ShotsFired myHits)
     {
         int hits = 0;
-        for (int i = 0; i < me.getPower(); i++)
+        for (int i = 0; i < myHits.power; i++)
         {
-            if (Random.Range(1, 6) <= myHits.hitChance) hits++;
+            if (Random.value <= myHits.hitChance) hits++;
         }
-		CombatIndicationSpawner.spawnHits (me.transform.position, hits);
+		CombatIndicationSpawner.spawnHits (myHits.source, hits);
         int damage = 0;
         for (int i = 0; i < hits; i++)
         {
-            if (Random.Range(1, 6) <= myHits.dodgeChance) damage++;
+			//higher dodge chance means less bullets go through
+			if (Random.value >= myHits.dodgeChance) damage++;
         }
-		CombatIndicationSpawner.spawnMisses (getTarget().transform.position, hits-damage);
-        Debug.Log("Attack:" + me.getPower() + " Hit Chance: " + myHits.hitChance + " Hits:" + hits + " Dodge Chance: " + myHits.dodgeChance + " Damage:" + damage);
-		return damage;
-    }
-
-    public static int rollDamage(ShotsFired myHits, int shots)
-    {
-        int hits = 0;
-        for (int i = 0; i < shots; i++)
-        {
-            if (Random.Range(1, 6) <= myHits.hitChance) hits++;
-        }
-        int damage = 0;
-        for (int i = 0; i < hits; i++)
-        {
-            if (Random.Range(1, 6) <= myHits.dodgeChance) damage++;
-        }
-
-        Debug.Log("rollDamage: "+damage);
+		CombatIndicationSpawner.spawnMisses (myHits.destination, hits-damage);
         return damage;
     }
 
-    public static ShotsFired detectHits(GameObject me)
+ 
+    public static ShotsFired detectHits(GameObject me, int power)
     {
         Vector3 myPos = me.transform.position;
         Vector3 targetPos = getTarget().transform.position;
         Vector3 dir = (targetPos - myPos).normalized;
         float distance = Vector3.Distance(myPos, targetPos);
-
-        ShotsFired myHits = new ShotsFired();
+		float hitChance=0, dodgeChance=0;
+		bool hasPartialCover=false;
+        
 
         //If not behind cover
         if (!Physics.Raycast(myPos, dir, distance, gameLogic.detectCover))
         {
-            myHits.hitChance = me.GetComponent<SquadManager>().hitChance;
+			hitChance = BalanceConstants.BASIC_HIT_CHANCE;
 
             //Detect partial cover
             if (!getTarget().inCover && !Physics.Raycast(myPos, dir, distance, gameLogic.detectWall))
             {
-                myHits.dodgeChance = getTarget().dodgeChance; 
+                dodgeChance = getTarget().dodgeChance; 
             }
             else
             {
                 Debug.Log("I hit partial cover!");
-                myHits.hasPartialCover = true;
-                myHits.dodgeChance = getTarget().dodgeChance - 2;
+                hasPartialCover = true;
+                dodgeChance = getTarget().dodgeChance*2;
             }
         }
 
-        return myHits;
+		return new ShotsFired (myPos, targetPos, power, hitChance, dodgeChance, hasPartialCover);
     }
 
     public static bool UpdateTarget(SquadManager me)

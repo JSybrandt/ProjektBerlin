@@ -25,9 +25,8 @@ public class SquadManager : MonoBehaviour
     private bool _midMovement = false;
 
     [HideInInspector]
-    public int dodgeChance = 7;
-    [HideInInspector]
-    public int hitChance = 7;
+    public float dodgeChance = BalanceConstants.BASIC_DODGE_CHANCE;
+
 
     //TODO: Add return fire?
     public bool retaliation = false;
@@ -73,10 +72,8 @@ public class SquadManager : MonoBehaviour
     //public AbilityInit squadAbilityInit;
 
     // Use this for initialization
-    public void init(float atkRadius = 20, float mvRadius = 50, int dodge = 4, int hit = 2)
+    public void init(float atkRadius = 20, float mvRadius = 50)
     {
-        dodgeChance = dodge;
-        hitChance = hit;
         myLight = new GameObject();
         myLight.transform.position = transform.position;
         lightPiece = myLight.AddComponent<Light>();

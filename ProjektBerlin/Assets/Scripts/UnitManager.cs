@@ -39,16 +39,14 @@ public class UnitManager : MonoBehaviour
                     //Detect full cover
                     if (!Physics.Raycast(myPos, dir, distance, detectCover))
                     {
+						ShotsFired newHit = new ShotsFired(myPos,targetPos,BalanceConstants.BASIC_POWER,BalanceConstants.BASIC_HIT_CHANCE,Combat.getTarget().dodgeChance,true);
                         //Detect partial cover
                         if (!Physics.Raycast(myPos, dir, distance, detectPartial))
                         {
                             Debug.Log("I hit partial cover!");
-                            myHits.Add(new ShotsFired(2, 4, true));
+							newHit.hasPartialCover=true;
                         }
-                        else
-                        {
-                            myHits.Add(new ShotsFired(4, 4, false));
-                        }
+						myHits.Add(newHit);
                     }
                 } //Is target
             } //Players loop

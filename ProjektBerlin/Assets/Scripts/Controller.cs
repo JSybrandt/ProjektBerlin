@@ -363,7 +363,7 @@ public class Controller : MonoBehaviour
                     {
 						getMainCamController().freezeCamera (2);
                         Debug.Log("I shot someone!");
-                        Combat.fightTarget(selectedRB.gameObject);
+                        Combat.fightTarget(selectedRB.gameObject,getSelectedManager().getPower());
                         getSelectedManager().skipAction();
                         checkStateEndOfAction();
                         updateUI();

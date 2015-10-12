@@ -70,8 +70,12 @@ public class BasicSquad : MonoBehaviour {
             foreach(GameObject target in targets)
             {
                 SquadManager enemy = target.GetComponent<SquadManager>();
-                ShotsFired shot = new ShotsFired(4, enemy.dodgeChance);
-                int damage = Combat.rollDamage(shot, enemy.getActiveUnitsCount());
+				ShotsFired shot = new ShotsFired(this.transform.position,
+				                                 enemy.transform.position,
+				                                 enemy.getActiveUnitsCount(),
+				                                 BalanceConstants.GRENADE_HIT_CHANCE,
+				                                 enemy.dodgeChance,false);
+				int damage = Combat.calculateDamage(shot);
                 enemy.takeDamage(damage);
             }
 
