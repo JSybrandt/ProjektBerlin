@@ -12,6 +12,7 @@ GameObject:
   - 136: {fileID: 13639032}
   - 23: {fileID: 2348518}
   - 114: {fileID: 11433580}
+  - 114: {fileID: 11430350}
   m_Layer: 15
   m_Name: UnitSniper
   m_TagString: Untagged
@@ -62,6 +63,38 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 123016}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &11430350
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 123016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 87
+    i1: 95
+    i2: 235
+    i3: 175
+    i4: 127
+    i5: 28
+    i6: 76
+    i7: 4
+    i8: 121
+    i9: 201
+    i10: 86
+    i11: 170
+    i12: 13
+    i13: 244
+    i14: 152
+    i15: 204
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!114 &11433580
 MonoBehaviour:
   m_ObjectHideFlags: 1

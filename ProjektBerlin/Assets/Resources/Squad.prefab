@@ -12,6 +12,7 @@ GameObject:
   - 136: {fileID: 13647628}
   - 114: {fileID: 11453392}
   - 114: {fileID: 11451486}
+  - 114: {fileID: 11417140}
   m_Layer: 8
   m_Name: Squad
   m_TagString: Untagged
@@ -46,6 +47,38 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &11417140
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 158044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 25
+    i1: 47
+    i2: 78
+    i3: 104
+    i4: 14
+    i5: 210
+    i6: 17
+    i7: 212
+    i8: 58
+    i9: 96
+    i10: 49
+    i11: 97
+    i12: 211
+    i13: 59
+    i14: 193
+    i15: 63
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!114 &11451486
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -70,6 +103,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   size: 5
   tex: {fileID: 2800000, guid: 15ca8ea0d0523d442bb17f2e354095af, type: 3}
+  dodgeChance: .330000013
+  retaliation: 0
+  inCover: 0
+  behindWall: 0
   lightPiece: {fileID: 0}
   moveProj: {fileID: 0}
   attackProj: {fileID: 0}

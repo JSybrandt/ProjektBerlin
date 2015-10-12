@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Networking;
 
-public class LoadGame : MonoBehaviour
+public class LoadGame : NetworkBehaviour
 {
 
 	private ArrayList allSquads = new ArrayList();
@@ -35,6 +36,7 @@ public class LoadGame : MonoBehaviour
                 newSquad.GetComponent<SniperSquad>().init();
             }
             newSquad.GetComponent<SquadManager>().setColor(Color.red);
+            NetworkServer.Spawn(newSquad);
             allSquads.Add(newSquad);
         }
 
@@ -54,14 +56,13 @@ public class LoadGame : MonoBehaviour
                 newSquad.GetComponent<SniperSquad>().init();
             }
             newSquad.GetComponent<SquadManager>().setColor(Color.blue);
+            NetworkServer.Spawn(newSquad);
             allSquads.Add(newSquad);
         }
 
         Controller controllerScript = GetComponent<Controller>();
 		controllerScript.init ();
         controllerScript.updateSquadList("Player0Squad");
-
-		//Camera.main.GetComponent<CameraController>().setCameraTarget(GameObject.FindGameObjectWithTag("Player0Squad").transform.position,true);
 
     }
 
