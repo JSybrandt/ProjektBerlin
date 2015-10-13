@@ -2730,7 +2730,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 425412, guid: 81d8f4e42d737e443aa5179250b4c517, type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 11473206, guid: 81d8f4e42d737e443aa5179250b4c517, type: 2}
       propertyPath: detectCover.m_Bits

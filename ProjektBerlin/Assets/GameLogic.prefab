@@ -58,6 +58,8 @@ MonoBehaviour:
   selectedTargetIndex: 0
   marker: {fileID: 0}
   currentPlayersTurn: 0
+  nLogic: {fileID: 0}
+  nLogicView: {fileID: 0}
 --- !u!114 &11486014
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -91,6 +93,10 @@ Prefab:
       propertyPath: detectWall.m_Bits
       value: 4096
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Observed
+      value: 
+      objectReference: {fileID: 11473206}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 102602}

@@ -12,6 +12,7 @@ GameObject:
   - 64: {fileID: 6435592}
   - 23: {fileID: 2304610}
   - 114: {fileID: 11481126}
+  - 148: {fileID: 14856470}
   m_Layer: 0
   m_Name: CombatIndicator
   m_TagString: Untagged
@@ -88,6 +89,18 @@ MonoBehaviour:
   lifespan: 3
   verticalSpeed: 1
   iconType: 1
+--- !u!148 &14856470
+NetworkView:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 197890}
+  m_Enabled: 1
+  m_StateSynchronization: 1
+  m_Observed: {fileID: 432402}
+  m_ViewID:
+    m_ID: 0
+    m_Type: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

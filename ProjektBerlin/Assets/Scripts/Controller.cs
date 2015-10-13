@@ -66,6 +66,10 @@ public class Controller : MonoBehaviour
     private bool isRoundOver = false;
 
 	private ArrayList allSquads;//taken on init from LoadGame
+    private bool isTurn = false;
+    private bool isRunning = false;
+    public NetworkLogic nLogic;
+    public NetworkView nLogicView;
 
     //called by loadgame
     public void init()
@@ -237,21 +241,27 @@ public class Controller : MonoBehaviour
         currentAttack = AttackType.Basic;
         attackProj.GetComponent<Projector>().enabled = false;
 
-		if (GameObject.FindGameObjectsWithTag ("Player" + ((currentPlayersTurn + 1) % NUM_PLAYERS) + "Squad").Length == 0) {
-			Debug.Log("GAME OVER! PLAYER "+ (currentPlayersTurn+1) +" victory!");
-			Application.Quit();
-		}
+		//if (GameObject.FindGameObjectsWithTag ("Player" + ((currentPlayersTurn + 1) % NUM_PLAYERS) + "Squad").Length == 0) {
+		//	Debug.Log("GAME OVER! PLAYER "+ (currentPlayersTurn+1) +" victory!");
+		//	Application.Quit();
+		//}
 
         if (getSelectedManager ().numActions == SquadManager.MAX_ACTIONS) {
 			currentStage = TurnStage.None;
 		}
 		else if(getSelectedManager ().numActions == 0) {
 			nextTurn();
+
 		}
         else
             currentStage = TurnStage.InBetween;
    
 		updateUI();
+    }
+
+    public void setTurn(bool turn)
+    {
+        isTurn = turn;
     }
 
     float GetSquadAngle()
@@ -273,12 +283,19 @@ public class Controller : MonoBehaviour
 		if (checkRoundComplete ())
 			nextRound ();
 		else {
-			currentPlayersTurn = (currentPlayersTurn + 1) % NUM_PLAYERS;
-			updateSquadList ("Player" + currentPlayersTurn + "Squad");
+			//currentPlayersTurn = (currentPlayersTurn + 1) % NUM_PLAYERS;
+			//updateSquadList ("Player" + currentPlayersTurn + "Squad");
             selectNextAvailableSquad();
 			currentStage=TurnStage.None;
-		}
+            nLogicView.RPC("setTurn", RPCMode.Others, true);
+            setTurn(false);
+        }
 	}
+
+    public void begin()
+    {
+        isRunning = true;
+    }
 
     //call at end of turn
     void nextRound()
@@ -290,14 +307,14 @@ public class Controller : MonoBehaviour
         }
         isRoundOver = false;
         currentPlayersTurn = (currentPlayersTurn + 1) % NUM_PLAYERS;
-        updateSquadList("Player" + currentPlayersTurn + "Squad");
+        //updateSquadList("Player" + currentPlayersTurn + "Squad");
         currentStage = TurnStage.None;
     }
 
     // Update is called once per frame
     void Update()
     {
-		if (squads == null)
+		if (squads == null || !isTurn)
 			return;
         if (squads.Length > 0)
         {

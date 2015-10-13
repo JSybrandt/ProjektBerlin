@@ -50,6 +50,8 @@ public class SniperSquad : MonoBehaviour {
         squad.squadAbility = new SquadManager.Ability(smokeScreen);
         squad.unitAbilityUpdate = new SquadManager.AbilityUpdate(sniperShotUpdate);
         squad.squadAbilityUpdate = new SquadManager.AbilityUpdate(smokeScreenUpdate);
+
+        squad.paintColor();
     }
 
     // Update is called once per frame

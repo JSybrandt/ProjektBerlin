@@ -26,8 +26,9 @@ public class CombatIndicationSpawner : MonoBehaviour {
 			for (float i =0; i < 360; i+=(360/num)) {
 				Vector3 pos = (Quaternion.Euler(0,i,0) * (Vector3.forward * radius)) + center + (Vector3.up*3);
 
-				GameObject c = Instantiate<GameObject>(CombatIndicatorPrefab);
-				c.GetComponent<CombatIndicatorController>().set (pos,type);
+				GameObject c = (GameObject)Network.Instantiate(CombatIndicatorPrefab,pos,Quaternion.identity,0);
+                c.GetComponent<NetworkView>().RPC("set", RPCMode.All,new indicatorSetter(pos, type));
+				//c.GetComponent<CombatIndicatorController>().set (pos,type);
 			}
 	}
 }

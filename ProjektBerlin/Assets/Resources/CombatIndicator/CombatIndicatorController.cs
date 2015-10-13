@@ -1,6 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+public struct indicatorSetter
+{
+    public Vector3 pos;
+    public CombatIndicatorController.Type t;
+    public indicatorSetter(Vector3 p, CombatIndicatorController.Type type)
+    {
+        pos = p;
+        t = type;
+    }
+}
+
 public class CombatIndicatorController : MonoBehaviour {
 
 	[HideInInspector]
@@ -21,9 +32,9 @@ public class CombatIndicatorController : MonoBehaviour {
 	public Type iconType = Type.MISS;
 
 
-
-	public void set(Vector3 pos, Type t){
-		switch (t) {
+    [RPC]
+	public void set(indicatorSetter ind){
+		switch (ind.t) {
 		case Type.HIT:
 			GetComponent<MeshRenderer>().material = (Material) Resources.Load("CombatIndicator/Materials/hit");;
 			break;
@@ -32,7 +43,7 @@ public class CombatIndicatorController : MonoBehaviour {
 			break;
 		}
 		lifespan = DEFAULT_LIFESPAN;
-		transform.position = pos;
+		transform.position = ind.pos;
 	}
 
 	public void FixedUpdate(){

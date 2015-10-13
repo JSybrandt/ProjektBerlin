@@ -50,6 +50,8 @@ public class BasicSquad : MonoBehaviour {
         squad.squadAbility = new SquadManager.Ability(retreat);
         squad.unitAbilityUpdate = new SquadManager.AbilityUpdate(grenadeUpdate);
         squad.squadAbilityUpdate = new SquadManager.AbilityUpdate(retreatUpdate);
+
+        squad.paintColor();
     }
 
     void grenade()

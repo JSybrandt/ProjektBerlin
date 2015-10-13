@@ -23,6 +23,7 @@ public class SquadManager : MonoBehaviour
     public int size = 0;
 
     public Texture tex;
+    public Color myColor = Color.red;
 
     private float unitDistanceFromCenter = 1.5f;
 
@@ -75,8 +76,6 @@ public class SquadManager : MonoBehaviour
     public Ability squadAbility;
     public AbilityUpdate unitAbilityUpdate;
     public AbilityUpdate squadAbilityUpdate;
-    //public AbilityInit unitAbilityInit;
-    //public AbilityInit squadAbilityInit;
 
     // Use this for initialization
     [RPC]
@@ -324,9 +323,14 @@ public class SquadManager : MonoBehaviour
 
     public void setColor(Color c)
     {
+        myColor = c;
+    }
+
+    public void paintColor()
+    {
         foreach (GameObject g in units)
         {
-            g.GetComponent<Renderer>().material.color = c;
+            g.GetComponent<Renderer>().material.color = myColor;
         }
     }
 
@@ -348,7 +352,7 @@ public class SquadManager : MonoBehaviour
         Vector3 syncPosition = Vector3.zero;
         if (stream.isWriting)
         {
-            syncPosition = GetComponent<Rigidbody>().position;
+            syncPosition = rb.position;
             stream.Serialize(ref syncPosition);
         }
         else
@@ -359,7 +363,7 @@ public class SquadManager : MonoBehaviour
             syncDelay = Time.time - lastSynchronizationTime;
             lastSynchronizationTime = Time.time;
 
-            syncStartPosition = GetComponent<Rigidbody>().position;
+            syncStartPosition = rb.position;
             syncEndPosition = syncPosition;
         }
     }
@@ -367,7 +371,7 @@ public class SquadManager : MonoBehaviour
     private void SyncedMovement()
     {
         syncTime += Time.deltaTime;
-        GetComponent<Rigidbody>().position = Vector3.Lerp(syncStartPosition, syncEndPosition, syncTime / syncDelay);
+        rb.position = Vector3.Lerp(syncStartPosition, syncEndPosition, syncTime / syncDelay);
         for (int i = 0; i < units.Length; i++)
         {
             units[i].transform.position = unitTargets[i].position;
