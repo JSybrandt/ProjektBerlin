@@ -70,6 +70,11 @@ public class Controller : MonoBehaviour
 
 	private ArrayList allSquads;//taken on init from LoadGame
 
+    void Awake()
+    {
+        gameObject.SetActive(true);
+    }
+
     //called by loadgame
     public void init()
     {

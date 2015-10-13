@@ -5,6 +5,7 @@ using UnityEngine.Networking;
 public class LoadGame : NetworkBehaviour
 {
 
+    [SyncVar]
 	private ArrayList allSquads = new ArrayList();
 
 	public ArrayList getAllSquads(){
@@ -27,12 +28,14 @@ public class LoadGame : NetworkBehaviour
         ClientScene.RegisterPrefab(sniperPrefab);
 
         if (isServer)
-            for (int i = 0; i < 20; i += 5)
+            for (int i = 0; i < 5; i += 5)
             {
                 GameObject newSquad = (GameObject)Instantiate(SquadPrefab, new Vector3(i, 1, -70), Quaternion.identity);
                 newSquad.tag = "Player0Squad";
+                newSquad.GetComponent<SquadManager>().init();
+                newSquad.GetComponent<SquadManager>().setColor(Color.red);
                 NetworkServer.Spawn(newSquad);
-                newSquad.GetComponent<SquadManager>().CmdInit();
+
                 if (i <= 10)
                 {
                     newSquad.AddComponent<BasicSquad>();
@@ -43,8 +46,7 @@ public class LoadGame : NetworkBehaviour
                     newSquad.AddComponent<SniperSquad>();
                     newSquad.GetComponent<SniperSquad>().init();
                 }
-                newSquad.GetComponent<SquadManager>().setColor(Color.red);
-                
+                               
                 allSquads.Add(newSquad);
                 Debug.Log("Spawned Red Dude");
             }
@@ -52,13 +54,14 @@ public class LoadGame : NetworkBehaviour
         if (!isServer)
         {
             
-            for (int i = 0; i < 20; i += 5)
+            for (int i = 0; i < 5; i += 5)
             {
                 GameObject newSquad = (GameObject)Instantiate(SquadPrefab, new Vector3(i, 1, 60), Quaternion.identity);
                 newSquad.tag = "Player1Squad";
+                newSquad.GetComponent<SquadManager>().init();
+                newSquad.GetComponent<SquadManager>().setColor(Color.blue);
                 NetworkServer.Spawn(newSquad);
 
-                newSquad.GetComponent<SquadManager>().CmdInit();
                 if (i <= 10)
                 {
                     newSquad.AddComponent<BasicSquad>();
@@ -68,8 +71,7 @@ public class LoadGame : NetworkBehaviour
                 {
                     newSquad.AddComponent<SniperSquad>();
                     newSquad.GetComponent<SniperSquad>().init();
-                }
-                newSquad.GetComponent<SquadManager>().setColor(Color.blue);
+                } 
                 
                 allSquads.Add(newSquad);
                 Debug.Log("Spawned Blue Dude");

@@ -35,17 +35,18 @@ public class SniperSquad : NetworkBehaviour {
         if (unitPrefab == null)
             throw new MissingReferenceException("Failed to find Unit Prefab.");
 
-        squad.units = new GameObject[squad.size];
-        for (int i = 0; i < squad.size; i++)
+        //squad.units = new GameObject[squad.size];
+        for (int i = 0; i < squad.size-1; i++)
         {
-            squad.units[i] = (GameObject)Instantiate(unitPrefab, squad.unitTargets[i].position, Quaternion.identity);
+            GameObject unit = (GameObject)Instantiate(unitPrefab, squad.unitTargets[i].position, Quaternion.identity);
+            squad.units.Add(unit);
             squad.units[i].transform.position = squad.unitTargets[i].position;
             NetworkServer.Spawn(squad.units[i]);
         }
 
-        squad.units[squad.units.Length - 1].GetComponent<UnitManager>().power = 4;
-        squad.units[squad.units.Length - 1].GetComponent<UnitManager>().isSpecial = true;
-        squad.units[squad.units.Length - 1].transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+        squad.units[squad.units.Count - 1].GetComponent<UnitManager>().power = 4;
+        squad.units[squad.units.Count - 1].GetComponent<UnitManager>().isSpecial = true;
+        squad.units[squad.units.Count - 1].transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
 
         squad.unitAbility = new SquadManager.Ability(sniperShot);
         squad.squadAbility = new SquadManager.Ability(smokeScreen);

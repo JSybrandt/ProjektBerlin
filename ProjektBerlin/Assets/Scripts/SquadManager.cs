@@ -24,6 +24,7 @@ public class SquadManager : NetworkBehaviour
     private int _numActions = MAX_ACTIONS;
     private Vector3 positionAtActionStart;
     private bool _midMovement = false;
+    public Color myColor;
 
     [HideInInspector]
     public float dodgeChance = BalanceConstants.BASIC_DODGE_CHANCE;
@@ -40,6 +41,7 @@ public class SquadManager : NetworkBehaviour
     //Added lights for showing targeted.
     private GameObject myLight;
     [HideInInspector]
+    [SyncVar]
     public Light lightPiece;
 
     [HideInInspector]
@@ -56,13 +58,14 @@ public class SquadManager : NetworkBehaviour
     [HideInInspector]
     public Transform[] unitTargets;
     [HideInInspector]
-    public GameObject[] units;
+    public List<GameObject> units = new List<GameObject>();
 
     private const float MAX_UNIT_HEIGHT = 0.5f;
     private const float FLOOR_DISPACEMENT = 1f;
     private Vector3 prevPosition; //used to revert after colliding w/ terrain. 
     private bool prevCover = false;
 
+    [SyncVar]
     private Rigidbody rb;
 
     public Ability unitAbility;
@@ -73,8 +76,7 @@ public class SquadManager : NetworkBehaviour
     //public AbilityInit squadAbilityInit;
 
     // Use this for initialization
-    [Command]
-    public void CmdInit()
+    public void init()
     {
         myLight = new GameObject();
         myLight.transform.position = transform.position;
@@ -121,10 +123,11 @@ public class SquadManager : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        for (int i = 0; i < size; i++)
-        {
-            units[i].transform.position = unitTargets[i].position;
+        int i = 0;
+        foreach(GameObject unit in units) {
+            unit.transform.position = unitTargets[i].position;
             transform.rotation = Quaternion.identity;
+            i++;
             //TODO: This should be targetting instead of teleporting
         }
 
@@ -314,10 +317,11 @@ public class SquadManager : NetworkBehaviour
 
     public void setColor(Color c)
     {
-        foreach (GameObject g in units)
-        {
-            g.GetComponent<Renderer>().material.color = c;
-        }
+        myColor = c;
+        //foreach (GameObject g in units)
+        //{
+        //    g.GetComponent<Renderer>().material.color = c;
+        //}
     }
 
     void OnGUI()
