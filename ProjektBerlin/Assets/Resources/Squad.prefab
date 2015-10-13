@@ -169,7 +169,7 @@ NetworkView:
   m_GameObject: {fileID: 158044}
   m_Enabled: 1
   m_StateSynchronization: 2
-  m_Observed: {fileID: 433522}
+  m_Observed: {fileID: 11453392}
   m_ViewID:
     m_ID: 0
     m_Type: 0
@@ -248,6 +248,10 @@ Prefab:
       propertyPath: m_StateSynchronization
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Observed
+      value: 
+      objectReference: {fileID: 11453392}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 158044}

@@ -129,6 +129,10 @@ public class SquadManager : MonoBehaviour
 			//Updates associated light
 			myLight.transform.position = transform.position;
 		}
+        else
+        {
+            SyncedMovement();
+        }
 
     }
 
@@ -328,6 +332,45 @@ public class SquadManager : MonoBehaviour
             guiPosition.y = Screen.height - guiPosition.y;
             Rect rect = new Rect((guiPosition.x - tex.width / (camDistance / sizeMod) / 2.0f), (guiPosition.y - tex.height / (camDistance / sizeMod) / 2.0f), tex.width / (camDistance/ sizeMod), tex.height / (camDistance/ sizeMod));
             GUI.DrawTexture(rect, tex);
+        }
+    }
+
+    private float lastSynchronizationTime = 0f;
+    private float syncDelay = 0f;
+    private float syncTime = 0f;
+    private Vector3 syncStartPosition = Vector3.zero;
+    private Vector3 syncEndPosition = Vector3.zero;
+
+    void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info)
+    {
+        Vector3 syncPosition = Vector3.zero;
+        if (stream.isWriting)
+        {
+            syncPosition = GetComponent<Rigidbody>().position;
+            stream.Serialize(ref syncPosition);
+        }
+        else
+        {
+            stream.Serialize(ref syncPosition);
+
+            syncTime = 0f;
+            syncDelay = Time.time - lastSynchronizationTime;
+            lastSynchronizationTime = Time.time;
+
+            syncStartPosition = GetComponent<Rigidbody>().position;
+            syncEndPosition = syncPosition;
+        }
+    }
+
+    private void SyncedMovement()
+    {
+        syncTime += Time.deltaTime;
+        GetComponent<Rigidbody>().position = Vector3.Lerp(syncStartPosition, syncEndPosition, syncTime / syncDelay);
+        for (int i = 0; i < units.Length; i++)
+        {
+            units[i].transform.position = unitTargets[i].position;
+            transform.rotation = Quaternion.identity;
+            //TODO: This should be targetting instead of teleporting
         }
     }
 }
