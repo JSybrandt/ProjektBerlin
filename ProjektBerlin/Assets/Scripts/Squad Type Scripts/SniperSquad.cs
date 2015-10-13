@@ -12,7 +12,8 @@ public class SniperSquad : MonoBehaviour {
 
     }
 
-    public void init()
+    [RPC]
+    public void sniperInit()
     {
         squad = GetComponent<SquadManager>();
         gameLogic = GameObject.Find("GameLogic").GetComponent<Controller>();

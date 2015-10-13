@@ -37,9 +37,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
---- !u!127 &3
-LevelGameManager:
-  m_ObjectHideFlags: 0
 --- !u!157 &4
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -68,6 +65,7 @@ LightmapSettings:
     m_TextureCompression: 1
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
+    m_ReflectionCompression: 2
   m_LightmapSnapshot: {fileID: 0}
   m_RuntimeCPUUsage: 25
 --- !u!196 &5
@@ -2741,6 +2739,10 @@ Prefab:
     - target: {fileID: 11473206, guid: 81d8f4e42d737e443aa5179250b4c517, type: 2}
       propertyPath: detectPartial.m_Bits
       value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 11486014, guid: 81d8f4e42d737e443aa5179250b4c517, type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 81d8f4e42d737e443aa5179250b4c517, type: 2}

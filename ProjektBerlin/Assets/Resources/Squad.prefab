@@ -14,6 +14,8 @@ GameObject:
   - 114: {fileID: 11421108}
   - 114: {fileID: 11487440}
   - 148: {fileID: 14814764}
+  - 114: {fileID: 11427254}
+  - 114: {fileID: 11449394}
   m_Layer: 8
   m_Name: Squad
   m_TagString: Untagged
@@ -80,6 +82,28 @@ MonoBehaviour:
     i15: 63
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
+--- !u!114 &11427254
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 158044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fbc003254dcf7d4394dcb79a325818c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11449394
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 158044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75f08cc7d8800374eafabbb8f749fe4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11453392
 MonoBehaviour:
   m_ObjectHideFlags: 1

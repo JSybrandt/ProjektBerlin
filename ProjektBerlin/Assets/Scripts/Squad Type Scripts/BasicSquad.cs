@@ -12,7 +12,8 @@ public class BasicSquad : MonoBehaviour {
 
     }
 
-    public void init()
+    [RPC]
+    public void basicInit()
     {
         squad = GetComponent<SquadManager>();
         gameLogic = GameObject.Find("GameLogic").GetComponent<Controller>();

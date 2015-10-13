@@ -72,7 +72,8 @@ public class SquadManager : MonoBehaviour
     //public AbilityInit squadAbilityInit;
 
     // Use this for initialization
-    public void init(float atkRadius = 20, float mvRadius = 50)
+    [RPC]
+    public void init()
     {
         myLight = new GameObject();
         myLight.transform.position = transform.position;
@@ -80,8 +81,8 @@ public class SquadManager : MonoBehaviour
         lightPiece.color = Color.red;
         lightPiece.intensity = 8;
 
-        attackDistance = atkRadius;
-        movementDistance = mvRadius;
+        attackDistance = 20;
+        movementDistance = 20;
 
         moveProj = GameObject.Find("MoveRadius");
         attackProj = GameObject.Find("AttackRadius");
