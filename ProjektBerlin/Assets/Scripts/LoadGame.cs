@@ -62,9 +62,9 @@ public class LoadGame : MonoBehaviour
 		if (Network.isServer) {
 			for (int i = 0; i < 20; i += 5) {
 				GameObject newSquad = (GameObject)Network.Instantiate (SquadPrefab, new Vector3 (i, 1, -70), Quaternion.identity,0);
-				newSquad.tag = "Player0Squad";
+				string sTag = "Player0Squad";
                 NetworkView sView = newSquad.GetComponent<NetworkView>();
-                sView.RPC("init", RPCMode.AllBuffered);
+                sView.RPC("init", RPCMode.AllBuffered, sTag);
                 //newSquad.GetComponent<SquadManager> ().init ();
                 Debug.Log("Server spawning");
 				if (i <= 10) {
@@ -83,9 +83,9 @@ public class LoadGame : MonoBehaviour
 		if (Network.isClient) {
 			for (int i = 0; i < 20; i += 5) {
 				GameObject newSquad = (GameObject)Network.Instantiate (SquadPrefab, new Vector3 (i, 1, 60), Quaternion.identity,0);
-				newSquad.tag = "Player1Squad";
+                string sTag = "Player1Squad";
                 NetworkView sView = newSquad.GetComponent<NetworkView>();
-                sView.RPC("init", RPCMode.AllBuffered);
+                sView.RPC("init", RPCMode.AllBuffered, sTag);
                 //newSquad.GetComponent<SquadManager> ().init ();
                 Debug.Log("Client spawning");
                 if (i <= 10)

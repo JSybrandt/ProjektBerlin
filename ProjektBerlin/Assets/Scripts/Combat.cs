@@ -82,7 +82,9 @@ public static class Combat
     {
         ShotsFired myHits = detectHits(me,power);
         int damage = calculateDamage(myHits);
-        getTarget().takeDamage(damage);
+        NetworkView nView = getTarget().GetComponent<NetworkView>();
+        nView.RPC("takeDamage", RPCMode.AllBuffered, damage, false);
+        //getTarget().takeDamage(damage);
 
     }
 

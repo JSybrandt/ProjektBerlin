@@ -4,6 +4,13 @@ using System.Collections.Generic;
 
 public class SquadManager : MonoBehaviour
 {
+    //Serialization stuff, really useful link:
+    // http://www.paladinstudios.com/2013/07/10/how-to-create-an-online-multiplayer-game-with-unity/
+    private float lastSynchronizationTime = 0f;
+    private float syncDelay = 0f;
+    private float syncTime = 0f;
+    private Vector3 syncStartPosition = Vector3.zero;
+    private Vector3 syncEndPosition = Vector3.zero;
 
     //Ability is using an action on an ability
     public delegate void Ability();
@@ -73,13 +80,14 @@ public class SquadManager : MonoBehaviour
 
     // Use this for initialization
     [RPC]
-    public void init()
+    public void init(string squadTag)
     {
         myLight = new GameObject();
         myLight.transform.position = transform.position;
         lightPiece = myLight.AddComponent<Light>();
         lightPiece.color = Color.red;
         lightPiece.intensity = 8;
+        tag = squadTag;
 
         attackDistance = 20;
         movementDistance = 20;
@@ -195,7 +203,7 @@ public class SquadManager : MonoBehaviour
         }
         else throw new UnityException("Attempted to undo a move when squad had not moved");
     }
-
+    [RPC]
     public void takeDamage(int numUnitsKilled, bool killSpecial = false)
     {
         if (numUnitsKilled > 0)
@@ -334,12 +342,6 @@ public class SquadManager : MonoBehaviour
             GUI.DrawTexture(rect, tex);
         }
     }
-
-    private float lastSynchronizationTime = 0f;
-    private float syncDelay = 0f;
-    private float syncTime = 0f;
-    private Vector3 syncStartPosition = Vector3.zero;
-    private Vector3 syncEndPosition = Vector3.zero;
 
     void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info)
     {
