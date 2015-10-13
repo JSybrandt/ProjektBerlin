@@ -50,9 +50,10 @@ public class SquadManager : MonoBehaviour
     public Light lightPiece;
 
     [HideInInspector]
-    public GameObject moveProj;
+    public Projector moveProj;
     [HideInInspector]
-    public GameObject attackProj;
+    public Projector attackProj;
+    private NetworkView nView;
 
     [HideInInspector]
     public float movementDistance;
@@ -91,8 +92,9 @@ public class SquadManager : MonoBehaviour
         attackDistance = 20;
         movementDistance = 20;
 
-        moveProj = GameObject.Find("MoveRadius");
-        attackProj = GameObject.Find("AttackRadius");
+        moveProj = GameObject.Find("MoveRadius").GetComponent<Projector>();
+        attackProj = GameObject.Find("AttackRadius").GetComponent<Projector>();
+        nView = GetComponent<NetworkView>();
 
         lightPiece.enabled = false;
 
@@ -104,7 +106,7 @@ public class SquadManager : MonoBehaviour
     //once every physics step
     void FixedUpdate()
     {
-		if (GetComponent<NetworkView> ().isMine) {
+		if (nView.isMine) {
 			if (_midMovement && rb.velocity.magnitude > 0) {
 				float h = Terrain.activeTerrain.SampleHeight (transform.position) + FLOOR_DISPACEMENT;
 				transform.position = new Vector3 (transform.position.x, h, transform.position.z);
@@ -125,7 +127,7 @@ public class SquadManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if (GetComponent<NetworkView> ().isMine) {
+		if (nView.isMine) {
 			for (int i = 0; i < units.Length; i++) {
 				units [i].transform.position = unitTargets [i].position;
 				transform.rotation = Quaternion.identity;
@@ -149,8 +151,8 @@ public class SquadManager : MonoBehaviour
         {
             positionAtActionStart = transform.position;
             moveProj.transform.position = new Vector3(transform.position.x, 9, transform.position.z);
-            moveProj.GetComponent<Projector>().orthographicSize = movementDistance + 3;
-            moveProj.SetActive(true);
+            moveProj.orthographicSize = movementDistance + 3;
+            moveProj.gameObject.SetActive(true);
             _midMovement = true;
             prevCover = inCover;
             inCover = false;
@@ -165,7 +167,7 @@ public class SquadManager : MonoBehaviour
             _numActions--;
             GetComponent<Rigidbody>().velocity = Vector3.zero;
             
-            moveProj.SetActive(false);
+            moveProj.gameObject.SetActive(false);
 
             Collider[] hitColliders = Physics.OverlapSphere(transform.position, 2, GameObject.Find("GameLogic").GetComponent<Controller>().detectPartial); //Needs to figure out layers
             if (hitColliders.Length > 0)
@@ -179,7 +181,7 @@ public class SquadManager : MonoBehaviour
         if (_numActions > 0)
         {
             _numActions--;
-            moveProj.SetActive(false);
+            moveProj.gameObject.SetActive(false);
         }
         else throw new UnityException("Attempted to skip an action when squad had none.");
     }
@@ -188,7 +190,7 @@ public class SquadManager : MonoBehaviour
     {
         _numActions = MAX_ACTIONS;
         _midMovement = false;
-        moveProj.SetActive(false);
+        moveProj.gameObject.SetActive(false);
     }
 
     public void undoMove()
@@ -198,10 +200,11 @@ public class SquadManager : MonoBehaviour
             _midMovement = false;
             transform.position = positionAtActionStart;
             inCover = prevCover;
-            moveProj.SetActive(false);
+            moveProj.gameObject.SetActive(false);
         }
         else throw new UnityException("Attempted to undo a move when squad had not moved");
     }
+
     [RPC]
     public void takeDamage(int numUnitsKilled, bool killSpecial = false)
     {
@@ -258,11 +261,13 @@ public class SquadManager : MonoBehaviour
         return true;
     }
 
+    [RPC]
     public void enableLight()
     {
         lightPiece.enabled = true;
     }
 
+    [RPC]
     public void disableLight()
     {
         lightPiece.enabled = false;

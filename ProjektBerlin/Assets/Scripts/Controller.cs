@@ -39,7 +39,7 @@ public class Controller : MonoBehaviour
     public LayerMask detectPartial;
     public LayerMask detectWall;
     [HideInInspector]
-    public GameObject attackProj;
+    public Projector attackProj;
     [HideInInspector]
     public int selectedTargetIndex;
 
@@ -87,7 +87,7 @@ public class Controller : MonoBehaviour
         targetsInRange = new List<GameObject>();
         selectedTargetIndex = -1;
 
-        attackProj = GameObject.Find("AttackRadius");
+        attackProj = GameObject.Find("AttackRadius").GetComponent<Projector>();
 
         //FoV
         materialFov = (Material)Resources.Load("Materials/FoV");
@@ -239,7 +239,7 @@ public class Controller : MonoBehaviour
     {
         Combat.reset();
         currentAttack = AttackType.Basic;
-        attackProj.GetComponent<Projector>().enabled = false;
+        attackProj.enabled = false;
 
 		//if (GameObject.FindGameObjectsWithTag ("Player" + ((currentPlayersTurn + 1) % NUM_PLAYERS) + "Squad").Length == 0) {
 		//	Debug.Log("GAME OVER! PLAYER "+ (currentPlayersTurn+1) +" victory!");
@@ -398,7 +398,7 @@ public class Controller : MonoBehaviour
                     {
                         currentAttack = AttackType.Unit;
                         Combat.reset();
-                        attackProj.GetComponent<Projector>().enabled = false;
+                        attackProj.enabled = false;
                         Debug.Log("Unit Ability");
                         getSelectedManager().unitAbility();
                     }
@@ -406,7 +406,7 @@ public class Controller : MonoBehaviour
                     {
                         currentAttack = AttackType.Squad;
                         Combat.reset();
-                        attackProj.GetComponent<Projector>().enabled = false;
+                        attackProj.enabled = false;
                         getSelectedManager().squadAbility();
                         Debug.Log("Squad Ability");
                     }

@@ -44,9 +44,9 @@ public static class Combat
 
         Vector3 myPos = me.transform.position;
 
-        gameLogic.attackProj.GetComponent<Projector>().orthographicSize = attackRange; //Should be set by unit
+        gameLogic.attackProj.orthographicSize = attackRange; //Should be set by unit
         gameLogic.attackProj.transform.position = new Vector3(myPos.x, 9, myPos.z);
-        gameLogic.attackProj.GetComponent<Projector>().enabled = true;
+        gameLogic.attackProj.enabled = true;
 
         Collider[] hitColliders = Physics.OverlapSphere(myPos, attackRange); //Needs to figure out layers
         List<GameObject> targets = new List<GameObject>();
@@ -144,25 +144,25 @@ public static class Combat
     {
         if (Input.GetButtonUp("R1") && targetsInRange.Count > 0)
         {
-            gameLogic.attackProj.GetComponent<Projector>().enabled = false;
+            gameLogic.attackProj.enabled = false;
             if (selectedTargetIndex >= 0)
-                targetsInRange[selectedTargetIndex].SendMessage("disableLight");
+                targetsInRange[selectedTargetIndex].GetComponent<NetworkView>().RPC("disableLight",RPCMode.All);
 
             selectedTargetIndex++;
             selectedTargetIndex %= targetsInRange.Count;
-            targetsInRange[selectedTargetIndex].SendMessage("enableLight");
+            targetsInRange[selectedTargetIndex].GetComponent<NetworkView>().RPC("enableLight", RPCMode.All);
         }
         else if (Input.GetButtonUp("L1") && targetsInRange.Count > 0)
         {
-            gameLogic.attackProj.GetComponent<Projector>().enabled = false;
+            gameLogic.attackProj.enabled = false;
             if (selectedTargetIndex >= 0)
-                targetsInRange[selectedTargetIndex].SendMessage("disableLight");
+                targetsInRange[selectedTargetIndex].GetComponent<NetworkView>().RPC("disableLight", RPCMode.All);
             else
                 selectedTargetIndex = 0;
 
             selectedTargetIndex--;
             if (selectedTargetIndex < 0) selectedTargetIndex = targetsInRange.Count - 1;
-            targetsInRange[selectedTargetIndex].SendMessage("enableLight");
+            targetsInRange[selectedTargetIndex].GetComponent<NetworkView>().RPC("enableLight", RPCMode.All);
         }
         if (Input.GetButtonUp("Cross") && targetsInRange.Count > 0 && selectedTargetIndex >= 0)
         {
@@ -175,9 +175,9 @@ public static class Combat
     public static void reset()
     {
         if (selectedTargetIndex >= 0 && targetsInRange[selectedTargetIndex].activeInHierarchy)
-            targetsInRange[selectedTargetIndex].GetComponent<SquadManager>().lightPiece.enabled = false;
+            targetsInRange[selectedTargetIndex].GetComponent<NetworkView>().RPC("disableLight", RPCMode.All);
 
-        foreach(GameObject target in targetsInRange)
+        foreach (GameObject target in targetsInRange)
         {
             target.GetComponent<SquadManager>().behindWall = false;
         }
@@ -206,8 +206,8 @@ public static class Combat
         markerAttack = range;
         if (range > 0)
         {
-            gameLogic.attackProj.GetComponent<Projector>().orthographicSize = markerAttack; //Should be set by unit
-            gameLogic.attackProj.GetComponent<Projector>().enabled = true;
+            gameLogic.attackProj.orthographicSize = markerAttack; //Should be set by unit
+            gameLogic.attackProj.enabled = true;
         }
     }
 
