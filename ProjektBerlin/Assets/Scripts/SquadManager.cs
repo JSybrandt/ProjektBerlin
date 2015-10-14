@@ -205,14 +205,16 @@ public class SquadManager : MonoBehaviour
         else throw new UnityException("Attempted to undo a move when squad had not moved");
     }
 
-    [RPC]
-    public void takeDamage(int numUnitsKilled, bool killSpecial = false)
+	
+	[RPC]
+    public void takeDamage(int damage, bool killSpecial)    
     {
-        if (numUnitsKilled > 0)
+		lightPiece.enabled = false;
+        if (damage > 0)
         {
-            int remainingToKill = numUnitsKilled;
+			int remainingToKill = damage;
             Debug.Log("I'm dieing!");
-            if (killSpecial)
+			if (killSpecial)
                 foreach (GameObject unit in units)
                 {
                     if (remainingToKill <= 0)
@@ -238,13 +240,17 @@ public class SquadManager : MonoBehaviour
             if (isDead())
             {
                 //Disable this squad
-                gameObject.SetActive(false);
-                _numActions = 0;
-                //lightPiece.enabled = false;
+				//Network.RemoveRPCsInGroup(0);
+				//Network.Destroy(gameObject);
+                //gameObject.SetActive(false);
+				gameObject.layer = 0;
+				_numActions = 0;
+                
+				//lightPiece.enabled = false;
 
             }
         }
-        lightPiece.enabled = false;
+        
     }
 
     //Checks all units of the squad to see if they are active or not.

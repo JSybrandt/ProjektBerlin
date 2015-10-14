@@ -1,6 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
+public struct damageInfo {
+	int damage;
+	bool killSpecial;
+	public damageInfo(int dmg, bool kill) {
+		damage = dmg;
+		killSpecial = kill;
+	}
+
+	public int getDamage() {return damage;}
+	public bool getKillSpecial() {return killSpecial;}
+}
+
 public static class Combat
 {
 
@@ -21,9 +33,9 @@ public static class Combat
 		CombatIndicationSpawner.instantiate ();
     }
 
-    public static SquadManager getTarget()
+    public static GameObject getTarget()
     {
-        return targetsInRange[selectedTargetIndex].GetComponent<SquadManager>();
+        return targetsInRange[selectedTargetIndex];
     }
 
     public static List<GameObject> getTargets()
@@ -59,9 +71,10 @@ public static class Combat
             for (int j = 0; j < numPlayers; j++)
             {
                 string playerTarget = "Player" + j.ToString() + "Squad";
-                if (j != gameLogic.currentPlayersTurn && hitColliders[i].tag == playerTarget)
-                {
-                    Vector3 targetPos = hitColliders[i].gameObject.transform.position;
+				string playerBaseTarget = "Player" + j.ToString() + "Base";
+				if ((j != gameLogic.currentPlayersTurn && hitColliders[i].tag == playerTarget)||(j != gameLogic.currentPlayersTurn && hitColliders[i].tag == playerBaseTarget))
+				{
+					Vector3 targetPos = hitColliders[i].gameObject.transform.position;
                     Vector3 dir = (targetPos - myPos).normalized;
                     float distance = Vector3.Distance(myPos, targetPos);
 
@@ -83,9 +96,7 @@ public static class Combat
         ShotsFired myHits = detectHits(me,power);
         int damage = calculateDamage(myHits);
         NetworkView nView = getTarget().GetComponent<NetworkView>();
-        nView.RPC("takeDamage", RPCMode.AllBuffered, damage, false);
-        //getTarget().takeDamage(damage);
-
+		nView.RPC("takeDamage", RPCMode.AllBuffered, damage,false);
     }
 
     //public static void fightTargets(GameObject me, int )
@@ -125,16 +136,22 @@ public static class Combat
 			hitChance = BalanceConstants.BASIC_HIT_CHANCE;
 
             //Detect partial cover
-            if (!getTarget().inCover && !Physics.Raycast(myPos, dir, distance, gameLogic.detectWall))
-            {
-                dodgeChance = getTarget().dodgeChance; 
-            }
-            else
-            {
-                Debug.Log("I hit partial cover!");
-                hasPartialCover = true;
-                dodgeChance = getTarget().dodgeChance*2;
-            }
+			if(getTarget().GetComponent<SquadManager>() != null)
+			{
+	            if (!getTarget().GetComponent<SquadManager>().inCover && !Physics.Raycast(myPos, dir, distance, gameLogic.detectWall))
+	            {
+					dodgeChance = getTarget().GetComponent<SquadManager>().dodgeChance; 
+	            }
+	            else
+	            {
+	                Debug.Log("I hit partial cover!");
+	                hasPartialCover = true;
+					dodgeChance = getTarget().GetComponent<SquadManager>().dodgeChance*2;
+            	}
+			}
+			else{
+				dodgeChance = 0;
+			}
         }
 
 		return new ShotsFired (myPos, targetPos, power, hitChance, dodgeChance, hasPartialCover);
@@ -179,7 +196,8 @@ public static class Combat
 
         foreach (GameObject target in targetsInRange)
         {
-            target.GetComponent<SquadManager>().behindWall = false;
+			if(target.GetComponent<SquadManager>()!=null)
+            	target.GetComponent<SquadManager>().behindWall = false;
         }
 
         targetsInRange.Clear();

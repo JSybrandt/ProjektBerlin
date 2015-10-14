@@ -33,17 +33,17 @@ public class CombatIndicatorController : MonoBehaviour {
 
 
     [RPC]
-	public void set(indicatorSetter ind){
-		switch (ind.t) {
-		case Type.HIT:
+	public void set(Vector3 pos, int t){
+		switch (t) {
+		case 0:
 			GetComponent<MeshRenderer>().material = (Material) Resources.Load("CombatIndicator/Materials/hit");;
 			break;
-		case Type.MISS:
+		case 1:
 			GetComponent<MeshRenderer>().material  = (Material) Resources.Load("CombatIndicator/Materials/miss");
 			break;
 		}
 		lifespan = DEFAULT_LIFESPAN;
-		transform.position = ind.pos;
+		transform.position = pos;
 	}
 
 	public void FixedUpdate(){

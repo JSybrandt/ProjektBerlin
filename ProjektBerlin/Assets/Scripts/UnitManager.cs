@@ -39,7 +39,7 @@ public class UnitManager : MonoBehaviour
                     //Detect full cover
                     if (!Physics.Raycast(myPos, dir, distance, detectCover))
                     {
-						ShotsFired newHit = new ShotsFired(myPos,targetPos,BalanceConstants.BASIC_POWER,BalanceConstants.BASIC_HIT_CHANCE,Combat.getTarget().dodgeChance,true);
+						ShotsFired newHit = new ShotsFired(myPos,targetPos,BalanceConstants.BASIC_POWER,BalanceConstants.BASIC_HIT_CHANCE,Combat.getTarget().GetComponent<SquadManager>().dodgeChance,true);
                         //Detect partial cover
                         if (!Physics.Raycast(myPos, dir, distance, detectPartial))
                         {

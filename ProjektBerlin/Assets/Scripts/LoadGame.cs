@@ -25,6 +25,12 @@ public class LoadGame : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+		GameObject p0Base = GameObject.Find ("Team0Base");
+		p0Base.GetComponent<BaseManager>().init();
+
+
+		GameObject p1Base = GameObject.Find ("Team1Base");
+		p1Base.GetComponent<BaseManager>().init();
 
     }
 
