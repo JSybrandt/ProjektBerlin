@@ -306,7 +306,7 @@ public class Controller : MonoBehaviour
                 g.GetComponent<SquadManager>().resetActions();
         }
         isRoundOver = false;
-        currentPlayersTurn = (currentPlayersTurn + 1) % NUM_PLAYERS;
+        //currentPlayersTurn = (currentPlayersTurn + 1) % NUM_PLAYERS;
         //updateSquadList("Player" + currentPlayersTurn + "Squad");
         currentStage = TurnStage.None;
     }
