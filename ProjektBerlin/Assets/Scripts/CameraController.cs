@@ -81,8 +81,7 @@ public class CameraController : MonoBehaviour {
 				setCameraTarget(delayTarget,isDelaySnap,0);
 		}
 		if(!isPathingToTarget) {//move based on controller
-			if (Input.GetAxis("L2") == 1)
-			{
+
 				distance -= Input.GetAxisRaw("JoystickRV") * zoomSpeed * Time.deltaTime;
 				angle -= Input.GetAxisRaw("JoystickRH") * rotateSpeed * Time.deltaTime;
 
@@ -98,7 +97,7 @@ public class CameraController : MonoBehaviour {
 				if(Input.GetButton("L3")){
 					setCameraTarget(previouslyAssignedTarget);
 				}
-			}
+			
 		}
 
 	}
