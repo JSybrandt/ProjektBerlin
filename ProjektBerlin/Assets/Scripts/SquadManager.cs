@@ -11,6 +11,7 @@ public class SquadManager : MonoBehaviour
     private float syncTime = 0f;
     private Vector3 syncStartPosition = Vector3.zero;
     private Vector3 syncEndPosition = Vector3.zero;
+    private bool dead = false;
 
     //Ability is using an action on an ability
     public delegate void Ability();
@@ -106,38 +107,45 @@ public class SquadManager : MonoBehaviour
     //once every physics step
     void FixedUpdate()
     {
-		if (nView.isMine) {
-			if (_midMovement && rb.velocity.magnitude > 0) {
-				float h = Terrain.activeTerrain.SampleHeight (transform.position) + FLOOR_DISPACEMENT;
-				transform.position = new Vector3 (transform.position.x, h, transform.position.z);
-				if ((positionAtActionStart - transform.position).magnitude >= movementDistance) {
-					//endMovement();
-					transform.position = prevPosition;
-				}
-				if (transform.position.x > 62 || transform.position.x < -63 || transform.position.z > 100 || transform.position.z < -97)
-					transform.position = prevPosition;
-			} else {
-				if (rb != null)
-					rb.Sleep ();
-			}
-			prevPosition = transform.position;
-		}
+        if (nView.isMine)
+        {
+            if (_midMovement && rb.velocity.magnitude > 0)
+            {
+                float h = Terrain.activeTerrain.SampleHeight(transform.position) + FLOOR_DISPACEMENT;
+                transform.position = new Vector3(transform.position.x, h, transform.position.z);
+                if ((positionAtActionStart - transform.position).magnitude >= movementDistance)
+                {
+                    //endMovement();
+                    transform.position = prevPosition;
+                }
+                if (transform.position.x > 62 || transform.position.x < -63 || transform.position.z > 100 || transform.position.z < -97)
+                    transform.position = prevPosition;
+            }
+            else
+            {
+                if (rb != null)
+                    rb.Sleep();
+            }
+            prevPosition = transform.position;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-		if (nView.isMine) {
-			for (int i = 0; i < units.Length; i++) {
-				units [i].transform.position = unitTargets [i].position;
-				transform.rotation = Quaternion.identity;
-				//TODO: This should be targetting instead of teleporting
-			}
+        if (nView.isMine)
+        {
+            for (int i = 0; i < units.Length; i++)
+            {
+                units[i].transform.position = unitTargets[i].position;
+                transform.rotation = Quaternion.identity;
+                //TODO: This should be targetting instead of teleporting
+            }
 
 
-			//Updates associated light
-			myLight.transform.position = transform.position;
-		}
+            //Updates associated light
+            myLight.transform.position = transform.position;
+        }
         else
         {
             SyncedMovement();
@@ -166,7 +174,7 @@ public class SquadManager : MonoBehaviour
             _midMovement = false;
             _numActions--;
             GetComponent<Rigidbody>().velocity = Vector3.zero;
-            
+
             moveProj.gameObject.SetActive(false);
 
             Collider[] hitColliders = Physics.OverlapSphere(transform.position, 2, GameObject.Find("GameLogic").GetComponent<Controller>().detectPartial); //Needs to figure out layers
@@ -188,9 +196,12 @@ public class SquadManager : MonoBehaviour
 
     public void resetActions()
     {
-        _numActions = MAX_ACTIONS;
-        _midMovement = false;
-        moveProj.gameObject.SetActive(false);
+        if (!dead)
+        {
+            _numActions = MAX_ACTIONS;
+            _midMovement = false;
+            moveProj.gameObject.SetActive(false);
+        }
     }
 
     public void undoMove()
@@ -205,16 +216,16 @@ public class SquadManager : MonoBehaviour
         else throw new UnityException("Attempted to undo a move when squad had not moved");
     }
 
-	
-	[RPC]
-    public void takeDamage(int damage, bool killSpecial)    
+
+    [RPC]
+    public void takeDamage(int damage, bool killSpecial)
     {
-		lightPiece.enabled = false;
+        lightPiece.enabled = false;
         if (damage > 0)
         {
-			int remainingToKill = damage;
+            int remainingToKill = damage;
             Debug.Log("I'm dieing!");
-			if (killSpecial)
+            if (killSpecial)
                 foreach (GameObject unit in units)
                 {
                     if (remainingToKill <= 0)
@@ -240,31 +251,33 @@ public class SquadManager : MonoBehaviour
             if (isDead())
             {
                 //Disable this squad
-				//Network.RemoveRPCsInGroup(0);
-				//Network.Destroy(gameObject);
+                //Network.RemoveRPCsInGroup(0);
+                //Network.Destroy(gameObject);
                 //gameObject.SetActive(false);
-				gameObject.layer = 0;
-				_numActions = 0;
-                
-				//lightPiece.enabled = false;
+                gameObject.layer = 0;
+                gameObject.tag = "Dead";
+                _numActions = 0;
+
+                //lightPiece.enabled = false;
 
             }
         }
-        
+
     }
 
     //Checks all units of the squad to see if they are active or not.
     public bool isDead()
     {
-        foreach (GameObject unit in units)
-        {
-            if (unit.activeInHierarchy)
+        if (!dead)
+            foreach (GameObject unit in units)
             {
-                return false;
+                if (unit.activeInHierarchy)
+                {
+                    return false;
+                }
             }
-        }
-
-        return true;
+        _numActions = 0;
+        return dead = true;
     }
 
     [RPC]
@@ -353,7 +366,7 @@ public class SquadManager : MonoBehaviour
             Vector3 guiPosition = Camera.main.WorldToScreenPoint(transform.position);
             float camDistance = Camera.main.GetComponent<CameraController>().distance;
             guiPosition.y = Screen.height - guiPosition.y;
-            Rect rect = new Rect((guiPosition.x - tex.width / (camDistance / sizeMod) / 2.0f), (guiPosition.y - tex.height / (camDistance / sizeMod) / 2.0f), tex.width / (camDistance/ sizeMod), tex.height / (camDistance/ sizeMod));
+            Rect rect = new Rect((guiPosition.x - tex.width / (camDistance / sizeMod) / 2.0f), (guiPosition.y - tex.height / (camDistance / sizeMod) / 2.0f), tex.width / (camDistance / sizeMod), tex.height / (camDistance / sizeMod));
             GUI.DrawTexture(rect, tex);
         }
     }
