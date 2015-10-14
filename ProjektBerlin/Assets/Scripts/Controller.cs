@@ -269,6 +269,17 @@ public class Controller : MonoBehaviour
         return 90 - Mathf.Rad2Deg * Mathf.Atan2(transform.forward.z, transform.forward.x); // Left handed CW. z = angle 0, x = angle 90
     }
 
+    public bool hasActiveSquads()
+    {
+        foreach(GameObject g in allSquads)
+        {
+            if (g.GetComponent<SquadManager>().numActions > 0 && g.activeInHierarchy)
+                return true;
+        }
+
+        return false;
+    }
+
     bool checkRoundComplete()
     {
         foreach (GameObject g in allSquads)

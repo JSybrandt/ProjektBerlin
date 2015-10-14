@@ -37,6 +37,10 @@ public class NetworkLogic : MonoBehaviour {
     [RPC]
     public void setTurn(bool turn)
     {
+        //I don't have any turns left, set his turn back on.
+        if (!gameLogic.hasActiveSquads())
+            nView.RPC("setTurn", RPCMode.Others, true);
+
         gameLogic.setTurn(turn);
     }
 }
