@@ -363,7 +363,7 @@ public class SquadManager : MonoBehaviour
 
     void OnGUI()
     {
-        if (tex != null && (inCover || behindWall))
+        if (tex != null && (inCover || behindWall) && !dead)
         {
             float sizeMod = 15;
             Vector3 guiPosition = Camera.main.WorldToScreenPoint(transform.position);

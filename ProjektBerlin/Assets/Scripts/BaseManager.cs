@@ -11,11 +11,13 @@ public class BaseManager : MonoBehaviour {
 	public int maxHealth = 100;
 	public int currentHealth;
 
+    [RPC]
 	public void enableLight()
 	{
 		lightPiece.enabled = true;
 	}
 	
+    [RPC]
 	public void disableLight()
 	{
 		lightPiece.enabled = false;
@@ -37,6 +39,11 @@ public class BaseManager : MonoBehaviour {
 	public void takeDamage(damageInfo dmgInfo)
 	{
 		currentHealth -= dmgInfo.getDamage();
+
+        if(currentHealth <= 0)
+        {
+
+        }
 	}
 
 	void Update(){

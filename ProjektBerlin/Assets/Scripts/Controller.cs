@@ -280,13 +280,18 @@ public class Controller : MonoBehaviour
     }
 
 	void nextTurn(){
-		if (checkRoundComplete ())
-			nextRound ();
-		else {
-			//currentPlayersTurn = (currentPlayersTurn + 1) % NUM_PLAYERS;
-			//updateSquadList ("Player" + currentPlayersTurn + "Squad");
+        if (checkRoundComplete())
+        {
+            nextRound();
+            nLogicView.RPC("setTurn", RPCMode.Others, true);
+            setTurn(false);
+        }
+        else
+        {
+            //currentPlayersTurn = (currentPlayersTurn + 1) % NUM_PLAYERS;
+            //updateSquadList ("Player" + currentPlayersTurn + "Squad");
             selectNextAvailableSquad();
-			currentStage=TurnStage.None;
+            currentStage = TurnStage.None;
             nLogicView.RPC("setTurn", RPCMode.Others, true);
             setTurn(false);
         }
