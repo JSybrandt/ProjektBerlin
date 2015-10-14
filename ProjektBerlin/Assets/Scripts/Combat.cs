@@ -96,7 +96,7 @@ public static class Combat
         ShotsFired myHits = detectHits(me,power);
         int damage = calculateDamage(myHits);
         NetworkView nView = getTarget().GetComponent<NetworkView>();
-		nView.RPC("takeDamage", RPCMode.AllBuffered, damage,false);
+		getTarget().GetComponent<SquadManager>().nView.RPC("takeDamage", RPCMode.AllBuffered, damage,false);
     }
 
     //public static void fightTargets(GameObject me, int )

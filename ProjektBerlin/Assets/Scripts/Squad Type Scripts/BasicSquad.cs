@@ -79,8 +79,9 @@ public class BasicSquad : MonoBehaviour {
 				                                 BalanceConstants.GRENADE_HIT_CHANCE,
 				                                 enemy.dodgeChance,false);
 				int damage = Combat.calculateDamage(shot);
-				//damageInfo damgInfo = new damageInfo(damage,false);
-                enemy.takeDamage(damage,false);
+
+                enemy.nView.RPC("takeDamage", RPCMode.All, damage, false);
+                //enemy.takeDamage(damage,false);
             }
 
             squad.skipAction();

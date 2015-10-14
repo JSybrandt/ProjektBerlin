@@ -54,7 +54,8 @@ public class SquadManager : MonoBehaviour
     public Projector moveProj;
     [HideInInspector]
     public Projector attackProj;
-    private NetworkView nView;
+    [HideInInspector]
+    public NetworkView nView;
 
     [HideInInspector]
     public float movementDistance;
@@ -78,10 +79,11 @@ public class SquadManager : MonoBehaviour
     public Ability squadAbility;
     public AbilityUpdate unitAbilityUpdate;
     public AbilityUpdate squadAbilityUpdate;
+    private int myNumber;
 
     // Use this for initialization
     [RPC]
-    public void init(string squadTag)
+    public void init(string squadTag, int num)
     {
         myLight = new GameObject();
         myLight.transform.position = transform.position;
@@ -89,6 +91,7 @@ public class SquadManager : MonoBehaviour
         lightPiece.color = Color.red;
         lightPiece.intensity = 8;
         tag = squadTag;
+        myNumber = num;
 
         attackDistance = 20;
         movementDistance = 20;
@@ -396,6 +399,7 @@ public class SquadManager : MonoBehaviour
     {
         syncTime += Time.deltaTime;
         rb.position = Vector3.Lerp(syncStartPosition, syncEndPosition, syncTime / syncDelay);
+        lightPiece.transform.position = rb.position;
         for (int i = 0; i < units.Length; i++)
         {
             units[i].transform.position = unitTargets[i].position;

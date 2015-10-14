@@ -8,6 +8,9 @@ TagManager:
   - Player1Squad
   - Unit
   - Disposable
+  - Player1Base
+  - Player0Base
+  - Dead
   layers:
   - Default
   - TransparentFX

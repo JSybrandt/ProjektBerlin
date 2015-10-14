@@ -79,8 +79,9 @@ public class SniperSquad : MonoBehaviour {
 			                                  Combat.getTarget().GetComponent<SquadManager>().dodgeChance,
 			                                  false);
             int damage = Combat.calculateDamage(snipe);
-			//damageInfo dmgInfo = new damageInfo(damage, true);
-			Combat.getTarget().GetComponent<SquadManager>().takeDamage(damage,true);
+
+            //Combat.getTarget().GetComponent<SquadManager>().takeDamage(damage,true);
+            Combat.getTarget().GetComponent<SquadManager>().nView.RPC("takeDamage", RPCMode.All, damage, true);
             squad.skipAction();
             gameLogic.checkStateEndOfAction();
             gameLogic.updateUI();
