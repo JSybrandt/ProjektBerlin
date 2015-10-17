@@ -1,275 +1,767 @@
-Mono path[0] = 'C:/Users/hollabaughzj1/Documents/Games3/ProjektBerlin/ProjectBerkin_Data/Managed'
-Mono path[1] = 'C:/Users/hollabaughzj1/Documents/Games3/ProjektBerlin/ProjectBerkin_Data/Mono'
-Mono config path = 'C:/Users/hollabaughzj1/Documents/Games3/ProjektBerlin/ProjectBerkin_Data/Mono/etc'
-PlayerConnection initialized from C:/Users/hollabaughzj1/Documents/Games3/ProjektBerlin/ProjectBerkin_Data (debug = 0)
-PlayerConnection initialized network socket : 0.0.0.0 55272
-Multi-casting "[IP] 192.168.56.1 [Port] 55272 [Flags] 2 [Guid] 3064511668 [EditorId] 555362927 [Version] 1048832 [Id] WindowsPlayer(2CE2221VX0) [Debug] 0" to [225.0.0.222:54997]...
-PlayerConnection already initialized - listening to [192.168.56.1:55272]
 Initialize engine version: 5.1.2p3 (65486b59c7a9)
 GfxDevice: creating device client; threaded=1
 Direct3D:
     Version:  Direct3D 11.0 [level 10.1]
     Renderer: Intel(R) HD Graphics 3000 (ID=0x126)
     Vendor:   Intel
-    VRAM:     128 MB
+    VRAM:     816 MB
 Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\ProjectBerkin_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\ProjectBerkin_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\ProjectBerkin_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
-Loading C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\ProjectBerkin_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
-Platform assembly: C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-Platform assembly: C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
-Loading C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-Platform assembly: C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\ProjectBerkin_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.068 seconds
-desktop: 1280x800 60Hz; virtual: 1280x800 at 0,0
+Platform assembly: C:\Projects\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Projects\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Projects\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Projects\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Projects\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading C:\Projects\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+Platform assembly: C:\Projects\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Projects\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Projects\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Projects\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Projects\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Projects\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+Platform assembly: C:\Projects\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\System.Core.dll (this message is harmless)
+- Completed reload, in  0.200 seconds
+desktop: 1280x800 40Hz; virtual: 1280x800 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-Platform assembly: C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\ProjectBerkin_Data\Managed\System.dll (this message is harmless)
+Platform assembly: C:\Projects\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\System.dll (this message is harmless)
 Shader 'Hidden/TerrainEngine/Splatmap/Specular-Base': fallback shader 'Legacy Shaders/Specular' not found
 Shader 'Hidden/TerrainEngine/Splatmap/Specular-Base': fallback shader 'Legacy Shaders/Specular' not found
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 3bf4 -> priority: 1 
-Starting Server
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-LoadGame:OnGUI() (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\LoadGame.cs:152)
+  Thread -> id: 241c -> priority: 1 
+Refreshing...
  
-(Filename: C:/Users/hollabaughzj1/Documents/Games3/ProjektBerlin/Assets/Scripts/LoadGame.cs Line: 152)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-Server initialized
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-LoadGame:OnServerInitialized() (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\LoadGame.cs:46)
-UnityEngine.Network:InitializeServer(Int32, Int32, Boolean)
-LoadGame:makeGame() (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\LoadGame.cs:38)
-LoadGame:OnGUI() (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\LoadGame.cs:153)
+Getting Host List
  
-(Filename: C:/Users/hollabaughzj1/Documents/Games3/ProjektBerlin/Assets/Scripts/LoadGame.cs Line: 46)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-Server spawning
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-LoadGame:spawnPlayer() (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\LoadGame.cs:83)
-LoadGame:OnServerInitialized() (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\LoadGame.cs:47)
-UnityEngine.Network:InitializeServer(Int32, Int32, Boolean)
-LoadGame:makeGame() (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\LoadGame.cs:38)
-LoadGame:OnGUI() (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\LoadGame.cs:153)
+Host data recieved
  
-(Filename: C:/Users/hollabaughzj1/Documents/Games3/ProjektBerlin/Assets/Scripts/LoadGame.cs Line: 83)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-Server spawning
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-LoadGame:spawnPlayer() (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\LoadGame.cs:83)
-LoadGame:OnServerInitialized() (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\LoadGame.cs:47)
-UnityEngine.Network:InitializeServer(Int32, Int32, Boolean)
-LoadGame:makeGame() (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\LoadGame.cs:38)
-LoadGame:OnGUI() (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\LoadGame.cs:153)
+Host data recieved
  
-(Filename: C:/Users/hollabaughzj1/Documents/Games3/ProjektBerlin/Assets/Scripts/LoadGame.cs Line: 83)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-Server spawning
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-LoadGame:spawnPlayer() (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\LoadGame.cs:83)
-LoadGame:OnServerInitialized() (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\LoadGame.cs:47)
-UnityEngine.Network:InitializeServer(Int32, Int32, Boolean)
-LoadGame:makeGame() (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\LoadGame.cs:38)
-LoadGame:OnGUI() (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\LoadGame.cs:153)
+Host data recieved
  
-(Filename: C:/Users/hollabaughzj1/Documents/Games3/ProjektBerlin/Assets/Scripts/LoadGame.cs Line: 83)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-Server spawning
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-LoadGame:spawnPlayer() (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\LoadGame.cs:83)
-LoadGame:OnServerInitialized() (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\LoadGame.cs:47)
-UnityEngine.Network:InitializeServer(Int32, Int32, Boolean)
-LoadGame:makeGame() (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\LoadGame.cs:38)
-LoadGame:OnGUI() (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\LoadGame.cs:153)
+Host data recieved
  
-(Filename: C:/Users/hollabaughzj1/Documents/Games3/ProjektBerlin/Assets/Scripts/LoadGame.cs Line: 83)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-Server registered
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-LoadGame:OnMasterServerEvent(MasterServerEvent) (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\LoadGame.cs:59)
+Host data recieved
  
-(Filename: C:/Users/hollabaughzj1/Documents/Games3/ProjektBerlin/Assets/Scripts/LoadGame.cs Line: 59)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-Server registered
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-LoadGame:OnMasterServerEvent(MasterServerEvent) (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\LoadGame.cs:59)
+Host data recieved
  
-(Filename: C:/Users/hollabaughzj1/Documents/Games3/ProjektBerlin/Assets/Scripts/LoadGame.cs Line: 59)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-Number of objects in range: 24
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Combat:findTargets(GameObject, Single) (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\Combat.cs:66)
-Controller:checkNewAction() (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\Controller.cs:191)
-Controller:Update() (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\Controller.cs:327)
+Host data recieved
  
-(Filename: C:/Users/hollabaughzj1/Documents/Games3/ProjektBerlin/Assets/Scripts/Combat.cs Line: 66)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-Number of objects in range: 24
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Combat:findTargets(GameObject, Single) (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\Combat.cs:66)
-Controller:checkNewAction() (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\Controller.cs:191)
-Controller:Update() (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\Controller.cs:327)
+Host data recieved
  
-(Filename: C:/Users/hollabaughzj1/Documents/Games3/ProjektBerlin/Assets/Scripts/Combat.cs Line: 66)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-Number of objects in range: 24
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Combat:findTargets(GameObject, Single) (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\Combat.cs:66)
-Controller:checkNewAction() (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\Controller.cs:191)
-Controller:Update() (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\Controller.cs:327)
+Host data recieved
  
-(Filename: C:/Users/hollabaughzj1/Documents/Games3/ProjektBerlin/Assets/Scripts/Combat.cs Line: 66)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-I shot someone!
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Controller:Update() (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\Controller.cs:383)
+Host data recieved
  
-(Filename: C:/Users/hollabaughzj1/Documents/Games3/ProjektBerlin/Assets/Scripts/Controller.cs Line: 383)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-I'm dieing!
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-SquadManager:takeDamage(Int32, Boolean) (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\SquadManager.cs:216)
-UnityEngine.NetworkView:Internal_RPC(NetworkView, String, RPCMode, Object[])
-UnityEngine.NetworkView:RPC(String, RPCMode, Object[]) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\NetworkingBindings.gen.cs:401)
-Combat:fightTarget(GameObject, Int32) (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\Combat.cs:99)
-Controller:Update() (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\Controller.cs:384)
+Host data recieved
  
-(Filename: C:/Users/hollabaughzj1/Documents/Games3/ProjektBerlin/Assets/Scripts/SquadManager.cs Line: 216)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-UnityException: Attempted to skip an action when squad had none.
-  at SquadManager.skipAction () [0x00030] in C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\SquadManager.cs:186 
-  at Controller.Update () [0x0025f] in C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\Controller.cs:385 
+Host data recieved
  
-(Filename: C:/Users/hollabaughzj1/Documents/Games3/ProjektBerlin/Assets/Scripts/SquadManager.cs Line: 186)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-I'm dieing!
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-SquadManager:takeDamage(Int32, Boolean) (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\SquadManager.cs:216)
+Host data recieved
  
-(Filename: C:/Users/hollabaughzj1/Documents/Games3/ProjektBerlin/Assets/Scripts/SquadManager.cs Line: 216)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-Number of objects in range: 18
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Combat:findTargets(GameObject, Single) (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\Combat.cs:66)
-Controller:checkNewAction() (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\Controller.cs:191)
-Controller:Update() (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\Controller.cs:327)
+Host data recieved
  
-(Filename: C:/Users/hollabaughzj1/Documents/Games3/ProjektBerlin/Assets/Scripts/Combat.cs Line: 66)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-Number of objects in range: 18
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Combat:findTargets(GameObject, Single) (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\Combat.cs:66)
-Controller:checkNewAction() (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\Controller.cs:191)
-Controller:Update() (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\Controller.cs:327)
+Host data recieved
  
-(Filename: C:/Users/hollabaughzj1/Documents/Games3/ProjektBerlin/Assets/Scripts/Combat.cs Line: 66)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-Unit Ability
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Controller:Update() (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\Controller.cs:402)
+Host data recieved
  
-(Filename: C:/Users/hollabaughzj1/Documents/Games3/ProjektBerlin/Assets/Scripts/Controller.cs Line: 402)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-Number of objects in range: 5
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Combat:findTargets(GameObject, Single) (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\Combat.cs:66)
-Combat:updateAoE(SquadManager, Boolean&) (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\Combat.cs:240)
-BasicSquad:grenadeUpdate() (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\Squad Type Scripts\BasicSquad.cs:66)
-Controller:Update() (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\Controller.cs:420)
+Host data recieved
  
-(Filename: C:/Users/hollabaughzj1/Documents/Games3/ProjektBerlin/Assets/Scripts/Combat.cs Line: 66)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-Number of objects in range: 18
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Combat:findTargets(GameObject, Single) (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\Combat.cs:66)
-Controller:checkNewAction() (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\Controller.cs:191)
-Controller:Update() (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\Controller.cs:331)
+Host data recieved
  
-(Filename: C:/Users/hollabaughzj1/Documents/Games3/ProjektBerlin/Assets/Scripts/Combat.cs Line: 66)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-Unit Ability
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Controller:Update() (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\Controller.cs:402)
+Host data recieved
  
-(Filename: C:/Users/hollabaughzj1/Documents/Games3/ProjektBerlin/Assets/Scripts/Controller.cs Line: 402)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-Number of objects in range: 5
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Combat:findTargets(GameObject, Single) (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\Combat.cs:66)
-Combat:updateAoE(SquadManager, Boolean&) (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\Combat.cs:240)
-BasicSquad:grenadeUpdate() (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\Squad Type Scripts\BasicSquad.cs:66)
-Controller:Update() (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\Controller.cs:420)
+Host data recieved
  
-(Filename: C:/Users/hollabaughzj1/Documents/Games3/ProjektBerlin/Assets/Scripts/Combat.cs Line: 66)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-Number of objects in range: 18
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Combat:findTargets(GameObject, Single) (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\Combat.cs:66)
-Controller:checkNewAction() (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\Controller.cs:191)
-Controller:Update() (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\Controller.cs:327)
+Host data recieved
  
-(Filename: C:/Users/hollabaughzj1/Documents/Games3/ProjektBerlin/Assets/Scripts/Combat.cs Line: 66)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-I shot someone!
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Controller:Update() (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\Controller.cs:383)
+Host data recieved
  
-(Filename: C:/Users/hollabaughzj1/Documents/Games3/ProjektBerlin/Assets/Scripts/Controller.cs Line: 383)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-I'm dieing!
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-SquadManager:takeDamage(Int32, Boolean) (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\SquadManager.cs:216)
-UnityEngine.NetworkView:Internal_RPC(NetworkView, String, RPCMode, Object[])
-UnityEngine.NetworkView:RPC(String, RPCMode, Object[]) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\NetworkingBindings.gen.cs:401)
-Combat:fightTarget(GameObject, Int32) (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\Combat.cs:99)
-Controller:Update() (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\Controller.cs:384)
+Host data recieved
  
-(Filename: C:/Users/hollabaughzj1/Documents/Games3/ProjektBerlin/Assets/Scripts/SquadManager.cs Line: 216)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-Number of objects in range: 16
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Combat:findTargets(GameObject, Single) (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\Combat.cs:66)
-Controller:checkNewAction() (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\Controller.cs:191)
-Controller:Update() (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\Controller.cs:331)
+Host data recieved
  
-(Filename: C:/Users/hollabaughzj1/Documents/Games3/ProjektBerlin/Assets/Scripts/Combat.cs Line: 66)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-Server registered
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-LoadGame:OnMasterServerEvent(MasterServerEvent) (at C:\Users\hollabaughzj1\Documents\Games3\ProjektBerlin\Assets\Scripts\LoadGame.cs:59)
+Host data recieved
  
-(Filename: C:/Users/hollabaughzj1/Documents/Games3/ProjektBerlin/Assets/Scripts/LoadGame.cs Line: 59)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Received pong from 192.168.56.1:25001
+ 
+(Filename:  Line: 845)
+
+Received pong from 192.168.2.72:25001
+ 
+(Filename:  Line: 845)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Connected to server
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Client spawning
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Client spawning
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Client spawning
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Client spawning
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+The server has disconnected from the client. Most likely the server has shut down.
+ 
+(Filename:  Line: 754)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Host data recieved
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 

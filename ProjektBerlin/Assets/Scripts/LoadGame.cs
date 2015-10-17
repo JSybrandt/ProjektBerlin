@@ -25,6 +25,13 @@ public class LoadGame : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+		GameObject.Find("MovementCanvas").GetComponent<Canvas>().enabled=false;
+		GameObject.Find("CombatCanvas").GetComponent<Canvas>().enabled=false;
+		GameObject.Find("FirstActionCanvas").GetComponent<Canvas>().enabled=false;
+		GameObject.Find("SecondActionCanvas").GetComponent<Canvas>().enabled=false;
+		GameObject.Find ("WaitingCanvas").GetComponent<Canvas> ().enabled=false;
+		GameObject.Find ("NetworkCanvas").GetComponent<Canvas> ().enabled = true;
+
 		GameObject p0Base = GameObject.Find ("Team0Base");
 		p0Base.GetComponent<BaseManager>().init();
 
@@ -126,12 +133,14 @@ public class LoadGame : MonoBehaviour
         {
             controllerScript.setTurn(true);
             controllerScript.updateSquadList("Player0Squad");
+			controllerScript.updateUI();
         }
         if (Network.isClient)
         {
             controllerScript.setTurn(false);
             controllerScript.updateSquadList("Player1Squad");
             controllerScript.currentPlayersTurn = 1;
+			controllerScript.updateUI();
             //controllerScript.nLogicView.RPC("begin", RPCMode.AllBuffered);
         }
 

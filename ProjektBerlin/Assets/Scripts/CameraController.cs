@@ -74,6 +74,8 @@ public class CameraController : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
+		if (!Controller.getIsRunning ())
+			return;
 		timeFrozen = Mathf.Max (timeFrozen - Time.deltaTime, 0);
 		if (timeDelay > 0) {
 			timeDelay-=Time.deltaTime;

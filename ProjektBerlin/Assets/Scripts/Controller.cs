@@ -67,13 +67,32 @@ public class Controller : MonoBehaviour
 
 	private ArrayList allSquads;//taken on init from LoadGame
     private bool isTurn = false;
-    private bool isRunning = false;
+    private static bool isRunning = false;
+	public static bool getIsRunning(){
+		return isRunning;
+	}
     public NetworkLogic nLogic;
     public NetworkView nLogicView;
+
+	//used in updateUI
+	Canvas movCanvas;
+	Canvas comCanvas;
+	Canvas firstActCanvas;
+	Canvas secondActCanvas;
+	Canvas netCanvas;
+	Canvas waitCanvas;
 
     //called by loadgame
     public void init()
     {
+
+		movCanvas = GameObject.Find("MovementCanvas").GetComponent<Canvas>();
+		comCanvas = GameObject.Find("CombatCanvas").GetComponent<Canvas>();
+		firstActCanvas = GameObject.Find("FirstActionCanvas").GetComponent<Canvas>();
+		secondActCanvas = GameObject.Find("SecondActionCanvas").GetComponent<Canvas>();
+		netCanvas = GameObject.Find ("NetworkCanvas").GetComponent<Canvas> ();
+		waitCanvas = GameObject.Find ("WaitingCanvas").GetComponent<Canvas> ();
+
         Combat.gameLogic = this;
 
         marker = new GameObject();
@@ -262,6 +281,7 @@ public class Controller : MonoBehaviour
     public void setTurn(bool turn)
     {
         isTurn = turn;
+		updateUI();
     }
 
     float GetSquadAngle()
@@ -311,6 +331,7 @@ public class Controller : MonoBehaviour
     public void begin()
     {
         isRunning = true;
+		updateUI ();
     }
 
     //call at end of turn
@@ -330,6 +351,8 @@ public class Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		if (!isRunning)
+			return;
 		if (squads == null || !isTurn)
 			return;
         if (squads.Length > 0)
@@ -513,21 +536,33 @@ public class Controller : MonoBehaviour
         Graphics.DrawMesh(mesh, squads[selectedSquadIndex].transform.position, fovRotation, materialFov, 0);
     }
 
-	public void updateUI(){
-		Canvas movement = GameObject.Find("MovementCanvas").GetComponent<Canvas>();
-		Canvas combat = GameObject.Find("CombatCanvas").GetComponent<Canvas>();
-		Canvas first = GameObject.Find("FirstActionCanvas").GetComponent<Canvas>();
-		Canvas second = GameObject.Find("SecondActionCanvas").GetComponent<Canvas>();
+	public void updateUI(bool showNetScreen=false){
 
-		movement.enabled = combat.enabled = first.enabled = second.enabled = false;
 
-		switch (currentStage) {
-		case TurnStage.Combat: combat.enabled=true; break;
-		case TurnStage.InBetween: second.enabled=true; break;
-		case TurnStage.Moving: movement.enabled=true; break;
-		case TurnStage.None:first.enabled=true; break;
+		waitCanvas.enabled = netCanvas.enabled = movCanvas.enabled = comCanvas.enabled = firstActCanvas.enabled = secondActCanvas.enabled = false;
+		if (showNetScreen)
+			netCanvas.enabled = true;
+		else {
+			if (isTurn && isRunning) {
+
+				switch (currentStage) {
+				case TurnStage.Combat:
+					comCanvas.enabled = true;
+					break;
+				case TurnStage.InBetween:
+					secondActCanvas.enabled = true;
+					break;
+				case TurnStage.Moving:
+					movCanvas.enabled = true;
+					break;
+				case TurnStage.None:
+					firstActCanvas.enabled = true;
+					break;
+				}
+			} else {
+				waitCanvas.enabled = true;
+			}
 		}
-
 	}
 
 }
