@@ -37,9 +37,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
---- !u!127 &3
-LevelGameManager:
-  m_ObjectHideFlags: 0
 --- !u!157 &4
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -68,6 +65,7 @@ LightmapSettings:
     m_TextureCompression: 1
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
+    m_ReflectionCompression: 2
   m_LightmapSnapshot: {fileID: 0}
   m_RuntimeCPUUsage: 25
 --- !u!196 &5
@@ -526,6 +524,10 @@ Prefab:
       propertyPath: m_Name
       value: Team1Base
       objectReference: {fileID: 0}
+    - target: {fileID: 11495612, guid: 1c8d3c803419c644894528fb4880b4c8, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1c8d3c803419c644894528fb4880b4c8, type: 2}
   m_IsPrefabParent: 0
@@ -587,6 +589,22 @@ Transform:
 GameObject:
   m_PrefabParentObject: {fileID: 165658, guid: 1c8d3c803419c644894528fb4880b4c8, type: 2}
   m_PrefabInternal: {fileID: 93014661}
+--- !u!4 &183640991 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 413270, guid: 1c8d3c803419c644894528fb4880b4c8, type: 2}
+  m_PrefabInternal: {fileID: 93014661}
+--- !u!148 &183640992
+NetworkView:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 183640990}
+  m_Enabled: 1
+  m_StateSynchronization: 1
+  m_Observed: {fileID: 183640991}
+  m_ViewID:
+    m_ID: 3
+    m_Type: 1
 --- !u!114 &183640994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -974,7 +992,7 @@ MonoBehaviour:
   m_Script: {fileID: 1997211142, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AllowActivationOnStandalone: 0
+  m_ForceModuleActive: 0
 --- !u!114 &574145251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -992,7 +1010,7 @@ MonoBehaviour:
   m_CancelButton: Circle
   m_InputActionsPerSecond: 10
   m_RepeatDelay: .5
-  m_AllowActivationOnMobileDevice: 0
+  m_ForceModuleActive: 0
 --- !u!114 &574145252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1393,6 +1411,10 @@ Prefab:
     - target: {fileID: 165658, guid: 1c8d3c803419c644894528fb4880b4c8, type: 2}
       propertyPath: m_TagString
       value: Player0Base
+      objectReference: {fileID: 0}
+    - target: {fileID: 11495612, guid: 1c8d3c803419c644894528fb4880b4c8, type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1c8d3c803419c644894528fb4880b4c8, type: 2}
@@ -2651,6 +2673,22 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 3d9f7f8816b5b4667bb552d0d31f7e76, type: 3}
   m_PrefabInternal: {fileID: 582915613}
+--- !u!1 &1584467900 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 107586, guid: 1c8d3c803419c644894528fb4880b4c8, type: 2}
+  m_PrefabInternal: {fileID: 616117647}
+--- !u!148 &1584467901
+NetworkView:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1584467900}
+  m_Enabled: 0
+  m_StateSynchronization: 1
+  m_Observed: {fileID: 348748799}
+  m_ViewID:
+    m_ID: 1
+    m_Type: 1
 --- !u!1001 &1596626585
 Prefab:
   m_ObjectHideFlags: 0
@@ -3307,6 +3345,22 @@ Transform:
 GameObject:
   m_PrefabParentObject: {fileID: 165658, guid: 1c8d3c803419c644894528fb4880b4c8, type: 2}
   m_PrefabInternal: {fileID: 616117647}
+--- !u!4 &1852862237 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 413270, guid: 1c8d3c803419c644894528fb4880b4c8, type: 2}
+  m_PrefabInternal: {fileID: 616117647}
+--- !u!148 &1852862238
+NetworkView:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1852862236}
+  m_Enabled: 1
+  m_StateSynchronization: 1
+  m_Observed: {fileID: 1852862237}
+  m_ViewID:
+    m_ID: 4
+    m_Type: 1
 --- !u!114 &1852862240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3649,6 +3703,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!1 &1939310508 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 107586, guid: 1c8d3c803419c644894528fb4880b4c8, type: 2}
+  m_PrefabInternal: {fileID: 93014661}
+--- !u!148 &1939310509
+NetworkView:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1939310508}
+  m_Enabled: 0
+  m_StateSynchronization: 1
+  m_Observed: {fileID: 523817895}
+  m_ViewID:
+    m_ID: 2
+    m_Type: 1
 --- !u!1001 &1975613490
 Prefab:
   m_ObjectHideFlags: 0

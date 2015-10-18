@@ -36,9 +36,10 @@ public class BaseManager : MonoBehaviour {
 		lightPiece.enabled = false;
 	}
 
-	public void takeDamage(damageInfo dmgInfo)
+    [RPC]
+    public void takeDamage(int dmg, bool hitSpecial)
 	{
-		currentHealth -= dmgInfo.getDamage();
+		currentHealth -= dmg;
 
         if(currentHealth <= 0)
         {

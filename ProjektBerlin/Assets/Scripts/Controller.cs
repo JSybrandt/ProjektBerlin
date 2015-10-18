@@ -20,6 +20,8 @@ enum AttackType
 
 public class Controller : MonoBehaviour
 {
+    //FLAGS:
+    private bool finalTurn = false;
 
     public const int NUM_PLAYERS = 2;
     [HideInInspector]
@@ -64,6 +66,7 @@ public class Controller : MonoBehaviour
     [HideInInspector]
     public int currentPlayersTurn = 0;
     private bool isRoundOver = false;
+    public bool isOtherRoundOver = false;
 
 	private ArrayList allSquads;//taken on init from LoadGame
     private bool isTurn = false;
@@ -300,24 +303,40 @@ public class Controller : MonoBehaviour
         return false;
     }
 
+    /// <summary>
+    /// Handles checking if the round is over and ending the last turn of the round
+    /// </summary>
+    /// <returns></returns>
     bool checkRoundComplete()
     {
-        foreach (GameObject g in allSquads)
+        if (!isRoundOver)
         {
-            if (g.GetComponent<SquadManager>().numActions > 0 && g.activeInHierarchy)
-                return isRoundOver = false;
+            foreach (GameObject g in allSquads)
+            {
+                if (g.GetComponent<SquadManager>().numActions > 0 && g.activeInHierarchy)
+                    return isRoundOver = false;
+            }
+
+            //This is here so it is only called once per round
+            nLogicView.RPC("otherRoundOver",RPCMode.Others);
+            nLogicView.RPC("setTurn", RPCMode.Others, true);
+            setTurn(false);
         }
+
         return isRoundOver = true;
     }
 
 	void nextTurn(){
-        if (checkRoundComplete())
+        if (checkRoundComplete() && isOtherRoundOver)
         {
             nextRound();
-            nLogicView.RPC("setTurn", RPCMode.Others, true);
-            setTurn(false);
+            if (Network.isServer) //Server starts next round
+            {
+                nLogicView.RPC("setTurn", RPCMode.Others, false);
+                setTurn(true);
+            }
         }
-        else
+        else if(!isRoundOver)
         {
             //currentPlayersTurn = (currentPlayersTurn + 1) % NUM_PLAYERS;
             //updateSquadList ("Player" + currentPlayersTurn + "Squad");
@@ -327,6 +346,16 @@ public class Controller : MonoBehaviour
             setTurn(false);
         }
 	}
+
+    void checkRound()
+    {
+        if (checkRoundComplete() && isOtherRoundOver)
+        {
+            nextRound();
+            nLogicView.RPC("setTurn", RPCMode.Others, true);
+            setTurn(false);
+        }
+    }
 
     public void begin()
     {
@@ -343,6 +372,7 @@ public class Controller : MonoBehaviour
                 g.GetComponent<SquadManager>().resetActions();
         }
         isRoundOver = false;
+        isOtherRoundOver = false;
         //currentPlayersTurn = (currentPlayersTurn + 1) % NUM_PLAYERS;
         //updateSquadList("Player" + currentPlayersTurn + "Squad");
         currentStage = TurnStage.None;
@@ -353,8 +383,11 @@ public class Controller : MonoBehaviour
     {
 		if (!isRunning)
 			return;
-		if (squads == null || !isTurn)
-			return;
+        if (squads == null || !isTurn)
+        {
+            checkRound();
+            return;
+        }
         if (squads.Length > 0)
         {
             if (currentStage == TurnStage.None)

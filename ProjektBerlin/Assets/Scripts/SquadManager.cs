@@ -4,15 +4,6 @@ using System.Collections.Generic;
 
 public class SquadManager : MonoBehaviour
 {
-    //Serialization stuff, really useful link:
-    // http://www.paladinstudios.com/2013/07/10/how-to-create-an-online-multiplayer-game-with-unity/
-    private float lastSynchronizationTime = 0f;
-    private float syncDelay = 0f;
-    private float syncTime = 0f;
-    private Vector3 syncStartPosition = Vector3.zero;
-    private Vector3 syncEndPosition = Vector3.zero;
-    private bool dead = false;
-
     //Ability is using an action on an ability
     public delegate void Ability();
     //AbilityUpdate is for the unit to handle the special action when the ability is selected
@@ -20,10 +11,26 @@ public class SquadManager : MonoBehaviour
     //Button for ability is first clicked of Ability
     public delegate void AbilityInit();
 
+    //FLAGS: 
+    private bool dead = false;
+    public bool retaliation = false; //TODO: Add retaliation? 
+    public bool inCover = false;
+    public bool behindWall = false;
+    private bool prevCover = false;
+
+    //Serialization stuff, really useful link:
+    // http://www.paladinstudios.com/2013/07/10/how-to-create-an-online-multiplayer-game-with-unity/
+    private float lastSynchronizationTime = 0f;
+    private float syncDelay = 0f;
+    private float syncTime = 0f;
+    private Vector3 syncStartPosition = Vector3.zero;
+    private Vector3 syncEndPosition = Vector3.zero;
+
     [HideInInspector]
     public int size = 0;
 
     public Texture tex;
+    [HideInInspector]
     public Color myColor = Color.red;
 
     private float unitDistanceFromCenter = 1.5f;
@@ -35,12 +42,6 @@ public class SquadManager : MonoBehaviour
 
     [HideInInspector]
     public float dodgeChance = BalanceConstants.BASIC_DODGE_CHANCE;
-
-
-    //TODO: Add return fire?
-    public bool retaliation = false;
-    public bool inCover = false;
-    public bool behindWall = false;
 
     public bool midMovement { get { return _midMovement; } }
     public int numActions { get { return _numActions; } }
@@ -71,7 +72,6 @@ public class SquadManager : MonoBehaviour
     private const float MAX_UNIT_HEIGHT = 0.5f;
     private const float FLOOR_DISPACEMENT = 1f;
     private Vector3 prevPosition; //used to revert after colliding w/ terrain. 
-    private bool prevCover = false;
 
     private Rigidbody rb;
 
@@ -377,14 +377,29 @@ public class SquadManager : MonoBehaviour
     void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info)
     {
         Vector3 syncPosition = Vector3.zero;
+        bool cover = false;
+        bool wall = false;
         if (stream.isWriting)
         {
             syncPosition = rb.position;
+
+            //TESTING:
+            cover = inCover;
+            wall = behindWall;
+
             stream.Serialize(ref syncPosition);
+
+            //TESTING:
+            stream.Serialize(ref cover);
+            stream.Serialize(ref wall);
         }
         else
         {
             stream.Serialize(ref syncPosition);
+
+            //TESTING:
+            stream.Serialize(ref cover);
+            stream.Serialize(ref wall);
 
             syncTime = 0f;
             syncDelay = Time.time - lastSynchronizationTime;
@@ -392,6 +407,11 @@ public class SquadManager : MonoBehaviour
 
             syncStartPosition = rb.position;
             syncEndPosition = syncPosition;
+
+
+            //TESTING:
+            behindWall = wall;
+            inCover = cover;
         }
     }
 
@@ -404,7 +424,6 @@ public class SquadManager : MonoBehaviour
         {
             units[i].transform.position = unitTargets[i].position;
             transform.rotation = Quaternion.identity;
-            //TODO: This should be targetting instead of teleporting
         }
     }
 }
