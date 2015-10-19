@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class BasicSquad : MonoBehaviour {
+public class RifleSquad : MonoBehaviour {
 
     Controller gameLogic;
     SquadManager squad;
@@ -13,7 +13,7 @@ public class BasicSquad : MonoBehaviour {
     }
 
     [RPC]
-    public void basicInit()
+    public void rifleInit()
     {
         squad = GetComponent<SquadManager>();
         gameLogic = GameObject.Find("GameLogic").GetComponent<Controller>();
@@ -40,9 +40,10 @@ public class BasicSquad : MonoBehaviour {
         {
             squad.units[i] = (GameObject)Instantiate(unitPrefab, squad.unitTargets[i].position, Quaternion.identity);
             squad.units[i].transform.position = squad.unitTargets[i].position;
+            squad.units[i].GetComponent<UnitManager>().power = BalanceConstants.Stats.BASIC_POWER;
         }
 
-        squad.units[squad.units.Length - 1].GetComponent<UnitManager>().power = 4;
+        squad.units[squad.units.Length - 1].GetComponent<UnitManager>().power *= 2;
         squad.units[squad.units.Length - 1].GetComponent<UnitManager>().isSpecial = true;
         squad.units[squad.units.Length - 1].transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
 
@@ -76,7 +77,7 @@ public class BasicSquad : MonoBehaviour {
 				ShotsFired shot = new ShotsFired(this.transform.position,
 				                                 enemy.transform.position,
 				                                 enemy.getActiveUnitsCount(),
-				                                 BalanceConstants.GRENADE_HIT_CHANCE,
+				                                 BalanceConstants.Ability.GRENADE_HIT_CHANCE,
 				                                 enemy.dodgeChance,false);
 				int damage = Combat.calculateDamage(shot);
 

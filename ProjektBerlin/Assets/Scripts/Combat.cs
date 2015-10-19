@@ -133,7 +133,7 @@ public static class Combat
         //If not behind cover
         if (!Physics.Raycast(myPos, dir, distance, gameLogic.detectCover))
         {
-			hitChance = BalanceConstants.BASIC_HIT_CHANCE;
+			hitChance = me.GetComponent<SquadManager>().hitChance;
 
             //Detect partial cover
 			if(getTarget().GetComponent<SquadManager>() != null)
@@ -213,6 +213,7 @@ public static class Combat
     /// </summary>
     /// <param name="me">The object from which the AoE is spawning from</param>
     /// <param name="distance">The max distance the object can cast the AoE</param>
+    /// <param name="range">Custom attack range of AoE</param>
     public static void setupAoE(GameObject me, float distance, float range = 0)
     {
         reset();

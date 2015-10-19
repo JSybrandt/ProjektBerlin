@@ -16,6 +16,7 @@ GameObject:
   - 148: {fileID: 14814764}
   - 114: {fileID: 11427254}
   - 114: {fileID: 11449394}
+  - 114: {fileID: 11422112}
   m_Layer: 8
   m_Name: Squad
   m_TagString: Untagged
@@ -82,6 +83,17 @@ MonoBehaviour:
     i15: 63
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
+--- !u!114 &11422112
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 158044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8b14933bc61bad43aca9351ec7e833b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11427254
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -115,15 +127,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a82675ec9c283434fa100ae65f0da1a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: 5
-  tex: {fileID: 2800000, guid: 15ca8ea0d0523d442bb17f2e354095af, type: 3}
-  dodgeChance: .330000013
   retaliation: 0
   inCover: 0
   behindWall: 0
+  size: 5
+  tex: {fileID: 2800000, guid: 15ca8ea0d0523d442bb17f2e354095af, type: 3}
+  myColor: {r: 1, g: 0, b: 0, a: 1}
+  dodgeChance: .330000013
+  hitChance: .660000026
   lightPiece: {fileID: 0}
   moveProj: {fileID: 0}
   attackProj: {fileID: 0}
+  nView: {fileID: 0}
   movementDistance: 50
   attackDistance: 20
   unitTargets: []

@@ -20,38 +20,38 @@ public class UnitManager : MonoBehaviour
     [HideInInspector]
     public bool isSpecial = false;
 
-    public List<ShotsFired> detectHits(List<GameObject> enemyUnits, int activePlayer, int numPlayers, LayerMask detectCover, LayerMask detectPartial)
-    {
-        List<ShotsFired> myHits = new List<ShotsFired>();
+    //public List<ShotsFired> detectHits(List<GameObject> enemyUnits, int activePlayer, int numPlayers, LayerMask detectCover, LayerMask detectPartial)
+    //{
+    //    List<ShotsFired> myHits = new List<ShotsFired>();
 
-        foreach (GameObject enemyUnit in enemyUnits)
-        {
-            for (int j = 0; j < numPlayers; j++)
-            {
-                string playerTarget = "Player" + j.ToString() + "Squad";
-                if (j != activePlayer && enemyUnit.tag == playerTarget)
-                {
-                    Vector3 myPos = transform.position;
-                    Vector3 targetPos = enemyUnit.transform.position;
-                    Vector3 dir = (targetPos - myPos).normalized;
-                    float distance = Vector3.Distance(myPos, targetPos);
+    //    foreach (GameObject enemyUnit in enemyUnits)
+    //    {
+    //        for (int j = 0; j < numPlayers; j++)
+    //        {
+    //            string playerTarget = "Player" + j.ToString() + "Squad";
+    //            if (j != activePlayer && enemyUnit.tag == playerTarget)
+    //            {
+    //                Vector3 myPos = transform.position;
+    //                Vector3 targetPos = enemyUnit.transform.position;
+    //                Vector3 dir = (targetPos - myPos).normalized;
+    //                float distance = Vector3.Distance(myPos, targetPos);
 
-                    //Detect full cover
-                    if (!Physics.Raycast(myPos, dir, distance, detectCover))
-                    {
-						ShotsFired newHit = new ShotsFired(myPos,targetPos,BalanceConstants.BASIC_POWER,BalanceConstants.BASIC_HIT_CHANCE,Combat.getTarget().GetComponent<SquadManager>().dodgeChance,true);
-                        //Detect partial cover
-                        if (!Physics.Raycast(myPos, dir, distance, detectPartial))
-                        {
-                            Debug.Log("I hit partial cover!");
-							newHit.hasPartialCover=true;
-                        }
-						myHits.Add(newHit);
-                    }
-                } //Is target
-            } //Players loop
-        } //Units loop
-        return myHits;
-    }
+    //                //Detect full cover
+    //                if (!Physics.Raycast(myPos, dir, distance, detectCover))
+    //                {
+				//		ShotsFired newHit = new ShotsFired(myPos,targetPos,BalanceConstants.BASIC_POWER,BalanceConstants.BASIC_HIT_CHANCE,Combat.getTarget().GetComponent<SquadManager>().dodgeChance,true);
+    //                    //Detect partial cover
+    //                    if (!Physics.Raycast(myPos, dir, distance, detectPartial))
+    //                    {
+    //                        Debug.Log("I hit partial cover!");
+				//			newHit.hasPartialCover=true;
+    //                    }
+				//		myHits.Add(newHit);
+    //                }
+    //            } //Is target
+    //        } //Players loop
+    //    } //Units loop
+    //    return myHits;
+    //}
 }
 

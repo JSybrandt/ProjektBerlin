@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+/// <summary>
+/// The marker for any thrown object
+/// </summary>
 public class Marker : MonoBehaviour
 {
 

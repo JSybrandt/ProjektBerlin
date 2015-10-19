@@ -41,7 +41,9 @@ public class SquadManager : MonoBehaviour
     private bool _midMovement = false;
 
     [HideInInspector]
-    public float dodgeChance = BalanceConstants.BASIC_DODGE_CHANCE;
+    public float dodgeChance = BalanceConstants.Stats.BASIC_DODGE_CHANCE;
+    [HideInInspector]
+    public float hitChance = BalanceConstants.Stats.BASIC_HIT_CHANCE;
 
     public bool midMovement { get { return _midMovement; } }
     public int numActions { get { return _numActions; } }

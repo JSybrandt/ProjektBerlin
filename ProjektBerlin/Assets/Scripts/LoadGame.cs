@@ -76,6 +76,20 @@ public class LoadGame : MonoBehaviour
         if (netPrefab == null)
             throw new MissingReferenceException("Failed to find network prefab");
 
+        GameObject movePrefab = (GameObject)Resources.Load("MoveRadius");
+        movePrefab.name = "MoveRadius";
+        if (movePrefab == null)
+            throw new MissingReferenceException("Failed to find move prefab");
+        GameObject spawnedMove = (GameObject)Instantiate(movePrefab, Vector3.zero, Quaternion.Euler(90, 0, 0));
+        spawnedMove.name = movePrefab.name;
+
+        GameObject attackPrefab = (GameObject)Resources.Load("AttackRadius");
+
+        if (attackPrefab == null)
+            throw new MissingReferenceException("Failed to find attack prefab");
+        GameObject spawnedAttack = (GameObject)Instantiate(attackPrefab, Vector3.zero, Quaternion.Euler(90, 0, 0));
+        spawnedAttack.name = attackPrefab.name;
+
         if (Network.isServer) {
             GameObject netLogic = (GameObject)Network.Instantiate(netPrefab, new Vector3(0, 0, 0), Quaternion.identity, 0);
             netLogic.GetComponent<NetworkView>().RPC("init", RPCMode.AllBuffered);
@@ -88,17 +102,24 @@ public class LoadGame : MonoBehaviour
                 newSquad.GetComponent<SquadManager>().setColor(Color.green);
                 //newSquad.GetComponent<SquadManager> ().init ();
                 Debug.Log("Server spawning");
-				if (i <= 10) {
-					//newSquad.AddComponent<BasicSquad> ();
-					//newSquad.GetComponent<BasicSquad> ().basicInit ();
-                    sView.RPC("basicInit", RPCMode.AllBuffered);
-                } else {
-					//newSquad.AddComponent<SniperSquad> ();
-					//newSquad.GetComponent<SniperSquad> ().sniperInit ();
+                if (i <= 5)
+                {
+                    //newSquad.AddComponent<BasicSquad>();
+                    //newSquad.GetComponent<BasicSquad> ().basicInit ();
+                    sView.RPC("rifleInit", RPCMode.AllBuffered);
+                }
+                else if (i == 10)
+                {
+                    //newSquad.AddComponent<SniperSquad>();
+                    //newSquad.GetComponent<SniperSquad> ().sniperInit ();
                     sView.RPC("sniperInit", RPCMode.AllBuffered);
                 }
-				
-				allSquads.Add (newSquad);
+                else
+                {
+                    sView.RPC("shotgunInit", RPCMode.AllBuffered);
+                }
+
+                allSquads.Add (newSquad);
 			}
 		}
 		if (Network.isClient) {
@@ -110,17 +131,21 @@ public class LoadGame : MonoBehaviour
                 sView.RPC("init", RPCMode.AllBuffered, sTag, i / 5);
                 //newSquad.GetComponent<SquadManager> ().init ();
                 Debug.Log("Client spawning");
-                if (i <= 10)
+                if (i <= 5)
                 {
                     //newSquad.AddComponent<BasicSquad>();
                     //newSquad.GetComponent<BasicSquad> ().basicInit ();
-                    sView.RPC("basicInit", RPCMode.AllBuffered);
+                    sView.RPC("rifleInit", RPCMode.AllBuffered);
                 }
-                else
+                else if(i == 10)
                 {
                     //newSquad.AddComponent<SniperSquad>();
                     //newSquad.GetComponent<SniperSquad> ().sniperInit ();
                     sView.RPC("sniperInit", RPCMode.AllBuffered);
+                }
+                else
+                {
+                    sView.RPC("shotgunInit", RPCMode.AllBuffered);
                 }
                 
 				allSquads.Add (newSquad);

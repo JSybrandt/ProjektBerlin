@@ -40,6 +40,7 @@ public class SniperSquad : MonoBehaviour {
         {
             squad.units[i] = (GameObject)Instantiate(unitPrefab, squad.unitTargets[i].position, Quaternion.identity);
             squad.units[i].transform.position = squad.unitTargets[i].position;
+            //squad.units[i].GetComponent<UnitManager>().power = BalanceConstants.SNIPE_POWER;
         }
 
         squad.units[squad.units.Length - 1].GetComponent<UnitManager>().power = 4;
@@ -74,14 +75,14 @@ public class SniperSquad : MonoBehaviour {
         {
             ShotsFired snipe = new ShotsFired(this.transform.position,
 			                                  Combat.getTarget().transform.position,
-			                                  BalanceConstants.SNIPE_POWER,
-			                                  BalanceConstants.SNIPE_HIT_CHANCE,
+			                                  BalanceConstants.Ability.SNIPE_POWER,
+			                                  BalanceConstants.Ability.SNIPE_HIT_CHANCE,
 			                                  Combat.getTarget().GetComponent<SquadManager>().dodgeChance,
 			                                  false);
             int damage = Combat.calculateDamage(snipe);
 
             //Combat.getTarget().GetComponent<SquadManager>().takeDamage(damage,true);
-            Combat.getTarget().GetComponent<SquadManager>().nView.RPC("takeDamage", RPCMode.All, damage, true);
+            Combat.getTarget().GetComponent<NetworkView>().RPC("takeDamage", RPCMode.All, damage, true);
             squad.skipAction();
             gameLogic.checkStateEndOfAction();
             gameLogic.updateUI();
