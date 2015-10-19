@@ -47,6 +47,8 @@ public static class Combat
     {
         reset();
 
+        gameLogic.changeUnit.material.color = Color.red;
+
         SquadManager squad = me.GetComponent<SquadManager>();
         float attackRange = 0;
         if (attack > 0)
@@ -89,6 +91,9 @@ public static class Combat
         }
 
         targetsInRange = targets;
+        if (targetsInRange.Count > 0) {
+
+        }
     }
 
     public static void fightTarget(GameObject me, int power)
@@ -162,12 +167,19 @@ public static class Combat
         if (Input.GetButtonUp("R1") && targetsInRange.Count > 0)
         {
             gameLogic.attackProj.enabled = false;
+            gameLogic.changeUnit.enabled = false;
+
             if (selectedTargetIndex >= 0)
                 targetsInRange[selectedTargetIndex].GetComponent<NetworkView>().RPC("disableLight",RPCMode.All);
 
             selectedTargetIndex++;
             selectedTargetIndex %= targetsInRange.Count;
             targetsInRange[selectedTargetIndex].GetComponent<NetworkView>().RPC("enableLight", RPCMode.All);
+             
+            Vector3 enemyPos = targetsInRange[selectedTargetIndex].transform.position;
+
+            gameLogic.changeUnit.transform.position = new Vector3(enemyPos.x, 9, enemyPos.z);
+            gameLogic.changeUnit.enabled = true;
         }
         else if (Input.GetButtonUp("L1") && targetsInRange.Count > 0)
         {
@@ -180,6 +192,11 @@ public static class Combat
             selectedTargetIndex--;
             if (selectedTargetIndex < 0) selectedTargetIndex = targetsInRange.Count - 1;
             targetsInRange[selectedTargetIndex].GetComponent<NetworkView>().RPC("enableLight", RPCMode.All);
+
+            Vector3 enemyPos = targetsInRange[selectedTargetIndex].transform.position;
+
+            gameLogic.changeUnit.transform.position = new Vector3(enemyPos.x, 9, enemyPos.z);
+            gameLogic.changeUnit.enabled = true;
         }
         if (Input.GetButtonUp("Cross") && targetsInRange.Count > 0 && selectedTargetIndex >= 0)
         {

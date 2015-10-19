@@ -295,8 +295,11 @@ public class Controller : MonoBehaviour
     public void setTurn(bool turn)
     {
         isTurn = turn;
-        if(isTurn)
+        if (isTurn)
+        {
             changeUnit.enabled = true;
+            changeUnit.material.color = Color.green;
+        }
         updateUI();
     }
 
