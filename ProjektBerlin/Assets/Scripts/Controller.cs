@@ -48,7 +48,7 @@ public class Controller : MonoBehaviour
     public Projector changeUnit;
 
     private int selectedSquadIndex;
-    private GameObject selectedLight;
+    private Light selectedLight;
 
     private Rigidbody selectedRB; //used to move selected squad
 
@@ -114,8 +114,7 @@ public class Controller : MonoBehaviour
 
 		allSquads = GetComponent<LoadGame> ().getAllSquads();
 
-		updateUI ();
-        selectedLight = GameObject.Find("SelectedLight");
+        selectedLight = GameObject.Find("SelectedLight").GetComponent<Light>();
         if (selectedLight == null) throw new MissingReferenceException("Need SelectedLight");
         targetsInRange = new List<GameObject>();
         selectedTargetIndex = -1;
@@ -152,6 +151,7 @@ public class Controller : MonoBehaviour
         Physics.IgnoreLayerCollision(LayerMask.NameToLayer("PartialCover"), LayerMask.NameToLayer("Squad"));
         Physics.IgnoreLayerCollision(LayerMask.NameToLayer("PartialCover"), LayerMask.NameToLayer("Unit"));
 
+        updateUI();
     }
 
     public void updateSquadList(string tag)
@@ -304,6 +304,10 @@ public class Controller : MonoBehaviour
 		updateUI();
     }
 
+    /// <summary>
+    /// Called by network logic to communicate who's turn it is
+    /// </summary>
+    /// <param name="turn"></param>
     public void setTurn(bool turn)
     {
         isTurn = turn;
@@ -311,6 +315,9 @@ public class Controller : MonoBehaviour
         {
             changeUnit.enabled = true;
             changeUnit.material.color = Color.green;
+            selectedLight.enabled = true;
+            if(isRunning)
+                selectNextAvailableSquad();
         }
         updateUI();
     }
@@ -368,7 +375,6 @@ public class Controller : MonoBehaviour
         {
             //currentPlayersTurn = (currentPlayersTurn + 1) % NUM_PLAYERS;
             //updateSquadList ("Player" + currentPlayersTurn + "Squad");
-            selectNextAvailableSquad();
             currentStage = TurnStage.None;
             nLogicView.RPC("setTurn", RPCMode.Others, true);
             setTurn(false);
@@ -608,8 +614,9 @@ public class Controller : MonoBehaviour
 			netCanvas.enabled = true;
 		else {
 			if (isTurn && isRunning) {
+                selectedLight.enabled = true;
 
-				switch (currentStage) {
+                switch (currentStage) {
 				case TurnStage.Combat:
 					comCanvas.enabled = true;
 					break;
@@ -624,6 +631,8 @@ public class Controller : MonoBehaviour
 					break;
 				}
 			} else {
+                changeUnit.enabled = false;
+                selectedLight.enabled = false;
 				waitCanvas.enabled = true;
 			}
 		}

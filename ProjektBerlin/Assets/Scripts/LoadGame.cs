@@ -202,7 +202,7 @@ public class LoadGame : MonoBehaviour
 
             if (hostDataFound)
             {
-                Debug.Log("Host data recieved");
+                
                 for (int i = 0; i < hostData.Length; i++)
                 {
                     if (GUILayout.Button(hostData[i].gameName, customButtonStyle))
@@ -230,6 +230,7 @@ public class LoadGame : MonoBehaviour
             {
                 refreshingHostList = false;
                 hostDataFound = true;
+                Debug.Log("Host data recieved");
                 hostData = MasterServer.PollHostList();
             }
         }

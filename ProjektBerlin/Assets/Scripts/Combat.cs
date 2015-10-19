@@ -51,6 +51,7 @@ public static class Combat
         reset();
 
         gameLogic.changeUnit.material.color = Color.red;
+        gameLogic.changeUnit.enabled = false;
 
         SquadManager squad = me.GetComponent<SquadManager>();
         float attackRange = 0;
