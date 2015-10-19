@@ -90,6 +90,13 @@ public class LoadGame : MonoBehaviour
         GameObject spawnedAttack = (GameObject)Instantiate(attackPrefab, Vector3.zero, Quaternion.Euler(90, 0, 0));
         spawnedAttack.name = attackPrefab.name;
 
+        GameObject changePrefab = (GameObject)Resources.Load("ChangeUnit");
+
+        if (changePrefab == null)
+            throw new MissingReferenceException("Failed to find change prefab");
+        GameObject changeProj = (GameObject)Instantiate(changePrefab, Vector3.zero, Quaternion.Euler(90, 0, 0));
+        changeProj.name = changePrefab.name;
+
         if (Network.isServer) {
             GameObject netLogic = (GameObject)Network.Instantiate(netPrefab, new Vector3(0, 0, 0), Quaternion.identity, 0);
             netLogic.GetComponent<NetworkView>().RPC("init", RPCMode.AllBuffered);

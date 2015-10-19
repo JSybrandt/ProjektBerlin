@@ -44,6 +44,8 @@ public class Controller : MonoBehaviour
     public Projector attackProj;
     [HideInInspector]
     public int selectedTargetIndex;
+    [HideInInspector]
+    public Projector changeUnit;
 
     private int selectedSquadIndex;
     private GameObject selectedLight;
@@ -110,6 +112,7 @@ public class Controller : MonoBehaviour
         selectedTargetIndex = -1;
 
         attackProj = GameObject.Find("AttackRadius").GetComponent<Projector>();
+        changeUnit = GameObject.Find("ChangeUnit").GetComponent<Projector>();
 
         //FoV
         materialFov = (Material)Resources.Load("Materials/FoV");
@@ -164,7 +167,8 @@ public class Controller : MonoBehaviour
             selectNextAvailableSquad();
             
             if (selectedRB != null) selectedRB.velocity = Vector3.zero;
-			Camera.main.GetComponent<CameraController>().setCameraTarget(squads[selectedSquadIndex].transform.position);
+			//Camera.main.GetComponent<CameraController>().setCameraTarget(squads[selectedSquadIndex].transform.position);
+
 
         }
         if (Input.GetButtonUp("L1"))
@@ -173,7 +177,7 @@ public class Controller : MonoBehaviour
 			selectPrevAvailableSquad();
 
             if (selectedRB != null) selectedRB.velocity = Vector3.zero;
-			Camera.main.GetComponent<CameraController>().setCameraTarget(squads[selectedSquadIndex].transform.position);
+			//Camera.main.GetComponent<CameraController>().setCameraTarget(squads[selectedSquadIndex].transform.position);
 
         }
 
@@ -199,6 +203,7 @@ public class Controller : MonoBehaviour
         {
             if (getSelectedManager().numActions > 0)
             {
+                changeUnit.enabled = false;
                 currentStage = TurnStage.Moving;
                 getSelectedManager().startMovement();
 				updateUI();
@@ -239,7 +244,10 @@ public class Controller : MonoBehaviour
 			selectedSquadIndex%=squads.Length;
 			if(squads[selectedSquadIndex].activeInHierarchy && getSelectedManager().numActions>0)
 			{
-				getMainCamController().setCameraTarget(squads[selectedSquadIndex].transform.position);
+                Vector3 myPos = getSelectedManager().transform.position;
+                getMainCamController().setCameraTarget(squads[selectedSquadIndex].transform.position);
+                changeUnit.transform.position = new Vector3(myPos.x,9,myPos.z);
+                //changeUnit.transform.position.y = 9;
 				break;
 			}
 		}
@@ -251,8 +259,10 @@ public class Controller : MonoBehaviour
 			if(selectedSquadIndex<0)selectedSquadIndex=squads.Length-1;
 			if(squads[selectedSquadIndex].activeInHierarchy && getSelectedManager().numActions>0)
 			{
-				getMainCamController().setCameraTarget(squads[selectedSquadIndex].transform.position);
-				break;
+                Vector3 myPos = getSelectedManager().transform.position;
+                getMainCamController().setCameraTarget(squads[selectedSquadIndex].transform.position);
+                changeUnit.transform.position = new Vector3(myPos.x, 9, myPos.z);
+                break;
 			}
 		}
 	}
@@ -262,6 +272,7 @@ public class Controller : MonoBehaviour
         Combat.reset();
         currentAttack = AttackType.Basic;
         attackProj.enabled = false;
+        changeUnit.enabled = false;
 
 		//if (GameObject.FindGameObjectsWithTag ("Player" + ((currentPlayersTurn + 1) % NUM_PLAYERS) + "Squad").Length == 0) {
 		//	Debug.Log("GAME OVER! PLAYER "+ (currentPlayersTurn+1) +" victory!");
@@ -284,7 +295,9 @@ public class Controller : MonoBehaviour
     public void setTurn(bool turn)
     {
         isTurn = turn;
-		updateUI();
+        if(isTurn)
+            changeUnit.enabled = true;
+        updateUI();
     }
 
     float GetSquadAngle()
@@ -421,11 +434,13 @@ public class Controller : MonoBehaviour
                     getSelectedManager().undoMove();
                     checkStateEndOfAction();
 					getMainCamController().setCameraTarget(squads[selectedSquadIndex].transform.position);
+                    changeUnit.enabled = true;
                 }
                 //user ends early
                 else if (Input.GetButtonDown("Cross"))  //A
                 {
                     getSelectedManager().endMovement();
+                    changeUnit.enabled = true;
                     checkStateEndOfAction();
                 }
                 else
@@ -479,6 +494,7 @@ public class Controller : MonoBehaviour
                         currentAttack = AttackType.Squad;
                         Combat.reset();
                         attackProj.enabled = false;
+                        changeUnit.enabled = true;
                         getSelectedManager().squadAbility();
                         Debug.Log("Squad Ability");
                     }
