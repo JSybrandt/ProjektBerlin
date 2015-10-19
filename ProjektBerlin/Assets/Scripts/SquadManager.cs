@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 public class SquadManager : MonoBehaviour
 {
@@ -83,10 +84,21 @@ public class SquadManager : MonoBehaviour
     public AbilityUpdate squadAbilityUpdate;
     private int myNumber;
 
+	public AudioSource walk;
+	public AudioClip walkSound;
+	public bool hasCurTime;
+	private DateTime curTime;
+	private DateTime firstTime;
+	private DateTime dTime;
+
     // Use this for initialization
     [RPC]
     public void init(string squadTag, int num)
     {
+		walk = GetComponent<AudioSource> ();
+		walkSound = walk.clip;
+		hasCurTime = false;
+
         myLight = new GameObject();
         myLight.transform.position = transform.position;
         lightPiece = myLight.AddComponent<Light>();
@@ -116,6 +128,22 @@ public class SquadManager : MonoBehaviour
         {
             if (_midMovement && rb.velocity.magnitude > 0)
             {
+				TimeSpan seconds;
+				if(!hasCurTime)
+				{
+					firstTime = DateTime.Now;
+					walk.PlayOneShot(walkSound);
+					hasCurTime = true;
+				}
+				
+				if(hasCurTime)
+				{
+					curTime = DateTime.Now;
+					seconds = curTime - firstTime;
+					if(seconds.TotalSeconds > 1.1)
+						hasCurTime = false;
+				}
+
                 float h = Terrain.activeTerrain.SampleHeight(transform.position) + FLOOR_DISPACEMENT;
                 transform.position = new Vector3(transform.position.x, h, transform.position.z);
                 if ((positionAtActionStart - transform.position).magnitude >= movementDistance)
@@ -128,8 +156,10 @@ public class SquadManager : MonoBehaviour
             }
             else
             {
-                if (rb != null)
+				if (rb != null){
                     rb.Sleep();
+					walk.Stop();
+				}
             }
             prevPosition = transform.position;
         }

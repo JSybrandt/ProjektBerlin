@@ -24,6 +24,9 @@ public static class Combat
     private static Marker marker;
     private static float markerAttack = 0;
 
+	public static AudioSource[] shoot;
+	public static AudioSource shooting;
+
     //private static GameObject attackProj;
     public static int selectedTargetIndex = -1;
 
@@ -101,7 +104,12 @@ public static class Combat
         ShotsFired myHits = detectHits(me,power);
         int damage = calculateDamage(myHits);
         NetworkView nView = getTarget().GetComponent<NetworkView>();
+
 		getTarget().GetComponent<NetworkView>().RPC("takeDamage", RPCMode.AllBuffered, damage,false);
+		shoot = me.GetComponent<SquadManager> ().GetComponents<AudioSource> ();
+		shooting = shoot [1];
+		shooting.Play ();
+
     }
 
     //public static void fightTargets(GameObject me, int )

@@ -79,6 +79,11 @@ public class Controller : MonoBehaviour
     public NetworkLogic nLogic;
     public NetworkView nLogicView;
 
+	public AudioSource[] sounds;
+	public AudioSource click;
+	public AudioSource move;
+	public AudioSource attack;
+
 	//used in updateUI
 	Canvas movCanvas;
 	Canvas comCanvas;
@@ -90,6 +95,10 @@ public class Controller : MonoBehaviour
     //called by loadgame
     public void init()
     {
+		sounds = GetComponents<AudioSource>();
+		click = sounds [0];
+		move = sounds [1];
+		attack = sounds [2];
 
 		movCanvas = GameObject.Find("MovementCanvas").GetComponent<Canvas>();
 		comCanvas = GameObject.Find("CombatCanvas").GetComponent<Canvas>();
@@ -165,6 +174,7 @@ public class Controller : MonoBehaviour
         if (Input.GetButtonUp("R1"))
         {
             selectNextAvailableSquad();
+			click.Play();
             
             if (selectedRB != null) selectedRB.velocity = Vector3.zero;
 			//Camera.main.GetComponent<CameraController>().setCameraTarget(squads[selectedSquadIndex].transform.position);
@@ -173,7 +183,7 @@ public class Controller : MonoBehaviour
         }
         if (Input.GetButtonUp("L1"))
         {
-
+			click.Play();
 			selectPrevAvailableSquad();
 
             if (selectedRB != null) selectedRB.velocity = Vector3.zero;
@@ -203,6 +213,7 @@ public class Controller : MonoBehaviour
         {
             if (getSelectedManager().numActions > 0)
             {
+				move.Play();
                 changeUnit.enabled = false;
                 currentStage = TurnStage.Moving;
                 getSelectedManager().startMovement();
@@ -214,6 +225,7 @@ public class Controller : MonoBehaviour
         {
             if (getSelectedManager().numActions > 0)
             {
+				attack.Play();
                 currentStage = TurnStage.Combat;
                 Combat.findTargets(selectedRB.gameObject);
                 updateUI();
