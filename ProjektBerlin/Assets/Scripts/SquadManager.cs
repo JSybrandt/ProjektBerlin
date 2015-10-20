@@ -124,7 +124,7 @@ public class SquadManager : MonoBehaviour
     //once every physics step
     void FixedUpdate()
     {
-        if (nView.isMine)
+        if (nView != null && nView.isMine)
         {
             if (_midMovement && rb.velocity.magnitude > 0)
             {
@@ -168,7 +168,7 @@ public class SquadManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (nView.isMine)
+        if (nView != null && nView.isMine)
         {
             for (int i = 0; i < units.Length; i++)
             {
