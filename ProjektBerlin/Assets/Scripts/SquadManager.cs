@@ -32,6 +32,7 @@ public class SquadManager : MonoBehaviour
 
     public Texture tex;
     [HideInInspector]
+    private Color offColor = new Color(103,0,0); //Crimson
     public Color myColor = Color.red;
 
     private float unitDistanceFromCenter = 1.5f;
@@ -181,7 +182,7 @@ public class SquadManager : MonoBehaviour
             //Updates associated light
             myLight.transform.position = transform.position;
         }
-        else
+        else if (nView != null)
         {
             SyncedMovement();
         }
@@ -235,6 +236,7 @@ public class SquadManager : MonoBehaviour
         {
             _numActions = MAX_ACTIONS;
             _midMovement = false;
+            nView.RPC("activeSquadColor", RPCMode.All, true);
             moveProj.gameObject.SetActive(false);
         }
     }
@@ -380,16 +382,35 @@ public class SquadManager : MonoBehaviour
         return attackDistance;
     }
 
+    /// <summary>
+    /// Used to set the main color of a unit
+    /// </summary>
+    /// <param name="c"></param>
     public void setColor(Color c)
     {
         myColor = c;
+        offColor = myColor / 2;
     }
+
 
     public void paintColor()
     {
         foreach (GameObject g in units)
         {
             g.GetComponent<Renderer>().material.color = myColor;
+        }
+    }
+
+    [RPC]
+    public void activeSquadColor(bool active)
+    {
+        
+        foreach (GameObject g in units)
+        {
+            if (!active)
+                g.GetComponent<Renderer>().material.color = offColor;
+            else
+                g.GetComponent<Renderer>().material.color = myColor;
         }
     }
 

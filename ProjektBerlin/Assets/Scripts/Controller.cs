@@ -204,7 +204,6 @@ public class Controller : MonoBehaviour
                 currentStage = TurnStage.Combat;
                 Combat.findTargets(selectedRB.gameObject);
                 updateUI();
-                //Debug.Log("Number of targets within range: " + targetsInRange.Count.ToString());
             }
         }
         /*//skip
@@ -270,8 +269,8 @@ public class Controller : MonoBehaviour
 			currentStage = TurnStage.None;
 		}
 		else if(getSelectedManager ().numActions == 0) {
-			nextTurn();
-
+            getSelectedManager().nView.RPC("activeSquadColor", RPCMode.All, false);
+            nextTurn();
 		}
         else
             currentStage = TurnStage.InBetween;
