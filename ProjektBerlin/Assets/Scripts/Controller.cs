@@ -371,27 +371,19 @@ public class Controller : MonoBehaviour
     }
 
 	void nextTurn(){
-        if(!checkRound()) // && !isRoundOver <-- was redundant
-        {
-            //currentPlayersTurn = (currentPlayersTurn + 1) % NUM_PLAYERS;
-            //updateSquadList ("Player" + currentPlayersTurn + "Squad");
-            currentStage = TurnStage.None;
-            nLogicView.RPC("setTurn", RPCMode.Others, true);
-            setTurn(false);
-        }
-	}
-
-    bool checkRound()
-    {
         if (checkRoundComplete() && isOtherRoundOver)
         {
             nLogicView.RPC("nextRound", RPCMode.All, true);     //Call everyone to reset round
             setTurn(false);
             nLogicView.RPC("setTurn", RPCMode.Others, true);    //This player went last, so other player goes first                   
-            return true;
         }
-        return false;
-    }
+        else
+        {
+            currentStage = TurnStage.None;
+            nLogicView.RPC("setTurn", RPCMode.Others, true);
+            setTurn(false);
+        }
+	}
 
     public void begin()
     {
