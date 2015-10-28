@@ -253,6 +253,16 @@ public class Controller : MonoBehaviour
 		}
 	}
 
+    public void gameOver(int playerWinner)
+    {
+        Debug.Log("GAME OVER! PLAYER " + playerWinner + " victory!");
+        Application.Quit();
+        isRunning = false;
+        currentStage = TurnStage.None;
+        updateUI();
+        return;
+    }
+
     public void checkStateEndOfAction()
     {
         Combat.reset();
@@ -260,10 +270,16 @@ public class Controller : MonoBehaviour
         attackProj.enabled = false;
         changeUnit.enabled = false;
 
-        if (GameObject.FindGameObjectsWithTag("Player" + ((currentPlayersTurn + 1) % NUM_PLAYERS) + "Squad").Length == 0)
+        if (GameObject.FindGameObjectsWithTag("Player0Squad").Length == 0)
         {
-            Debug.Log("GAME OVER! PLAYER " + (currentPlayersTurn + 1) + " victory!");
-            Application.Quit();
+            nLogicView.RPC("gameOver", RPCMode.All, 2);
+            return;
+        }
+
+        if (GameObject.FindGameObjectsWithTag("Player1Squad").Length == 0)
+        {
+            nLogicView.RPC("gameOver", RPCMode.All, 1);
+            return;
         }
 
         if (getSelectedManager ().numActions == SquadManager.MAX_ACTIONS) {
@@ -307,8 +323,23 @@ public class Controller : MonoBehaviour
         foreach(GameObject g in allSquads)
         {
             if (g.GetComponent<SquadManager>().numActions > 0 && g.activeInHierarchy)
+            {
+                Debug.Log("I still have squads left!");
+
+                if (Network.isServer)
+                    Debug.Log("Client");
+                else if(Network.isClient)
+                    Debug.Log("Server");
+
                 return true;
+            }
         }
+
+        Debug.Log("No squads left.");
+        if (Network.isServer)
+            Debug.Log("Client");
+        else if (Network.isClient)
+            Debug.Log("Server");
 
         return false;
     }
@@ -328,25 +359,19 @@ public class Controller : MonoBehaviour
             }
 
             //This is here so it is only called once per round
-            nLogicView.RPC("otherRoundOver",RPCMode.Others);
-            nLogicView.RPC("setTurn", RPCMode.Others, true);
-            setTurn(false);
+            if (!isOtherRoundOver)
+            {
+                nLogicView.RPC("otherRoundOver", RPCMode.Others);
+                nLogicView.RPC("setTurn", RPCMode.Others, true);
+                setTurn(false);
+            }
         }
 
         return isRoundOver = true;
     }
 
 	void nextTurn(){
-        if (checkRoundComplete() && isOtherRoundOver)
-        {
-            nextRound();
-            if (Network.isServer) //Server starts next round
-            {
-                nLogicView.RPC("setTurn", RPCMode.Others, false);
-                setTurn(true);
-            }
-        }
-        else if(!isRoundOver)
+        if(!checkRound()) // && !isRoundOver <-- was redundant
         {
             //currentPlayersTurn = (currentPlayersTurn + 1) % NUM_PLAYERS;
             //updateSquadList ("Player" + currentPlayersTurn + "Squad");
@@ -356,14 +381,16 @@ public class Controller : MonoBehaviour
         }
 	}
 
-    void checkRound()
+    bool checkRound()
     {
         if (checkRoundComplete() && isOtherRoundOver)
         {
-            nextRound();
-            nLogicView.RPC("setTurn", RPCMode.Others, true);
+            nLogicView.RPC("nextRound", RPCMode.All, true);     //Call everyone to reset round
             setTurn(false);
+            nLogicView.RPC("setTurn", RPCMode.Others, true);    //This player went last, so other player goes first                   
+            return true;
         }
+        return false;
     }
 
     public void begin()
@@ -373,7 +400,7 @@ public class Controller : MonoBehaviour
     }
 
     //call at end of turn
-    void nextRound()
+    public void nextRound()
     {
         foreach (GameObject g in allSquads)
         {
@@ -382,8 +409,7 @@ public class Controller : MonoBehaviour
         }
         isRoundOver = false;
         isOtherRoundOver = false;
-        //currentPlayersTurn = (currentPlayersTurn + 1) % NUM_PLAYERS;
-        //updateSquadList("Player" + currentPlayersTurn + "Squad");
+
         currentStage = TurnStage.None;
     }
 
@@ -394,7 +420,7 @@ public class Controller : MonoBehaviour
 			return;
         if (squads == null || !isTurn)
         {
-            checkRound();
+            //checkRound();
             return;
         }
         if (squads.Length > 0)
