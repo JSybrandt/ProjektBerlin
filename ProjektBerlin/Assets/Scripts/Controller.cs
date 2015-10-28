@@ -260,10 +260,11 @@ public class Controller : MonoBehaviour
         attackProj.enabled = false;
         changeUnit.enabled = false;
 
-		//if (GameObject.FindGameObjectsWithTag ("Player" + ((currentPlayersTurn + 1) % NUM_PLAYERS) + "Squad").Length == 0) {
-		//	Debug.Log("GAME OVER! PLAYER "+ (currentPlayersTurn+1) +" victory!");
-		//	Application.Quit();
-		//}
+        if (GameObject.FindGameObjectsWithTag("Player" + ((currentPlayersTurn + 1) % NUM_PLAYERS) + "Squad").Length == 0)
+        {
+            Debug.Log("GAME OVER! PLAYER " + (currentPlayersTurn + 1) + " victory!");
+            Application.Quit();
+        }
 
         if (getSelectedManager ().numActions == SquadManager.MAX_ACTIONS) {
 			currentStage = TurnStage.None;

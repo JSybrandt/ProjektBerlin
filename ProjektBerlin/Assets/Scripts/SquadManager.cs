@@ -94,7 +94,7 @@ public class SquadManager : MonoBehaviour
 
     // Use this for initialization
     [RPC]
-    public void init(string squadTag, int num)
+    public void init(string squadTag)
     {
 		walk = GetComponent<AudioSource> ();
 		walkSound = walk.clip;
@@ -106,7 +106,6 @@ public class SquadManager : MonoBehaviour
         lightPiece.color = Color.red;
         lightPiece.intensity = 8;
         tag = squadTag;
-        myNumber = num;
 
         attackDistance = 20;
         movementDistance = 20;
