@@ -188,7 +188,7 @@ public class LoadGame : MonoBehaviour
         if (!Network.isClient && !Network.isServer)
         {
             GUILayout.BeginArea(new Rect(Screen.width * .05f, Screen.height * .05f, Screen.width * 0.2f, Screen.height * 0.2f));
-            if (GUILayout.Button("Start Server", customButtonStyle))
+            if (GUILayout.Button("Start Server", customButtonStyle) || Input.GetButtonUp("Triangle"))
             {
                 Debug.Log("Starting Server");
                 makeGame();
