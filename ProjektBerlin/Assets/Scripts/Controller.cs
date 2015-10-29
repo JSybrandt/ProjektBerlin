@@ -47,7 +47,7 @@ public class Controller : MonoBehaviour
     [HideInInspector]
     public Projector changeUnit;
 
-    private int selectedSquadIndex;
+    private int selectedSquadIndex = -1;
     private Light selectedLight;
 
     private Rigidbody selectedRB; //used to move selected squad
@@ -148,6 +148,7 @@ public class Controller : MonoBehaviour
     {
         if (Input.GetButtonUp("R1"))
         {
+            getSelectedManager().disableSelect();
             selectNextAvailableSquad();
 			click.Play();
             
@@ -158,6 +159,7 @@ public class Controller : MonoBehaviour
         }
         if (Input.GetButtonUp("L1"))
         {
+            getSelectedManager().disableSelect();
 			click.Play();
 			selectPrevAvailableSquad();
 
@@ -232,7 +234,8 @@ public class Controller : MonoBehaviour
 			{
                 Vector3 myPos = getSelectedManager().transform.position;
                 getMainCamController().setCameraTarget(squads[selectedSquadIndex].transform.position);
-                changeUnit.transform.position = new Vector3(myPos.x,9,myPos.z);
+                getSelectedManager().enableSelect();
+                //changeUnit.transform.position = new Vector3(myPos.x,9,myPos.z);
                 //changeUnit.transform.position.y = 9;
 				break;
 			}
@@ -247,7 +250,8 @@ public class Controller : MonoBehaviour
 			{
                 Vector3 myPos = getSelectedManager().transform.position;
                 getMainCamController().setCameraTarget(squads[selectedSquadIndex].transform.position);
-                changeUnit.transform.position = new Vector3(myPos.x, 9, myPos.z);
+                getSelectedManager().enableSelect();
+                //changeUnit.transform.position = new Vector3(myPos.x, 9, myPos.z);
                 break;
 			}
 		}
@@ -267,6 +271,7 @@ public class Controller : MonoBehaviour
     {
         Combat.reset();
         currentAttack = AttackType.Basic;
+        getSelectedManager().disableSelect();
         attackProj.enabled = false;
         changeUnit.enabled = false;
 
@@ -304,11 +309,16 @@ public class Controller : MonoBehaviour
         isTurn = turn;
         if (isTurn)
         {
-            changeUnit.enabled = true;
-            changeUnit.material.color = Color.green;
+            //changeUnit.enabled = true;
+            //changeUnit.material.color = Color.green;
             selectedLight.enabled = true;
             if(isRunning)
                 selectNextAvailableSquad();
+        }
+        else if(selectedSquadIndex >= 0)
+        {
+            Debug.Log(selectedSquadIndex);
+            getSelectedManager().disableSelect();
         }
         updateUI();
     }
@@ -370,7 +380,7 @@ public class Controller : MonoBehaviour
         return isRoundOver = true;
     }
 
-	void nextTurn(){
+	void nextTurn(){    //What happens if the last dude to go dies, but hasn't called end of round?
         if (checkRoundComplete() && isOtherRoundOver)
         {
             nLogicView.RPC("nextRound", RPCMode.All, true);     //Call everyone to reset round
@@ -544,18 +554,22 @@ public class Controller : MonoBehaviour
                 selectedLight.enabled = true;
 
                 switch (currentStage) {
-				case TurnStage.Combat:
-					comCanvas.enabled = true;
-					break;
-				case TurnStage.InBetween:
-					secondActCanvas.enabled = true;
-					break;
-				case TurnStage.Moving:
-					movCanvas.enabled = true;
-					break;
-				case TurnStage.None:
-					firstActCanvas.enabled = true;
-					break;
+				    case TurnStage.Combat:
+                        getSelectedManager().disableSelect();
+					    comCanvas.enabled = true;
+					    break;
+				    case TurnStage.InBetween:
+                        getSelectedManager().disableSelect();
+                        secondActCanvas.enabled = true;
+					    break;
+				    case TurnStage.Moving:
+                        getSelectedManager().disableSelect();
+                        movCanvas.enabled = true;
+					    break;
+				    case TurnStage.None: 
+                        getSelectedManager().enableSelect();
+					    firstActCanvas.enabled = true;
+					    break;
 				}
 			} else {
                 changeUnit.enabled = false;

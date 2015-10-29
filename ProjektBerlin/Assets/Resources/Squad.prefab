@@ -274,6 +274,8 @@ MonoBehaviour:
   behindWall: 0
   size: 5
   tex: {fileID: 2800000, guid: 15ca8ea0d0523d442bb17f2e354095af, type: 3}
+  selectorGreen: {fileID: 2800000, guid: 6196bfb8ecdfb2d40a0218b053ddfde2, type: 3}
+  selectorRed: {fileID: 2800000, guid: 91e7682937958454ba96be96d59e8793, type: 3}
   myColor: {r: 1, g: 0, b: 0, a: 1}
   dodgeChance: .330000013
   hitChance: .660000026
@@ -424,6 +426,14 @@ Prefab:
       propertyPath: m_Volume
       value: .400000006
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: selectorGreen
+      value: 
+      objectReference: {fileID: 2800000, guid: 6196bfb8ecdfb2d40a0218b053ddfde2, type: 3}
+    - target: {fileID: 0}
+      propertyPath: selectorRed
+      value: 
+      objectReference: {fileID: 2800000, guid: 91e7682937958454ba96be96d59e8793, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 158044}

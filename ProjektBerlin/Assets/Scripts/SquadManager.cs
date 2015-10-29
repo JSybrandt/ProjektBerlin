@@ -18,6 +18,8 @@ public class SquadManager : MonoBehaviour
     public bool inCover = false;
     public bool behindWall = false;
     private bool prevCover = false;
+    private bool targeted = false;
+    private bool selected = false;
 
     //Serialization stuff, really useful link:
     // http://www.paladinstudios.com/2013/07/10/how-to-create-an-online-multiplayer-game-with-unity/
@@ -31,6 +33,8 @@ public class SquadManager : MonoBehaviour
     public int size = 0;
 
     public Texture tex;
+    public Texture selectorGreen;
+    public Texture selectorRed;
     [HideInInspector]
     private Color offColor = new Color(103,0,0); //Crimson
     public Color myColor = Color.red;
@@ -181,7 +185,7 @@ public class SquadManager : MonoBehaviour
             //Updates associated light
             myLight.transform.position = transform.position;
         }
-        else if (nView != null)
+        else if (nView != null && !rb.IsSleeping())
         {
             SyncedMovement();
         }
@@ -251,7 +255,6 @@ public class SquadManager : MonoBehaviour
         }
         else throw new UnityException("Attempted to undo a move when squad had not moved");
     }
-
 
     [RPC]
     public void takeDamage(int damage, bool killSpecial)
@@ -326,6 +329,26 @@ public class SquadManager : MonoBehaviour
     public void disableLight()
     {
         lightPiece.enabled = false;
+    }
+
+    public void enableTarget()
+    {
+        targeted = true;
+    }
+
+    public void disableTarget()
+    {
+        targeted = false;
+    }
+
+    public void enableSelect()
+    {
+        selected = true;
+    }
+
+    public void disableSelect()
+    {
+        selected = false;
     }
 
     public List<GameObject> getActiveUnits()
@@ -415,7 +438,10 @@ public class SquadManager : MonoBehaviour
 
     void OnGUI()
     {
-        if (tex != null && (inCover || behindWall) && !dead)
+        if (dead)
+            return;
+
+        if (tex != null && (inCover || behindWall))
         {
             float sizeMod = 15;
             Vector3 guiPosition = Camera.main.WorldToScreenPoint(transform.position);
@@ -424,44 +450,61 @@ public class SquadManager : MonoBehaviour
             Rect rect = new Rect((guiPosition.x - tex.width / (camDistance / sizeMod) / 2.0f), (guiPosition.y - tex.height / (camDistance / sizeMod) / 2.0f), tex.width / (camDistance / sizeMod), tex.height / (camDistance / sizeMod));
             GUI.DrawTexture(rect, tex);
         }
+
+        if (selectorRed != null && targeted)
+        {
+            float sizeMod = 15;
+            Vector3 guiPosition = Camera.main.WorldToScreenPoint(transform.position);
+            float camDistance = Camera.main.GetComponent<CameraController>().distance;
+            guiPosition.y = Screen.height - guiPosition.y;
+            Rect rect = new Rect((guiPosition.x - selectorRed.width / (camDistance / sizeMod) / 2.0f), (guiPosition.y - selectorRed.height / (camDistance / sizeMod) / 2.0f), selectorRed.width / (camDistance / sizeMod), selectorRed.height / (camDistance / sizeMod));
+            GUI.DrawTexture(rect, selectorRed);
+        }
+
+        if(selectorGreen != null && selected)
+        {
+            float sizeMod = 15;
+            Vector3 guiPosition = Camera.main.WorldToScreenPoint(transform.position);
+            float camDistance = Camera.main.GetComponent<CameraController>().distance;
+            guiPosition.y = Screen.height - guiPosition.y;
+            Rect rect = new Rect((guiPosition.x - selectorGreen.width / (camDistance / sizeMod) / 2.0f), (guiPosition.y - selectorGreen.height / (camDistance / sizeMod) / 2.0f), selectorGreen.width / (camDistance / sizeMod), selectorGreen.height / (camDistance / sizeMod));
+            GUI.DrawTexture(rect, selectorGreen);
+        }
     }
 
     void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info)
     {
         Vector3 syncPosition = Vector3.zero;
+        Vector3 syncVelocity = Vector3.zero;
         bool cover = false;
         bool wall = false;
         if (stream.isWriting)
         {
             syncPosition = rb.position;
 
-            //TESTING:
             cover = inCover;
             wall = behindWall;
+            syncVelocity = rb.velocity;
 
             stream.Serialize(ref syncPosition);
-
-            //TESTING:
             stream.Serialize(ref cover);
             stream.Serialize(ref wall);
+            stream.Serialize(ref syncVelocity);
         }
         else
         {
             stream.Serialize(ref syncPosition);
-
-            //TESTING:
             stream.Serialize(ref cover);
             stream.Serialize(ref wall);
+            stream.Serialize(ref syncVelocity);
 
             syncTime = 0f;
             syncDelay = Time.time - lastSynchronizationTime;
             lastSynchronizationTime = Time.time;
 
+            syncEndPosition = syncPosition + syncVelocity*syncDelay;
             syncStartPosition = rb.position;
-            syncEndPosition = syncPosition;
-
-
-            //TESTING:
+            
             behindWall = wall;
             inCover = cover;
         }
