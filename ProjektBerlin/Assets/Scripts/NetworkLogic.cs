@@ -7,6 +7,66 @@ public class NetworkLogic : MonoBehaviour {
     public Controller gameLogic;
     public NetworkView nView;
 
+    public float rpcTimer = 0;
+    public float latency = 0;
+    public int timerIndex = 0;
+    public float[] timers = new float[30];
+    public int latSize = 0, latIndex = 0;
+    private float avgLatency = 0;
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Controller.getIsRunning())
+        {
+            if (rpcTimer == 0)
+            {
+                nView.RPC("callRPC", RPCMode.Others);
+            }
+
+            rpcTimer += Time.deltaTime;
+        }
+    }
+
+    [RPC]
+    public void callRPC()
+    {
+        nView.RPC("returnRPC", RPCMode.Others);
+    }
+
+    [RPC]
+    public void returnRPC()
+    {
+        if (latSize < 30)
+        {
+            timers[latSize] = rpcTimer;
+            avgLatency = (avgLatency * latSize + rpcTimer)/(latSize+1);
+            latSize++;
+        }
+        else
+        {
+            timers[latIndex] = rpcTimer;
+            int prev = (latIndex + latSize - 1) % latSize;
+            avgLatency = avgLatency + timers[latIndex] - timers[prev];
+            latIndex = (latIndex + 1) % latSize;
+        }
+
+        rpcTimer = 0;
+    }
+
+    void OnGUI()
+    {
+        GUILayout.Label("Latency Values");
+        int i = 0;
+        while (i < Network.connections.Length)
+        {
+            GUILayout.Label("Player " + Network.connections[i] + " - " + Network.GetAveragePing(Network.connections[i]) + " ms");
+            i++;
+        }
+        GUILayout.Label("Average latency: " + avgLatency);
+        GUILayout.Label("Recent latency: " + latency);
+    }
+
     [RPC]
     public void init()
     {
