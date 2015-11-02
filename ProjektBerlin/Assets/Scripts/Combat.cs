@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 
 public struct damageInfo {
 	int damage;
@@ -15,8 +16,6 @@ public struct damageInfo {
 
 public static class Combat
 {
-
-
     public static List<GameObject> targetsInRange = new List<GameObject>();
     public static int numPlayers = Controller.NUM_PLAYERS;
     public static Controller gameLogic;
@@ -100,7 +99,7 @@ public static class Combat
         }
     }
 
-    public static void fightTarget(GameObject me, int power)
+    public static IEnumerator fightTarget(GameObject me, int power)
     {
         ShotsFired myHits = detectHits(me,power);
         int damage = calculateDamage(myHits);
@@ -108,8 +107,19 @@ public static class Combat
 
 		getTarget().GetComponent<NetworkView>().RPC("takeDamage", RPCMode.AllBuffered, damage,false);
 		shoot = me.GetComponent<SquadManager> ().GetComponents<AudioSource> ();
-		shooting = shoot [1];
-		shooting.Play ();
+        shooting = shoot[1];
+        AudioClip shootClip = shoot[1].clip;
+        int squadSize = me.GetComponent<SquadManager>().size;
+        float originalPitch = shooting.pitch;
+        for (int i = 0; i< squadSize; i++)
+        {
+
+            shooting.pitch = Random.Range(-.3f, .1f) + originalPitch;
+            shooting.PlayOneShot (shootClip);
+            yield return new WaitForSeconds(Random.Range(0.05f, 0.1f));
+        }
+		
+		
     }
 
     public static int calculateDamage(ShotsFired myHits)
