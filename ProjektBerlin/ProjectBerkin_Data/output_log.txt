@@ -16,12 +16,14 @@ Platform assembly: C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\
 Loading C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
 Platform assembly: C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
 Loading C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-Platform assembly: C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-Platform assembly: C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\SonyNP.dll (this message is harmless)
+Loading C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\SonyNP.dll into Unity Child Domain
+Platform assembly: C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\SonyPS4CommonDialog.dll (this message is harmless)
+Loading C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\SonyPS4CommonDialog.dll into Unity Child Domain
+Platform assembly: C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\SonyPS4SavedGames.dll (this message is harmless)
+Loading C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\SonyPS4SavedGames.dll into Unity Child Domain
 Platform assembly: C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.236 seconds
+- Completed reload, in  0.235 seconds
 desktop: 1280x800 40Hz; virtual: 1280x800 at 0,0
 <RI> Initializing input.
 XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
@@ -29,7 +31,15 @@ XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
 <RI> Initialized touch support.
 Platform assembly: C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\System.dll (this message is harmless)
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 394 -> priority: 1 
+  Thread -> id: 2a4c -> priority: 1 
+Refreshing...
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Getting Host List
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
 Refreshing...
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
@@ -46,7 +56,7 @@ Received pong from 192.168.56.1:25001
  
 (Filename:  Line: 852)
 
-Received pong from 10.37.105.103:25001
+Received pong from 192.168.254.9:25001
  
 (Filename:  Line: 852)
 
@@ -70,6 +80,10 @@ Client spawning
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
+Joystick connected ("Controller (Rock Candy Gamepad for Xbox 360)").
+ 
+(Filename:  Line: 1353)
+
 Set turn called
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
@@ -86,7 +100,7 @@ Server
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
-Number of objects in range: 17
+Number of objects in range: 37
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
@@ -98,7 +112,39 @@ I'm dieing!
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
-1
+2
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Set turn called
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Isn't my turn
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+I still have squads left!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Server
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Number of objects in range: 25
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+I shot someone!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+I'm dieing!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+3
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 

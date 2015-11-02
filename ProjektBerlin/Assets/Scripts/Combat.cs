@@ -23,8 +23,9 @@ public static class Combat
     private static Marker marker;
     private static float markerAttack = 0;
 
-	public static AudioSource[] shoot;
-	public static AudioSource shooting;
+	public static AudioSource[] shootSounds;
+	public static AudioSource rifleShoot;
+    public static AudioSource sniperShoot;
 
     //private static GameObject attackProj;
     public static int selectedTargetIndex = -1;
@@ -106,16 +107,19 @@ public static class Combat
         NetworkView nView = getTarget().GetComponent<NetworkView>();
 
 		getTarget().GetComponent<NetworkView>().RPC("takeDamage", RPCMode.AllBuffered, damage,false);
-		shoot = me.GetComponent<SquadManager> ().GetComponents<AudioSource> ();
-        shooting = shoot[1];
-        AudioClip shootClip = shoot[1].clip;
+        shootSounds = me.GetComponent<SquadManager> ().GetComponents<AudioSource> ();
+        rifleShoot = shootSounds[1];
+        sniperShoot = shootSounds[2];
+        AudioClip shootClip = shootSounds[1].clip;
         int squadSize = me.GetComponent<SquadManager>().size;
-        float originalPitch = shooting.pitch;
+
+        //if(me.GetComponent<SquadManager>().squadAbility == grenade)
+        float originalPitch = rifleShoot.pitch;
         for (int i = 0; i< squadSize; i++)
         {
 
-            shooting.pitch = Random.Range(-.3f, .1f) + originalPitch;
-            shooting.PlayOneShot (shootClip);
+            rifleShoot.pitch = Random.Range(-.3f, .1f) + originalPitch;
+            rifleShoot.PlayOneShot (shootClip);
             yield return new WaitForSeconds(Random.Range(0.05f, 0.1f));
         }
 		
