@@ -22,6 +22,7 @@ public class ShotgunSquad : MonoBehaviour {
         squad.size = 4;
         squad.attackDistance = 20;
         squad.movementDistance = 30;
+		squad.squadType = "Shotgun";
 
         squad.unitTargets = new Transform[squad.size];
 

@@ -50,6 +50,9 @@ public class SquadManager : MonoBehaviour
     public bool midMovement { get { return _midMovement; } }
     public int numActions { get { return _numActions; } }
 
+	[HideInInspector]
+	public string squadType;
+
     //Added lights for showing targeted.
     private GameObject myLight;
     [HideInInspector]

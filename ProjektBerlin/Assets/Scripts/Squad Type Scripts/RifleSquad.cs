@@ -21,6 +21,7 @@ public class RifleSquad : MonoBehaviour {
         squad.size = 5;
         squad.attackDistance = 20;
         squad.movementDistance = 50;
+		squad.squadType = "Rifle";
 
         squad.unitTargets = new Transform[squad.size];
 
