@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 
 public struct damageInfo {
 	int damage;
@@ -15,8 +16,6 @@ public struct damageInfo {
 
 public static class Combat
 {
-
-
     public static List<GameObject> targetsInRange = new List<GameObject>();
     public static int numPlayers = Controller.NUM_PLAYERS;
     public static Controller gameLogic;
@@ -24,8 +23,9 @@ public static class Combat
     private static Marker marker;
     private static float markerAttack = 0;
 
-	public static AudioSource[] shoot;
-	public static AudioSource shooting;
+	public static AudioSource[] shootSounds;
+	public static AudioSource rifleShoot;
+    public static AudioSource sniperShoot;
 
     //private static GameObject attackProj;
     public static int selectedTargetIndex = -1;
@@ -100,20 +100,35 @@ public static class Combat
         }
     }
 
-    public static void fightTarget(GameObject me, int power)
+    public static IEnumerator fightTarget(GameObject me, int power)
     {
         ShotsFired myHits = detectHits(me,power);
         int damage = calculateDamage(myHits);
         NetworkView nView = getTarget().GetComponent<NetworkView>();
 
 		getTarget().GetComponent<NetworkView>().RPC("takeDamage", RPCMode.AllBuffered, damage,false);
-		shoot = me.GetComponent<SquadManager> ().GetComponents<AudioSource> ();
-		shooting = shoot [1];
-		shooting.Play ();
+        shootSounds = me.GetComponent<SquadManager> ().GetComponents<AudioSource> ();
+        rifleShoot = shootSounds[1];
+        sniperShoot = shootSounds[2];
+        AudioClip shootClip = shootSounds[1].clip;
+        int squadSize = me.GetComponent<SquadManager>().size;
 
+        if (me.GetComponent<SquadManager> ().squadType == "Rifle") {
+			float originalPitch = rifleShoot.pitch;
+			for (int i = 0; i< squadSize; i++) {
+
+				rifleShoot.pitch = Random.Range (-.3f, .1f) + originalPitch;
+				rifleShoot.PlayOneShot (shootClip);
+				yield return new WaitForSeconds (Random.Range (0.05f, 0.1f));
+			}
+		}
+		else if(me.GetComponent<SquadManager> ().squadType == "Sniper")
+		{
+			sniperShoot.Play();
+		}
+		
+		
     }
-
-    //public static void fightTargets(GameObject me, int )
 
     public static int calculateDamage(ShotsFired myHits)
     {
@@ -179,33 +194,43 @@ public static class Combat
             gameLogic.changeUnit.enabled = false;
 
             if (selectedTargetIndex >= 0)
-                targetsInRange[selectedTargetIndex].GetComponent<NetworkView>().RPC("disableLight",RPCMode.All);
+            {
+                targetsInRange[selectedTargetIndex].SendMessage("disableTarget");
+                targetsInRange[selectedTargetIndex].GetComponent<NetworkView>().RPC("disableLight", RPCMode.All);
+            }
 
             selectedTargetIndex++;
             selectedTargetIndex %= targetsInRange.Count;
+            targetsInRange[selectedTargetIndex].SendMessage("enableTarget");
             targetsInRange[selectedTargetIndex].GetComponent<NetworkView>().RPC("enableLight", RPCMode.All);
              
             Vector3 enemyPos = targetsInRange[selectedTargetIndex].transform.position;
 
-            gameLogic.changeUnit.transform.position = new Vector3(enemyPos.x, 9, enemyPos.z);
-            gameLogic.changeUnit.enabled = true;
+            //gameLogic.changeUnit.transform.position = new Vector3(enemyPos.x, 9, enemyPos.z);
+            //gameLogic.changeUnit.enabled = true;
         }
         else if (Input.GetButtonUp("L1") && targetsInRange.Count > 0)
         {
             gameLogic.attackProj.enabled = false;
             if (selectedTargetIndex >= 0)
+            {
+                targetsInRange[selectedTargetIndex].SendMessage("disableTarget");
                 targetsInRange[selectedTargetIndex].GetComponent<NetworkView>().RPC("disableLight", RPCMode.All);
+            }
             else
                 selectedTargetIndex = 0;
 
             selectedTargetIndex--;
             if (selectedTargetIndex < 0) selectedTargetIndex = targetsInRange.Count - 1;
-            targetsInRange[selectedTargetIndex].GetComponent<NetworkView>().RPC("enableLight", RPCMode.All);
+            {
+                targetsInRange[selectedTargetIndex].SendMessage("enableTarget");
+                targetsInRange[selectedTargetIndex].GetComponent<NetworkView>().RPC("enableLight", RPCMode.All);
+            }
 
             Vector3 enemyPos = targetsInRange[selectedTargetIndex].transform.position;
 
-            gameLogic.changeUnit.transform.position = new Vector3(enemyPos.x, 9, enemyPos.z);
-            gameLogic.changeUnit.enabled = true;
+            //gameLogic.changeUnit.transform.position = new Vector3(enemyPos.x, 9, enemyPos.z);
+            //gameLogic.changeUnit.enabled = true;
         }
         if (Input.GetButtonUp("Cross") && targetsInRange.Count > 0 && selectedTargetIndex >= 0)
         {
@@ -218,8 +243,10 @@ public static class Combat
     public static void reset()
     {
         if (selectedTargetIndex >= 0 && targetsInRange[selectedTargetIndex].activeInHierarchy)
+        {
+            targetsInRange[selectedTargetIndex].SendMessage("disableTarget");
             targetsInRange[selectedTargetIndex].GetComponent<NetworkView>().RPC("disableLight", RPCMode.All);
-
+        }
         foreach (GameObject target in targetsInRange)
         {
 			if(target.GetComponent<SquadManager>()!=null)

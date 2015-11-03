@@ -124,6 +124,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 117096, guid: aae351869607a6649ab7d545f5645dc8, type: 2}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 163996, guid: aae351869607a6649ab7d545f5645dc8, type: 2}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: aae351869607a6649ab7d545f5645dc8, type: 2}
   m_IsPrefabParent: 0
@@ -1036,7 +1044,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 6
 --- !u!1001 &580717581
 Prefab:
   m_ObjectHideFlags: 0
@@ -2882,9 +2890,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 2fb90e1ab11236f42988b5290d6d0575, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 98b07c249e035524db2aab088ab3b191, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: .200000003
   m_Pitch: 1
   Loop: 0
   Mute: 0

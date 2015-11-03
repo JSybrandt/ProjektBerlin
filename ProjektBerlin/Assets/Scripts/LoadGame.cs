@@ -105,7 +105,7 @@ public class LoadGame : MonoBehaviour
 				GameObject newSquad = (GameObject)Network.Instantiate (SquadPrefab, new Vector3 (i, 1, -70), Quaternion.identity,0);
 				string sTag = "Player0Squad";
                 NetworkView sView = newSquad.GetComponent<NetworkView>();
-                sView.RPC("init", RPCMode.AllBuffered, sTag,i/5);
+                sView.RPC("init", RPCMode.AllBuffered, sTag);
                 newSquad.GetComponent<SquadManager>().setColor(Color.green);
                 //newSquad.GetComponent<SquadManager> ().init ();
                 Debug.Log("Server spawning");
@@ -135,7 +135,7 @@ public class LoadGame : MonoBehaviour
                 string sTag = "Player1Squad";
                 NetworkView sView = newSquad.GetComponent<NetworkView>();
                 newSquad.GetComponent<SquadManager>().setColor(Color.green);
-                sView.RPC("init", RPCMode.AllBuffered, sTag, i / 5);
+                sView.RPC("init", RPCMode.AllBuffered, sTag);
                 //newSquad.GetComponent<SquadManager> ().init ();
                 Debug.Log("Client spawning");
                 if (i <= 5)
@@ -188,7 +188,7 @@ public class LoadGame : MonoBehaviour
         if (!Network.isClient && !Network.isServer)
         {
             GUILayout.BeginArea(new Rect(Screen.width * .05f, Screen.height * .05f, Screen.width * 0.2f, Screen.height * 0.2f));
-            if (GUILayout.Button("Start Server", customButtonStyle))
+            if (GUILayout.Button("Start Server", customButtonStyle) || Input.GetButtonUp("Triangle"))
             {
                 Debug.Log("Starting Server");
                 makeGame();
