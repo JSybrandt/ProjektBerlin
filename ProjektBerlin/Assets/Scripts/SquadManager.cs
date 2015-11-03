@@ -297,12 +297,10 @@ public class SquadManager : MonoBehaviour
                 //Network.RemoveRPCsInGroup(0);
                 //Network.Destroy(gameObject);
                 //gameObject.SetActive(false);
-                gameObject.layer = 0;
                 gameObject.tag = "Dead";
                 _numActions = 0;
 
                 //lightPiece.enabled = false;
-
             }
         }
 

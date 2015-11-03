@@ -7,24 +7,27 @@ public class NetworkLogic : MonoBehaviour {
     public Controller gameLogic;
     public NetworkView nView;
 
-    public float rpcTimer = 0;
-    public float latency = 0;
-    public int timerIndex = 0;
+    public int latSize = 0, latIndex = 0, timerIndex = 0;
+    public float rpcTimer = 0, latency = 0, avgLatency = 0, callAgain = 0;
     public float[] timers = new float[30];
-    public int latSize = 0, latIndex = 0;
-    private float avgLatency = 0;
+    private bool timerRunning = false;
 
     // Update is called once per frame
     void Update()
     {
         if (Controller.getIsRunning())
         {
-            if (rpcTimer == 0)
+            if (callAgain > 0.25f)
             {
+                timerRunning = true;
+                callAgain = 0;
                 nView.RPC("callRPC", RPCMode.Others);
             }
 
-            rpcTimer += Time.deltaTime;
+            if(!timerRunning)
+                callAgain += Time.deltaTime;
+            else
+                rpcTimer += Time.deltaTime;
         }
     }
 
@@ -52,6 +55,7 @@ public class NetworkLogic : MonoBehaviour {
         }
 
         rpcTimer = 0;
+        timerRunning = false;
     }
 
     void OnGUI()
@@ -64,11 +68,10 @@ public class NetworkLogic : MonoBehaviour {
     [RPC]
     public void init()
     {
-        nView = this.GetComponent<NetworkView>();
+        nView = GetComponent<NetworkView>();
         gameLogic = GameObject.Find("GameLogic").GetComponent<Controller>();
         gameLogic.nLogic = this;
         gameLogic.nLogicView = nView;
-
         if(Network.isClient)
             nView.RPC("begin", RPCMode.AllBuffered);
     }
@@ -82,7 +85,7 @@ public class NetworkLogic : MonoBehaviour {
     [RPC]
     public void setTurn(bool turn)
     {
-        Debug.Log("Set turn called");
+        Debug.Log("NETWORK: Set turn called");
         if (turn)
             Debug.Log("Isn't my turn");
         else
@@ -91,7 +94,7 @@ public class NetworkLogic : MonoBehaviour {
         //I don't have any turns left, set his turn back on.
         if (!gameLogic.hasActiveSquads() && turn)
         {
-            Debug.Log("Passed turn back");
+            Debug.Log("Passing turn back");
             gameLogic.nextTurn();   //This will automatically check and call for round over, then pass back if it isn't.
             return;
         }
@@ -102,21 +105,21 @@ public class NetworkLogic : MonoBehaviour {
     [RPC]
     public void nextRound(bool turn)
     {
-        Debug.Log("Next round networked called");
+        Debug.Log("NETWORK: Next round networked called");
         gameLogic.nextRound();
     }
 
     [RPC]
     public void otherRoundOver()
     {
-        Debug.Log("Other round over called");
+        Debug.Log("NETWORK: Other round over called");
         gameLogic.isOtherRoundOver = true;
     }
 
     [RPC]
     public void gameOver(int playerWinner)
     {
-        Debug.Log("Game Over called!");
+        Debug.Log("NETWORK: Game Over called!");
         gameLogic.gameOver(playerWinner);
     }
 }
