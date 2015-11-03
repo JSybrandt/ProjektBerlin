@@ -116,6 +116,7 @@ public class SquadManager : MonoBehaviour
 
         attackDistance = 20;
         movementDistance = 20;
+        offColor = myColor / 2;
 
         moveProj = GameObject.Find("MoveRadius").GetComponent<Projector>();
         attackProj = GameObject.Find("AttackRadius").GetComponent<Projector>();

@@ -47,7 +47,7 @@ public class NetworkLogic : MonoBehaviour {
         {
             timers[latIndex] = rpcTimer;
             int prev = (latIndex + latSize - 1) % latSize;
-            avgLatency = avgLatency + timers[latIndex] - timers[prev];
+            avgLatency = (avgLatency*latSize + timers[latIndex] - timers[prev])/latSize;
             latIndex = (latIndex + 1) % latSize;
         }
 
@@ -57,12 +57,6 @@ public class NetworkLogic : MonoBehaviour {
     void OnGUI()
     {
         GUILayout.Label("Latency Values");
-        int i = 0;
-        while (i < Network.connections.Length)
-        {
-            GUILayout.Label("Player " + Network.connections[i] + " - " + Network.GetAveragePing(Network.connections[i]) + " ms");
-            i++;
-        }
         GUILayout.Label("Average latency: " + avgLatency);
         GUILayout.Label("Recent latency: " + latency);
     }
@@ -98,7 +92,7 @@ public class NetworkLogic : MonoBehaviour {
         if (!gameLogic.hasActiveSquads() && turn)
         {
             Debug.Log("Passed turn back");
-            nView.RPC("setTurn", RPCMode.Others, true); //Could theoretically be a infinite loop
+            gameLogic.nextTurn();   //This will automatically check and call for round over, then pass back if it isn't.
             return;
         }
 
