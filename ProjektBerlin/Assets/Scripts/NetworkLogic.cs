@@ -48,7 +48,7 @@ public class NetworkLogic : MonoBehaviour {
         }
         else
         {
-            timers[latIndex] = rpcTimer;
+            timers[latIndex] = latency = rpcTimer;
             int prev = (latIndex + latSize - 1) % latSize;
             avgLatency = (avgLatency*latSize + timers[latIndex] - timers[prev])/latSize;
             latIndex = (latIndex + 1) % latSize;
