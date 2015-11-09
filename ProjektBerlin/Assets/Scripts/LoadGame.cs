@@ -106,25 +106,16 @@ public class LoadGame : MonoBehaviour
 				string sTag = "Player0Squad";
                 NetworkView sView = newSquad.GetComponent<NetworkView>();
                 sView.RPC("init", RPCMode.AllBuffered, sTag);
+
                 newSquad.GetComponent<SquadManager>().setColor(Color.green);
-                //newSquad.GetComponent<SquadManager> ().init ();
+
                 Debug.Log("Server spawning");
                 if (i <= 5)
-                {
-                    //newSquad.AddComponent<BasicSquad>();
-                    //newSquad.GetComponent<BasicSquad> ().basicInit ();
                     sView.RPC("rifleInit", RPCMode.AllBuffered);
-                }
                 else if (i == 10)
-                {
-                    //newSquad.AddComponent<SniperSquad>();
-                    //newSquad.GetComponent<SniperSquad> ().sniperInit ();
                     sView.RPC("sniperInit", RPCMode.AllBuffered);
-                }
                 else
-                {
                     sView.RPC("shotgunInit", RPCMode.AllBuffered);
-                }
 
                 allSquads.Add (newSquad);
 			}
@@ -136,24 +127,14 @@ public class LoadGame : MonoBehaviour
                 NetworkView sView = newSquad.GetComponent<NetworkView>();
                 newSquad.GetComponent<SquadManager>().setColor(Color.green);
                 sView.RPC("init", RPCMode.AllBuffered, sTag);
-                //newSquad.GetComponent<SquadManager> ().init ();
+
                 Debug.Log("Client spawning");
                 if (i <= 5)
-                {
-                    //newSquad.AddComponent<BasicSquad>();
-                    //newSquad.GetComponent<BasicSquad> ().basicInit ();
                     sView.RPC("rifleInit", RPCMode.AllBuffered);
-                }
                 else if(i == 10)
-                {
-                    //newSquad.AddComponent<SniperSquad>();
-                    //newSquad.GetComponent<SniperSquad> ().sniperInit ();
                     sView.RPC("sniperInit", RPCMode.AllBuffered);
-                }
                 else
-                {
                     sView.RPC("shotgunInit", RPCMode.AllBuffered);
-                }
                 
 				allSquads.Add (newSquad);
 			}
@@ -173,7 +154,6 @@ public class LoadGame : MonoBehaviour
             controllerScript.updateSquadList("Player1Squad");
             controllerScript.currentPlayersTurn = 1;
 			controllerScript.updateUI();
-            //controllerScript.nLogicView.RPC("begin", RPCMode.AllBuffered);
         }
 
 	}

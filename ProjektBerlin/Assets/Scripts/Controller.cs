@@ -380,7 +380,7 @@ public class Controller : MonoBehaviour
         return isRoundOver = true;
     }
 
-	void nextTurn(){    //What happens if the last dude to go dies, but hasn't called end of round?
+	public void nextTurn(){    //What happens if the last dude to go dies, but hasn't called end of round?
         if (checkRoundComplete() && isOtherRoundOver)
         {
             nLogicView.RPC("nextRound", RPCMode.All, true);     //Call everyone to reset round

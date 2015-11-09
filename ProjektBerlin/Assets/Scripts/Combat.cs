@@ -113,15 +113,19 @@ public static class Combat
         AudioClip shootClip = shootSounds[1].clip;
         int squadSize = me.GetComponent<SquadManager>().size;
 
-        //if(me.GetComponent<SquadManager>().squadAbility == grenade)
-        float originalPitch = rifleShoot.pitch;
-        for (int i = 0; i< squadSize; i++)
-        {
+        if (me.GetComponent<SquadManager> ().squadType == "Rifle") {
+			float originalPitch = rifleShoot.pitch;
+			for (int i = 0; i< squadSize; i++) {
 
-            rifleShoot.pitch = Random.Range(-.3f, .1f) + originalPitch;
-            rifleShoot.PlayOneShot (shootClip);
-            yield return new WaitForSeconds(Random.Range(0.05f, 0.1f));
-        }
+				rifleShoot.pitch = Random.Range (-.3f, .1f) + originalPitch;
+				rifleShoot.PlayOneShot (shootClip);
+				yield return new WaitForSeconds (Random.Range (0.05f, 0.1f));
+			}
+		}
+		else if(me.GetComponent<SquadManager> ().squadType == "Sniper")
+		{
+			sniperShoot.Play();
+		}
 		
 		
     }

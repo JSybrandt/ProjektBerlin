@@ -54,6 +54,9 @@ public class SquadManager : MonoBehaviour
     public bool midMovement { get { return _midMovement; } }
     public int numActions { get { return _numActions; } }
 
+	[HideInInspector]
+	public string squadType;
+
     //Added lights for showing targeted.
     private GameObject myLight;
     [HideInInspector]
@@ -113,6 +116,7 @@ public class SquadManager : MonoBehaviour
 
         attackDistance = 20;
         movementDistance = 20;
+        offColor = myColor / 2;
 
         moveProj = GameObject.Find("MoveRadius").GetComponent<Projector>();
         attackProj = GameObject.Find("AttackRadius").GetComponent<Projector>();
@@ -293,12 +297,10 @@ public class SquadManager : MonoBehaviour
                 //Network.RemoveRPCsInGroup(0);
                 //Network.Destroy(gameObject);
                 //gameObject.SetActive(false);
-                gameObject.layer = 0;
                 gameObject.tag = "Dead";
                 _numActions = 0;
 
                 //lightPiece.enabled = false;
-
             }
         }
 
