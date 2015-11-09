@@ -1,150 +1,122 @@
-Initialize engine version: 5.2.2p1 (6dd5cd7ea574)
+Mono path[0] = 'C:/Users/nalta/Documents/ProjektBerlin/ProjektBerlin/ProjectBerkin_Data/Managed'
+Mono path[1] = 'C:/Users/nalta/Documents/ProjektBerlin/ProjektBerlin/ProjectBerkin_Data/Mono'
+Mono config path = 'C:/Users/nalta/Documents/ProjektBerlin/ProjektBerlin/ProjectBerkin_Data/Mono/etc'
+PlayerConnection initialized from C:/Users/nalta/Documents/ProjektBerlin/ProjektBerlin/ProjectBerkin_Data (debug = 0)
+PlayerConnection initialized network socket : 0.0.0.0 55485
+Multi-casting "[IP] 10.24.103.6 [Port] 55485 [Flags] 2 [Guid] 1796634235 [EditorId] 2513089259 [Version] 1048832 [Id] WindowsPlayer(DESKTOP-PMAU1NK) [Debug] 0" to [225.0.0.222:54997]...
+PlayerConnection already initialized - listening to [10.24.103.6:55485]
+Initialize engine version: 5.1.2p3 (65486b59c7a9)
 GfxDevice: creating device client; threaded=1
 Direct3D:
-    Version:  Direct3D 11.0 [level 10.1]
-    Renderer: Intel(R) HD Graphics 3000 (ID=0x126)
-    Vendor:   Intel
-    VRAM:     816 MB
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 770 (ID=0x1184)
+    Vendor:   NVIDIA
+    VRAM:     1989 MB
 Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
-Loading C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
-Platform assembly: C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-Platform assembly: C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\SonyNP.dll (this message is harmless)
-Loading C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\SonyNP.dll into Unity Child Domain
-Platform assembly: C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\SonyPS4CommonDialog.dll (this message is harmless)
-Loading C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\SonyPS4CommonDialog.dll into Unity Child Domain
-Platform assembly: C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\SonyPS4SavedGames.dll (this message is harmless)
-Loading C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\SonyPS4SavedGames.dll into Unity Child Domain
-Platform assembly: C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.235 seconds
-desktop: 1280x800 40Hz; virtual: 1280x800 at 0,0
+Platform assembly: C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+Platform assembly: C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+Platform assembly: C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\System.Core.dll (this message is harmless)
+- Completed reload, in  0.215 seconds
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
-XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
 <RI> Input initialized.
 <RI> Initialized touch support.
-Platform assembly: C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\System.dll (this message is harmless)
-Setting up 1 worker threads for Enlighten.
-  Thread -> id: 2a4c -> priority: 1 
-Refreshing...
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
+Platform assembly: C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\System.dll (this message is harmless)
+Shader 'Hidden/TerrainEngine/Splatmap/Specular-Base': fallback shader 'Legacy Shaders/Specular' not found
+Shader 'Hidden/TerrainEngine/Splatmap/Specular-Base': fallback shader 'Legacy Shaders/Specular' not found
 Getting Host List
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+LoadGame:refreshHostList() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:234)
+MainMenu:Start() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\MainMenu.cs:28)
  
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+(Filename: C:/Users/nalta/Documents/ProjektBerlin/ProjektBerlin/Assets/Scripts/LoadGame.cs Line: 234)
 
-Refreshing...
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: b48 -> priority: 1 
+  Thread -> id: 2dfc -> priority: 1 
+Server initialized
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+LoadGame:OnServerInitialized() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:53)
+UnityEngine.Network:InitializeServer(Int32, Int32, Boolean)
+LoadGame:makeGame() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:45)
+MainMenu:Update() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\MainMenu.cs:52)
  
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+(Filename: C:/Users/nalta/Documents/ProjektBerlin/ProjektBerlin/Assets/Scripts/LoadGame.cs Line: 53)
 
-Getting Host List
+Server spawning
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+LoadGame:spawnPlayer() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:111)
+LoadGame:OnServerInitialized() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:54)
+UnityEngine.Network:InitializeServer(Int32, Int32, Boolean)
+LoadGame:makeGame() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:45)
+MainMenu:Update() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\MainMenu.cs:52)
  
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+(Filename: C:/Users/nalta/Documents/ProjektBerlin/ProjektBerlin/Assets/Scripts/LoadGame.cs Line: 111)
 
-Host data recieved
+Server spawning
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+LoadGame:spawnPlayer() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:111)
+LoadGame:OnServerInitialized() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:54)
+UnityEngine.Network:InitializeServer(Int32, Int32, Boolean)
+LoadGame:makeGame() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:45)
+MainMenu:Update() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\MainMenu.cs:52)
  
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+(Filename: C:/Users/nalta/Documents/ProjektBerlin/ProjektBerlin/Assets/Scripts/LoadGame.cs Line: 111)
 
-Received pong from 192.168.56.1:25001
+Server spawning
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+LoadGame:spawnPlayer() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:111)
+LoadGame:OnServerInitialized() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:54)
+UnityEngine.Network:InitializeServer(Int32, Int32, Boolean)
+LoadGame:makeGame() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:45)
+MainMenu:Update() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\MainMenu.cs:52)
  
-(Filename:  Line: 852)
+(Filename: C:/Users/nalta/Documents/ProjektBerlin/ProjektBerlin/Assets/Scripts/LoadGame.cs Line: 111)
 
-Received pong from 192.168.254.9:25001
+Server spawning
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+LoadGame:spawnPlayer() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:111)
+LoadGame:OnServerInitialized() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:54)
+UnityEngine.Network:InitializeServer(Int32, Int32, Boolean)
+LoadGame:makeGame() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:45)
+MainMenu:Update() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\MainMenu.cs:52)
  
-(Filename:  Line: 852)
+(Filename: C:/Users/nalta/Documents/ProjektBerlin/ProjektBerlin/Assets/Scripts/LoadGame.cs Line: 111)
 
-Connected to server
+Server registered
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+LoadGame:OnMasterServerEvent(MasterServerEvent) (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:66)
  
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+(Filename: C:/Users/nalta/Documents/ProjektBerlin/ProjektBerlin/Assets/Scripts/LoadGame.cs Line: 66)
 
-Client spawning
+Server registered
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+LoadGame:OnMasterServerEvent(MasterServerEvent) (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:66)
  
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+(Filename: C:/Users/nalta/Documents/ProjektBerlin/ProjektBerlin/Assets/Scripts/LoadGame.cs Line: 66)
 
-Client spawning
+Server registered
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+LoadGame:OnMasterServerEvent(MasterServerEvent) (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:66)
  
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-Client spawning
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-Client spawning
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-Joystick connected ("Controller (Rock Candy Gamepad for Xbox 360)").
- 
-(Filename:  Line: 1353)
-
-Set turn called
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-Isn't my turn
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-I still have squads left!
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-Server
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-Number of objects in range: 37
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-I shot someone!
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-I'm dieing!
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-2
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-Set turn called
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-Isn't my turn
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-I still have squads left!
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-Server
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-Number of objects in range: 25
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-I shot someone!
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-I'm dieing!
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-3
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+(Filename: C:/Users/nalta/Documents/ProjektBerlin/ProjektBerlin/Assets/Scripts/LoadGame.cs Line: 66)
 

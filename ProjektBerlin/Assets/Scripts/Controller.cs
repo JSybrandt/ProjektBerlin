@@ -84,8 +84,8 @@ public class Controller : MonoBehaviour
 	Canvas comCanvas;
 	Canvas firstActCanvas;
 	Canvas secondActCanvas;
-	Canvas netCanvas;
 	Canvas waitCanvas;
+	Canvas mainCanvas;
 
     //called by loadgame
     public void init()
@@ -99,8 +99,8 @@ public class Controller : MonoBehaviour
 		comCanvas = GameObject.Find("CombatCanvas").GetComponent<Canvas>();
 		firstActCanvas = GameObject.Find("FirstActionCanvas").GetComponent<Canvas>();
 		secondActCanvas = GameObject.Find("SecondActionCanvas").GetComponent<Canvas>();
-		netCanvas = GameObject.Find ("NetworkCanvas").GetComponent<Canvas> ();
 		waitCanvas = GameObject.Find ("WaitingCanvas").GetComponent<Canvas> ();
+		mainCanvas = GameObject.Find ("MainMenu").GetComponent<Canvas> ();
 
         Combat.gameLogic = this;
 
@@ -546,9 +546,9 @@ public class Controller : MonoBehaviour
 	public void updateUI(bool showNetScreen=false){
 
 
-		waitCanvas.enabled = netCanvas.enabled = movCanvas.enabled = comCanvas.enabled = firstActCanvas.enabled = secondActCanvas.enabled = false;
+		waitCanvas.enabled = mainCanvas.enabled = movCanvas.enabled = comCanvas.enabled = firstActCanvas.enabled = secondActCanvas.enabled = false;
 		if (showNetScreen)
-			netCanvas.enabled = true;
+			mainCanvas.enabled = true;
 		else {
 			if (isTurn && isRunning) {
                 selectedLight.enabled = true;

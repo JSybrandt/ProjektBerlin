@@ -30,7 +30,7 @@ public class LoadGame : MonoBehaviour
 		GameObject.Find("FirstActionCanvas").GetComponent<Canvas>().enabled=false;
 		GameObject.Find("SecondActionCanvas").GetComponent<Canvas>().enabled=false;
 		GameObject.Find ("WaitingCanvas").GetComponent<Canvas> ().enabled=false;
-		GameObject.Find ("NetworkCanvas").GetComponent<Canvas> ().enabled = true;
+		GameObject.Find ("MainMenu").GetComponent<Canvas> ().enabled = true;
 
 		GameObject p0Base = GameObject.Find ("Team0Base");
 		p0Base.GetComponent<BaseManager>().init();
@@ -41,7 +41,7 @@ public class LoadGame : MonoBehaviour
 
     }
 
-	private void makeGame(){
+	public void makeGame(){
 		NetworkConnectionError err = Network.InitializeServer (2, 25001, !Network.HavePublicAddress());
 		if(err == NetworkConnectionError.NoError)
 			MasterServer.RegisterHost(gameName,"Projekt Berlin");
@@ -215,7 +215,19 @@ public class LoadGame : MonoBehaviour
         }
     }
 
-    void refreshHostList()
+	public bool hasHostData(){return hostData!=null && hostData.Length > 0;}
+	public void connectToHost(int i){
+		Network.Connect(hostData[i]);
+	}
+	public string[] getHostInfo(){
+		string[] info = new string[hostData.Length];
+		for (int i=0; i<hostData.Length; i++) {
+			info[i] = hostData[i].ip.ToString();
+		}
+		return info;
+	}
+
+    public void refreshHostList()
     {
         MasterServer.RequestHostList(gameName);
         refreshingHostList = true;
@@ -224,7 +236,7 @@ public class LoadGame : MonoBehaviour
 
     public void Update(){
         //If we have started to look for available servers, look every frame until we find one.
-        if (refreshingHostList)
+		if (hostData==null || refreshingHostList)
         {
             if (MasterServer.PollHostList().Length > 0)
             {
