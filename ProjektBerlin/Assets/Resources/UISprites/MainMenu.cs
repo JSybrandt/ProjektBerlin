@@ -79,11 +79,14 @@ public class MainMenu : MonoBehaviour {
 					selectableText[i].fontSize = defaultMenu[0].fontSize; 
 					selectableText[i].fontStyle = defaultMenu[0].fontStyle;
 					selectableText[i].color = defaultMenu[0].color;
-					g.transform.parent = transform;
-					g.transform.localPosition = new Vector3(0,i*selectableText[i].fontSize,0);
+					selectableText[i].transform.parent=canvas.transform;
+					selectableText[i].transform.localPosition=new Vector3(0,i*70,0);
 					RectTransform rt = g.GetComponent<RectTransform>();
 					rt.anchorMin = new Vector2(0,0);
-					rt.anchorMax = new Vector2(1,1);
+					rt.anchorMax = new Vector2(1,0);
+					rt.offsetMin = new Vector2(0,0);
+					rt.offsetMax = new Vector2(0,70);
+					rt.position = new Vector2(canvas.pixelRect.width/2,canvas.pixelRect.height/2);
 					selectableText[i].text = hostInfo[i];
 
 				}

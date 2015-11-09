@@ -160,6 +160,7 @@ public class LoadGame : MonoBehaviour
 
     void OnGUI()
     {
+		/* OLD STYLE CONNECTION MENU
         if (customButtonStyle == null)
         {
             customButtonStyle = new GUIStyle(GUI.skin.button);
@@ -193,6 +194,7 @@ public class LoadGame : MonoBehaviour
             }
             GUILayout.EndArea();
         }
+        */
     }
 
 	public bool hasHostData(){return hostData!=null && hostData.Length > 0;}
@@ -202,7 +204,7 @@ public class LoadGame : MonoBehaviour
 	public string[] getHostInfo(){
 		string[] info = new string[hostData.Length];
 		for (int i=0; i<hostData.Length; i++) {
-			info[i] = hostData[i].ip.ToString();
+			info[i] = hostData[i].ip[0];
 		}
 		return info;
 	}

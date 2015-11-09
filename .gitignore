@@ -27,3 +27,7 @@ ProjektBerlin/Assets/UnityVS/Editor/UnityVS.VersionSpecific.dll.meta
 ProjektBerlin/Assets/UnityVS/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll
 ProjektBerlin/Assets/UnityVS/Editor/SyntaxTree.VisualStudio.Unity.Messaging.dll
 ProjektBerlin/Assets/UnityVS/Editor/UnityVS.VersionSpecific.dll
+
+#the builds
+ProjektBerlin/ProjectBerkin_Data/
+ProjektBerlin/WebPlayer/
