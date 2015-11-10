@@ -218,7 +218,7 @@ public class LoadGame : MonoBehaviour
 
     public void Update(){
         //If we have started to look for available servers, look every frame until we find one.
-		if (hostData==null || refreshingHostList)
+		if (!Controller.getIsRunning() &&(hostData ==null || refreshingHostList))
         {
             if (MasterServer.PollHostList().Length > 0)
             {
