@@ -31,36 +31,51 @@ public class MainMenu : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		float val = Input.GetAxis ("JoystickLV");
-		if (Mathf.Abs(val)>EPS) {
-			if (!controllerIsPressed) {
-				selectableText[selected].color = DEF_COLOR;
-				if(val>0)//up
-					selected = (selected+selectableText.Length-1)%selectableText.Length;
-				else
-					selected = (selected+1)%selectableText.Length;
-				selectableText[selected].color = SEL_COLOR;
-			}
-			controllerIsPressed = true;
-		} else
-			controllerIsPressed = false;
-		if (Input.GetButtonDown ("Cross")) {
-			if(lookingAtIP){
-				loadGame.connectToHost(selected);
-			}else{
-				if(selected==0){//create
-					loadGame.makeGame();
-				}else if(selected==1){//join
-					toggleIP();
-				}else if(selected==2){//quit
-					Application.Quit();
-				}
-			}
-		}
-		if (Input.GetButtonDown ("Circle") && lookingAtIP) {
-			toggleIP();
-		}
-
+        if (canvas.isActiveAndEnabled)
+        {
+            float val = Input.GetAxis("JoystickLV");
+            if (Mathf.Abs(val) > EPS)
+            {
+                if (!controllerIsPressed)
+                {
+                    selectableText[selected].color = DEF_COLOR;
+                    if (val > 0)//up
+                        selected = (selected + selectableText.Length - 1) % selectableText.Length;
+                    else
+                        selected = (selected + 1) % selectableText.Length;
+                    selectableText[selected].color = SEL_COLOR;
+                }
+                controllerIsPressed = true;
+            }
+            else
+                controllerIsPressed = false;
+            if (Input.GetButtonDown("Cross"))
+            {
+                if (lookingAtIP)
+                {
+                    loadGame.connectToHost(selected);
+                }
+                else
+                {
+                    if (selected == 0)
+                    {//create
+                        loadGame.makeGame();
+                    }
+                    else if (selected == 1)
+                    {//join
+                        toggleIP();
+                    }
+                    else if (selected == 2)
+                    {//quit
+                        Application.Quit();
+                    }
+                }
+            }
+            if (Input.GetButtonDown("Circle") && lookingAtIP)
+            {
+                toggleIP();
+            }
+        }
 	}
 
 	void toggleIP(){
