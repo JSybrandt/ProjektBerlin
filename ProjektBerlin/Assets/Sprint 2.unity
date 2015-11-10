@@ -1003,6 +1003,60 @@ MonoBehaviour:
   lightPiece: {fileID: 0}
   maxHealth: 100
   currentHealth: 0
+--- !u!1001 &203149638
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400002, guid: 9d3e12680049a5b45aacf50b3d4120b2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.88088989
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 9d3e12680049a5b45aacf50b3d4120b2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 9d3e12680049a5b45aacf50b3d4120b2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 36.2796097
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 9d3e12680049a5b45aacf50b3d4120b2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 9d3e12680049a5b45aacf50b3d4120b2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 9d3e12680049a5b45aacf50b3d4120b2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 9d3e12680049a5b45aacf50b3d4120b2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 9d3e12680049a5b45aacf50b3d4120b2, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 9d3e12680049a5b45aacf50b3d4120b2, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 9d3e12680049a5b45aacf50b3d4120b2, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 9d3e12680049a5b45aacf50b3d4120b2, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 10
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 9d3e12680049a5b45aacf50b3d4120b2, type: 3}
+  m_IsPrefabParent: 0
 --- !u!1001 &217039066
 Prefab:
   m_ObjectHideFlags: 0
@@ -1558,7 +1612,7 @@ RectTransform:
   - {fileID: 2012575066}
   - {fileID: 1932380144}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -1820,7 +1874,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!1001 &580717581
 Prefab:
   m_ObjectHideFlags: 0
@@ -2791,7 +2845,7 @@ RectTransform:
   - {fileID: 621855776}
   - {fileID: 1128396102}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -3550,7 +3604,7 @@ RectTransform:
   - {fileID: 599869375}
   - {fileID: 95531733}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -4431,7 +4485,7 @@ RectTransform:
   - {fileID: 1862837922}
   - {fileID: 1205577372}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -4757,7 +4811,7 @@ RectTransform:
   - {fileID: 344285875}
   - {fileID: 112418550}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -5869,7 +5923,7 @@ RectTransform:
   - {fileID: 618845698}
   - {fileID: 1187495592}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -6282,7 +6336,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!1 &1939310508 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 107586, guid: 1c8d3c803419c644894528fb4880b4c8, type: 2}
@@ -6541,7 +6595,7 @@ Transform:
   - {fileID: 364363658}
   - {fileID: 2015352477}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!4 &1998890205 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 55bc2ab6833f546fc80ad96fcb53ef62, type: 3}
