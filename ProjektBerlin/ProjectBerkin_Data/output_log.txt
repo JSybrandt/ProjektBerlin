@@ -1,159 +1,130 @@
-Mono path[0] = 'C:/Users/nalta/Documents/ProjektBerlin/ProjektBerlin/ProjectBerkin_Data/Managed'
-Mono path[1] = 'C:/Users/nalta/Documents/ProjektBerlin/ProjektBerlin/ProjectBerkin_Data/Mono'
-Mono config path = 'C:/Users/nalta/Documents/ProjektBerlin/ProjektBerlin/ProjectBerkin_Data/Mono/etc'
-PlayerConnection initialized from C:/Users/nalta/Documents/ProjektBerlin/ProjektBerlin/ProjectBerkin_Data (debug = 0)
-PlayerConnection initialized network socket : 0.0.0.0 55428
-Multi-casting "[IP] 10.24.109.65 [Port] 55428 [Flags] 2 [Guid] 160033765 [EditorId] 296473885 [Version] 1048832 [Id] WindowsPlayer(DESKTOP-PMAU1NK) [Debug] 0" to [225.0.0.222:54997]...
-PlayerConnection already initialized - listening to [10.24.109.65:55428]
 Initialize engine version: 5.1.2p3 (65486b59c7a9)
 GfxDevice: creating device client; threaded=1
 Direct3D:
     Version:  Direct3D 11.0 [level 11.0]
-    Renderer: NVIDIA GeForce GTX 770 (ID=0x1184)
-    Vendor:   NVIDIA
-    VRAM:     1989 MB
+    Renderer: AMD Radeon HD 7800 Series (ID=0x6819)
+    Vendor:   ATI
+    VRAM:     2026 MB
 Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
-Loading C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
-Platform assembly: C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-Platform assembly: C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
-Loading C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-Platform assembly: C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.239 seconds
+Platform assembly: C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+Platform assembly: C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+Platform assembly: C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\Camera.dll (this message is harmless)
+Loading C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\Camera.dll into Unity Child Domain
+Platform assembly: C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\Depth.dll (this message is harmless)
+Loading C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\Depth.dll into Unity Child Domain
+Platform assembly: C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\Face.dll (this message is harmless)
+Loading C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\Face.dll into Unity Child Domain
+Platform assembly: C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\HandDetection.dll (this message is harmless)
+Loading C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\HandDetection.dll into Unity Child Domain
+Platform assembly: C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\MoveTrackerAssembly.dll (this message is harmless)
+Loading C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\MoveTrackerAssembly.dll into Unity Child Domain
+Platform assembly: C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\PadTrackerAssembly.dll (this message is harmless)
+Loading C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\PadTrackerAssembly.dll into Unity Child Domain
+Platform assembly: C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\SonyNP.dll (this message is harmless)
+Loading C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\SonyNP.dll into Unity Child Domain
+Platform assembly: C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\SonyPS4CommonDialog.dll (this message is harmless)
+Loading C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\SonyPS4CommonDialog.dll into Unity Child Domain
+Platform assembly: C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\System.Core.dll (this message is harmless)
+- Completed reload, in  0.343 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-Platform assembly: C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\System.dll (this message is harmless)
+Platform assembly: C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\System.dll (this message is harmless)
 Getting Host List
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-LoadGame:refreshHostList() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:216)
-MainMenu:Start() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Resources\UISprites\MainMenu.cs:28)
  
-(Filename: C:/Users/nalta/Documents/ProjektBerlin/ProjektBerlin/Assets/Scripts/LoadGame.cs Line: 216)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-Setting up 2 worker threads for Enlighten.
-  Thread -> id: 3384 -> priority: 1 
-  Thread -> id: 35c4 -> priority: 1 
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 2738 -> priority: 1 
 Failed to initialize network interface. Is the listen port already in use?
-UnityEngine.Network:InitializeServer(Int32, Int32, Boolean)
-LoadGame:makeGame() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:45)
-MainMenu:Update() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Resources\UISprites\MainMenu.cs:52)
-
-[C:/buildslave/unity/build/Runtime/Network/NetworkManager.cpp line 214] 
-(Filename: C:/Users/nalta/Documents/ProjektBerlin/ProjektBerlin/Assets/Scripts/LoadGame.cs Line: 45)
+ 
+(Filename:  Line: 214)
 
 Getting Host List
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-LoadGame:refreshHostList() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:216)
-MainMenu:toggleIP() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Resources\UISprites\MainMenu.cs:96)
-MainMenu:Update() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Resources\UISprites\MainMenu.cs:54)
  
-(Filename: C:/Users/nalta/Documents/ProjektBerlin/ProjektBerlin/Assets/Scripts/LoadGame.cs Line: 216)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
 Host data recieved
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-LoadGame:Update() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:227)
  
-(Filename: C:/Users/nalta/Documents/ProjektBerlin/ProjektBerlin/Assets/Scripts/LoadGame.cs Line: 227)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
 Parent of RectTransform is being set with parent property. Consider using the SetParent method instead, with the worldPositionStays argument set to false. This will retain local orientation and scale rather than world orientation and scale, which can prevent common UI scaling issues.
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:LogWarning(Object, Object)
-UnityEngine.Transform:set_parent(Transform) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineTransformBindings.gen.cs:119)
-MainMenu:toggleIP() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Resources\UISprites\MainMenu.cs:82)
-MainMenu:Update() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Resources\UISprites\MainMenu.cs:54)
  
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineTransformBindings.gen.cs Line: 119)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
 Connected to server
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-LoadGame:OnConnectedToServer() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:59)
  
-(Filename: C:/Users/nalta/Documents/ProjektBerlin/ProjektBerlin/Assets/Scripts/LoadGame.cs Line: 59)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
 Client spawning
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-LoadGame:spawnPlayer() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:131)
-LoadGame:OnConnectedToServer() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:60)
  
-(Filename: C:/Users/nalta/Documents/ProjektBerlin/ProjektBerlin/Assets/Scripts/LoadGame.cs Line: 131)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
 Client spawning
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-LoadGame:spawnPlayer() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:131)
-LoadGame:OnConnectedToServer() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:60)
  
-(Filename: C:/Users/nalta/Documents/ProjektBerlin/ProjektBerlin/Assets/Scripts/LoadGame.cs Line: 131)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
 Client spawning
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-LoadGame:spawnPlayer() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:131)
-LoadGame:OnConnectedToServer() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:60)
  
-(Filename: C:/Users/nalta/Documents/ProjektBerlin/ProjektBerlin/Assets/Scripts/LoadGame.cs Line: 131)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
 Client spawning
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-LoadGame:spawnPlayer() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:131)
-LoadGame:OnConnectedToServer() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:60)
  
-(Filename: C:/Users/nalta/Documents/ProjektBerlin/ProjektBerlin/Assets/Scripts/LoadGame.cs Line: 131)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
 NETWORK: Set turn called
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-NetworkLogic:setTurn(Boolean) (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\NetworkLogic.cs:88)
  
-(Filename: C:/Users/nalta/Documents/ProjektBerlin/ProjektBerlin/Assets/Scripts/NetworkLogic.cs Line: 88)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
 Isn't my turn
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-NetworkLogic:setTurn(Boolean) (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\NetworkLogic.cs:90)
  
-(Filename: C:/Users/nalta/Documents/ProjektBerlin/ProjektBerlin/Assets/Scripts/NetworkLogic.cs Line: 90)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
 I still have squads left!
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Controller:hasActiveSquads() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\Controller.cs:337)
-NetworkLogic:setTurn(Boolean) (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\NetworkLogic.cs:95)
  
-(Filename: C:/Users/nalta/Documents/ProjektBerlin/ProjektBerlin/Assets/Scripts/Controller.cs Line: 337)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
 Server
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Controller:hasActiveSquads() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\Controller.cs:342)
-NetworkLogic:setTurn(Boolean) (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\NetworkLogic.cs:95)
  
-(Filename: C:/Users/nalta/Documents/ProjektBerlin/ProjektBerlin/Assets/Scripts/Controller.cs Line: 342)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-The server has disconnected from the client. Most likely the server has shut down.
+Connected to server
  
-(Filename: C:/buildslave/unity/build/Runtime/Network/NetworkManager.cpp Line: 754)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-Can't send RPC function since no connection was started.
-UnityEngine.NetworkView:Internal_RPC(NetworkView, String, RPCMode, Object[])
-UnityEngine.NetworkView:RPC(String, RPCMode, Object[]) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\NetworkingBindings.gen.cs:401)
-NetworkLogic:Update() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\NetworkLogic.cs:24)
+Client spawning
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-[C:/buildslave/unity/build/Runtime/Network/NetworkManager.cpp line 2473] 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/NetworkingBindings.gen.cs Line: 401)
+Client spawning
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Client spawning
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Client spawning
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+2
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at NetworkLogic.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
 

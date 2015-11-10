@@ -74,8 +74,8 @@ public class CameraController : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
-		if (!Controller.getIsRunning ())
-			return;
+		//if (!Controller.getIsRunning ())
+			//return;
 		timeFrozen = Mathf.Max (timeFrozen - Time.deltaTime, 0);
 		if (timeDelay > 0) {
 			timeDelay-=Time.deltaTime;
@@ -85,7 +85,7 @@ public class CameraController : MonoBehaviour {
 		if(!isPathingToTarget) {//move based on controller
 
 				distance -= Input.GetAxisRaw("JoystickRV") * zoomSpeed * Time.deltaTime;
-				angle -= Input.GetAxisRaw("JoystickRH") * rotateSpeed * Time.deltaTime;
+				angle += Input.GetAxisRaw("JoystickRH") * rotateSpeed * Time.deltaTime;
 
 				Vector3 panInput = new Vector3(Input.GetAxisRaw("JoystickLH"),0,Input.GetAxisRaw("JoystickLV"));
 				if(panInput.sqrMagnitude>0){
