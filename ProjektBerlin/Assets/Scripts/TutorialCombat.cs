@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Collections;
 
-public static class Combat
+public static class TutorialCombat
 {
     public static List<GameObject> targetsInRange = new List<GameObject>();
     public static int numPlayers = Controller.NUM_PLAYERS;
-    public static Controller gameLogic;
+    public static Tutorial gameLogic;
     public static bool markerMoving = false;
     private static Marker marker;
     private static float markerAttack = 0;
@@ -18,7 +18,7 @@ public static class Combat
     //private static GameObject attackProj;
     public static int selectedTargetIndex = -1;
 
-    static Combat()
+    static TutorialCombat()
     {
         marker = GameObject.Find("Marker").GetComponent<Marker>();
 		CombatIndicationSpawner.instantiate ();
@@ -41,7 +41,7 @@ public static class Combat
         gameLogic.changeUnit.material.color = Color.red;
         gameLogic.changeUnit.enabled = false;
 
-        SquadManager squad = me.GetComponent<SquadManager>();
+        TutorialManager squad = me.GetComponent<TutorialManager>();
         float attackRange = 0;
         if (attack > 0)
             attackRange = attack;
@@ -76,7 +76,7 @@ public static class Combat
                     if (!Physics.Raycast(myPos, dir, distance, gameLogic.detectCover))
                         targets.Add(hitColliders[i].gameObject);
                     if (Physics.Raycast(myPos, dir, distance, gameLogic.detectWall))
-                        hitColliders[i].gameObject.GetComponent<SquadManager>().behindWall = true;
+                        hitColliders[i].gameObject.GetComponent<TutorialManager>().behindWall = true;
                 }
             }
             i++;
@@ -94,14 +94,15 @@ public static class Combat
         int damage = calculateDamage(myHits);
         NetworkView nView = getTarget().GetComponent<NetworkView>();
 
-		getTarget().GetComponent<NetworkView>().RPC("takeDamage", RPCMode.AllBuffered, damage,false);
-        shootSounds = me.GetComponent<SquadManager> ().GetComponents<AudioSource> ();
+		//getTarget().GetComponent<NetworkView>().RPC("takeDamage", RPCMode.AllBuffered, damage,false);
+        getTarget().GetComponent<TutorialManager>().takeDamage(damage, false);
+        shootSounds = me.GetComponent<TutorialManager> ().GetComponents<AudioSource> ();
         rifleShoot = shootSounds[1];
         sniperShoot = shootSounds[2];
         AudioClip shootClip = shootSounds[1].clip;
-        int squadSize = me.GetComponent<SquadManager>().size;
+        int squadSize = me.GetComponent<TutorialManager>().size;
 
-        if (me.GetComponent<SquadManager> ().squadType == "Rifle") {
+        if (me.GetComponent<TutorialManager> ().squadType == "Rifle") {
 			float originalPitch = rifleShoot.pitch;
 			for (int i = 0; i< squadSize; i++) {
 
@@ -110,7 +111,7 @@ public static class Combat
 				yield return new WaitForSeconds (Random.Range (0.05f, 0.1f));
 			}
 		}
-		else if(me.GetComponent<SquadManager> ().squadType == "Sniper")
+		else if(me.GetComponent<TutorialManager> ().squadType == "Sniper")
 		{
 			sniperShoot.Play();
 		}
@@ -125,14 +126,14 @@ public static class Combat
         {
             if (Random.value <= myHits.hitChance) hits++;
         }
-		CombatIndicationSpawner.spawnHits (myHits.source, hits);
+		//CombatIndicationSpawner.spawnHits (myHits.source, hits);
         int damage = 0;
         for (int i = 0; i < hits; i++)
         {
 			//higher dodge chance means less bullets go through
 			if (Random.value >= myHits.dodgeChance) damage++;
         }
-		CombatIndicationSpawner.spawnMisses (myHits.destination, hits-damage);
+		//CombatIndicationSpawner.spawnMisses (myHits.destination, hits-damage);
         return damage;
     }
 
@@ -150,20 +151,20 @@ public static class Combat
         //If not behind cover
         if (!Physics.Raycast(myPos, dir, distance, gameLogic.detectCover))
         {
-			hitChance = me.GetComponent<SquadManager>().hitChance;
+			hitChance = me.GetComponent<TutorialManager>().hitChance;
 
             //Detect partial cover
-			if(getTarget().GetComponent<SquadManager>() != null)
+			if(getTarget().GetComponent<TutorialManager>() != null)
 			{
-	            if (!getTarget().GetComponent<SquadManager>().inCover && !Physics.Raycast(myPos, dir, distance, gameLogic.detectWall))
+	            if (!getTarget().GetComponent<TutorialManager>().inCover && !Physics.Raycast(myPos, dir, distance, gameLogic.detectWall))
 	            {
-					dodgeChance = getTarget().GetComponent<SquadManager>().dodgeChance; 
+					dodgeChance = getTarget().GetComponent<TutorialManager>().dodgeChance; 
 	            }
 	            else
 	            {
 	                Debug.Log("I hit partial cover!");
 	                hasPartialCover = true;
-					dodgeChance = getTarget().GetComponent<SquadManager>().dodgeChance*2;
+					dodgeChance = getTarget().GetComponent<TutorialManager>().dodgeChance*2;
             	}
 			}
 			else{
@@ -174,7 +175,7 @@ public static class Combat
 		return new ShotsFired (myPos, targetPos, power, hitChance, dodgeChance, hasPartialCover);
     }
 
-    public static bool UpdateTarget(SquadManager me)
+    public static bool UpdateTarget(TutorialManager me)
     {
         if (Input.GetButtonUp("R1") && targetsInRange.Count > 0)
         {
@@ -184,13 +185,13 @@ public static class Combat
             if (selectedTargetIndex >= 0)
             {
                 targetsInRange[selectedTargetIndex].SendMessage("disableTarget");
-                targetsInRange[selectedTargetIndex].GetComponent<NetworkView>().RPC("disableLight", RPCMode.All);
+                //targetsInRange[selectedTargetIndex].GetComponent<NetworkView>().RPC("disableLight", RPCMode.All);
             }
 
             selectedTargetIndex++;
             selectedTargetIndex %= targetsInRange.Count;
             targetsInRange[selectedTargetIndex].SendMessage("enableTarget");
-            targetsInRange[selectedTargetIndex].GetComponent<NetworkView>().RPC("enableLight", RPCMode.All);
+            //targetsInRange[selectedTargetIndex].GetComponent<NetworkView>().RPC("enableLight", RPCMode.All);
              
             Vector3 enemyPos = targetsInRange[selectedTargetIndex].transform.position;
 
@@ -203,7 +204,7 @@ public static class Combat
             if (selectedTargetIndex >= 0)
             {
                 targetsInRange[selectedTargetIndex].SendMessage("disableTarget");
-                targetsInRange[selectedTargetIndex].GetComponent<NetworkView>().RPC("disableLight", RPCMode.All);
+                //targetsInRange[selectedTargetIndex].GetComponent<NetworkView>().RPC("disableLight", RPCMode.All);
             }
             else
                 selectedTargetIndex = 0;
@@ -212,7 +213,7 @@ public static class Combat
             if (selectedTargetIndex < 0) selectedTargetIndex = targetsInRange.Count - 1;
             {
                 targetsInRange[selectedTargetIndex].SendMessage("enableTarget");
-                targetsInRange[selectedTargetIndex].GetComponent<NetworkView>().RPC("enableLight", RPCMode.All);
+                //targetsInRange[selectedTargetIndex].GetComponent<NetworkView>().RPC("enableLight", RPCMode.All);
             }
 
             Vector3 enemyPos = targetsInRange[selectedTargetIndex].transform.position;
@@ -233,12 +234,12 @@ public static class Combat
         if (selectedTargetIndex >= 0 && targetsInRange[selectedTargetIndex].activeInHierarchy)
         {
             targetsInRange[selectedTargetIndex].SendMessage("disableTarget");
-            targetsInRange[selectedTargetIndex].GetComponent<NetworkView>().RPC("disableLight", RPCMode.All);
+            //targetsInRange[selectedTargetIndex].GetComponent<NetworkView>().RPC("disableLight", RPCMode.All);
         }
         foreach (GameObject target in targetsInRange)
         {
-			if(target.GetComponent<SquadManager>()!=null)
-            	target.GetComponent<SquadManager>().behindWall = false;
+			if(target.GetComponent<TutorialManager>()!=null)
+            	target.GetComponent<TutorialManager>().behindWall = false;
         }
 
         targetsInRange.Clear();
@@ -271,7 +272,7 @@ public static class Combat
         }
     }
 
-    public static void updateAoE(SquadManager me, ref bool activated)
+    public static void updateAoE(TutorialManager me, ref bool activated)
     {      
         gameLogic.attackProj.transform.position = new Vector3(marker.transform.position.x, 9, marker.transform.position.z);   
 
