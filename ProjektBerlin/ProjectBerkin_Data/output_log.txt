@@ -17,75 +17,23 @@ Loading C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerk
 Platform assembly: C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
 Loading C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.265 seconds
-desktop: 1280x800 40Hz; virtual: 1280x800 at 0,0
-<RI> Initializing input.
-XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
-<RI> Input initialized.
-Initialize engine version: 5.2.2p1 (6dd5cd7ea574)
-GfxDevice: creating device client; threaded=1
-Direct3D:
-    Version:  Direct3D 11.0 [level 10.1]
-    Renderer: Intel(R) HD Graphics 3000 (ID=0x126)
-    Vendor:   Intel
-    VRAM:     816 MB
-Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
-Loading C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
-Platform assembly: C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-Platform assembly: C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.061 seconds
+- Completed reload, in  0.254 seconds
 desktop: 1280x800 40Hz; virtual: 1280x800 at 0,0
 <RI> Initializing input.
 XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
 <RI> Input initialized.
 <RI> Initialized touch support.
 Platform assembly: C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\System.dll (this message is harmless)
-<RI> Initialized touch support.
 Getting Host List
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 2b5c -> priority: 1 
-Platform assembly: C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\System.dll (this message is harmless)
-Server initialized
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-Server spawning
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-Server spawning
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-Server spawning
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-Server spawning
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-Server registered
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
+  Thread -> id: 2d68 -> priority: 1 
 Getting Host List
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
-Setting up 1 worker threads for Enlighten.
-  Thread -> id: 1b1c -> priority: 1 
 Host data recieved
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
@@ -122,31 +70,15 @@ Client spawning
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
-Server registered
+Joystick disconnected ("Controller (Rock Candy Gamepad for Xbox 360)").
  
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-1
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-NETWORK: Set turn called
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-Isn't my turn
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-I still have squads left!
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-Server
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+(Filename:  Line: 1260)
 
 The server has disconnected from the client. Most likely the server has shut down.
  
 (Filename:  Line: 761)
+
+Can't send RPC function since no connection was started.
+ 
+(Filename:  Line: 2480)
 
