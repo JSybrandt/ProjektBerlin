@@ -723,9 +723,10 @@ GameObject:
   - 95: {fileID: 9542732}
   - 136: {fileID: 13638674}
   - 23: {fileID: 2314268}
+  - 114: {fileID: 11419496}
   m_Layer: 0
   m_Name: UnitShotgun
-  m_TagString: Untagged
+  m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1741,6 +1742,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11419496
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 179976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7c98a571a21b6346b6dd40203e1f1f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSpecial: 0
 --- !u!136 &13638674
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -1961,7 +1974,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: Unit
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 179976}

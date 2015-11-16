@@ -359,12 +359,12 @@ GameObject:
   m_Component:
   - 4: {fileID: 435506}
   - 95: {fileID: 9595424}
-  - 114: {fileID: 11440526}
   - 23: {fileID: 2359244}
   - 136: {fileID: 13678362}
+  - 114: {fileID: 11422994}
   m_Layer: 0
   m_Name: UnitSniper
-  m_TagString: Untagged
+  m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1830,7 +1830,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11440526
+--- !u!114 &11422994
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1838,9 +1838,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 137260}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fbc003254dcf7d4394dcb79a325818c, type: 3}
+  m_Script: {fileID: 11500000, guid: c7c98a571a21b6346b6dd40203e1f1f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSpecial: 0
 --- !u!136 &13678362
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -2061,7 +2062,15 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: Unit
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 137260}

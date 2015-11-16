@@ -1,10 +1,2 @@
-<<<<<<< HEAD
-<<<<<<< .merge_file_a10480
-m_EditorVersion: 5.1.2p3
-=======
 m_EditorVersion: 5.2.0f3
->>>>>>> .merge_file_a03388
-=======
-m_EditorVersion: 5.2.0f3
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
 m_StandardAssetsVersion: 0

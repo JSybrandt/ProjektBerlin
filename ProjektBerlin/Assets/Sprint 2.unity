@@ -37,15 +37,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-<<<<<<< HEAD
-<<<<<<< .merge_file_a08312
---- !u!127 &3
-LevelGameManager:
-  m_ObjectHideFlags: 0
-=======
->>>>>>> .merge_file_a02444
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
 --- !u!157 &4
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -74,14 +65,7 @@ LightmapSettings:
     m_TextureCompression: 1
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
-<<<<<<< HEAD
-<<<<<<< .merge_file_a08312
-=======
     m_ReflectionCompression: 2
->>>>>>> .merge_file_a02444
-=======
-    m_ReflectionCompression: 2
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_LightmapSnapshot: {fileID: 0}
   m_RuntimeCPUUsage: 25
 --- !u!196 &5
@@ -150,21 +134,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-<<<<<<< HEAD
-<<<<<<< .merge_file_a08312
-=======
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-<<<<<<< HEAD
->>>>>>> .merge_file_a02444
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_Sprite: {fileID: 21300000, guid: 9985c66b66e8b264089e4f6a6b696331, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -229,21 +204,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-<<<<<<< HEAD
-<<<<<<< .merge_file_a08312
-=======
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-<<<<<<< HEAD
->>>>>>> .merge_file_a02444
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_Sprite: {fileID: 21300000, guid: 69dd9c2879b043f469de3c3f2a565a13, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -643,21 +609,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-<<<<<<< HEAD
-<<<<<<< .merge_file_a08312
-=======
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-<<<<<<< HEAD
->>>>>>> .merge_file_a02444
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_FontData:
     m_Font: {fileID: 12800000, guid: 9ab022360c19f1845a6a1e1ad1771311, type: 3}
     m_FontSize: 14
@@ -769,21 +726,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-<<<<<<< HEAD
-<<<<<<< .merge_file_a08312
-=======
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-<<<<<<< HEAD
->>>>>>> .merge_file_a02444
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_Sprite: {fileID: 21300000, guid: 9985c66b66e8b264089e4f6a6b696331, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -852,21 +800,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-<<<<<<< HEAD
-<<<<<<< .merge_file_a08312
-=======
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-<<<<<<< HEAD
->>>>>>> .merge_file_a02444
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_FontData:
     m_Font: {fileID: 12800000, guid: db385b91adc8bb9409e14b5cd69c43de, type: 3}
     m_FontSize: 14
@@ -936,21 +875,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-<<<<<<< HEAD
-<<<<<<< .merge_file_a08312
-=======
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-<<<<<<< HEAD
->>>>>>> .merge_file_a02444
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_FontData:
     m_Font: {fileID: 12800000, guid: 9ab022360c19f1845a6a1e1ad1771311, type: 3}
     m_FontSize: 14
@@ -1348,21 +1278,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-<<<<<<< HEAD
-<<<<<<< .merge_file_a08312
-=======
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-<<<<<<< HEAD
->>>>>>> .merge_file_a02444
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_FontData:
     m_Font: {fileID: 12800000, guid: db385b91adc8bb9409e14b5cd69c43de, type: 3}
     m_FontSize: 14
@@ -1432,21 +1353,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-<<<<<<< HEAD
-<<<<<<< .merge_file_a08312
-=======
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-<<<<<<< HEAD
->>>>>>> .merge_file_a02444
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_FontData:
     m_Font: {fileID: 12800000, guid: db385b91adc8bb9409e14b5cd69c43de, type: 3}
     m_FontSize: 14
@@ -1886,21 +1798,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-<<<<<<< HEAD
-<<<<<<< .merge_file_a08312
-=======
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-<<<<<<< HEAD
->>>>>>> .merge_file_a02444
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_Sprite: {fileID: 21300000, guid: 56ef4516bd0adb642b1a9e14b062dd0d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -1967,15 +1870,7 @@ MonoBehaviour:
   m_Script: {fileID: 1997211142, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
-<<<<<<< .merge_file_a08312
-  m_AllowActivationOnStandalone: 0
-=======
   m_ForceModuleActive: 0
->>>>>>> .merge_file_a02444
-=======
-  m_ForceModuleActive: 0
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
 --- !u!114 &574145251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1993,15 +1888,7 @@ MonoBehaviour:
   m_CancelButton: Circle
   m_InputActionsPerSecond: 10
   m_RepeatDelay: .5
-<<<<<<< HEAD
-<<<<<<< .merge_file_a08312
-  m_AllowActivationOnMobileDevice: 0
-=======
   m_ForceModuleActive: 0
->>>>>>> .merge_file_a02444
-=======
-  m_ForceModuleActive: 0
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
 --- !u!114 &574145252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2366,21 +2253,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: .33088237, g: .245728821, b: .245728821, a: .397000015}
-<<<<<<< HEAD
-<<<<<<< .merge_file_a08312
-=======
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-<<<<<<< HEAD
->>>>>>> .merge_file_a02444
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
@@ -2467,21 +2345,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-<<<<<<< HEAD
-<<<<<<< .merge_file_a08312
-=======
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-<<<<<<< HEAD
->>>>>>> .merge_file_a02444
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_Sprite: {fileID: 21300000, guid: bc6d82a8fb4ae4b4b84d8796d5838a72, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -2604,21 +2473,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-<<<<<<< HEAD
-<<<<<<< .merge_file_a08312
-=======
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-<<<<<<< HEAD
->>>>>>> .merge_file_a02444
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_Sprite: {fileID: 21300000, guid: 3fdbd54f5f718a94eb71d0847520cb10, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -2683,21 +2543,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-<<<<<<< HEAD
-<<<<<<< .merge_file_a08312
-=======
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-<<<<<<< HEAD
->>>>>>> .merge_file_a02444
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_Sprite: {fileID: 21300000, guid: b38bfab22cfe7ed45a28600a2614fa96, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -3232,21 +3083,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-<<<<<<< HEAD
-<<<<<<< .merge_file_a08312
-=======
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-<<<<<<< HEAD
->>>>>>> .merge_file_a02444
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_FontData:
     m_Font: {fileID: 12800000, guid: db385b91adc8bb9409e14b5cd69c43de, type: 3}
     m_FontSize: 14
@@ -3374,21 +3216,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-<<<<<<< HEAD
-<<<<<<< .merge_file_a08312
-=======
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-<<<<<<< HEAD
->>>>>>> .merge_file_a02444
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_Sprite: {fileID: 21300000, guid: 3fdbd54f5f718a94eb71d0847520cb10, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -3569,21 +3402,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-<<<<<<< HEAD
-<<<<<<< .merge_file_a08312
-=======
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-<<<<<<< HEAD
->>>>>>> .merge_file_a02444
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_Sprite: {fileID: 21300000, guid: b38bfab22cfe7ed45a28600a2614fa96, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -3744,21 +3568,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-<<<<<<< HEAD
-<<<<<<< .merge_file_a08312
-=======
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-<<<<<<< HEAD
->>>>>>> .merge_file_a02444
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_Sprite: {fileID: 21300000, guid: 69dd9c2879b043f469de3c3f2a565a13, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -3808,21 +3623,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-<<<<<<< HEAD
-<<<<<<< .merge_file_a08312
-=======
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-<<<<<<< HEAD
->>>>>>> .merge_file_a02444
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_Sprite: {fileID: 21300000, guid: 33a177759ef29bb418fcc908d140d3c4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -3892,15 +3698,7 @@ RectTransform:
   - {fileID: 599869375}
   - {fileID: 95531733}
   m_Father: {fileID: 0}
-<<<<<<< HEAD
-<<<<<<< .merge_file_a08312
-  m_RootOrder: 10
-=======
   m_RootOrder: 11
->>>>>>> .merge_file_a02444
-=======
-  m_RootOrder: 11
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -4086,21 +3884,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-<<<<<<< HEAD
-<<<<<<< .merge_file_a08312
-=======
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-<<<<<<< HEAD
->>>>>>> .merge_file_a02444
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_FontData:
     m_Font: {fileID: 12800000, guid: db385b91adc8bb9409e14b5cd69c43de, type: 3}
     m_FontSize: 14
@@ -4170,21 +3959,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-<<<<<<< HEAD
-<<<<<<< .merge_file_a08312
-=======
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-<<<<<<< HEAD
->>>>>>> .merge_file_a02444
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_FontData:
     m_Font: {fileID: 12800000, guid: db385b91adc8bb9409e14b5cd69c43de, type: 3}
     m_FontSize: 14
@@ -4258,21 +4038,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-<<<<<<< HEAD
-<<<<<<< .merge_file_a08312
-=======
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-<<<<<<< HEAD
->>>>>>> .merge_file_a02444
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_FontData:
     m_Font: {fileID: 12800000, guid: 9ab022360c19f1845a6a1e1ad1771311, type: 3}
     m_FontSize: 14
@@ -4342,21 +4113,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-<<<<<<< HEAD
-<<<<<<< .merge_file_a08312
-=======
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-<<<<<<< HEAD
->>>>>>> .merge_file_a02444
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_FontData:
     m_Font: {fileID: 12800000, guid: db385b91adc8bb9409e14b5cd69c43de, type: 3}
     m_FontSize: 14
@@ -4426,21 +4188,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-<<<<<<< HEAD
-<<<<<<< .merge_file_a08312
-=======
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-<<<<<<< HEAD
->>>>>>> .merge_file_a02444
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_FontData:
     m_Font: {fileID: 12800000, guid: 9ab022360c19f1845a6a1e1ad1771311, type: 3}
     m_FontSize: 14
@@ -4676,21 +4429,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-<<<<<<< HEAD
-<<<<<<< .merge_file_a08312
-=======
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-<<<<<<< HEAD
->>>>>>> .merge_file_a02444
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_Sprite: {fileID: 21300000, guid: 10288c41fa1557240abbcf367ec132b5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -4737,21 +4481,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-<<<<<<< HEAD
-<<<<<<< .merge_file_a08312
-=======
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-<<<<<<< HEAD
->>>>>>> .merge_file_a02444
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_FontData:
     m_Font: {fileID: 12800000, guid: db385b91adc8bb9409e14b5cd69c43de, type: 3}
     m_FontSize: 14
@@ -5328,21 +5063,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-<<<<<<< HEAD
-<<<<<<< .merge_file_a08312
-=======
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-<<<<<<< HEAD
->>>>>>> .merge_file_a02444
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_FontData:
     m_Font: {fileID: 12800000, guid: db385b91adc8bb9409e14b5cd69c43de, type: 3}
     m_FontSize: 14
@@ -5456,14 +5182,7 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
-<<<<<<< HEAD
-<<<<<<< .merge_file_a08312
-=======
   Spatialize: 0
->>>>>>> .merge_file_a02444
-=======
-  Spatialize: 0
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -5533,14 +5252,7 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
-<<<<<<< HEAD
-<<<<<<< .merge_file_a08312
-=======
   Spatialize: 0
->>>>>>> .merge_file_a02444
-=======
-  Spatialize: 0
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -5610,14 +5322,7 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
-<<<<<<< HEAD
-<<<<<<< .merge_file_a08312
-=======
   Spatialize: 0
->>>>>>> .merge_file_a02444
-=======
-  Spatialize: 0
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -5687,14 +5392,7 @@ AudioSource:
   m_Pitch: 1
   Loop: 1
   Mute: 0
-<<<<<<< HEAD
-<<<<<<< .merge_file_a08312
-=======
   Spatialize: 0
->>>>>>> .merge_file_a02444
-=======
-  Spatialize: 0
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -6190,21 +5888,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-<<<<<<< HEAD
-<<<<<<< .merge_file_a08312
-=======
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-<<<<<<< HEAD
->>>>>>> .merge_file_a02444
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_FontData:
     m_Font: {fileID: 12800000, guid: db385b91adc8bb9409e14b5cd69c43de, type: 3}
     m_FontSize: 14
@@ -6330,21 +6019,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-<<<<<<< HEAD
-<<<<<<< .merge_file_a08312
-=======
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-<<<<<<< HEAD
->>>>>>> .merge_file_a02444
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_FontData:
     m_Font: {fileID: 12800000, guid: db385b91adc8bb9409e14b5cd69c43de, type: 3}
     m_FontSize: 14
@@ -6735,21 +6415,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-<<<<<<< HEAD
-<<<<<<< .merge_file_a08312
-=======
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-<<<<<<< HEAD
->>>>>>> .merge_file_a02444
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_FontData:
     m_Font: {fileID: 12800000, guid: 9ab022360c19f1845a6a1e1ad1771311, type: 3}
     m_FontSize: 14
@@ -7142,21 +6813,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-<<<<<<< HEAD
-<<<<<<< .merge_file_a08312
-=======
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-<<<<<<< HEAD
->>>>>>> .merge_file_a02444
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_FontData:
     m_Font: {fileID: 12800000, guid: db385b91adc8bb9409e14b5cd69c43de, type: 3}
     m_FontSize: 14
@@ -7340,21 +7002,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-<<<<<<< HEAD
-<<<<<<< .merge_file_a08312
-=======
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-<<<<<<< HEAD
->>>>>>> .merge_file_a02444
-=======
->>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_Sprite: {fileID: 21300000, guid: 10288c41fa1557240abbcf367ec132b5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
