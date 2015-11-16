@@ -1,0 +1,199 @@
+fileFormatVersion: 2
+guid: 4b4bf2333cd559b4e8f908883388fa46
+timeCreated: 1447638783
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Armature
+    100002: Bone001
+    100004: Bone001_end
+    100006: Camera
+    100008: chest
+    100010: clavicle.L
+    100012: clavicle.R
+    100014: Cylinder
+    100016: eye.L
+    100018: eye.L_end
+    100020: eye.R
+    100022: eye.R_end
+    100024: f_index.01.L
+    100026: f_index.01.L_end
+    100028: f_index.01.R
+    100030: f_index.01.R_end
+    100032: f_ring.01.L
+    100034: f_ring.01.L_end
+    100036: f_ring.01.R
+    100038: f_ring.01.R_end
+    100040: foot.L
+    100042: foot.R
+    100044: forearm.L
+    100046: forearm.R
+    100048: hand.L
+    100050: hand.R
+    100052: head
+    100054: hips
+    100056: Human
+    100058: Human:Body
+    100060: Human:Body_MeshPart0
+    100062: Human:Body_MeshPart1
+    100064: Human:HighPolyEyes
+    100066: jaw
+    100068: jaw_end
+    100070: Lamp
+    100072: mesh
+    100074: neck
+    100076: shin.L
+    100078: shin.R
+    100080: //RootNode
+    100082: Sphere
+    100084: spine
+    100086: thigh.L
+    100088: thigh.R
+    100090: thumb.02.L
+    100092: thumb.02.R
+    100094: thumb.03.L
+    100096: thumb.03.L_end
+    100098: thumb.03.R
+    100100: thumb.03.R_end
+    100102: toe.L
+    100104: toe.L_end
+    100106: toe.R
+    100108: toe.R_end
+    100110: upper_arm.L
+    100112: upper_arm.R
+    400000: Armature
+    400002: Bone001
+    400004: Bone001_end
+    400006: Camera
+    400008: chest
+    400010: clavicle.L
+    400012: clavicle.R
+    400014: Cylinder
+    400016: eye.L
+    400018: eye.L_end
+    400020: eye.R
+    400022: eye.R_end
+    400024: f_index.01.L
+    400026: f_index.01.L_end
+    400028: f_index.01.R
+    400030: f_index.01.R_end
+    400032: f_ring.01.L
+    400034: f_ring.01.L_end
+    400036: f_ring.01.R
+    400038: f_ring.01.R_end
+    400040: foot.L
+    400042: foot.R
+    400044: forearm.L
+    400046: forearm.R
+    400048: hand.L
+    400050: hand.R
+    400052: head
+    400054: hips
+    400056: Human
+    400058: Human:Body
+    400060: Human:Body_MeshPart0
+    400062: Human:Body_MeshPart1
+    400064: Human:HighPolyEyes
+    400066: jaw
+    400068: jaw_end
+    400070: Lamp
+    400072: mesh
+    400074: neck
+    400076: shin.L
+    400078: shin.R
+    400080: //RootNode
+    400082: Sphere
+    400084: spine
+    400086: thigh.L
+    400088: thigh.R
+    400090: thumb.02.L
+    400092: thumb.02.R
+    400094: thumb.03.L
+    400096: thumb.03.L_end
+    400098: thumb.03.R
+    400100: thumb.03.R_end
+    400102: toe.L
+    400104: toe.L_end
+    400106: toe.R
+    400108: toe.R_end
+    400110: upper_arm.L
+    400112: upper_arm.R
+    2300000: Cylinder
+    2300002: mesh
+    2300004: Sphere
+    3300000: Cylinder
+    3300002: mesh
+    3300004: Sphere
+    4300000: Cylinder
+    4300002: Sphere
+    4300004: Human:HighPolyEyes
+    4300006: Human:Body_MeshPart0
+    4300008: Human:Body_MeshPart1
+    4300010: mesh
+    9500000: //RootNode
+    13700000: Human:Body_MeshPart0
+    13700002: Human:Body_MeshPart1
+    13700004: Human:HighPolyEyes
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

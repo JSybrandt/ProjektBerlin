@@ -422,7 +422,7 @@ public class SquadManager : MonoBehaviour
         foreach (GameObject g in units)
         {
             //g.GetComponent<Renderer>().material.color = myColor;
-			g.GetComponent<Material>().SetTexture("teamColor", greenTexture);
+			//g.GetComponent<Material>().SetTexture("teamColor", greenTexture);
 			g.GetComponentInChildren<Material>().SetTexture("teamColor", greenTexture);
         }
     }
