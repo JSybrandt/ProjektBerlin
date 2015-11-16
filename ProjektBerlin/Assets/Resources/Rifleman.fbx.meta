@@ -70,6 +70,19 @@ ModelImporter:
     100124: toe.R_end
     100126: upper_arm.L
     100128: upper_arm.R
+    100130: Bone001_end_end
+    100132: eye.L_end_end
+    100134: eye.R_end_end
+    100136: f_index.01.L_end_end
+    100138: f_index.01.R_end_end
+    100140: f_ring.01.L_end_end
+    100142: f_ring.01.R_end_end
+    100144: jaw_end_end
+    100146: Lamp.001
+    100148: thumb.03.L_end_end
+    100150: thumb.03.R_end_end
+    100152: toe.L_end_end
+    100154: toe.R_end_end
     400000: Armature
     400002: Bone001
     400004: Bone001_end
@@ -135,6 +148,19 @@ ModelImporter:
     400124: toe.R_end
     400126: upper_arm.L
     400128: upper_arm.R
+    400130: Bone001_end_end
+    400132: eye.L_end_end
+    400134: eye.R_end_end
+    400136: f_index.01.L_end_end
+    400138: f_index.01.R_end_end
+    400140: f_ring.01.L_end_end
+    400142: f_ring.01.R_end_end
+    400144: jaw_end_end
+    400146: Lamp.001
+    400148: thumb.03.L_end_end
+    400150: thumb.03.R_end_end
+    400152: toe.L_end_end
+    400154: toe.R_end_end
     2300000: Cylinder
     2300002: m4a1_aimpoint_comp_m4
     2300004: m4a1_aimpoint_comp_m4_lenses
@@ -171,6 +197,7 @@ ModelImporter:
     4300022: Human:HighPolyEyes
     4300024: Human:Body_MeshPart0
     4300026: Human:Body_MeshPart1
+    4300028: Human:Body
     7400000: m4a1_tactical foregrip|m4a1_aimpoint_comp_m4_lenses|Take 001|BaseLayer
     7400002: m4a1_tactical foregrip|m4a1_aimpoint_comp_m4|Take 001|BaseLayer
     7400004: m4a1_tactical foregrip|m4a1_tactical foregrip|Take 001|BaseLayer
@@ -180,10 +207,44 @@ ModelImporter:
     7400012: m4a1_aimpoint_comp_m4|m4a1_aimpoint_comp_m4_lenses|Take 001|BaseLayer
     7400014: m4a1_aimpoint_comp_m4|m4a1_aimpoint_comp_m4|Take 001|BaseLayer
     7400016: m4a1_aimpoint_comp_m4|m4a1_tactical foregrip|Take 001|BaseLayer
+    7400018: m4a1_aimpoint_comp_m4|m4a1_aimpoint_comp_m4_lenses|m4a1_aimpoint_comp_m4_lenses|m.000
+    7400020: m4a1_aimpoint_comp_m4|m4a1_aimpoint_comp_m4_lenses|m4a1_aimpoint_comp_m4_lenses|m.001
+    7400022: m4a1_aimpoint_comp_m4|m4a1_aimpoint_comp_m4_lenses|m4a1_aimpoint_comp_m4_lenses|m4a1_
+    7400024: m4a1_aimpoint_comp_m4|m4a1_aimpoint_comp_m4|m4a1_aimpoint_comp_m4|m4a1_aimpoint_c.000
+    7400026: m4a1_aimpoint_comp_m4|m4a1_aimpoint_comp_m4|m4a1_aimpoint_comp_m4|m4a1_aimpoint_comp_
+    7400028: m4a1_aimpoint_comp_m4|m4a1_aimpoint_comp_m4|m4a1_aimpoint_comp_m4|m4a1_tactical
+      foreg
+    7400030: m4a1_aimpoint_comp_m4|m4a1_tactical foregrip|m4a1_tactical foregrip|m4a1_aimpoint.000
+    7400032: m4a1_aimpoint_comp_m4|m4a1_tactical foregrip|m4a1_tactical foregrip|m4a1_aimpoint_com
+    7400034: m4a1_aimpoint_comp_m4|m4a1_tactical foregrip|m4a1_tactical foregrip|m4a1_tactical
+      for
+    7400036: m4a1_aimpoint_comp_m4_lenses|m4a1_aimpoint_comp_m4_lenses|m4a1_aimpoint_comp_m4_lenses|m.000
+    7400038: m4a1_aimpoint_comp_m4_lenses|m4a1_aimpoint_comp_m4_lenses|m4a1_aimpoint_comp_m4_lenses|m.001
+    7400040: m4a1_aimpoint_comp_m4_lenses|m4a1_aimpoint_comp_m4_lenses|m4a1_aimpoint_comp_m4_lenses|m4a1_
+    7400042: m4a1_aimpoint_comp_m4_lenses|m4a1_aimpoint_comp_m4|m4a1_aimpoint_comp_m4|m4a1_aimpoint_c.000
+    7400044: m4a1_aimpoint_comp_m4_lenses|m4a1_aimpoint_comp_m4|m4a1_aimpoint_comp_m4|m4a1_aimpoint_comp_
+    7400046: m4a1_aimpoint_comp_m4_lenses|m4a1_aimpoint_comp_m4|m4a1_aimpoint_comp_m4|m4a1_tactical
+      foreg
+    7400048: m4a1_aimpoint_comp_m4_lenses|m4a1_tactical foregrip|m4a1_tactical foregrip|m4a1_aimpoint.000
+    7400050: m4a1_aimpoint_comp_m4_lenses|m4a1_tactical foregrip|m4a1_tactical foregrip|m4a1_aimpoint_com
+    7400052: m4a1_aimpoint_comp_m4_lenses|m4a1_tactical foregrip|m4a1_tactical foregrip|m4a1_tactical
+      for
+    7400054: m4a1_tactical foregrip|m4a1_aimpoint_comp_m4_lenses|m4a1_aimpoint_comp_m4_lenses|m.000
+    7400056: m4a1_tactical foregrip|m4a1_aimpoint_comp_m4_lenses|m4a1_aimpoint_comp_m4_lenses|m.001
+    7400058: m4a1_tactical foregrip|m4a1_aimpoint_comp_m4_lenses|m4a1_aimpoint_comp_m4_lenses|m4a1_
+    7400060: m4a1_tactical foregrip|m4a1_aimpoint_comp_m4|m4a1_aimpoint_comp_m4|m4a1_aimpoint_c.000
+    7400062: m4a1_tactical foregrip|m4a1_aimpoint_comp_m4|m4a1_aimpoint_comp_m4|m4a1_aimpoint_comp_
+    7400064: m4a1_tactical foregrip|m4a1_aimpoint_comp_m4|m4a1_aimpoint_comp_m4|m4a1_tactical
+      foreg
+    7400066: m4a1_tactical foregrip|m4a1_tactical foregrip|m4a1_tactical foregrip|m4a1_aimpoint.000
+    7400068: m4a1_tactical foregrip|m4a1_tactical foregrip|m4a1_tactical foregrip|m4a1_aimpoint_com
+    7400070: m4a1_tactical foregrip|m4a1_tactical foregrip|m4a1_tactical foregrip|m4a1_tactical
+      for
     9500000: //RootNode
     13700000: Human:Body_MeshPart0
     13700002: Human:Body_MeshPart1
     13700004: Human:HighPolyEyes
+    13700006: Human:Body
   materials:
     importMaterials: 1
     materialName: 0
