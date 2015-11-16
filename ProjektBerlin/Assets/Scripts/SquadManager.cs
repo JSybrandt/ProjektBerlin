@@ -38,8 +38,11 @@ public class SquadManager : MonoBehaviour
 	public Texture greenTexture;
 	public Texture redTexture;
     [HideInInspector]
-	private Texture offColor = (Texture)Resources.Load("greenTexture"); //Crimson
-	public Texture myColor = (Texture)Resources.Load("greenTexture");
+    private Color offColor = new Color(103, 0, 0); //Crimson
+    public Color myColor = Color.red;
+
+    //private Texture offColor = (Texture)Resources.Load("greenTexture"); //Crimson
+    //public Texture myColor = (Texture)Resources.Load("greenTexture");
 
     private float unitDistanceFromCenter = 1.5f;
 
@@ -118,6 +121,8 @@ public class SquadManager : MonoBehaviour
 
         attackDistance = 20;
         movementDistance = 20;
+        //offColor = myColor / 2;
+
 
         moveProj = GameObject.Find("MoveRadius").GetComponent<Projector>();
         attackProj = GameObject.Find("AttackRadius").GetComponent<Projector>();
@@ -411,19 +416,27 @@ public class SquadManager : MonoBehaviour
     /// Used to set the main color of a unit
     /// </summary>
     /// <param name="c"></param>
-    public void setColor(Texture t)
+    public void setColor(Color c)
     {
-        myColor = t;
+        myColor = c;
+        offColor = myColor / 2;
     }
 
-
+    /// <summary>
+    /// //Called by sub squad scripts once units are intialized
+    /// </summary>
     public void paintColor()
     {
         foreach (GameObject g in units)
         {
-            //g.GetComponent<Renderer>().material.color = myColor;
-			g.GetComponent<Material>().SetTexture("teamColor", greenTexture);
-			g.GetComponentInChildren<Material>().SetTexture("teamColor", greenTexture);
+            foreach (Transform child in g.transform)
+            {
+                if (child.name == "UnitBase")
+                {
+                    child.GetComponent<Renderer>().material.color = myColor;
+                    break;
+                }
+            }
         }
     }
 
@@ -433,12 +446,18 @@ public class SquadManager : MonoBehaviour
         
         foreach (GameObject g in units)
         {
-            if (active)
-                //g.GetComponent<Renderer>().material.color = offColor;
-            //else
-                //g.GetComponent<Renderer>().material.color = myColor;
-				//g.GetComponent<Material>().SetTexture("teamColor", greenTexture);
-				g.GetComponentInChildren<Material>().SetTexture("teamColor", greenTexture);
+            if(g.activeInHierarchy)
+                foreach (Transform child in g.transform)
+                {
+                    if (child.name == "UnitBase")
+                    {
+                        if (active)
+                            child.GetComponent<Renderer>().material.color = myColor;
+                        else
+                            child.GetComponent<Renderer>().material.color = offColor;
+                        break;
+                    }
+                }
         }
     }
 

@@ -11,6 +11,7 @@ TagManager:
   - Player1Base
   - Player0Base
   - Dead
+  - UnitBase
   layers:
   - Default
   - TransparentFX
