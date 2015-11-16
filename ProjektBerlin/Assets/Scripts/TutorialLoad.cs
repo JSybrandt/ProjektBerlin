@@ -120,20 +120,15 @@ public class TutorialLoad : MonoBehaviour
         //}
         //if (Network.isClient)
         //{
-        for (int i = 0; i < 5; i += 5)
-        {
-            newSquad = (GameObject)Instantiate(SquadPrefab, new Vector3(i, 1, 60), Quaternion.identity);
-            sTag = "Player1Squad";
-            //NetworkView sView = newSquad.GetComponent<NetworkView>();
-            //newSquad.GetComponent<TutorialManager>().setColor(Color.green);
-            newSquad.GetComponent<TutorialManager>().init(sTag);
-            newSquad.GetComponent<TutorialSquad>().rifleInit();
-            //sView.RPC("init", RPCMode.AllBuffered, sTag);
 
-            //Debug.Log("Client spawning");
+        Vector3 spawner = GameObject.FindGameObjectWithTag("Spawner").transform.position;
 
-            allSquads.Add(newSquad);
-        }
+        newSquad = (GameObject)Instantiate(SquadPrefab, spawner, Quaternion.identity);
+        sTag = "Player1Squad";
+        newSquad.GetComponent<TutorialManager>().init(sTag);
+        newSquad.GetComponent<TutorialSquad>().rifleInit();
+
+        allSquads.Add(newSquad);
         //}
 
         Tutorial controllerScript = GetComponent<Tutorial>();

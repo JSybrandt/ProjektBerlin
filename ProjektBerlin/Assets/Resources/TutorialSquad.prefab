@@ -285,9 +285,9 @@ MonoBehaviour:
   inCover: 0
   behindWall: 0
   size: 0
-  tex: {fileID: 0}
-  selectorGreen: {fileID: 0}
-  selectorRed: {fileID: 0}
+  tex: {fileID: 2800000, guid: 15ca8ea0d0523d442bb17f2e354095af, type: 3}
+  selectorGreen: {fileID: 2800000, guid: 6196bfb8ecdfb2d40a0218b053ddfde2, type: 3}
+  selectorRed: {fileID: 2800000, guid: 91e7682937958454ba96be96d59e8793, type: 3}
   greenTexture: {fileID: 0}
   redTexture: {fileID: 0}
   myColor: {r: 1, g: 0, b: 0, a: 1}

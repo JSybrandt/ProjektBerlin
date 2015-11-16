@@ -12,6 +12,7 @@ TagManager:
   - Player0Base
   - Dead
   - UnitBase
+  - Spawner
   layers:
   - Default
   - TransparentFX
