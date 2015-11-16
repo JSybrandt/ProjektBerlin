@@ -344,8 +344,8 @@ GameObject:
   - 33: {fileID: 3391540}
   - 23: {fileID: 2306442}
   m_Layer: 0
-  m_Name: Cylinder
-  m_TagString: Untagged
+  m_Name: UnitBase
+  m_TagString: UnitBase
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1750,11 +1750,11 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 2d6ff2fc2535be7479a8ee5555fe0e50, type: 2}
-  - {fileID: 2100000, guid: 41052ff866568ec4f835b50271e361d3, type: 2}
-  - {fileID: 2100000, guid: 396f4d59593066948bb3093bbe938461, type: 2}
-  - {fileID: 2100000, guid: 352103e6abe7fae41897a72be9e65d1a, type: 2}
-  - {fileID: 2100000, guid: 3324ffca846285f4cb76544d32212a60, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1

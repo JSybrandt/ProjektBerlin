@@ -787,8 +787,8 @@ GameObject:
   - 33: {fileID: 3366020}
   - 23: {fileID: 2362548}
   m_Layer: 0
-  m_Name: Cylinder
-  m_TagString: Untagged
+  m_Name: UnitBase
+  m_TagString: UnitBase
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
