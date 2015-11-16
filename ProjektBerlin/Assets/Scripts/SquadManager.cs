@@ -35,9 +35,11 @@ public class SquadManager : MonoBehaviour
     public Texture tex;
     public Texture selectorGreen;
     public Texture selectorRed;
+	public Texture greenTexture;
+	public Texture redTexture;
     [HideInInspector]
-    private Color offColor = new Color(103,0,0); //Crimson
-    public Color myColor = Color.red;
+	private Texture offColor = (Texture)Resources.Load("greenTexture"); //Crimson
+	public Texture myColor = (Texture)Resources.Load("greenTexture");
 
     private float unitDistanceFromCenter = 1.5f;
 
@@ -116,7 +118,6 @@ public class SquadManager : MonoBehaviour
 
         attackDistance = 20;
         movementDistance = 20;
-        offColor = myColor / 2;
 
         moveProj = GameObject.Find("MoveRadius").GetComponent<Projector>();
         attackProj = GameObject.Find("AttackRadius").GetComponent<Projector>();
@@ -410,10 +411,9 @@ public class SquadManager : MonoBehaviour
     /// Used to set the main color of a unit
     /// </summary>
     /// <param name="c"></param>
-    public void setColor(Color c)
+    public void setColor(Texture t)
     {
-        myColor = c;
-        offColor = myColor / 2;
+        myColor = t;
     }
 
 
@@ -421,7 +421,9 @@ public class SquadManager : MonoBehaviour
     {
         foreach (GameObject g in units)
         {
-            g.GetComponent<Renderer>().material.color = myColor;
+            //g.GetComponent<Renderer>().material.color = myColor;
+			g.GetComponent<Material>().SetTexture("teamColor", greenTexture);
+			g.GetComponentInChildren<Material>().SetTexture("teamColor", greenTexture);
         }
     }
 
@@ -431,10 +433,12 @@ public class SquadManager : MonoBehaviour
         
         foreach (GameObject g in units)
         {
-            if (!active)
-                g.GetComponent<Renderer>().material.color = offColor;
-            else
-                g.GetComponent<Renderer>().material.color = myColor;
+            if (active)
+                //g.GetComponent<Renderer>().material.color = offColor;
+            //else
+                //g.GetComponent<Renderer>().material.color = myColor;
+				//g.GetComponent<Material>().SetTexture("teamColor", greenTexture);
+				g.GetComponentInChildren<Material>().SetTexture("teamColor", greenTexture);
         }
     }
 

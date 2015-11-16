@@ -1,189 +1,151 @@
-Mono path[0] = 'C:/Projects/ProjektBerlin/ProjektBerlin/ProjectBerkin_Data/Managed'
-Mono path[1] = 'C:/Projects/ProjektBerlin/ProjektBerlin/ProjectBerkin_Data/Mono'
-Mono config path = 'C:/Projects/ProjektBerlin/ProjektBerlin/ProjectBerkin_Data/Mono/etc'
-PlayerConnection initialized from C:/Projects/ProjektBerlin/ProjektBerlin/ProjectBerkin_Data (debug = 0)
-PlayerConnection initialized network socket : 0.0.0.0 55259
-Multi-casting "[IP] 192.168.56.1 [Port] 55259 [Flags] 2 [Guid] 427269201 [EditorId] 4043103837 [Version] 1048832 [Id] WindowsPlayer(2CE2211R2G) [Debug] 0" to [225.0.0.222:54997]...
-PlayerConnection already initialized - listening to [192.168.56.1:55259]
-Initialize engine version: 5.2.2f1 (3757309da7e7)
+Initialize engine version: 5.1.2p3 (65486b59c7a9)
 GfxDevice: creating device client; threaded=1
 Direct3D:
-    Version:  Direct3D 11.0 [level 10.1]
-    Renderer: Intel(R) HD Graphics 3000 (ID=0x126)
-    Vendor:   Intel
-    VRAM:     816 MB
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: AMD Radeon HD 7800 Series (ID=0x6819)
+    Vendor:   ATI
+    VRAM:     2026 MB
 Begin MonoManager ReloadAssembly
-Platform assembly: C:\Projects\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Projects\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Projects\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Projects\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Projects\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
-Loading C:\Projects\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
-Platform assembly: C:\Projects\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Projects\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: C:\Projects\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading C:\Projects\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-Platform assembly: C:\Projects\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.529 seconds
-desktop: 1280x800 40Hz; virtual: 1280x800 at 0,0
+Platform assembly: C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+Platform assembly: C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+Platform assembly: C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\Camera.dll (this message is harmless)
+Loading C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\Camera.dll into Unity Child Domain
+Platform assembly: C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\Depth.dll (this message is harmless)
+Loading C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\Depth.dll into Unity Child Domain
+Platform assembly: C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\Face.dll (this message is harmless)
+Loading C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\Face.dll into Unity Child Domain
+Platform assembly: C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\HandDetection.dll (this message is harmless)
+Loading C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\HandDetection.dll into Unity Child Domain
+Platform assembly: C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\MoveTrackerAssembly.dll (this message is harmless)
+Loading C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\MoveTrackerAssembly.dll into Unity Child Domain
+Platform assembly: C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\PadTrackerAssembly.dll (this message is harmless)
+Loading C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\PadTrackerAssembly.dll into Unity Child Domain
+Platform assembly: C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\SonyNP.dll (this message is harmless)
+Loading C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\SonyNP.dll into Unity Child Domain
+Platform assembly: C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\SonyPS4CommonDialog.dll (this message is harmless)
+Loading C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\SonyPS4CommonDialog.dll into Unity Child Domain
+Platform assembly: C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\System.Core.dll (this message is harmless)
+- Completed reload, in  0.335 seconds
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-Platform assembly: C:\Projects\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\System.dll (this message is harmless)
+Platform assembly: C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\System.dll (this message is harmless)
+Shader 'Hidden/TerrainEngine/Splatmap/Specular-Base': fallback shader 'Legacy Shaders/Specular' not found
+Shader 'Hidden/TerrainEngine/Splatmap/Specular-Base': fallback shader 'Legacy Shaders/Specular' not found
 Getting Host List
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-LoadGame:refreshHostList() (at C:\Projects\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:216)
-MainMenu:Start() (at C:\Projects\ProjektBerlin\ProjektBerlin\Assets\Resources\UISprites\MainMenu.cs:28)
  
-(Filename: C:/Projects/ProjektBerlin/ProjektBerlin/Assets/Scripts/LoadGame.cs Line: 216)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 2cec -> priority: 1 
-Server initialized
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-LoadGame:OnServerInitialized() (at C:\Projects\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:53)
-UnityEngine.Network:InitializeServer(Int32, Int32, Boolean)
-LoadGame:makeGame() (at C:\Projects\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:45)
-MainMenu:Update() (at C:\Projects\ProjektBerlin\ProjektBerlin\Assets\Resources\UISprites\MainMenu.cs:62)
+  Thread -> id: 21fc -> priority: 1 
+Failed to initialize network interface. Is the listen port already in use?
  
-(Filename: C:/Projects/ProjektBerlin/ProjektBerlin/Assets/Scripts/LoadGame.cs Line: 53)
+(Filename:  Line: 214)
 
-Server spawning
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-LoadGame:spawnPlayer() (at C:\Projects\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:112)
-LoadGame:OnServerInitialized() (at C:\Projects\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:54)
-UnityEngine.Network:InitializeServer(Int32, Int32, Boolean)
-LoadGame:makeGame() (at C:\Projects\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:45)
-MainMenu:Update() (at C:\Projects\ProjektBerlin\ProjektBerlin\Assets\Resources\UISprites\MainMenu.cs:62)
+Getting Host List
  
-(Filename: C:/Projects/ProjektBerlin/ProjektBerlin/Assets/Scripts/LoadGame.cs Line: 112)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-Server spawning
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-LoadGame:spawnPlayer() (at C:\Projects\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:112)
-LoadGame:OnServerInitialized() (at C:\Projects\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:54)
-UnityEngine.Network:InitializeServer(Int32, Int32, Boolean)
-LoadGame:makeGame() (at C:\Projects\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:45)
-MainMenu:Update() (at C:\Projects\ProjektBerlin\ProjektBerlin\Assets\Resources\UISprites\MainMenu.cs:62)
+Host data recieved
  
-(Filename: C:/Projects/ProjektBerlin/ProjektBerlin/Assets/Scripts/LoadGame.cs Line: 112)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-Server spawning
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-LoadGame:spawnPlayer() (at C:\Projects\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:112)
-LoadGame:OnServerInitialized() (at C:\Projects\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:54)
-UnityEngine.Network:InitializeServer(Int32, Int32, Boolean)
-LoadGame:makeGame() (at C:\Projects\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:45)
-MainMenu:Update() (at C:\Projects\ProjektBerlin\ProjektBerlin\Assets\Resources\UISprites\MainMenu.cs:62)
+Parent of RectTransform is being set with parent property. Consider using the SetParent method instead, with the worldPositionStays argument set to false. This will retain local orientation and scale rather than world orientation and scale, which can prevent common UI scaling issues.
  
-(Filename: C:/Projects/ProjektBerlin/ProjektBerlin/Assets/Scripts/LoadGame.cs Line: 112)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-Server spawning
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-LoadGame:spawnPlayer() (at C:\Projects\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:112)
-LoadGame:OnServerInitialized() (at C:\Projects\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:54)
-UnityEngine.Network:InitializeServer(Int32, Int32, Boolean)
-LoadGame:makeGame() (at C:\Projects\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:45)
-MainMenu:Update() (at C:\Projects\ProjektBerlin\ProjektBerlin\Assets\Resources\UISprites\MainMenu.cs:62)
+Connected to server
  
-(Filename: C:/Projects/ProjektBerlin/ProjektBerlin/Assets/Scripts/LoadGame.cs Line: 112)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-Server registered
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-LoadGame:OnMasterServerEvent(MasterServerEvent) (at C:\Projects\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:66)
+Client spawning
  
-(Filename: C:/Projects/ProjektBerlin/ProjektBerlin/Assets/Scripts/LoadGame.cs Line: 66)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
-Server registered
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-LoadGame:OnMasterServerEvent(MasterServerEvent) (at C:\Projects\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:66)
- 
-(Filename: C:/Projects/ProjektBerlin/ProjektBerlin/Assets/Scripts/LoadGame.cs Line: 66)
-
-1
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Controller:setTurn(Boolean) (at C:\Projects\ProjektBerlin\ProjektBerlin\Assets\Scripts\Controller.cs:320)
-Controller:nextTurn() (at C:\Projects\ProjektBerlin\ProjektBerlin\Assets\Scripts\Controller.cs:394)
-Controller:checkStateEndOfAction() (at C:\Projects\ProjektBerlin\ProjektBerlin\Assets\Scripts\Controller.cs:295)
-Controller:Update() (at C:\Projects\ProjektBerlin\ProjektBerlin\Assets\Scripts\Controller.cs:468)
- 
-(Filename: C:/Projects/ProjektBerlin/ProjektBerlin/Assets/Scripts/Controller.cs Line: 320)
-
-NETWORK: Set turn called
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-NetworkLogic:setTurn(Boolean) (at C:\Projects\ProjektBerlin\ProjektBerlin\Assets\Scripts\NetworkLogic.cs:88)
- 
-(Filename: C:/Projects/ProjektBerlin/ProjektBerlin/Assets/Scripts/NetworkLogic.cs Line: 88)
-
-Isn't my turn
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-NetworkLogic:setTurn(Boolean) (at C:\Projects\ProjektBerlin\ProjektBerlin\Assets\Scripts\NetworkLogic.cs:90)
- 
-(Filename: C:/Projects/ProjektBerlin/ProjektBerlin/Assets/Scripts/NetworkLogic.cs Line: 90)
-
-I still have squads left!
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Controller:hasActiveSquads() (at C:\Projects\ProjektBerlin\ProjektBerlin\Assets\Scripts\Controller.cs:337)
-NetworkLogic:setTurn(Boolean) (at C:\Projects\ProjektBerlin\ProjektBerlin\Assets\Scripts\NetworkLogic.cs:95)
- 
-(Filename: C:/Projects/ProjektBerlin/ProjektBerlin/Assets/Scripts/Controller.cs Line: 337)
-
-Client
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Controller:hasActiveSquads() (at C:\Projects\ProjektBerlin\ProjektBerlin\Assets\Scripts\Controller.cs:340)
-NetworkLogic:setTurn(Boolean) (at C:\Projects\ProjektBerlin\ProjektBerlin\Assets\Scripts\NetworkLogic.cs:95)
- 
-(Filename: C:/Projects/ProjektBerlin/ProjektBerlin/Assets/Scripts/Controller.cs Line: 340)
-
-Number of objects in range: 29
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Combat:findTargets(GameObject, Single) (at C:\Projects\ProjektBerlin\ProjektBerlin\Assets\Scripts\Combat.cs:72)
-Controller:checkNewAction() (at C:\Projects\ProjektBerlin\ProjektBerlin\Assets\Scripts\Controller.cs:207)
-Controller:Update() (at C:\Projects\ProjektBerlin\ProjektBerlin\Assets\Scripts\Controller.cs:440)
- 
-(Filename: C:/Projects/ProjektBerlin/ProjektBerlin/Assets/Scripts/Combat.cs Line: 72)
-
-I shot someone!
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Controller:Update() (at C:\Projects\ProjektBerlin\ProjektBerlin\Assets\Scripts\Controller.cs:494)
- 
-(Filename: C:/Projects/ProjektBerlin/ProjektBerlin/Assets/Scripts/Controller.cs Line: 494)
-
-I'm dieing!
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-SquadManager:takeDamage(Int32, Boolean) (at C:\Projects\ProjektBerlin\ProjektBerlin\Assets\Scripts\SquadManager.cs:270)
+NullReferenceException: Object reference not set to an instance of an object
+  at SquadManager.paintColor () [0x00000] in <filename unknown>:0 
+  at RifleSquad.rifleInit () [0x00000] in <filename unknown>:0 
 UnityEngine.NetworkView:Internal_RPC(NetworkView, String, RPCMode, Object[])
-UnityEngine.NetworkView:RPC(String, RPCMode, Object[]) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\NetworkingBindings.gen.cs:401)
-<fightTarget>c__Iterator0:MoveNext() (at C:\Projects\ProjektBerlin\ProjektBerlin\Assets\Scripts\Combat.cs:109)
-UnityEngine.MonoBehaviour:StartCoroutine_Auto(IEnumerator)
-UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:62)
-Controller:Update() (at C:\Projects\ProjektBerlin\ProjektBerlin\Assets\Scripts\Controller.cs:495)
+UnityEngine.NetworkView:RPC(String, RPCMode, Object[])
+LoadGame:spawnPlayer()
+LoadGame:OnConnectedToServer()
  
-(Filename: C:/Projects/ProjektBerlin/ProjektBerlin/Assets/Scripts/SquadManager.cs Line: 270)
+(Filename:  Line: -1)
 
-0
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-Controller:setTurn(Boolean) (at C:\Projects\ProjektBerlin\ProjektBerlin\Assets\Scripts\Controller.cs:320)
-Controller:nextTurn() (at C:\Projects\ProjektBerlin\ProjektBerlin\Assets\Scripts\Controller.cs:394)
-Controller:checkStateEndOfAction() (at C:\Projects\ProjektBerlin\ProjektBerlin\Assets\Scripts\Controller.cs:295)
-Controller:Update() (at C:\Projects\ProjektBerlin\ProjektBerlin\Assets\Scripts\Controller.cs:497)
+Client spawning
  
-(Filename: C:/Projects/ProjektBerlin/ProjektBerlin/Assets/Scripts/Controller.cs Line: 320)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at SquadManager.paintColor () [0x00000] in <filename unknown>:0 
+  at RifleSquad.rifleInit () [0x00000] in <filename unknown>:0 
+UnityEngine.NetworkView:Internal_RPC(NetworkView, String, RPCMode, Object[])
+UnityEngine.NetworkView:RPC(String, RPCMode, Object[])
+LoadGame:spawnPlayer()
+LoadGame:OnConnectedToServer()
+ 
+(Filename:  Line: -1)
+
+Client spawning
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at SquadManager.paintColor () [0x00000] in <filename unknown>:0 
+  at SniperSquad.sniperInit () [0x00000] in <filename unknown>:0 
+UnityEngine.NetworkView:Internal_RPC(NetworkView, String, RPCMode, Object[])
+UnityEngine.NetworkView:RPC(String, RPCMode, Object[])
+LoadGame:spawnPlayer()
+LoadGame:OnConnectedToServer()
+ 
+(Filename:  Line: -1)
+
+Client spawning
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at SquadManager.paintColor () [0x00000] in <filename unknown>:0 
+  at ShotgunSquad.shotgunInit () [0x00000] in <filename unknown>:0 
+UnityEngine.NetworkView:Internal_RPC(NetworkView, String, RPCMode, Object[])
+UnityEngine.NetworkView:RPC(String, RPCMode, Object[])
+LoadGame:spawnPlayer()
+LoadGame:OnConnectedToServer()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at SquadManager.paintColor () [0x00000] in <filename unknown>:0 
+  at RifleSquad.rifleInit () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at SquadManager.paintColor () [0x00000] in <filename unknown>:0 
+  at RifleSquad.rifleInit () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at SquadManager.paintColor () [0x00000] in <filename unknown>:0 
+  at SniperSquad.sniperInit () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at SquadManager.paintColor () [0x00000] in <filename unknown>:0 
+  at ShotgunSquad.shotgunInit () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
 

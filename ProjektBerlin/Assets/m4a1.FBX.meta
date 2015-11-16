@@ -1,0 +1,130 @@
+fileFormatVersion: 2
+guid: 9d3e12680049a5b45aacf50b3d4120b2
+timeCreated: 1447170195
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Bone001
+    100002: //RootNode
+    100004: m4a1_aimpoint_comp_m4
+    100006: m4a1_aimpoint_comp_m4_lenses
+    100008: m4a1_bolt
+    100010: m4a1_front sight
+    100012: m4a1_lower receiver
+    100014: m4a1_magazine
+    100016: m4a1_stock
+    100018: m4a1_tactical foregrip
+    100020: m4a1_troy_rear_base
+    100022: m4a1_troy_rear_post
+    100024: m4a1_upper receiver
+    400000: Bone001
+    400002: //RootNode
+    400004: m4a1_aimpoint_comp_m4
+    400006: m4a1_aimpoint_comp_m4_lenses
+    400008: m4a1_bolt
+    400010: m4a1_front sight
+    400012: m4a1_lower receiver
+    400014: m4a1_magazine
+    400016: m4a1_stock
+    400018: m4a1_tactical foregrip
+    400020: m4a1_troy_rear_base
+    400022: m4a1_troy_rear_post
+    400024: m4a1_upper receiver
+    2300000: m4a1_aimpoint_comp_m4
+    2300002: m4a1_aimpoint_comp_m4_lenses
+    2300004: m4a1_bolt
+    2300006: m4a1_front sight
+    2300008: m4a1_lower receiver
+    2300010: m4a1_magazine
+    2300012: m4a1_stock
+    2300014: m4a1_tactical foregrip
+    2300016: m4a1_troy_rear_base
+    2300018: m4a1_troy_rear_post
+    2300020: m4a1_upper receiver
+    3300000: m4a1_aimpoint_comp_m4
+    3300002: m4a1_aimpoint_comp_m4_lenses
+    3300004: m4a1_bolt
+    3300006: m4a1_front sight
+    3300008: m4a1_lower receiver
+    3300010: m4a1_magazine
+    3300012: m4a1_stock
+    3300014: m4a1_tactical foregrip
+    3300016: m4a1_troy_rear_base
+    3300018: m4a1_troy_rear_post
+    3300020: m4a1_upper receiver
+    4300000: m4a1_lower receiver
+    4300002: m4a1_upper receiver
+    4300004: m4a1_front sight
+    4300006: m4a1_troy_rear_base
+    4300008: m4a1_troy_rear_post
+    4300010: m4a1_stock
+    4300012: m4a1_bolt
+    4300014: m4a1_aimpoint_comp_m4
+    4300016: m4a1_aimpoint_comp_m4_lenses
+    4300018: m4a1_tactical foregrip
+    4300020: m4a1_magazine
+    7400000: Take 001
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
