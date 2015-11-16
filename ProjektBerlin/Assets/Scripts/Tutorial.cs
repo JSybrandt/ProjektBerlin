@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
-public class Controller : MonoBehaviour
+public class Tutorial : MonoBehaviour
 {
     //FLAGS:
     private bool finalTurn = false;
@@ -84,15 +84,15 @@ public class Controller : MonoBehaviour
 		comCanvas = GameObject.Find("CombatCanvas").GetComponent<Canvas>();
 		firstActCanvas = GameObject.Find("FirstActionCanvas").GetComponent<Canvas>();
 		secondActCanvas = GameObject.Find("SecondActionCanvas").GetComponent<Canvas>();
-		waitCanvas = GameObject.Find ("WaitingCanvas").GetComponent<Canvas> ();
-		mainCanvas = GameObject.Find ("MainMenu").GetComponent<Canvas> ();
+		//waitCanvas = GameObject.Find ("WaitingCanvas").GetComponent<Canvas> ();
+		//mainCanvas = GameObject.Find ("MainMenu").GetComponent<Canvas> ();
 
-        Combat.gameLogic = this;
+        TutorialCombat.gameLogic = this;
 
         marker = new GameObject();
         marker.transform.position = Vector3.zero;
 
-		allSquads = GetComponent<LoadGame> ().getAllSquads();
+		allSquads = GetComponent<TutorialLoad> ().getAllSquads();
 
         selectedLight = GameObject.Find("SelectedLight").GetComponent<Light>();
         if (selectedLight == null) throw new MissingReferenceException("Need SelectedLight");
@@ -163,9 +163,9 @@ public class Controller : MonoBehaviour
 		return Camera.main.GetComponent<CameraController> ();
 	}
 
-    private SquadManager getSelectedManager()
+    private TutorialManager getSelectedManager()
     {
-        return squads[selectedSquadIndex].GetComponent<SquadManager>();
+        return squads[selectedSquadIndex].GetComponent<TutorialManager>();
     }
 
     private void checkNewAction()
@@ -189,7 +189,7 @@ public class Controller : MonoBehaviour
             {
 				attack.Play();
                 currentStage = TurnStage.Combat;
-                Combat.findTargets(selectedRB.gameObject);
+                TutorialCombat.findTargets(selectedRB.gameObject);
                 updateUI();
             }
         }
@@ -245,16 +245,17 @@ public class Controller : MonoBehaviour
     public void gameOver(int playerWinner)
     {
         Debug.Log("GAME OVER! PLAYER " + playerWinner + " victory!");
-        Application.Quit();
+        
         isRunning = false;
         currentStage = TurnStage.None;
         updateUI();
+        Application.LoadLevel("Sprint 2");
         return;
     }
 
     public void checkStateEndOfAction()
     {
-        Combat.reset();
+        TutorialCombat.reset();
         currentAttack = AttackType.Basic;
         getSelectedManager().disableSelect();
         attackProj.enabled = false;
@@ -262,13 +263,13 @@ public class Controller : MonoBehaviour
 
         if (GameObject.FindGameObjectsWithTag("Player0Squad").Length == 0)
         {
-            nLogicView.RPC("gameOver", RPCMode.All, 2);
+            gameOver(2);
             return;
         }
 
         if (GameObject.FindGameObjectsWithTag("Player1Squad").Length == 0)
         {
-            nLogicView.RPC("gameOver", RPCMode.All, 1);
+            gameOver(1);
             return;
         }
 
@@ -276,7 +277,8 @@ public class Controller : MonoBehaviour
 			currentStage = TurnStage.None;
 		}
 		else if(getSelectedManager ().numActions == 0) {
-            getSelectedManager().nView.RPC("activeSquadColor", RPCMode.All, false);
+            //getSelectedManager().nView.RPC("activeSquadColor", RPCMode.All, false);
+            getSelectedManager().activeSquadColor(false);
             nextTurn();
 		}
         else
@@ -317,7 +319,7 @@ public class Controller : MonoBehaviour
     {
         foreach(GameObject g in allSquads)
         {
-            if (g.GetComponent<SquadManager>().numActions > 0 && g.activeInHierarchy)
+            if (g.GetComponent<TutorialManager>().numActions > 0 && g.activeInHierarchy)
             {
                 Debug.Log("I still have squads left!");
 
@@ -349,15 +351,15 @@ public class Controller : MonoBehaviour
         {
             foreach (GameObject g in allSquads)
             {
-                if (g.GetComponent<SquadManager>().numActions > 0 && g.activeInHierarchy)
+                if (g.GetComponent<TutorialManager>().numActions > 0 && g.activeInHierarchy)
                     return isRoundOver = false;
             }
 
             //This is here so it is only called once per round
             if (!isOtherRoundOver)
             {
-                nLogicView.RPC("otherRoundOver", RPCMode.Others);
-                nLogicView.RPC("setTurn", RPCMode.Others, true);
+                //nLogicView.RPC("otherRoundOver", RPCMode.Others);
+                //nLogicView.RPC("setTurn", RPCMode.Others, true);
                 setTurn(false);
             }
         }
@@ -366,18 +368,20 @@ public class Controller : MonoBehaviour
     }
 
 	public void nextTurn(){    //What happens if the last dude to go dies, but hasn't called end of round?
-        if (checkRoundComplete() && isOtherRoundOver)
-        {
-            nLogicView.RPC("nextRound", RPCMode.All, true);     //Call everyone to reset round
-            setTurn(false);
-            nLogicView.RPC("setTurn", RPCMode.Others, true);    //This player went last, so other player goes first                   
-        }
-        else
-        {
-            currentStage = TurnStage.None;
-            nLogicView.RPC("setTurn", RPCMode.Others, true);
-            setTurn(false);
-        }
+        nextRound();
+        setTurn(true);
+        //if (checkRoundComplete() && isOtherRoundOver)
+        //{
+        //    nLogicView.RPC("nextRound", RPCMode.All, true);     //Call everyone to reset round
+        //    setTurn(false);
+        //    nLogicView.RPC("setTurn", RPCMode.Others, true);    //This player went last, so other player goes first                   
+        //}
+        //else
+        //{
+        //    currentStage = TurnStage.None;
+        //    nLogicView.RPC("setTurn", RPCMode.Others, true);
+        //    setTurn(false);
+        //}
 	}
 
     public void begin()
@@ -392,7 +396,7 @@ public class Controller : MonoBehaviour
         foreach (GameObject g in allSquads)
         {
             if(g.activeInHierarchy)
-                g.GetComponent<SquadManager>().resetActions();
+                g.GetComponent<TutorialManager>().resetActions();
         }
         isRoundOver = false;
         isOtherRoundOver = false;
@@ -473,11 +477,11 @@ public class Controller : MonoBehaviour
                 }
                 if (currentAttack == AttackType.Basic)
                 {
-					if (Combat.UpdateTarget(selectedRB.GetComponent<SquadManager>()))   //A
+					if (TutorialCombat.UpdateTarget(selectedRB.GetComponent<TutorialManager>()))   //A
                     {
 						getMainCamController().freezeCamera (2);
                         Debug.Log("I shot someone!");
-                        StartCoroutine(Combat.fightTarget(selectedRB.gameObject,getSelectedManager().getPower()));
+                        StartCoroutine(TutorialCombat.fightTarget(selectedRB.gameObject,getSelectedManager().getPower()));
                         getSelectedManager().skipAction();
                         checkStateEndOfAction();
                         updateUI();
@@ -493,7 +497,7 @@ public class Controller : MonoBehaviour
                     if (Input.GetButtonUp("Square"))
                     {
                         currentAttack = AttackType.Unit;
-                        Combat.reset();
+                        TutorialCombat.reset();
                         attackProj.enabled = false;
                         Debug.Log("Unit Ability");
                         getSelectedManager().unitAbility();
@@ -501,7 +505,7 @@ public class Controller : MonoBehaviour
                     if (Input.GetButtonUp("Triangle"))
                     {
                         currentAttack = AttackType.Squad;
-                        Combat.reset();
+                        TutorialCombat.reset();
                         attackProj.enabled = false;
                         changeUnit.enabled = true;
                         getSelectedManager().squadAbility();
@@ -521,7 +525,7 @@ public class Controller : MonoBehaviour
                 {
                     
                     currentAttack = AttackType.Basic;
-                    Combat.findTargets(selectedRB.gameObject);
+                    TutorialCombat.findTargets(selectedRB.gameObject);
                 }
             }
             setLight();
@@ -530,38 +534,43 @@ public class Controller : MonoBehaviour
 
 	public void updateUI(bool showNetScreen=false){
 
-
-		waitCanvas.enabled = mainCanvas.enabled = movCanvas.enabled = comCanvas.enabled = firstActCanvas.enabled = secondActCanvas.enabled = false;
-		if (showNetScreen)
-			mainCanvas.enabled = true;
-		else {
-			if (isTurn && isRunning) {
+        //waitCanvas.enabled = mainCanvas.enabled =
+        movCanvas.enabled = comCanvas.enabled = firstActCanvas.enabled = secondActCanvas.enabled = false;
+        if (showNetScreen)
+            showNetScreen = true;
+        else
+        {
+            if (isTurn && isRunning)
+            {
                 selectedLight.enabled = true;
 
-                switch (currentStage) {
-				    case TurnStage.Combat:
+                switch (currentStage)
+                {
+                    case TurnStage.Combat:
                         getSelectedManager().disableSelect();
-					    comCanvas.enabled = true;
-					    break;
-				    case TurnStage.InBetween:
+                        comCanvas.enabled = true;
+                        break;
+                    case TurnStage.InBetween:
                         getSelectedManager().disableSelect();
                         secondActCanvas.enabled = true;
-					    break;
-				    case TurnStage.Moving:
+                        break;
+                    case TurnStage.Moving:
                         getSelectedManager().disableSelect();
                         movCanvas.enabled = true;
-					    break;
-				    case TurnStage.None: 
+                        break;
+                    case TurnStage.None:
                         getSelectedManager().enableSelect();
-					    firstActCanvas.enabled = true;
-					    break;
-				}
-			} else {
+                        firstActCanvas.enabled = true;
+                        break;
+                }
+            }
+            else
+            {
                 changeUnit.enabled = false;
                 selectedLight.enabled = false;
-				waitCanvas.enabled = true;
-			}
-		}
+                //waitCanvas.enabled = true;
+            }
+        }
 	}
 
 }
