@@ -1,9 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+<<<<<<< HEAD
 <<<<<<< .merge_file_a09256
 =======
 using System.Collections.Generic;
 >>>>>>> .merge_file_a02008
+=======
+using System.Collections.Generic;
+>>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
 
 public class LoadGame : MonoBehaviour
 {
@@ -113,11 +117,15 @@ public class LoadGame : MonoBehaviour
                 NetworkView sView = newSquad.GetComponent<NetworkView>();
                 sView.RPC("init", RPCMode.AllBuffered, sTag);
 
+<<<<<<< HEAD
 <<<<<<< .merge_file_a09256
                 newSquad.GetComponent<SquadManager>().setColor(greenText);
 =======
                 newSquad.GetComponent<SquadManager>().setColor(Color.green);
 >>>>>>> .merge_file_a02008
+=======
+                newSquad.GetComponent<SquadManager>().setColor(Color.green);
+>>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
 
                 Debug.Log("Server spawning");
                 if (i <= 5)
@@ -135,11 +143,15 @@ public class LoadGame : MonoBehaviour
 				GameObject newSquad = (GameObject)Network.Instantiate (SquadPrefab, new Vector3 (i, 1, 60), Quaternion.identity,0);
                 string sTag = "Player1Squad";
                 NetworkView sView = newSquad.GetComponent<NetworkView>();
+<<<<<<< HEAD
 <<<<<<< .merge_file_a09256
                 newSquad.GetComponent<SquadManager>().setColor(greenText);
 =======
                 newSquad.GetComponent<SquadManager>().setColor(Color.green);
 >>>>>>> .merge_file_a02008
+=======
+                newSquad.GetComponent<SquadManager>().setColor(Color.green);
+>>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
                 sView.RPC("init", RPCMode.AllBuffered, sTag);
 
                 Debug.Log("Client spawning");
@@ -156,11 +168,16 @@ public class LoadGame : MonoBehaviour
 		
 		Controller controllerScript = GetComponent<Controller>();
 		controllerScript.init ();
+<<<<<<< HEAD
 <<<<<<< .merge_file_a09256
 =======
 
 
 >>>>>>> .merge_file_a02008
+=======
+
+
+>>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
         if (Network.isServer)
         {
             controllerScript.setTurn(true);
