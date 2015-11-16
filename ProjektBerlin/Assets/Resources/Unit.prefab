@@ -211,7 +211,7 @@ GameObject:
   - 33: {fileID: 3342596}
   - 23: {fileID: 2379340}
   m_Layer: 0
-  m_Name: Cylinder
+  m_Name: UnitBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2002,7 +2002,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 194170}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -33.4812279, y: 0, z: 16.2173691}
+  m_LocalPosition: {x: -31.8668365, y: 0, z: 17.356842}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 460282}
@@ -2732,15 +2732,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: m_LocalScale.x
-      value: .150000006
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalScale.y
-      value: .150000006
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalScale.z
-      value: .150000006
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Enabled
