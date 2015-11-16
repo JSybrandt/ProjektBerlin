@@ -1,2 +1,6 @@
+<<<<<<< .merge_file_a10480
 m_EditorVersion: 5.1.2p3
+=======
+m_EditorVersion: 5.2.0f3
+>>>>>>> .merge_file_a03388
 m_StandardAssetsVersion: 0

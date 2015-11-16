@@ -11,6 +11,10 @@ TagManager:
   - Player1Base
   - Player0Base
   - Dead
+<<<<<<< .merge_file_a07288
+=======
+  - UnitBase
+>>>>>>> .merge_file_a09268
   layers:
   - Default
   - TransparentFX

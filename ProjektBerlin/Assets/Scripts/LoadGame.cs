@@ -1,5 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
+<<<<<<< .merge_file_a09256
+=======
+using System.Collections.Generic;
+>>>>>>> .merge_file_a02008
 
 public class LoadGame : MonoBehaviour
 {
@@ -109,7 +113,11 @@ public class LoadGame : MonoBehaviour
                 NetworkView sView = newSquad.GetComponent<NetworkView>();
                 sView.RPC("init", RPCMode.AllBuffered, sTag);
 
+<<<<<<< .merge_file_a09256
                 newSquad.GetComponent<SquadManager>().setColor(greenText);
+=======
+                newSquad.GetComponent<SquadManager>().setColor(Color.green);
+>>>>>>> .merge_file_a02008
 
                 Debug.Log("Server spawning");
                 if (i <= 5)
@@ -127,7 +135,11 @@ public class LoadGame : MonoBehaviour
 				GameObject newSquad = (GameObject)Network.Instantiate (SquadPrefab, new Vector3 (i, 1, 60), Quaternion.identity,0);
                 string sTag = "Player1Squad";
                 NetworkView sView = newSquad.GetComponent<NetworkView>();
+<<<<<<< .merge_file_a09256
                 newSquad.GetComponent<SquadManager>().setColor(greenText);
+=======
+                newSquad.GetComponent<SquadManager>().setColor(Color.green);
+>>>>>>> .merge_file_a02008
                 sView.RPC("init", RPCMode.AllBuffered, sTag);
 
                 Debug.Log("Client spawning");
@@ -144,6 +156,11 @@ public class LoadGame : MonoBehaviour
 		
 		Controller controllerScript = GetComponent<Controller>();
 		controllerScript.init ();
+<<<<<<< .merge_file_a09256
+=======
+
+
+>>>>>>> .merge_file_a02008
         if (Network.isServer)
         {
             controllerScript.setTurn(true);
