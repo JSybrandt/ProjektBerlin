@@ -60,14 +60,28 @@ PlayerSettings:
   xboxSpeechDB: 0
   xboxEnableHeadOrientation: 0
   xboxEnableGuest: 0
+<<<<<<< HEAD
+<<<<<<< .merge_file_a02988
+=======
   n3dsDisableStereoscopicView: 0
   n3dsEnableSharedListOpt: 1
   n3dsEnableVSync: 0
+>>>>>>> .merge_file_a08888
+=======
+  n3dsDisableStereoscopicView: 0
+  n3dsEnableSharedListOpt: 1
+  n3dsEnableVSync: 0
+>>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   xboxOneResolution: 0
   ps3SplashScreen: {fileID: 0}
   videoMemoryForVertexBuffers: 0
   psp2PowerMode: 0
   psp2AcquireBGM: 1
+<<<<<<< HEAD
+<<<<<<< .merge_file_a02988
+=======
+=======
+>>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   wiiUTVResolution: 0
   wiiUGamePadMSAA: 1
   wiiUSupportsNunchuk: 0
@@ -77,6 +91,10 @@ PlayerSettings:
   wiiUSupportsProController: 0
   wiiUAllowScreenCapture: 1
   wiiUControllerCount: 0
+<<<<<<< HEAD
+>>>>>>> .merge_file_a08888
+=======
+>>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   m_SupportedAspectRatios:
     4:3: 1
     5:4: 1
@@ -96,10 +114,22 @@ PlayerSettings:
   AndroidPreferredInstallLocation: 1
   aotOptions: 
   apiCompatibilityLevel: 2
+<<<<<<< HEAD
+<<<<<<< .merge_file_a02988
+  iPhoneStrippingLevel: 0
+  iPhoneScriptCallOptimization: 0
+=======
   stripEngineCode: 1
   iPhoneStrippingLevel: 0
   iPhoneScriptCallOptimization: 0
   iPhoneBuildNumber: 0
+>>>>>>> .merge_file_a08888
+=======
+  stripEngineCode: 1
+  iPhoneStrippingLevel: 0
+  iPhoneScriptCallOptimization: 0
+  iPhoneBuildNumber: 0
+>>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   ForceInternetPermission: 0
   ForceSDCardPermission: 0
   CreateWallpaper: 0
@@ -158,6 +188,11 @@ PlayerSettings:
   m_BuildTargetGraphicsAPIs: []
   webPlayerTemplate: APPLICATION:Default
   m_TemplateCustomTags: {}
+<<<<<<< HEAD
+<<<<<<< .merge_file_a02988
+=======
+=======
+>>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   wiiUTitleID: 0005000011000000
   wiiUGroupID: 00010000
   wiiUCommonSaveSize: 4096
@@ -175,6 +210,10 @@ PlayerSettings:
   wiiUTVStartupScreen: {fileID: 0}
   wiiUGamePadStartupScreen: {fileID: 0}
   wiiUProfilerLibPath: 
+<<<<<<< HEAD
+>>>>>>> .merge_file_a08888
+=======
+>>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   actionOnDotNetUnhandledException: 1
   enableInternalProfiler: 0
   logObjCUncaughtExceptions: 1
@@ -225,18 +264,40 @@ PlayerSettings:
   ps4BackgroundImagePath: 
   ps4StartupImagePath: 
   ps4SaveDataImagePath: 
+<<<<<<< HEAD
+<<<<<<< .merge_file_a02988
+=======
+  ps4SdkOverride: 
+>>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
+  ps4BGMPath: 
+  ps4ShareFilePath: 
+  ps4NPtitleDatPath: 
+  ps4RemotePlayKeyAssignment: -1
+<<<<<<< HEAD
+=======
   ps4SdkOverride: 
   ps4BGMPath: 
   ps4ShareFilePath: 
   ps4NPtitleDatPath: 
   ps4RemotePlayKeyAssignment: -1
   ps4RemotePlayKeyMappingDir: 
+>>>>>>> .merge_file_a08888
+=======
+  ps4RemotePlayKeyMappingDir: 
+>>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   ps4EnterButtonAssignment: 1
   ps4ApplicationParam1: 0
   ps4ApplicationParam2: 0
   ps4ApplicationParam3: 0
   ps4ApplicationParam4: 0
+<<<<<<< HEAD
+<<<<<<< .merge_file_a02988
+=======
   ps4DownloadDataSize: 0
+>>>>>>> .merge_file_a08888
+=======
+  ps4DownloadDataSize: 0
+>>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   ps4GarlicHeapSize: 2048
   ps4Passcode: 1O8YFOGKjxRrJBdT3hVOfoaMeAjSWfch
   ps4pnSessions: 1
@@ -244,11 +305,20 @@ PlayerSettings:
   ps4pnFriends: 1
   ps4pnGameCustomData: 1
   playerPrefsSupport: 0
+<<<<<<< HEAD
+<<<<<<< .merge_file_a02988
+=======
+=======
+>>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   ps4ReprojectionSupport: 0
   ps4attribUserManagement: 0
   ps4attribMoveSupport: 0
   ps4attrib3DSupport: 0
   ps4attribShareSupport: 0
+<<<<<<< HEAD
+>>>>>>> .merge_file_a08888
+=======
+>>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   monoEnv: 
   psp2Splashimage: {fileID: 0}
   psp2NPTrophyPackPath: 
@@ -389,6 +459,11 @@ PlayerSettings:
   tizenSigningProfileName: 
   tizenGPSPermissions: 0
   tizenMicrophonePermissions: 0
+<<<<<<< HEAD
+<<<<<<< .merge_file_a02988
+=======
+=======
+>>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   n3dsUseExtSaveData: 0
   n3dsCompressStaticMem: 1
   n3dsExtSaveDataNumber: 0x12345
@@ -400,6 +475,10 @@ PlayerSettings:
   n3dsTitle: GameName
   n3dsProductCode: 
   n3dsApplicationId: 0xFF3FF
+<<<<<<< HEAD
+>>>>>>> .merge_file_a08888
+=======
+>>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   stvDeviceAddress: 
   stvProductDescription: 
   stvProductAuthor: 
@@ -469,6 +548,13 @@ PlayerSettings:
   additionalIl2CppArgs::additionalIl2CppArgs: 
   firstStreamedSceneWithResources: 0
   cloudProjectId: 
+<<<<<<< HEAD
+<<<<<<< .merge_file_a02988
+  projectId: 
+=======
+>>>>>>> .merge_file_a08888
+=======
+>>>>>>> 889fc7f43840b14088dcb5424f09d68c1f096975
   projectName: 
   organizationId: 
   cloudEnabled: 0
