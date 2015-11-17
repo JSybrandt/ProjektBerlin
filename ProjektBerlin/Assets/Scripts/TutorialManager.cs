@@ -198,8 +198,10 @@ public class TutorialManager : MonoBehaviour
         {
             positionAtActionStart = transform.position;
             moveProj.transform.position = new Vector3(transform.position.x, 9, transform.position.z);
-            moveProj.orthographicSize = movementDistance + 3;
+            moveProj.orthographicSize = movementDistance + 2;
             moveProj.gameObject.SetActive(true);
+            attackProj.orthographicSize = attackDistance;
+            attackProj.gameObject.SetActive(true);
             _midMovement = true;
             prevCover = inCover;
             inCover = false;
@@ -252,6 +254,7 @@ public class TutorialManager : MonoBehaviour
             transform.position = positionAtActionStart;
             inCover = prevCover;
             moveProj.gameObject.SetActive(false);
+            attackProj.gameObject.SetActive(false);
         }
         else throw new UnityException("Attempted to undo a move when squad had not moved");
     }

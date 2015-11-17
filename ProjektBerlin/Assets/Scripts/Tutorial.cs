@@ -193,21 +193,6 @@ public class Tutorial : MonoBehaviour
                 updateUI();
             }
         }
-        /*//skip
-        if (Input.GetAxis("DpadV") == -1)
-        {
-            if (getSelectedManager().numActions > 0)
-            {
-                currentStage = TurnStage.InBetween;
-                getSelectedManager().skipAction();
-            }
-            if (getSelectedManager().numActions == 0)
-            {
-                currentStage = TurnStage.None;
-            }
-			checkStateEndOfAction();
-        }
-		*/
     }
 
 	private void selectNextAvailableSquad(){
@@ -332,12 +317,6 @@ public class Tutorial : MonoBehaviour
             }
         }
 
-        Debug.Log("No squads left.");
-        if (Network.isServer)
-            Debug.Log("Client");
-        else if (Network.isClient)
-            Debug.Log("Server");
-
         return false;
     }
 
@@ -370,18 +349,6 @@ public class Tutorial : MonoBehaviour
 	public void nextTurn(){    //What happens if the last dude to go dies, but hasn't called end of round?
         nextRound();
         setTurn(true);
-        //if (checkRoundComplete() && isOtherRoundOver)
-        //{
-        //    nLogicView.RPC("nextRound", RPCMode.All, true);     //Call everyone to reset round
-        //    setTurn(false);
-        //    nLogicView.RPC("setTurn", RPCMode.Others, true);    //This player went last, so other player goes first                   
-        //}
-        //else
-        //{
-        //    currentStage = TurnStage.None;
-        //    nLogicView.RPC("setTurn", RPCMode.Others, true);
-        //    setTurn(false);
-        //}
 	}
 
     public void begin()

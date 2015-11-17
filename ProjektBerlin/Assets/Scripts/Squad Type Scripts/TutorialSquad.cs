@@ -45,7 +45,7 @@ public class TutorialSquad : MonoBehaviour {
 
         squad.units[squad.units.Length - 1].GetComponent<UnitManager>().power *= 2;
         squad.units[squad.units.Length - 1].GetComponent<UnitManager>().isSpecial = true;
-        squad.units[squad.units.Length - 1].transform.localScale = new Vector3(.25f, .25f, .25f);
+        squad.units[squad.units.Length - 1].transform.localScale = new Vector3(1.25f, 1.25f, 1.25f);
 
         squad.unitAbility = new TutorialManager.Ability(grenade);
         squad.squadAbility = new TutorialManager.Ability(retreat);
@@ -73,7 +73,7 @@ public class TutorialSquad : MonoBehaviour {
 
             foreach(GameObject target in targets)
             {
-                SquadManager enemy = target.GetComponent<SquadManager>();
+                TutorialManager enemy = target.GetComponent<TutorialManager>();
 				ShotsFired shot = new ShotsFired(this.transform.position,
 				                                 enemy.transform.position,
 				                                 enemy.getActiveUnitsCount(),

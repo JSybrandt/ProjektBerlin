@@ -117,19 +117,17 @@ public class TutorialLoad : MonoBehaviour
 
         allSquads.Add(newSquad);
 
-        //}
-        //if (Network.isClient)
-        //{
+        GameObject[] spawners = GameObject.FindGameObjectsWithTag("Spawner");
 
-        Vector3 spawner = GameObject.FindGameObjectWithTag("Spawner").transform.position;
+        foreach(GameObject spawner in spawners)
+        {
+            newSquad = (GameObject)Instantiate(SquadPrefab, spawner.transform.position, Quaternion.identity);
+            sTag = "Player1Squad";
+            newSquad.GetComponent<TutorialManager>().init(sTag);
+            newSquad.GetComponent<TutorialSquad>().rifleInit();
 
-        newSquad = (GameObject)Instantiate(SquadPrefab, spawner, Quaternion.identity);
-        sTag = "Player1Squad";
-        newSquad.GetComponent<TutorialManager>().init(sTag);
-        newSquad.GetComponent<TutorialSquad>().rifleInit();
-
-        allSquads.Add(newSquad);
-        //}
+            allSquads.Add(newSquad);
+        }
 
         Tutorial controllerScript = GetComponent<Tutorial>();
         controllerScript.init();
