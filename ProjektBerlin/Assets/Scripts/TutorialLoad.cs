@@ -29,6 +29,7 @@ public class TutorialLoad : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+		GameObject.Find ("GameOverMenu").GetComponent<Canvas> ().enabled = false;
         GameObject.Find("MovementCanvas").GetComponent<Canvas>().enabled = false;
         GameObject.Find("CombatCanvas").GetComponent<Canvas>().enabled = false;
         GameObject.Find("FirstActionCanvas").GetComponent<Canvas>().enabled = false;
@@ -168,6 +169,7 @@ public class TutorialLoad : MonoBehaviour
 
     public void Update()
     {
+		if(Input.GetButtonDown("Start"))GameObject.Find ("GameOverMenu").GetComponent<Canvas> ().enabled = true;
         //If we have started to look for available servers, look every frame until we find one.
         if (!Controller.getIsRunning() && (hostData == null || refreshingHostList))
         {

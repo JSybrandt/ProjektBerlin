@@ -9,3 +9,5 @@ EditorBuildSettings:
     path: Assets/Project Berlin.unity
   - enabled: 1
     path: Assets/Sprint 2.unity
+  - enabled: 1
+    path: Assets/Tutorial.unity

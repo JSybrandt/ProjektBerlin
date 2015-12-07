@@ -28,6 +28,7 @@ public class LoadGame : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+		GameObject.Find ("GameOverMenu").GetComponent<Canvas> ().enabled = false;
 		GameObject.Find("MovementCanvas").GetComponent<Canvas>().enabled=false;
 		GameObject.Find("CombatCanvas").GetComponent<Canvas>().enabled=false;
 		GameObject.Find("FirstActionCanvas").GetComponent<Canvas>().enabled=false;
@@ -224,6 +225,9 @@ public class LoadGame : MonoBehaviour
     }
 
     public void Update(){
+		if(!GameObject.Find ("MainMenu").GetComponent<Canvas> ().enabled && 
+		   Input.GetButtonDown("Start"))GameObject.Find ("GameOverMenu").GetComponent<Canvas> ().enabled = true;
+
         //If we have started to look for available servers, look every frame until we find one.
 		if (!Controller.getIsRunning() &&(hostData ==null || refreshingHostList))
         {
