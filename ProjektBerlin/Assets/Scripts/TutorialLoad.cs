@@ -81,15 +81,17 @@ public class TutorialLoad : MonoBehaviour
         allSquads.Add(newSquad);
 
         GameObject[] spawners = GameObject.FindGameObjectsWithTag("Spawner");
-
+        int x = 0;
         foreach(GameObject spawner in spawners)
         {
             newSquad = (GameObject)Instantiate(SquadPrefab, spawner.transform.position, Quaternion.identity);
             sTag = "Player1Squad";
             newSquad.GetComponent<TutorialManager>().init(sTag);
             newSquad.GetComponent<TutorialSquad>().rifleInit();
-
+            if (x == 0)
+                newSquad.GetComponent<TutorialManager>().inCover = true;
             allSquads.Add(newSquad);
+            x++;
         }
 
         Tutorial controllerScript = GetComponent<Tutorial>();

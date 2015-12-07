@@ -118,7 +118,7 @@ public class TutorialManager : MonoBehaviour
         lightPiece.intensity = 8;
         tag = squadTag;
 
-        attackDistance = 20;
+        attackDistance = 2;
         movementDistance = 20;
         //offColor = myColor / 2;
 

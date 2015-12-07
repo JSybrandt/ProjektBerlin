@@ -38,6 +38,8 @@ public static class TutorialCombat
     {
         reset();
 
+        //Debug.Log("Attack Radius: " + attack);
+
         gameLogic.changeUnit.material.color = Color.red;
         gameLogic.changeUnit.enabled = false;
 
@@ -47,6 +49,7 @@ public static class TutorialCombat
             attackRange = attack;
         else
             attackRange = squad.attackDistance;
+        Debug.Log("Attack Radius: " + attackRange);
 
         Vector3 myPos = me.transform.position;
 
@@ -105,7 +108,7 @@ public static class TutorialCombat
 
     public static IEnumerator fightTarget(GameObject me, int power)
     {
-        ShotsFired myHits = detectHits(me,power);
+        ShotsFired myHits = detectHits(me, power);
         int damage = calculateDamage(myHits);
         NetworkView nView = getTarget().GetComponent<NetworkView>();
 
