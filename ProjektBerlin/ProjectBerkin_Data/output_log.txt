@@ -2,9 +2,9 @@ Mono path[0] = 'C:/Users/nalta/Documents/ProjektBerlin/ProjektBerlin/ProjectBerk
 Mono path[1] = 'C:/Users/nalta/Documents/ProjektBerlin/ProjektBerlin/ProjectBerkin_Data/Mono'
 Mono config path = 'C:/Users/nalta/Documents/ProjektBerlin/ProjektBerlin/ProjectBerkin_Data/Mono/etc'
 PlayerConnection initialized from C:/Users/nalta/Documents/ProjektBerlin/ProjektBerlin/ProjectBerkin_Data (debug = 0)
-PlayerConnection initialized network socket : 0.0.0.0 55360
-Multi-casting "[IP] 10.24.102.157 [Port] 55360 [Flags] 2 [Guid] 2939028420 [EditorId] 1826555173 [Version] 1048832 [Id] WindowsPlayer(DESKTOP-PMAU1NK) [Debug] 0" to [225.0.0.222:54997]...
-PlayerConnection already initialized - listening to [10.24.102.157:55360]
+PlayerConnection initialized network socket : 0.0.0.0 55132
+Multi-casting "[IP] 10.24.102.157 [Port] 55132 [Flags] 2 [Guid] 3344914234 [EditorId] 1589314364 [Version] 1048832 [Id] WindowsPlayer(DESKTOP-PMAU1NK) [Debug] 0" to [225.0.0.222:54997]...
+PlayerConnection already initialized - listening to [10.24.102.157:55132]
 Initialize engine version: 5.1.2p3 (65486b59c7a9)
 GfxDevice: creating device client; threaded=1
 Direct3D:
@@ -26,7 +26,7 @@ Loading C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\
 Platform assembly: C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
 Loading C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
 Platform assembly: C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.230 seconds
+- Completed reload, in  0.268 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
@@ -49,3 +49,89 @@ Don't use this function in the constructor or field initializers, instead move i
 
 Shader 'Hidden/TerrainEngine/Splatmap/Specular-Base': fallback shader 'Legacy Shaders/Specular' not found
 Shader 'Hidden/TerrainEngine/Splatmap/Specular-Base': fallback shader 'Legacy Shaders/Specular' not found
+Getting Host List
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+LoadGame:refreshHostList() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:224)
+MainMenu:Start() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Resources\UISprites\MainMenu.cs:28)
+ 
+(Filename: C:/Users/nalta/Documents/ProjektBerlin/ProjektBerlin/Assets/Scripts/LoadGame.cs Line: 224)
+
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 3520 -> priority: 1 
+  Thread -> id: 33f0 -> priority: 1 
+Host data recieved
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+LoadGame:Update() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:238)
+ 
+(Filename: C:/Users/nalta/Documents/ProjektBerlin/ProjektBerlin/Assets/Scripts/LoadGame.cs Line: 238)
+
+Server initialized
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+LoadGame:OnServerInitialized() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:57)
+UnityEngine.Network:InitializeServer(Int32, Int32, Boolean)
+LoadGame:makeGame() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:49)
+MainMenu:Update() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Resources\UISprites\MainMenu.cs:66)
+ 
+(Filename: C:/Users/nalta/Documents/ProjektBerlin/ProjektBerlin/Assets/Scripts/LoadGame.cs Line: 57)
+
+Server spawning
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+LoadGame:spawnPlayer() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:116)
+LoadGame:OnServerInitialized() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:58)
+UnityEngine.Network:InitializeServer(Int32, Int32, Boolean)
+LoadGame:makeGame() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:49)
+MainMenu:Update() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Resources\UISprites\MainMenu.cs:66)
+ 
+(Filename: C:/Users/nalta/Documents/ProjektBerlin/ProjektBerlin/Assets/Scripts/LoadGame.cs Line: 116)
+
+Server spawning
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+LoadGame:spawnPlayer() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:116)
+LoadGame:OnServerInitialized() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:58)
+UnityEngine.Network:InitializeServer(Int32, Int32, Boolean)
+LoadGame:makeGame() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:49)
+MainMenu:Update() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Resources\UISprites\MainMenu.cs:66)
+ 
+(Filename: C:/Users/nalta/Documents/ProjektBerlin/ProjektBerlin/Assets/Scripts/LoadGame.cs Line: 116)
+
+Server spawning
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+LoadGame:spawnPlayer() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:116)
+LoadGame:OnServerInitialized() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:58)
+UnityEngine.Network:InitializeServer(Int32, Int32, Boolean)
+LoadGame:makeGame() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:49)
+MainMenu:Update() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Resources\UISprites\MainMenu.cs:66)
+ 
+(Filename: C:/Users/nalta/Documents/ProjektBerlin/ProjektBerlin/Assets/Scripts/LoadGame.cs Line: 116)
+
+Server spawning
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+LoadGame:spawnPlayer() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:116)
+LoadGame:OnServerInitialized() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:58)
+UnityEngine.Network:InitializeServer(Int32, Int32, Boolean)
+LoadGame:makeGame() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:49)
+MainMenu:Update() (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Resources\UISprites\MainMenu.cs:66)
+ 
+(Filename: C:/Users/nalta/Documents/ProjektBerlin/ProjektBerlin/Assets/Scripts/LoadGame.cs Line: 116)
+
+Server registered
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+LoadGame:OnMasterServerEvent(MasterServerEvent) (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:70)
+ 
+(Filename: C:/Users/nalta/Documents/ProjektBerlin/ProjektBerlin/Assets/Scripts/LoadGame.cs Line: 70)
+
+Server registered
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+LoadGame:OnMasterServerEvent(MasterServerEvent) (at C:\Users\nalta\Documents\ProjektBerlin\ProjektBerlin\Assets\Scripts\LoadGame.cs:70)
+ 
+(Filename: C:/Users/nalta/Documents/ProjektBerlin/ProjektBerlin/Assets/Scripts/LoadGame.cs Line: 70)
+

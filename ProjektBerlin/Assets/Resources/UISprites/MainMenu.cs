@@ -44,6 +44,22 @@ public class MainMenu : MonoBehaviour {
                     else
                         selected = (selected + 1) % selectableText.Length;
                     selectableText[selected].color = SEL_COLOR;
+
+					if(lookingAtIP){
+						for(int i=0; i<selectableText.Length; i++){
+							selectableText[i].color = new Color(selectableText[i].color.r,
+							                                    selectableText[i].color.g,
+							                                    selectableText[i].color.b,
+							                                    Mathf.Max((2-Mathf.Abs(i-selected)),0)/2.0f) ;
+							RectTransform rt = selectableText[i].GetComponent<RectTransform>();
+							rt.anchorMin = new Vector2(0,0);
+							rt.anchorMax = new Vector2(1,0);
+							rt.offsetMin = new Vector2(0,0);
+							rt.offsetMax = new Vector2(0,70);
+							rt.position = new Vector2(canvas.pixelRect.width/2,canvas.pixelRect.height/2 + (i-selected)*-70);
+						}
+					}
+
                 }
                 controllerIsPressed = true;
             }
@@ -87,6 +103,7 @@ public class MainMenu : MonoBehaviour {
 		foreach (Text t in selectableText)
 			t.enabled = false;
 
+		selected = 0;
 		if (lookingAtIP) {
 			if(loadGame.hasHostData()){
 				string[] hostInfo = loadGame.getHostInfo();
@@ -97,15 +114,19 @@ public class MainMenu : MonoBehaviour {
 					selectableText[i].font = defaultMenu[0].font;
 					selectableText[i].fontSize = defaultMenu[0].fontSize; 
 					selectableText[i].fontStyle = defaultMenu[0].fontStyle;
-					selectableText[i].color = defaultMenu[0].color;
+					selectableText[i].color = new Color(defaultMenu[0].color.r,
+					                                    defaultMenu[0].color.g,
+					                                    defaultMenu[0].color.b,
+					                                    Mathf.Max((2-Mathf.Abs(i-selected)),0)/2.0f) ;
+
 					selectableText[i].transform.parent=canvas.transform;
-					selectableText[i].transform.localPosition=new Vector3(0,i*70,0);
+					//selectableText[i].transform.localPosition=new Vector3(0,i*70,0);
 					RectTransform rt = g.GetComponent<RectTransform>();
 					rt.anchorMin = new Vector2(0,0);
 					rt.anchorMax = new Vector2(1,0);
 					rt.offsetMin = new Vector2(0,0);
 					rt.offsetMax = new Vector2(0,70);
-					rt.position = new Vector2(canvas.pixelRect.width/2,canvas.pixelRect.height/2 + i*70);
+					rt.position = new Vector2(canvas.pixelRect.width/2,canvas.pixelRect.height/2 + (i-selected)*-70);
 					selectableText[i].text = hostInfo[i];
 
 				}
