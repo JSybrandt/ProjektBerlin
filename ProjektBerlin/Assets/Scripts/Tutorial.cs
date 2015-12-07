@@ -281,8 +281,6 @@ public class Tutorial : MonoBehaviour
         isTurn = turn;
         if (isTurn)
         {
-            //changeUnit.enabled = true;
-            //changeUnit.material.color = Color.green;
             selectedLight.enabled = true;
             if(isRunning)
                 selectNextAvailableSquad();
@@ -337,8 +335,6 @@ public class Tutorial : MonoBehaviour
             //This is here so it is only called once per round
             if (!isOtherRoundOver)
             {
-                //nLogicView.RPC("otherRoundOver", RPCMode.Others);
-                //nLogicView.RPC("setTurn", RPCMode.Others, true);
                 setTurn(false);
             }
         }
@@ -430,6 +426,7 @@ public class Tutorial : MonoBehaviour
                     float h = Input.GetAxis("JoystickLH");
                     selectedRB.velocity = (Quaternion.Euler(0, getMainCamController().angle, 0) * new Vector3(h, 0, v).normalized) * 20;
 					getMainCamController().setCameraTarget(squads[selectedSquadIndex].transform.position,true);
+                    attackProj.transform.position = new Vector3(getSelectedManager().transform.position.x, 9, getSelectedManager().transform.position.z);
                 }
             }
             else if (currentStage == TurnStage.Combat)
@@ -483,10 +480,10 @@ public class Tutorial : MonoBehaviour
                 {
                     getSelectedManager().squadAbilityUpdate();
                 }
-                else if(currentAttack == AttackType.Unit && getSelectedManager() != null) // && Input.GetButtonUp("Square")
-                {
-                    getSelectedManager().unitAbilityUpdate();
-                }
+                //else if(currentAttack == AttackType.Unit && getSelectedManager() != null) // && Input.GetButtonUp("Square")
+                //{
+                //    getSelectedManager().unitAbilityUpdate();
+                //}
 
                 if(Input.GetButtonUp("Circle")) //Reset to basic ability
                 {

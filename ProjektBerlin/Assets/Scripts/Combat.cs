@@ -84,7 +84,15 @@ public static class Combat
 
         targetsInRange = targets;
         if (targetsInRange.Count > 0) {
+            Debug.Log("Targets found BITCHES");
+            gameLogic.attackProj.enabled = false;
+            gameLogic.changeUnit.enabled = false;
 
+            selectedTargetIndex = 0;
+            targetsInRange[selectedTargetIndex].SendMessage("enableTarget");
+            targetsInRange[selectedTargetIndex].GetComponent<NetworkView>().RPC("enableLight", RPCMode.All);
+
+            Vector3 enemyPos = targetsInRange[selectedTargetIndex].transform.position;
         }
     }
 

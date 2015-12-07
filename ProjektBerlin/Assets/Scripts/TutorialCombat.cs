@@ -71,20 +71,35 @@ public static class TutorialCombat
 					Vector3 targetPos = hitColliders[i].gameObject.transform.position;
                     Vector3 dir = (targetPos - myPos).normalized;
                     float distance = Vector3.Distance(myPos, targetPos);
+                    Debug.Log("Found a dude");
 
                     //Detect full cover
                     if (!Physics.Raycast(myPos, dir, distance, gameLogic.detectCover))
+                    {
+                        Debug.Log("Dude added");
                         targets.Add(hitColliders[i].gameObject);
+                    }
                     if (Physics.Raycast(myPos, dir, distance, gameLogic.detectWall))
+                    {
+                        Debug.Log("Dude added, hit wall");
                         hitColliders[i].gameObject.GetComponent<TutorialManager>().behindWall = true;
+                    }
                 }
             }
             i++;
         }
 
         targetsInRange = targets;
+        Debug.Log("Targets: "+targetsInRange.Count);
         if (targetsInRange.Count > 0) {
+            Debug.Log("Targets found BITCHES");
+            gameLogic.attackProj.enabled = false;
+            gameLogic.changeUnit.enabled = false;
 
+            selectedTargetIndex = 0;
+            targetsInRange[selectedTargetIndex].SendMessage("enableTarget");
+
+            Vector3 enemyPos = targetsInRange[selectedTargetIndex].transform.position;
         }
     }
 
