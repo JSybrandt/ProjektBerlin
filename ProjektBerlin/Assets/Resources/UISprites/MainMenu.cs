@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class MainMenu : MonoBehaviour {
 
 	//BEST BE FILLIN
-	public Text[] defaultMenu = new Text[3];
+	public Text[] defaultMenu = new Text[4];
 	private Text[] selectableText;
 	int selected = 0;
 	bool controllerIsPressed = false;
@@ -57,15 +57,19 @@ public class MainMenu : MonoBehaviour {
                 }
                 else
                 {
-                    if (selected == 0)
+					if(selected==0)
+					{
+						Application.LoadLevel("Tutorial");
+					}
+					else if (selected == 1)
                     {//create
                         loadGame.makeGame();
                     }
-                    else if (selected == 1)
+                    else if (selected == 2)
                     {//join
                         toggleIP();
                     }
-                    else if (selected == 2)
+                    else if (selected == 3)
                     {//quit
                         Application.Quit();
                     }
@@ -101,7 +105,7 @@ public class MainMenu : MonoBehaviour {
 					rt.anchorMax = new Vector2(1,0);
 					rt.offsetMin = new Vector2(0,0);
 					rt.offsetMax = new Vector2(0,70);
-					rt.position = new Vector2(canvas.pixelRect.width/2,canvas.pixelRect.height/2);
+					rt.position = new Vector2(canvas.pixelRect.width/2,canvas.pixelRect.height/2 + i*70);
 					selectableText[i].text = hostInfo[i];
 
 				}
