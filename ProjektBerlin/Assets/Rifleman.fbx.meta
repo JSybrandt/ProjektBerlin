@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 56db597e8ea041a4f940b66e9a3cf895
-timeCreated: 1447536839
+guid: 8bba1521bdba879459c4d4809c1b3d87
+timeCreated: 1447696120
 licenseType: Pro
 ModelImporter:
   serializedVersion: 18
@@ -8,133 +8,155 @@ ModelImporter:
     100000: Armature
     100002: Bone001
     100004: Bone001_end
-    100006: Camera
-    100008: chest
-    100010: clavicle.L
-    100012: clavicle.R
-    100014: Cylinder
-    100016: eye.L
-    100018: eye.L_end
-    100020: eye.R
-    100022: eye.R_end
-    100024: f_index.01.L
-    100026: f_index.01.L_end
-    100028: f_index.01.R
-    100030: f_index.01.R_end
-    100032: f_ring.01.L
-    100034: f_ring.01.L_end
-    100036: f_ring.01.R
-    100038: f_ring.01.R_end
-    100040: foot.L
-    100042: foot.R
-    100044: forearm.L
-    100046: forearm.R
-    100048: hand.L
-    100050: hand.R
-    100052: head
-    100054: hips
-    100056: Human
-    100058: Human:Body
-    100060: Human:Body_MeshPart0
-    100062: Human:Body_MeshPart1
-    100064: Human:HighPolyEyes
-    100066: jaw
-    100068: jaw_end
-    100070: Lamp
-    100072: m4a1_aimpoint_comp_m4
-    100074: m4a1_aimpoint_comp_m4_lenses
-    100076: m4a1_front sight
-    100078: m4a1_lower receiver
-    100080: m4a1_magazine
-    100082: m4a1_stock
-    100084: m4a1_tactical foregrip
-    100086: m4a1_troy_rear_base
-    100088: m4a1_upper receiver
-    100090: neck
-    100092: //RootNode
-    100094: shin.L
-    100096: shin.R
-    100098: Sphere
-    100100: spine
-    100102: thigh.L
-    100104: thigh.R
-    100106: thumb.02.L
-    100108: thumb.02.R
-    100110: thumb.03.L
-    100112: thumb.03.L_end
-    100114: thumb.03.R
-    100116: thumb.03.R_end
-    100118: toe.L
-    100120: toe.L_end
-    100122: toe.R
-    100124: toe.R_end
-    100126: upper_arm.L
-    100128: upper_arm.R
+    100006: Bone001_end_end
+    100008: Camera
+    100010: chest
+    100012: clavicle.L
+    100014: clavicle.R
+    100016: Cylinder
+    100018: eye.L
+    100020: eye.L_end
+    100022: eye.L_end_end
+    100024: eye.R
+    100026: eye.R_end
+    100028: eye.R_end_end
+    100030: f_index.01.L
+    100032: f_index.01.L_end
+    100034: f_index.01.L_end_end
+    100036: f_index.01.R
+    100038: f_index.01.R_end
+    100040: f_index.01.R_end_end
+    100042: f_ring.01.L
+    100044: f_ring.01.L_end
+    100046: f_ring.01.L_end_end
+    100048: f_ring.01.R
+    100050: f_ring.01.R_end
+    100052: f_ring.01.R_end_end
+    100054: foot.L
+    100056: foot.R
+    100058: forearm.L
+    100060: forearm.R
+    100062: hand.L
+    100064: hand.R
+    100066: head
+    100068: hips
+    100070: Human
+    100072: Human:Body
+    100074: Human:HighPolyEyes
+    100076: jaw
+    100078: jaw_end
+    100080: jaw_end_end
+    100082: Lamp
+    100084: Lamp.001
+    100086: m4a1_aimpoint_comp_m4
+    100088: m4a1_aimpoint_comp_m4_lenses
+    100090: m4a1_front sight
+    100092: m4a1_lower receiver
+    100094: m4a1_magazine
+    100096: m4a1_stock
+    100098: m4a1_tactical foregrip
+    100100: m4a1_troy_rear_base
+    100102: m4a1_upper receiver
+    100104: neck
+    100106: //RootNode
+    100108: shin.L
+    100110: shin.R
+    100112: Sphere
+    100114: spine
+    100116: thigh.L
+    100118: thigh.R
+    100120: thumb.02.L
+    100122: thumb.02.R
+    100124: thumb.03.L
+    100126: thumb.03.L_end
+    100128: thumb.03.L_end_end
+    100130: thumb.03.R
+    100132: thumb.03.R_end
+    100134: thumb.03.R_end_end
+    100136: toe.L
+    100138: toe.L_end
+    100140: toe.L_end_end
+    100142: toe.R
+    100144: toe.R_end
+    100146: toe.R_end_end
+    100148: upper_arm.L
+    100150: upper_arm.R
     400000: Armature
     400002: Bone001
     400004: Bone001_end
-    400006: Camera
-    400008: chest
-    400010: clavicle.L
-    400012: clavicle.R
-    400014: Cylinder
-    400016: eye.L
-    400018: eye.L_end
-    400020: eye.R
-    400022: eye.R_end
-    400024: f_index.01.L
-    400026: f_index.01.L_end
-    400028: f_index.01.R
-    400030: f_index.01.R_end
-    400032: f_ring.01.L
-    400034: f_ring.01.L_end
-    400036: f_ring.01.R
-    400038: f_ring.01.R_end
-    400040: foot.L
-    400042: foot.R
-    400044: forearm.L
-    400046: forearm.R
-    400048: hand.L
-    400050: hand.R
-    400052: head
-    400054: hips
-    400056: Human
-    400058: Human:Body
-    400060: Human:Body_MeshPart0
-    400062: Human:Body_MeshPart1
-    400064: Human:HighPolyEyes
-    400066: jaw
-    400068: jaw_end
-    400070: Lamp
-    400072: m4a1_aimpoint_comp_m4
-    400074: m4a1_aimpoint_comp_m4_lenses
-    400076: m4a1_front sight
-    400078: m4a1_lower receiver
-    400080: m4a1_magazine
-    400082: m4a1_stock
-    400084: m4a1_tactical foregrip
-    400086: m4a1_troy_rear_base
-    400088: m4a1_upper receiver
-    400090: neck
-    400092: //RootNode
-    400094: shin.L
-    400096: shin.R
-    400098: Sphere
-    400100: spine
-    400102: thigh.L
-    400104: thigh.R
-    400106: thumb.02.L
-    400108: thumb.02.R
-    400110: thumb.03.L
-    400112: thumb.03.L_end
-    400114: thumb.03.R
-    400116: thumb.03.R_end
-    400118: toe.L
-    400120: toe.L_end
-    400122: toe.R
-    400124: toe.R_end
-    400126: upper_arm.L
-    400128: upper_arm.R
+    400006: Bone001_end_end
+    400008: Camera
+    400010: chest
+    400012: clavicle.L
+    400014: clavicle.R
+    400016: Cylinder
+    400018: eye.L
+    400020: eye.L_end
+    400022: eye.L_end_end
+    400024: eye.R
+    400026: eye.R_end
+    400028: eye.R_end_end
+    400030: f_index.01.L
+    400032: f_index.01.L_end
+    400034: f_index.01.L_end_end
+    400036: f_index.01.R
+    400038: f_index.01.R_end
+    400040: f_index.01.R_end_end
+    400042: f_ring.01.L
+    400044: f_ring.01.L_end
+    400046: f_ring.01.L_end_end
+    400048: f_ring.01.R
+    400050: f_ring.01.R_end
+    400052: f_ring.01.R_end_end
+    400054: foot.L
+    400056: foot.R
+    400058: forearm.L
+    400060: forearm.R
+    400062: hand.L
+    400064: hand.R
+    400066: head
+    400068: hips
+    400070: Human
+    400072: Human:Body
+    400074: Human:HighPolyEyes
+    400076: jaw
+    400078: jaw_end
+    400080: jaw_end_end
+    400082: Lamp
+    400084: Lamp.001
+    400086: m4a1_aimpoint_comp_m4
+    400088: m4a1_aimpoint_comp_m4_lenses
+    400090: m4a1_front sight
+    400092: m4a1_lower receiver
+    400094: m4a1_magazine
+    400096: m4a1_stock
+    400098: m4a1_tactical foregrip
+    400100: m4a1_troy_rear_base
+    400102: m4a1_upper receiver
+    400104: neck
+    400106: //RootNode
+    400108: shin.L
+    400110: shin.R
+    400112: Sphere
+    400114: spine
+    400116: thigh.L
+    400118: thigh.R
+    400120: thumb.02.L
+    400122: thumb.02.R
+    400124: thumb.03.L
+    400126: thumb.03.L_end
+    400128: thumb.03.L_end_end
+    400130: thumb.03.R
+    400132: thumb.03.R_end
+    400134: thumb.03.R_end_end
+    400136: toe.L
+    400138: toe.L_end
+    400140: toe.L_end_end
+    400142: toe.R
+    400144: toe.R_end
+    400146: toe.R_end_end
+    400148: upper_arm.L
+    400150: upper_arm.R
     2300000: Cylinder
     2300002: m4a1_aimpoint_comp_m4
     2300004: m4a1_aimpoint_comp_m4_lenses
@@ -157,33 +179,55 @@ ModelImporter:
     3300016: m4a1_troy_rear_base
     3300018: m4a1_upper receiver
     3300020: Sphere
-    4300000: Cylinder
-    4300002: Sphere
-    4300004: m4a1_magazine
-    4300006: m4a1_tactical foregrip
-    4300008: m4a1_aimpoint_comp_m4_lenses
-    4300010: m4a1_aimpoint_comp_m4
+    4300000: Human:Body
+    4300002: Human:HighPolyEyes
+    4300004: m4a1_lower receiver
+    4300006: m4a1_upper receiver
+    4300008: m4a1_front sight
+    4300010: m4a1_troy_rear_base
     4300012: m4a1_stock
-    4300014: m4a1_troy_rear_base
-    4300016: m4a1_front sight
-    4300018: m4a1_upper receiver
-    4300020: m4a1_lower receiver
-    4300022: Human:HighPolyEyes
-    4300024: Human:Body_MeshPart0
-    4300026: Human:Body_MeshPart1
-    7400000: m4a1_tactical foregrip|m4a1_aimpoint_comp_m4_lenses|Take 001|BaseLayer
-    7400002: m4a1_tactical foregrip|m4a1_aimpoint_comp_m4|Take 001|BaseLayer
-    7400004: m4a1_tactical foregrip|m4a1_tactical foregrip|Take 001|BaseLayer
-    7400006: m4a1_aimpoint_comp_m4_lenses|m4a1_aimpoint_comp_m4_lenses|Take 001|BaseLayer
-    7400008: m4a1_aimpoint_comp_m4_lenses|m4a1_aimpoint_comp_m4|Take 001|BaseLayer
-    7400010: m4a1_aimpoint_comp_m4_lenses|m4a1_tactical foregrip|Take 001|BaseLayer
-    7400012: m4a1_aimpoint_comp_m4|m4a1_aimpoint_comp_m4_lenses|Take 001|BaseLayer
-    7400014: m4a1_aimpoint_comp_m4|m4a1_aimpoint_comp_m4|Take 001|BaseLayer
-    7400016: m4a1_aimpoint_comp_m4|m4a1_tactical foregrip|Take 001|BaseLayer
+    4300014: m4a1_aimpoint_comp_m4
+    4300016: m4a1_aimpoint_comp_m4_lenses
+    4300018: m4a1_tactical foregrip
+    4300020: m4a1_magazine
+    4300022: Sphere
+    4300024: Cylinder
+    7400000: m4a1_aimpoint_comp_m4|m4a1_aimpoint_comp_m4_lenses|m4a1_aimpoint_comp_m4_lenses|m.000
+    7400002: m4a1_aimpoint_comp_m4|m4a1_aimpoint_comp_m4_lenses|m4a1_aimpoint_comp_m4_lenses|m.001
+    7400004: m4a1_aimpoint_comp_m4|m4a1_aimpoint_comp_m4_lenses|m4a1_aimpoint_comp_m4_lenses|m4a1_
+    7400006: m4a1_aimpoint_comp_m4|m4a1_aimpoint_comp_m4|m4a1_aimpoint_comp_m4|m4a1_aimpoint_c.000
+    7400008: m4a1_aimpoint_comp_m4|m4a1_aimpoint_comp_m4|m4a1_aimpoint_comp_m4|m4a1_aimpoint_comp_
+    7400010: m4a1_aimpoint_comp_m4|m4a1_aimpoint_comp_m4|m4a1_aimpoint_comp_m4|m4a1_tactical
+      foreg
+    7400012: m4a1_aimpoint_comp_m4|m4a1_tactical foregrip|m4a1_tactical foregrip|m4a1_aimpoint.000
+    7400014: m4a1_aimpoint_comp_m4|m4a1_tactical foregrip|m4a1_tactical foregrip|m4a1_aimpoint_com
+    7400016: m4a1_aimpoint_comp_m4|m4a1_tactical foregrip|m4a1_tactical foregrip|m4a1_tactical
+      for
+    7400018: m4a1_aimpoint_comp_m4_lenses|m4a1_aimpoint_comp_m4_lenses|m4a1_aimpoint_comp_m4_lenses|m.000
+    7400020: m4a1_aimpoint_comp_m4_lenses|m4a1_aimpoint_comp_m4_lenses|m4a1_aimpoint_comp_m4_lenses|m.001
+    7400022: m4a1_aimpoint_comp_m4_lenses|m4a1_aimpoint_comp_m4_lenses|m4a1_aimpoint_comp_m4_lenses|m4a1_
+    7400024: m4a1_aimpoint_comp_m4_lenses|m4a1_aimpoint_comp_m4|m4a1_aimpoint_comp_m4|m4a1_aimpoint_c.000
+    7400026: m4a1_aimpoint_comp_m4_lenses|m4a1_aimpoint_comp_m4|m4a1_aimpoint_comp_m4|m4a1_aimpoint_comp_
+    7400028: m4a1_aimpoint_comp_m4_lenses|m4a1_aimpoint_comp_m4|m4a1_aimpoint_comp_m4|m4a1_tactical
+      foreg
+    7400030: m4a1_aimpoint_comp_m4_lenses|m4a1_tactical foregrip|m4a1_tactical foregrip|m4a1_aimpoint.000
+    7400032: m4a1_aimpoint_comp_m4_lenses|m4a1_tactical foregrip|m4a1_tactical foregrip|m4a1_aimpoint_com
+    7400034: m4a1_aimpoint_comp_m4_lenses|m4a1_tactical foregrip|m4a1_tactical foregrip|m4a1_tactical
+      for
+    7400036: m4a1_tactical foregrip|m4a1_aimpoint_comp_m4_lenses|m4a1_aimpoint_comp_m4_lenses|m.000
+    7400038: m4a1_tactical foregrip|m4a1_aimpoint_comp_m4_lenses|m4a1_aimpoint_comp_m4_lenses|m.001
+    7400040: m4a1_tactical foregrip|m4a1_aimpoint_comp_m4_lenses|m4a1_aimpoint_comp_m4_lenses|m4a1_
+    7400042: m4a1_tactical foregrip|m4a1_aimpoint_comp_m4|m4a1_aimpoint_comp_m4|m4a1_aimpoint_c.000
+    7400044: m4a1_tactical foregrip|m4a1_aimpoint_comp_m4|m4a1_aimpoint_comp_m4|m4a1_aimpoint_comp_
+    7400046: m4a1_tactical foregrip|m4a1_aimpoint_comp_m4|m4a1_aimpoint_comp_m4|m4a1_tactical
+      foreg
+    7400048: m4a1_tactical foregrip|m4a1_tactical foregrip|m4a1_tactical foregrip|m4a1_aimpoint.000
+    7400050: m4a1_tactical foregrip|m4a1_tactical foregrip|m4a1_tactical foregrip|m4a1_aimpoint_com
+    7400052: m4a1_tactical foregrip|m4a1_tactical foregrip|m4a1_tactical foregrip|m4a1_tactical
+      for
     9500000: //RootNode
-    13700000: Human:Body_MeshPart0
-    13700002: Human:Body_MeshPart1
-    13700004: Human:HighPolyEyes
+    13700000: Human:Body
+    13700002: Human:HighPolyEyes
   materials:
     importMaterials: 1
     materialName: 0
@@ -240,8 +284,10 @@ ModelImporter:
     legStretch: .0500000007
     feetSpacing: 0
     rootMotionBoneName: 
+    hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2
+  humanoidOversampling: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

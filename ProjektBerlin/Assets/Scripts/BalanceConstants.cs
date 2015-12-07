@@ -34,3 +34,32 @@ public static class BalanceConstants
         //public static float SHOTGUN_ATTACK_HIT_CHANCE = 0.75f;
     }
 }
+
+public struct damageInfo
+{
+    int damage;
+    bool killSpecial;
+    public damageInfo(int dmg, bool kill)
+    {
+        damage = dmg;
+        killSpecial = kill;
+    }
+
+    public int getDamage() { return damage; }
+    public bool getKillSpecial() { return killSpecial; }
+}
+
+enum TurnStage
+{
+    None,
+    Moving,
+    Combat,
+    InBetween
+}
+
+enum AttackType
+{
+    Basic,
+    Unit,
+    Squad
+}

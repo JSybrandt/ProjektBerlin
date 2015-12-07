@@ -1,151 +1,192 @@
-Initialize engine version: 5.1.2p3 (65486b59c7a9)
+Initialize engine version: 5.2.2p1 (6dd5cd7ea574)
 GfxDevice: creating device client; threaded=1
 Direct3D:
-    Version:  Direct3D 11.0 [level 11.0]
-    Renderer: AMD Radeon HD 7800 Series (ID=0x6819)
-    Vendor:   ATI
-    VRAM:     2026 MB
+    Version:  Direct3D 11.0 [level 10.1]
+    Renderer: Intel(R) HD Graphics 3000 (ID=0x126)
+    Vendor:   Intel
+    VRAM:     816 MB
 Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
-Loading C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
-Platform assembly: C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-Platform assembly: C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
-Loading C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-Platform assembly: C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\Camera.dll (this message is harmless)
-Loading C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\Camera.dll into Unity Child Domain
-Platform assembly: C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\Depth.dll (this message is harmless)
-Loading C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\Depth.dll into Unity Child Domain
-Platform assembly: C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\Face.dll (this message is harmless)
-Loading C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\Face.dll into Unity Child Domain
-Platform assembly: C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\HandDetection.dll (this message is harmless)
-Loading C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\HandDetection.dll into Unity Child Domain
-Platform assembly: C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\MoveTrackerAssembly.dll (this message is harmless)
-Loading C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\MoveTrackerAssembly.dll into Unity Child Domain
-Platform assembly: C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\PadTrackerAssembly.dll (this message is harmless)
-Loading C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\PadTrackerAssembly.dll into Unity Child Domain
-Platform assembly: C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\SonyNP.dll (this message is harmless)
-Loading C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\SonyNP.dll into Unity Child Domain
-Platform assembly: C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\SonyPS4CommonDialog.dll (this message is harmless)
-Loading C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\SonyPS4CommonDialog.dll into Unity Child Domain
-Platform assembly: C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.335 seconds
-desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+Platform assembly: C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+Platform assembly: C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\System.Core.dll (this message is harmless)
+- Completed reload, in  0.176 seconds
+desktop: 1280x800 40Hz; virtual: 1280x800 at 0,0
 <RI> Initializing input.
+XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
 <RI> Input initialized.
 <RI> Initialized touch support.
-Platform assembly: C:\Users\Zared\Documents\Games 3\ProjektBerlin\ProjectBerkin_Data\Managed\System.dll (this message is harmless)
-Shader 'Hidden/TerrainEngine/Splatmap/Specular-Base': fallback shader 'Legacy Shaders/Specular' not found
-Shader 'Hidden/TerrainEngine/Splatmap/Specular-Base': fallback shader 'Legacy Shaders/Specular' not found
+Platform assembly: C:\Users\hollabaughzj1\Documents\ProjektBerlin\ProjektBerlin\ProjectBerkin_Data\Managed\System.dll (this message is harmless)
 Getting Host List
  
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 21fc -> priority: 1 
-Failed to initialize network interface. Is the listen port already in use?
- 
-(Filename:  Line: 214)
-
+  Thread -> id: 1f68 -> priority: 1 
 Getting Host List
  
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
 Host data recieved
  
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
 Parent of RectTransform is being set with parent property. Consider using the SetParent method instead, with the worldPositionStays argument set to false. This will retain local orientation and scale rather than world orientation and scale, which can prevent common UI scaling issues.
  
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Received pong from 192.168.56.1:25001
+ 
+(Filename:  Line: 852)
+
+Received pong from 10.37.105.58:25001
+ 
+(Filename:  Line: 852)
 
 Connected to server
  
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
 Client spawning
  
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-NullReferenceException: Object reference not set to an instance of an object
-  at SquadManager.paintColor () [0x00000] in <filename unknown>:0 
-  at RifleSquad.rifleInit () [0x00000] in <filename unknown>:0 
-UnityEngine.NetworkView:Internal_RPC(NetworkView, String, RPCMode, Object[])
-UnityEngine.NetworkView:RPC(String, RPCMode, Object[])
-LoadGame:spawnPlayer()
-LoadGame:OnConnectedToServer()
- 
-(Filename:  Line: -1)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
 Client spawning
  
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-NullReferenceException: Object reference not set to an instance of an object
-  at SquadManager.paintColor () [0x00000] in <filename unknown>:0 
-  at RifleSquad.rifleInit () [0x00000] in <filename unknown>:0 
-UnityEngine.NetworkView:Internal_RPC(NetworkView, String, RPCMode, Object[])
-UnityEngine.NetworkView:RPC(String, RPCMode, Object[])
-LoadGame:spawnPlayer()
-LoadGame:OnConnectedToServer()
- 
-(Filename:  Line: -1)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
 Client spawning
  
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-NullReferenceException: Object reference not set to an instance of an object
-  at SquadManager.paintColor () [0x00000] in <filename unknown>:0 
-  at SniperSquad.sniperInit () [0x00000] in <filename unknown>:0 
-UnityEngine.NetworkView:Internal_RPC(NetworkView, String, RPCMode, Object[])
-UnityEngine.NetworkView:RPC(String, RPCMode, Object[])
-LoadGame:spawnPlayer()
-LoadGame:OnConnectedToServer()
- 
-(Filename:  Line: -1)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
 Client spawning
  
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
-NullReferenceException: Object reference not set to an instance of an object
-  at SquadManager.paintColor () [0x00000] in <filename unknown>:0 
-  at ShotgunSquad.shotgunInit () [0x00000] in <filename unknown>:0 
-UnityEngine.NetworkView:Internal_RPC(NetworkView, String, RPCMode, Object[])
-UnityEngine.NetworkView:RPC(String, RPCMode, Object[])
-LoadGame:spawnPlayer()
-LoadGame:OnConnectedToServer()
+NETWORK: Set turn called
  
-(Filename:  Line: -1)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
-NullReferenceException: Object reference not set to an instance of an object
-  at SquadManager.paintColor () [0x00000] in <filename unknown>:0 
-  at RifleSquad.rifleInit () [0x00000] in <filename unknown>:0 
+Isn't my turn
  
-(Filename:  Line: -1)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
-NullReferenceException: Object reference not set to an instance of an object
-  at SquadManager.paintColor () [0x00000] in <filename unknown>:0 
-  at RifleSquad.rifleInit () [0x00000] in <filename unknown>:0 
+I still have squads left!
  
-(Filename:  Line: -1)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
-NullReferenceException: Object reference not set to an instance of an object
-  at SquadManager.paintColor () [0x00000] in <filename unknown>:0 
-  at SniperSquad.sniperInit () [0x00000] in <filename unknown>:0 
+Server
  
-(Filename:  Line: -1)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
-NullReferenceException: Object reference not set to an instance of an object
-  at SquadManager.paintColor () [0x00000] in <filename unknown>:0 
-  at ShotgunSquad.shotgunInit () [0x00000] in <filename unknown>:0 
+Number of objects in range: 10
  
-(Filename:  Line: -1)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+I shot someone!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+I hit partial cover!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+I'm dieing!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+NETWORK: Set turn called
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Isn't my turn
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+I still have squads left!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Server
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+1
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+NETWORK: Set turn called
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Isn't my turn
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+I still have squads left!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Server
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+2
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+NETWORK: Other round over called
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+NETWORK: Set turn called
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Isn't my turn
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+I still have squads left!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Server
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+NETWORK: Set turn called
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Isn't my turn
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+I still have squads left!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Server
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+NETWORK: Next round networked called
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+3
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 

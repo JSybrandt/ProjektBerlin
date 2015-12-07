@@ -3,21 +3,6 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
-enum TurnStage
-{
-    None,
-    Moving,
-    Combat,
-    InBetween
-}
-
-enum AttackType
-{
-    Basic,
-    Unit,
-    Squad
-}
-
 public class Controller : MonoBehaviour
 {
     //FLAGS:

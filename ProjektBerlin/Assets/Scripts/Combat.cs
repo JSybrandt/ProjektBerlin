@@ -2,18 +2,6 @@
 using System.Collections.Generic;
 using System.Collections;
 
-public struct damageInfo {
-	int damage;
-	bool killSpecial;
-	public damageInfo(int dmg, bool kill) {
-		damage = dmg;
-		killSpecial = kill;
-	}
-
-	public int getDamage() {return damage;}
-	public bool getKillSpecial() {return killSpecial;}
-}
-
 public static class Combat
 {
     public static List<GameObject> targetsInRange = new List<GameObject>();

@@ -41,12 +41,12 @@ public class SniperSquad : MonoBehaviour {
         {
             squad.units[i] = (GameObject)Instantiate(unitPrefab, squad.unitTargets[i].position, Quaternion.identity);
             squad.units[i].transform.position = squad.unitTargets[i].position;
-            //squad.units[i].GetComponent<UnitManager>().power = BalanceConstants.SNIPE_POWER;
+            squad.units[i].GetComponent<UnitManager>().power = BalanceConstants.Stats.BASIC_POWER;
         }
 
         squad.units[squad.units.Length - 1].GetComponent<UnitManager>().power = 4;
         squad.units[squad.units.Length - 1].GetComponent<UnitManager>().isSpecial = true;
-		squad.units[squad.units.Length - 1].transform.localScale = new Vector3(.25f, .25f, .25f);
+		squad.units[squad.units.Length - 1].transform.localScale = new Vector3(1.25f, 1.25f, 1.25f);
 
         squad.unitAbility = new SquadManager.Ability(sniperShot);
         squad.squadAbility = new SquadManager.Ability(smokeScreen);

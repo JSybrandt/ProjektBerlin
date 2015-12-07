@@ -125,8 +125,10 @@ public class LoadGame : MonoBehaviour
 		}
 		if (Network.isClient) {
 			for (int i = 0; i < 20; i += 5) {
+                Vector3 vec = new Vector3(0, 180, 0);
 				GameObject newSquad = (GameObject)Network.Instantiate (SquadPrefab, new Vector3 (i, 1, 60), Quaternion.identity,0);
-                string sTag = "Player1Squad";
+                string sTag = "Player1Squad";             
+                newSquad.transform.Rotate(0, 180, 0);
                 NetworkView sView = newSquad.GetComponent<NetworkView>();
                 newSquad.GetComponent<SquadManager>().setColor(Color.green);
                 sView.RPC("init", RPCMode.AllBuffered, sTag);

@@ -47,7 +47,7 @@ public class ShotgunSquad : MonoBehaviour {
 
         squad.units[squad.units.Length - 1].GetComponent<UnitManager>().power *= 2;
         squad.units[squad.units.Length - 1].GetComponent<UnitManager>().isSpecial = true;
-		squad.units[squad.units.Length - 1].transform.localScale = new Vector3(.25f, .25f, .25f);
+		squad.units[squad.units.Length - 1].transform.localScale = new Vector3(1.25f, 1.25f, 1.25f);
 
         squad.unitAbility = new SquadManager.Ability(smokeScreen);
         squad.squadAbility = new SquadManager.Ability(shotBlast);
