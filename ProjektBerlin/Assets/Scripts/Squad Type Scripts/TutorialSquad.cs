@@ -18,7 +18,7 @@ public class TutorialSquad : MonoBehaviour {
         gameLogic = GameObject.Find("GameLogic").GetComponent<Tutorial>();
 
         squad.size = 5;
-        squad.attackDistance = 10;
+        squad.attackDistance = 20;
         squad.movementDistance = 40;
 		squad.squadType = "Rifle";
 
