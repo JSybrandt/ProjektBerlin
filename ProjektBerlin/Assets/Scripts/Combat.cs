@@ -76,7 +76,7 @@ public static class Combat
                     if (!Physics.Raycast(myPos, dir, distance, gameLogic.detectCover))
                         targets.Add(hitColliders[i].gameObject);
                     if (Physics.Raycast(myPos, dir, distance, gameLogic.detectWall))
-                        hitColliders[i].gameObject.GetComponent<SquadManager>().behindWall = true;
+                        hitColliders[i].GetComponent<SquadManager>().nView.RPC("setBehindWall", RPCMode.All, true);
                 }
             }
             i++;
@@ -238,15 +238,17 @@ public static class Combat
 
     public static void reset()
     {
+        Debug.Log("COMBAT: Reset");
         if (selectedTargetIndex >= 0 && targetsInRange[selectedTargetIndex].activeInHierarchy)
         {
             targetsInRange[selectedTargetIndex].SendMessage("disableTarget");
             targetsInRange[selectedTargetIndex].GetComponent<NetworkView>().RPC("disableLight", RPCMode.All);
+            targetsInRange[selectedTargetIndex].GetComponent<SquadManager>().nView.RPC("setBehindWall", RPCMode.All, false);
         }
         foreach (GameObject target in targetsInRange)
         {
 			if(target.GetComponent<SquadManager>()!=null)
-            	target.GetComponent<SquadManager>().behindWall = false;
+                target.GetComponent<SquadManager>().nView.RPC("setBehindWall", RPCMode.All, false);
         }
 
         targetsInRange.Clear();

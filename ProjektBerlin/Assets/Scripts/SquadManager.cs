@@ -511,19 +511,19 @@ public class SquadManager : MonoBehaviour
             syncPosition = rb.position;
 
             cover = inCover;
-            wall = behindWall;
+            //wall = behindWall;
             syncVelocity = rb.velocity;
 
             stream.Serialize(ref syncPosition);
             stream.Serialize(ref cover);
-            stream.Serialize(ref wall);
+            //stream.Serialize(ref wall);
             stream.Serialize(ref syncVelocity);
         }
         else
         {
             stream.Serialize(ref syncPosition);
             stream.Serialize(ref cover);
-            stream.Serialize(ref wall);
+            //stream.Serialize(ref wall);
             stream.Serialize(ref syncVelocity);
 
             syncTime = 0f;
@@ -533,9 +533,15 @@ public class SquadManager : MonoBehaviour
             syncEndPosition = syncPosition + syncVelocity*syncDelay;
             syncStartPosition = rb.position;
             
-            behindWall = wall;
+            //behindWall = wall;
             inCover = cover;
         }
+    }
+
+    [RPC]
+    public void setBehindWall(bool val)
+    {
+        behindWall = true;
     }
 
     private void SyncedMovement()
