@@ -19,7 +19,7 @@ public class TutorialSquad : MonoBehaviour {
 
         squad.size = 5;
         squad.attackDistance = 20;
-        squad.movementDistance = 50;
+        squad.movementDistance = 40;
 		squad.squadType = "Rifle";
 
         squad.unitTargets = new Transform[squad.size];

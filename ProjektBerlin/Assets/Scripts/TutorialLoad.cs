@@ -29,47 +29,15 @@ public class TutorialLoad : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+		GameObject.Find ("GameOverMenu").GetComponent<Canvas> ().enabled = false;
         GameObject.Find("MovementCanvas").GetComponent<Canvas>().enabled = false;
         GameObject.Find("CombatCanvas").GetComponent<Canvas>().enabled = false;
         GameObject.Find("FirstActionCanvas").GetComponent<Canvas>().enabled = false;
         GameObject.Find("SecondActionCanvas").GetComponent<Canvas>().enabled = false;
         //GameObject.Find("WaitingCanvas").GetComponent<Canvas>().enabled = false;
         //GameObject.Find("MainMenu").GetComponent<Canvas>().enabled = true;
-
-        //GameObject p0Base = GameObject.Find ("Team0Base");
-        //p0Base.GetComponent<BaseManager>().init();
-
-
-        //GameObject p1Base = GameObject.Find ("Team1Base");
-        //p1Base.GetComponent<BaseManager>().init();
         spawnPlayer();
     }
-
-    //public void makeGame(){
-    //	NetworkConnectionError err = Network.InitializeServer (2, 25001, !Network.HavePublicAddress());
-    //	if(err == NetworkConnectionError.NoError)
-    //		MasterServer.RegisterHost(gameName,"Projekt Berlin");
-    //}
-
-    ////Messages
-    //void OnServerInitialized ()
-    //{
-    //	Debug.Log ("Server initialized");
-    //	spawnPlayer ();
-    //}
-
-    //void OnConnectedToServer ()
-    //{
-    //	Debug.Log ("Connected to server");
-    //	spawnPlayer ();
-    //}
-
-    //void OnMasterServerEvent (MasterServerEvent mse)
-    //{
-    //	if (mse == MasterServerEvent.RegistrationSucceeded) {
-    //		Debug.Log ("Server registered");
-    //	}
-    //}
 
     void spawnPlayer()
     {
@@ -102,10 +70,6 @@ public class TutorialLoad : MonoBehaviour
         GameObject changeProj = (GameObject)Instantiate(changePrefab, Vector3.zero, Quaternion.Euler(90, 0, 0));
         changeProj.name = changePrefab.name;
 
-        //if (Network.isServer) {
-        //GameObject netLogic = (GameObject)Network.Instantiate(netPrefab, new Vector3(0, 0, 0), Quaternion.identity, 0);
-        //netLogic.GetComponent<NetworkView>().RPC("init", RPCMode.AllBuffered);
-
         GameObject newSquad = (GameObject)Instantiate(SquadPrefab, new Vector3(0, 1, -70), Quaternion.identity);
         string sTag = "Player0Squad";
         //NetworkView sView = newSquad.GetComponent<NetworkView>();
@@ -118,15 +82,17 @@ public class TutorialLoad : MonoBehaviour
         allSquads.Add(newSquad);
 
         GameObject[] spawners = GameObject.FindGameObjectsWithTag("Spawner");
-
+        int x = 0;
         foreach(GameObject spawner in spawners)
         {
             newSquad = (GameObject)Instantiate(SquadPrefab, spawner.transform.position, Quaternion.identity);
             sTag = "Player1Squad";
             newSquad.GetComponent<TutorialManager>().init(sTag);
             newSquad.GetComponent<TutorialSquad>().rifleInit();
-
+            if (x == 0)
+                newSquad.GetComponent<TutorialManager>().inCover = true;
             allSquads.Add(newSquad);
+            x++;
         }
 
         Tutorial controllerScript = GetComponent<Tutorial>();
@@ -203,6 +169,7 @@ public class TutorialLoad : MonoBehaviour
 
     public void Update()
     {
+		if(Input.GetButtonDown("Start"))GameObject.Find ("GameOverMenu").GetComponent<Canvas> ().enabled = true;
         //If we have started to look for available servers, look every frame until we find one.
         if (!Controller.getIsRunning() && (hostData == null || refreshingHostList))
         {

@@ -41,9 +41,6 @@ public class SquadManager : MonoBehaviour
     private Color offColor = new Color(103, 0, 0); //Crimson
     public Color myColor = Color.red;
 
-    //private Texture offColor = (Texture)Resources.Load("greenTexture"); //Crimson
-    //public Texture myColor = (Texture)Resources.Load("greenTexture");
-
     private float unitDistanceFromCenter = 1.5f;
 
     public const int MAX_ACTIONS = 2;
@@ -210,6 +207,11 @@ public class SquadManager : MonoBehaviour
             moveProj.transform.position = new Vector3(transform.position.x, 9, transform.position.z);
             moveProj.orthographicSize = movementDistance + 3;
             moveProj.gameObject.SetActive(true);
+
+            attackProj.transform.position = new Vector3(transform.position.x, 9, transform.position.z);
+            attackProj.orthographicSize = attackDistance;
+            attackProj.gameObject.SetActive(true);
+            attackProj.enabled = true;
             _midMovement = true;
             prevCover = inCover;
             inCover = false;
@@ -225,6 +227,7 @@ public class SquadManager : MonoBehaviour
             GetComponent<Rigidbody>().velocity = Vector3.zero;
 
             moveProj.gameObject.SetActive(false);
+            attackProj.gameObject.SetActive(true);
 
             Collider[] hitColliders = Physics.OverlapSphere(transform.position, 2, GameObject.Find("GameLogic").GetComponent<Controller>().detectPartial); //Needs to figure out layers
             if (hitColliders.Length > 0)
@@ -508,19 +511,19 @@ public class SquadManager : MonoBehaviour
             syncPosition = rb.position;
 
             cover = inCover;
-            wall = behindWall;
+            //wall = behindWall;
             syncVelocity = rb.velocity;
 
             stream.Serialize(ref syncPosition);
             stream.Serialize(ref cover);
-            stream.Serialize(ref wall);
+            //stream.Serialize(ref wall);
             stream.Serialize(ref syncVelocity);
         }
         else
         {
             stream.Serialize(ref syncPosition);
             stream.Serialize(ref cover);
-            stream.Serialize(ref wall);
+            //stream.Serialize(ref wall);
             stream.Serialize(ref syncVelocity);
 
             syncTime = 0f;
@@ -530,9 +533,15 @@ public class SquadManager : MonoBehaviour
             syncEndPosition = syncPosition + syncVelocity*syncDelay;
             syncStartPosition = rb.position;
             
-            behindWall = wall;
+            //behindWall = wall;
             inCover = cover;
         }
+    }
+
+    [RPC]
+    public void setBehindWall(bool val)
+    {
+        behindWall = true;
     }
 
     private void SyncedMovement()

@@ -459,6 +459,7 @@ public class Controller : MonoBehaviour
                     float h = Input.GetAxis("JoystickLH");
                     selectedRB.velocity = (Quaternion.Euler(0, getMainCamController().angle, 0) * new Vector3(h, 0, v).normalized) * 20;
 					getMainCamController().setCameraTarget(squads[selectedSquadIndex].transform.position,true);
+                    attackProj.transform.position = new Vector3(getSelectedManager().transform.position.x, 9, getSelectedManager().transform.position.z);
                 }
             }
             else if (currentStage == TurnStage.Combat)
@@ -486,7 +487,7 @@ public class Controller : MonoBehaviour
                     {
                         if (getSelectedManager().numActions == 2) currentStage = TurnStage.None;
                         if (getSelectedManager().numActions == 1) currentStage = TurnStage.InBetween;
-                        //getSelectedManager().skipAction();
+                        Combat.reset();
                         checkStateEndOfAction();
                         getMainCamController().setCameraTarget(squads[selectedSquadIndex].transform.position, true);
                     }

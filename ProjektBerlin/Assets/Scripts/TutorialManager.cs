@@ -118,7 +118,7 @@ public class TutorialManager : MonoBehaviour
         lightPiece.intensity = 8;
         tag = squadTag;
 
-        attackDistance = 20;
+        attackDistance = 2;
         movementDistance = 20;
         //offColor = myColor / 2;
 
@@ -200,8 +200,12 @@ public class TutorialManager : MonoBehaviour
             moveProj.transform.position = new Vector3(transform.position.x, 9, transform.position.z);
             moveProj.orthographicSize = movementDistance + 2;
             moveProj.gameObject.SetActive(true);
+
+            attackProj.transform.position = new Vector3(transform.position.x, 9, transform.position.z);
             attackProj.orthographicSize = attackDistance;
             attackProj.gameObject.SetActive(true);
+            attackProj.enabled = true;
+
             _midMovement = true;
             prevCover = inCover;
             inCover = false;
@@ -217,6 +221,7 @@ public class TutorialManager : MonoBehaviour
             GetComponent<Rigidbody>().velocity = Vector3.zero;
 
             moveProj.gameObject.SetActive(false);
+            attackProj.gameObject.SetActive(false);
 
             Collider[] hitColliders = Physics.OverlapSphere(transform.position, 2, GameObject.Find("GameLogic").GetComponent<Controller>().detectPartial); //Needs to figure out layers
             if (hitColliders.Length > 0)
