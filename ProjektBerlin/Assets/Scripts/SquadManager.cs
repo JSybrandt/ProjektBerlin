@@ -541,7 +541,7 @@ public class SquadManager : MonoBehaviour
     [RPC]
     public void setBehindWall(bool val)
     {
-        behindWall = true;
+        behindWall = val;
     }
 
     private void SyncedMovement()

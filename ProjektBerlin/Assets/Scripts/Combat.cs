@@ -243,7 +243,6 @@ public static class Combat
         {
             targetsInRange[selectedTargetIndex].SendMessage("disableTarget");
             targetsInRange[selectedTargetIndex].GetComponent<NetworkView>().RPC("disableLight", RPCMode.All);
-            targetsInRange[selectedTargetIndex].GetComponent<SquadManager>().nView.RPC("setBehindWall", RPCMode.All, false);
         }
         foreach (GameObject target in targetsInRange)
         {
@@ -255,7 +254,14 @@ public static class Combat
         selectedTargetIndex = -1;
         marker.maxDistance = 0;
         markerMoving = false;
-        marker.gameObject.SetActive(false);
+        if(marker != null)
+            marker.gameObject.SetActive(false);
+        else
+        {
+            marker = GameObject.Find("Marker").GetComponent<Marker>();
+            if(marker != null)
+                marker.gameObject.SetActive(false);
+        }
         markerAttack = 0;
     }
 
