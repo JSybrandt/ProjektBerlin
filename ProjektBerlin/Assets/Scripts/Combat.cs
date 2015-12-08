@@ -76,7 +76,7 @@ public static class Combat
                     if (!Physics.Raycast(myPos, dir, distance, gameLogic.detectCover))
                         targets.Add(hitColliders[i].gameObject);
                     if (Physics.Raycast(myPos, dir, distance, gameLogic.detectWall))
-                        hitColliders[i].gameObject.GetComponent<SquadManager>().behindWall = true;
+                        hitColliders[i].GetComponent<SquadManager>().nView.RPC("setBehindWall", RPCMode.All, true);
                 }
             }
             i++;
@@ -238,6 +238,7 @@ public static class Combat
 
     public static void reset()
     {
+        Debug.Log("COMBAT: Reset");
         if (selectedTargetIndex >= 0 && targetsInRange[selectedTargetIndex].activeInHierarchy)
         {
             targetsInRange[selectedTargetIndex].SendMessage("disableTarget");
@@ -246,14 +247,21 @@ public static class Combat
         foreach (GameObject target in targetsInRange)
         {
 			if(target.GetComponent<SquadManager>()!=null)
-            	target.GetComponent<SquadManager>().behindWall = false;
+                target.GetComponent<SquadManager>().nView.RPC("setBehindWall", RPCMode.All, false);
         }
 
         targetsInRange.Clear();
         selectedTargetIndex = -1;
         marker.maxDistance = 0;
         markerMoving = false;
-        marker.gameObject.SetActive(false);
+        if(marker != null)
+            marker.gameObject.SetActive(false);
+        else
+        {
+            marker = GameObject.Find("Marker").GetComponent<Marker>();
+            if(marker != null)
+                marker.gameObject.SetActive(false);
+        }
         markerAttack = 0;
     }
 

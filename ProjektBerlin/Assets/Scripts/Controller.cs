@@ -487,7 +487,7 @@ public class Controller : MonoBehaviour
                     {
                         if (getSelectedManager().numActions == 2) currentStage = TurnStage.None;
                         if (getSelectedManager().numActions == 1) currentStage = TurnStage.InBetween;
-                        //getSelectedManager().skipAction();
+                        Combat.reset();
                         checkStateEndOfAction();
                         getMainCamController().setCameraTarget(squads[selectedSquadIndex].transform.position, true);
                     }
