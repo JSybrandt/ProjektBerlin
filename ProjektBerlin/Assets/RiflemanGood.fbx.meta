@@ -1,0 +1,237 @@
+fileFormatVersion: 2
+guid: 82073e38db7e22a429127e8784838037
+timeCreated: 1449460257
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Armature
+    100002: Bone001
+    100004: Bone001_end
+    100006: Camera
+    100008: chest
+    100010: clavicle.L
+    100012: clavicle.R
+    100014: Cylinder
+    100016: eye.L
+    100018: eye.L_end
+    100020: eye.R
+    100022: eye.R_end
+    100024: f_index.01.L
+    100026: f_index.01.L_end
+    100028: f_index.01.R
+    100030: f_index.01.R_end
+    100032: f_ring.01.L
+    100034: f_ring.01.L_end
+    100036: f_ring.01.R
+    100038: f_ring.01.R_end
+    100040: foot.L
+    100042: foot.R
+    100044: forearm.L
+    100046: forearm.R
+    100048: hand.L
+    100050: hand.R
+    100052: head
+    100054: hips
+    100056: Human
+    100058: Human:Body
+    100060: Human:HighPolyEyes
+    100062: jaw
+    100064: jaw_end
+    100066: Lamp
+    100068: m4a1_aimpoint_comp_m4
+    100070: m4a1_aimpoint_comp_m4_lenses
+    100072: m4a1_front sight
+    100074: m4a1_lower receiver
+    100076: m4a1_magazine
+    100078: m4a1_stock
+    100080: m4a1_tactical foregrip
+    100082: m4a1_upper receiver
+    100084: neck
+    100086: //RootNode
+    100088: shin.L
+    100090: shin.R
+    100092: Sphere
+    100094: spine
+    100096: thigh.L
+    100098: thigh.R
+    100100: thumb.02.L
+    100102: thumb.02.R
+    100104: thumb.03.L
+    100106: thumb.03.L_end
+    100108: thumb.03.R
+    100110: thumb.03.R_end
+    100112: toe.L
+    100114: toe.L_end
+    100116: toe.R
+    100118: toe.R_end
+    100120: upper_arm.L
+    100122: upper_arm.R
+    400000: Armature
+    400002: Bone001
+    400004: Bone001_end
+    400006: Camera
+    400008: chest
+    400010: clavicle.L
+    400012: clavicle.R
+    400014: Cylinder
+    400016: eye.L
+    400018: eye.L_end
+    400020: eye.R
+    400022: eye.R_end
+    400024: f_index.01.L
+    400026: f_index.01.L_end
+    400028: f_index.01.R
+    400030: f_index.01.R_end
+    400032: f_ring.01.L
+    400034: f_ring.01.L_end
+    400036: f_ring.01.R
+    400038: f_ring.01.R_end
+    400040: foot.L
+    400042: foot.R
+    400044: forearm.L
+    400046: forearm.R
+    400048: hand.L
+    400050: hand.R
+    400052: head
+    400054: hips
+    400056: Human
+    400058: Human:Body
+    400060: Human:HighPolyEyes
+    400062: jaw
+    400064: jaw_end
+    400066: Lamp
+    400068: m4a1_aimpoint_comp_m4
+    400070: m4a1_aimpoint_comp_m4_lenses
+    400072: m4a1_front sight
+    400074: m4a1_lower receiver
+    400076: m4a1_magazine
+    400078: m4a1_stock
+    400080: m4a1_tactical foregrip
+    400082: m4a1_upper receiver
+    400084: neck
+    400086: //RootNode
+    400088: shin.L
+    400090: shin.R
+    400092: Sphere
+    400094: spine
+    400096: thigh.L
+    400098: thigh.R
+    400100: thumb.02.L
+    400102: thumb.02.R
+    400104: thumb.03.L
+    400106: thumb.03.L_end
+    400108: thumb.03.R
+    400110: thumb.03.R_end
+    400112: toe.L
+    400114: toe.L_end
+    400116: toe.R
+    400118: toe.R_end
+    400120: upper_arm.L
+    400122: upper_arm.R
+    2300000: Cylinder
+    2300002: m4a1_aimpoint_comp_m4
+    2300004: m4a1_aimpoint_comp_m4_lenses
+    2300006: m4a1_front sight
+    2300008: m4a1_lower receiver
+    2300010: m4a1_magazine
+    2300012: m4a1_stock
+    2300014: m4a1_tactical foregrip
+    2300016: m4a1_upper receiver
+    2300018: Sphere
+    3300000: Cylinder
+    3300002: m4a1_aimpoint_comp_m4
+    3300004: m4a1_aimpoint_comp_m4_lenses
+    3300006: m4a1_front sight
+    3300008: m4a1_lower receiver
+    3300010: m4a1_magazine
+    3300012: m4a1_stock
+    3300014: m4a1_tactical foregrip
+    3300016: m4a1_upper receiver
+    3300018: Sphere
+    4300000: Cylinder
+    4300002: Sphere
+    4300004: m4a1_magazine
+    4300006: m4a1_tactical foregrip
+    4300008: m4a1_aimpoint_comp_m4_lenses
+    4300010: m4a1_aimpoint_comp_m4
+    4300012: m4a1_stock
+    4300014: m4a1_front sight
+    4300016: m4a1_upper receiver
+    4300018: m4a1_lower receiver
+    4300020: Human:HighPolyEyes
+    4300022: Human:Body
+    7400000: m4a1_tactical foregrip|m4a1_aimpoint_comp_m4_lenses|Take 001|BaseLayer
+    7400002: m4a1_tactical foregrip|m4a1_aimpoint_comp_m4|Take 001|BaseLayer
+    7400004: m4a1_tactical foregrip|m4a1_tactical foregrip|Take 001|BaseLayer
+    7400006: m4a1_aimpoint_comp_m4_lenses|m4a1_aimpoint_comp_m4_lenses|Take 001|BaseLayer
+    7400008: m4a1_aimpoint_comp_m4_lenses|m4a1_aimpoint_comp_m4|Take 001|BaseLayer
+    7400010: m4a1_aimpoint_comp_m4_lenses|m4a1_tactical foregrip|Take 001|BaseLayer
+    7400012: m4a1_aimpoint_comp_m4|m4a1_aimpoint_comp_m4_lenses|Take 001|BaseLayer
+    7400014: m4a1_aimpoint_comp_m4|m4a1_aimpoint_comp_m4|Take 001|BaseLayer
+    7400016: m4a1_aimpoint_comp_m4|m4a1_tactical foregrip|Take 001|BaseLayer
+    9500000: //RootNode
+    13700000: Human:Body
+    13700002: Human:HighPolyEyes
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
