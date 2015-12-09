@@ -179,6 +179,14 @@ public class TutorialManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		if (_midMovement) {
+			Quaternion rot = Camera.main.transform.rotation;
+			rot.x=rot.z=0;
+			for (int i = 0; i < units.Length; i++)
+			{
+				units[i].transform.rotation = rot;
+			}
+		}
         for (int i = 0; i < units.Length; i++)
         {
             units[i].transform.position = unitTargets[i].position;
