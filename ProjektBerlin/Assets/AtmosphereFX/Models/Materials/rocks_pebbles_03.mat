@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: rocks_pebbles_03
+  m_Shader: {fileID: 4800000, guid: 161f2be766a4b43449cbe6287581183f, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+      data:
+        first:
+          name: _MainTex
+        second:
+          m_Texture: {fileID: 2800000, guid: 6257773bbccb6a3468392dc2d82f4947, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _BumpMap
+        second:
+          m_Texture: {fileID: 2800000, guid: 008eaf848621de441ba53c1e9016e6e4, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _MainBump
+        second:
+          m_Texture: {fileID: 2800000, guid: 008eaf848621de441ba53c1e9016e6e4, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _LayerTex
+        second:
+          m_Texture: {fileID: 2800000, guid: 3078f652432b5424e96c55d140d9ad66, type: 3}
+          m_Scale: {x: 8, y: 8}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _LayerBump
+        second:
+          m_Texture: {fileID: 2800000, guid: 54ba31f25f0a5b142ab8f6e014cfec2c, type: 3}
+          m_Scale: {x: 4, y: 4}
+          m_Offset: {x: 0, y: 0}
+    m_Floats:
+      data:
+        first:
+          name: _LayerStrength
+        second: .196428567
+      data:
+        first:
+          name: _LayerDepth
+        second: .000500000024
+    m_Colors:
+      data:
+        first:
+          name: _Color
+        second: {r: 1, g: .92302233, b: .757352948, a: 1}
+      data:
+        first:
+          name: _LayerDirection
+        second: {r: 0, g: 1, b: 0, a: 1}
